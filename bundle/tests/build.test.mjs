@@ -60,18 +60,20 @@ test('build embeds source prompt bytes reproducibly and check detects prompt dri
   const root = await mkdtemp(join(tmpdir(), 'mcm-build-'));
   try {
     await mkdir(join(root, 'prompts'));
+    await mkdir(join(root, 'src'));
+    await writeFile(join(root,'src','figure-style.json'),await readFile(new URL('../src/figure-style.json',import.meta.url)));
     await writeFile(join(root, 'prompts', 'shared.md'), '# Shared\nTask rules.');
     for (const role of ROLES) await writeFile(join(root, 'prompts', `${role.id}.md`), `# ${role.id}\nUse evidence, cite results.`);
     const first = await buildBundle(root);
     assert.equal(first.role_count, 12);
-    assert.equal(first.bundle_version, '0.2.0');
+    assert.equal(first.bundle_version, '0.2.1');
     const text = await readFile(join(root, 'cordis.patch.yml'), 'utf8');
     assert.ok(text.includes('name: "@deepseek-ai/dsh-agent-preset"'));
     assert.ok(text.includes('prefix: |-'));
     assert.ok(text.includes('Task rules.'));
     assert.ok(text.includes('quantitative-figure → nature-figure'));
     const provenance = JSON.parse(await readFile(join(root, 'provenance.json'), 'utf8'));
-    assert.equal(provenance.bundle_version, '0.2.0');
+    assert.equal(provenance.bundle_version, '0.2.1');
     assert.equal(provenance.role_count, 12);
     assert.equal(provenance.optional_roles['mcm-code-lead'].enabled_by_default, false);
     assert.match(provenance.skill_routing_sha256, /^[a-f0-9]{64}$/);
@@ -81,6 +83,13 @@ test('build embeds source prompt bytes reproducibly and check detects prompt dri
     await buildBundle(root, { check: true });
     await buildBundle(root);
     assert.equal(text, await readFile(join(root, 'cordis.patch.yml'), 'utf8'));
+    // A style change must invalidate the generated role configuration, not only a document.
+    const style = JSON.parse(await readFile(join(root,'src','figure-style.json'),'utf8'));
+    style.palette.blue = '#125588';
+    await writeFile(join(root,'src','figure-style.json'),JSON.stringify(style));
+    await assert.rejects(buildBundle(root, { check: true }), /stale/);
+    await buildBundle(root);
+    assert.ok((await readFile(join(root,'cordis.patch.yml'),'utf8')).includes('blue=#125588'));
     await writeFile(join(root, 'prompts', 'mcm-modeler.md'), 'Changed actual instructions');
     await assert.rejects(buildBundle(root, { check: true }), /stale/);
   } finally { await rm(root, { recursive: true, force: true }); }

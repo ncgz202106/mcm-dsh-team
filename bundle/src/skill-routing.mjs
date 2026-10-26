@@ -19,7 +19,7 @@ const route = (task_type, primary_skill, optional_skills, branch, limits) =>
 
 export const SKILL_ROUTING = {
   format_version: 1,
-  bundle_version: '0.2.0',
+  bundle_version: '0.2.1',
   routing_is_behavioral: true,
   defaults: {
     max_primary_skills_per_task: 1,
@@ -96,6 +96,7 @@ export function renderSkillRouting(roleId) {
   return [
     '## 本角色专项 Skill 路由（构建器内嵌）',
     ...lines,
+    'MCM任务使用nature-figure、nature-writing、nature-polishing、nature-reviewer、nature-statistics时，先实际读取该Skill下references/mcm-adaptation.md。缺分支报告父层，不声称已经加载；不套用Nature栏目、三盲评或期刊门槛。',
     '任务先选一个主 Skill，按需读取匹配 SKILL.md 及必要分支，核实实际工具/依赖；发现、读取、执行成功分别留证。以上名称不是已运行证明，缺技能/工具报告父层。',
     `本项目不自动启动全流程总控：${EXCLUDED_ORCHESTRATORS.join('、')}。nature-citation、nature-data、venue-templates 限于明确专项授权，不能取代当前任务与MCM框架。`,
     '被排除总控也不得由专项 Skill 间接唤起；读取必要引用时核对引用链，跳过冲突启动步骤并向父层报告。',

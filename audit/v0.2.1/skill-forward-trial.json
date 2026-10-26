@@ -1,0 +1,41 @@
+{
+  "status": "passed",
+  "kind": "independent Codex-agent forward trial of the staged MCM Skill; not a DSH external-model test",
+  "reviewer_count": 1,
+  "delegated_agents": 0,
+  "findings": [
+    {
+      "id": "R1-M1",
+      "classification": "confirmed_internal_error",
+      "issue_key": "relative_absolute_error_sign",
+      "blocking": false,
+      "acceptance": "Correct the value, trace its source and recompute any affected downstream claims."
+    },
+    {
+      "id": "R1-M2",
+      "classification": null,
+      "issue_key": "in_sample_generalization_claim",
+      "blocking": true,
+      "acceptance": "Provide temporally valid unseen-time evaluation and decision-relevant tolerances, or narrow/remove the generalization claim."
+    },
+    {
+      "id": "R1-M3",
+      "classification": null,
+      "issue_key": "deterministic_envelope_probability_misinterpretation",
+      "blocking": true,
+      "acceptance": "Document actual envelope computation and relabel it as sensitivity range without probability language, or supply a defined probability target, assumptions, computation and appropriate coverage validation."
+    },
+    {
+      "id": "R1-M4",
+      "classification": null,
+      "issue_key": "default_rank_universal_recommendation",
+      "blocking": true,
+      "acceptance": "Define candidates, ranking rule and conditions; demonstrate decision stability or report rank reversals and conditional recommendations. Finite grid evidence does not by itself prove all-condition validity."
+    }
+  ],
+  "full_paper_reviewed": false,
+  "figures_viewed": false,
+  "approval_granted": false,
+  "source_sha256": "f6ebf91f86527035811b68d0b0778395d909a44892ccb874a297df8a9323f27d",
+  "reference_sha256": "939b0ec27037beafe5b7d08f93fbaad9b3339ff6e562665cd48021945938c33f"
+}

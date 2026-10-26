@@ -1,6 +1,6 @@
 {
   "format_version": 1,
-  "bundle_version": "0.2.0",
+  "bundle_version": "0.2.1",
   "routing_is_behavioral": true,
   "defaults": {
     "max_primary_skills_per_task": 1,

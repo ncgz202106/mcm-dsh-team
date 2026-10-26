@@ -1,0 +1,21 @@
+{
+  "format_version": 1,
+  "_template_only": true,
+  "generation": null,
+  "claims": [
+    {
+      "claim_id": null,
+      "question_id": null,
+      "statement": null,
+      "result_refs": [],
+      "value": null,
+      "unit": null,
+      "baseline": null,
+      "comparison_denominator": null,
+      "condition": null,
+      "interpretation": null,
+      "limitation": null
+    }
+  ],
+  "note": "No forced number or keyword quota; theoretical claims may use conditions/bounds instead of a point estimate."
+}

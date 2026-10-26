@@ -14,7 +14,8 @@ const home = join(work, 'home');
 const project = join(work, 'project');
 const reportPath = process.argv.find(arg=>arg.startsWith('--report='))?.slice('--report='.length) ?? join(auditDir, 'native-runtime-smoke.json');
 const bundlePath = process.argv.find(arg=>arg.startsWith('--bundle-root='))?.slice('--bundle-root='.length) ?? join(teamDir, 'bundle');
-const fingerprintFiles = ['package.json', 'cordis.patch.yml', 'provenance.json', ...(await readdir(join(bundlePath,'src'))).filter(name=>name.endsWith('.mjs')).sort().map(name=>`src/${name}`)];
+const fingerprintFiles = ['package.json', 'cordis.patch.yml', 'provenance.json', ...(await readdir(join(bundlePath,'src'))).filter(name=>/\.(mjs|json)$/.test(name)).sort().map(name=>`src/${name}`)];
+const guardReportPath = process.argv.find(arg=>arg.startsWith('--guard-report='))?.slice('--guard-report='.length) ?? join(dirname(reportPath),'guard-native-runtime.json');
 const fixtureName = process.argv.find(arg=>arg.startsWith('--fixture='))?.slice('--fixture='.length) ?? 'native-fixture.mjs';
 if(!/^(?:native-fixture|guard-native-fixture)\.mjs$/.test(fixtureName))throw new Error('Only packaged isolated native fixtures are supported');
 const fixtureSha256=createHash('sha256').update(await readFile(join(auditDir,fixtureName))).digest('hex');
@@ -29,7 +30,7 @@ for (const key of ['PATH', 'Path', 'SystemRoot', 'WINDIR', 'TEMP', 'TMP', 'USERP
 Object.assign(environment, { ELECTRON_RUN_AS_NODE: '1', DSH_HOME: home, DSH_AGENTS_HOME: join(home, 'agents'), DSH_PERMISSION_MODE: 'workspace-write' });
 await cp(join(teamDir, 'project-template'), project, { recursive: true, filter: (p) => !p.includes('__pycache__') });
 await mkdir(join(home, 'skills'), { recursive: true });
-const skillRoot = join(process.env.USERPROFILE, '.dsh', 'skills');
+const skillRoot = process.argv.find(arg=>arg.startsWith('--skills-root='))?.slice('--skills-root='.length) ?? join(process.env.USERPROFILE, '.dsh', 'skills');
 for (const name of ['nature-figure', 'nature-academic-search', 'nature-ref-verifier', 'nature-shared']) {
   await symlink(join(skillRoot, name), join(home, 'skills', name), process.platform === 'win32' ? 'junction' : 'dir');
 }
@@ -66,7 +67,7 @@ const patch = disable.map((id) => ({ id, disabled: true }));
 patch.push({ insert: [
   { id: 'mcm-smoke-preset-registry', name: '@deepseek-ai/dsh-agent-preset-registry', config: { default: 'mcm-captain' } },
   { id: 'mcm-smoke-model-selection', name: '@deepseek-ai/dsh-tool-subagent/model-selection-settings', config: { enabled: false, allowedModels: [] } },
-  { id: 'mcm-smoke-fixture', name: join(auditDir, fixtureName), config: { project, reportPath, runtimeRoot, work, bundlePath, fingerprints, skillRoot, fixturePath:join(auditDir,fixtureName),fixtureSha256,launcherPath:fileURLToPath(import.meta.url),launcherSha256,guardReportPath:join(auditDir,'guard-native-runtime.json'),python: 'C:/Program Files/Python314/python.exe' } }
+  { id: 'mcm-smoke-fixture', name: join(auditDir, fixtureName), config: { project, reportPath, runtimeRoot, work, bundlePath, fingerprints, skillRoot, fixturePath:join(auditDir,fixtureName),fixtureSha256,launcherPath:fileURLToPath(import.meta.url),launcherSha256,guardReportPath,python: 'C:/Program Files/Python314/python.exe' } }
 ] });
 await writeFile(join(profile, 'cordis.patch.yml'), JSON.stringify(patch, null, 2));
 const smoke = await run(['--profile', 'mcm-smoke'], 'runtime');

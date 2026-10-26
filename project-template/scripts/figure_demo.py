@@ -64,7 +64,8 @@ def generate(root,output='figures/figure-demo',skill_root=None):
     skill=Path(skill_root).resolve() if skill_root else None
     if skill:
         read_files += [skill/x for x in ['SKILL.md','manifest.yaml','static/core/contract.md',
-            'static/core/stance.md','static/fragments/backend/python.md','references/qa-contract.md']]
+            'static/core/stance.md','static/fragments/backend/python.md','references/qa-contract.md',
+            'references/mcm-adaptation.md']]
     skill_read=[]
     for p in read_files:
         text=p.read_text(encoding='utf-8')

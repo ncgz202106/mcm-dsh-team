@@ -44,5 +44,8 @@
     "mechanical_report_sha256": null,
     "visual_reviewed": false
   },
-  "note": "Use fixed path/version/hash/generation input refs. Record only guidance actually read and tools actually run. Automated geometry checks never certify aesthetics or scientific claims."
+  "note": "Use fixed path/version/hash/generation input refs. Record only guidance actually read and tools actually run. Automated geometry checks never certify aesthetics or scientific claims.",
+  "panel_plan": [],
+  "style_config_ref": null,
+  "figure_level_question": null
 }

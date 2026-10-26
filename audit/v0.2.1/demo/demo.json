@@ -1,0 +1,64 @@
+{
+  "synthetic": true,
+  "style_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+  "skill_read": [
+    {
+      "document": "SKILL.md",
+      "sha256": "efa1284fa702bb0b63196fada29cf6934cf4c108b0ecd4f5f0fb0b512f5edb8b"
+    },
+    {
+      "document": "mcm-adaptation.md",
+      "sha256": "cbbe734a8fb6f48ad680c9c8ae4b86fcdb77153986d55f4a328d6028e8fdd8c0"
+    },
+    {
+      "document": "contract.md",
+      "sha256": "a2b6523a48192cf1dff0d194264c5662c832f4d1da6e9e4763ccd98cc0664d4c"
+    },
+    {
+      "document": "python.md",
+      "sha256": "1d4809e4ec4ed2d40995d74828732012a6a72c941dfec341745a3118e9312865"
+    },
+    {
+      "document": "qa-contract.md",
+      "sha256": "4f31375cdb614d74eddb8aa7691c0bdfc8a8f20defcca27ce4a36192308748a8"
+    }
+  ],
+  "data_rows": 41,
+  "panel_plan": [
+    {
+      "panel": "a",
+      "role": "shared-input comparison"
+    },
+    {
+      "panel": "b",
+      "role": "reference-error evidence"
+    }
+  ],
+  "passed_mechanical": true,
+  "checks": [
+    {
+      "tool": "audit_pdf_text.py",
+      "exit_code": 0
+    },
+    {
+      "tool": "audit_figure_collisions.py",
+      "exit_code": 0
+    }
+  ],
+  "visual_status": "pending",
+  "caption": "Synthetic decay y′=-y with initial value 1 and shared step 0.1. Panel a compares trajectories; panel b shows absolute error against the analytical reference. All 41 time points are used; deterministic solver errors are not confidence intervals.",
+  "outputs": [
+    {
+      "file": "evidence-panels.pdf",
+      "sha256": "a7d3e75eab28f8724c3ee0186f7b5ace97520b26b8c82a5fca163bdea38e764e"
+    },
+    {
+      "file": "evidence-panels.svg",
+      "sha256": "2e06720e0a24351c1a8ff186482928b4774a2409a2b03baa2fe4fe0c39813de6"
+    },
+    {
+      "file": "evidence-panels.png",
+      "sha256": "8831a4bf2b741ca4080b8dde1dfbc2764e8cd64bc6e57864bfe556eebda3003d"
+    }
+  ]
+}

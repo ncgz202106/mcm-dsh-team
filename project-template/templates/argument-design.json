@@ -1,0 +1,15 @@
+{
+  "format_version": 1,
+  "_template_only": true,
+  "task_id": null,
+  "question_ids": [],
+  "main_answer": null,
+  "baseline_gap": null,
+  "necessary_change": null,
+  "validation_and_comparison": [],
+  "decision_value": null,
+  "costs_and_tradeoffs": [],
+  "validity_boundary": null,
+  "claim_evidence_figure_map": [],
+  "note": "Planning aid; no fixed model/figure/metric count. Scientific changes keep existing approvals and ownership."
+}

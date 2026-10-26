@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "bundle_version": "0.2.0",
+  "bundle_version": "0.2.1",
   "target_runtime": "0.2.1-rc.2",
   "ptc": "Programmatic Tool Calling",
   "role_count": 12,
@@ -34,25 +34,26 @@
     "skill-filesystem watch=false; external skill changes require verified session refresh, not assumed hot reload"
   ],
   "assurance": "Role/tool declarations are not an OS sandbox; inherited or global tools require runtime inspection. Optional role activation and skill routing are task policies, not Host-enforced permissions.",
-  "skill_routing_sha256": "f9c4b726c1be173e55b634d1683eb006af59f9bdcf87aa7cbd92b7391eab601d",
-  "routing_source_sha256": "3c0185beb8f2b6cd43f5692aa062062a8d79d1cd5217079fcaf4dcddbe538c61",
+  "skill_routing_sha256": "3c82b65257d01fdb33adf5a2f2a9bb4f1b9c02b2209f8d619bac0f3a759cf3ef",
+  "routing_source_sha256": "97ce6eced9a5336359986ed4e68a7695d7b94888a5ba2e4f44c34bdc31091134",
   "runtime_guard_source_sha256": {
     "src/runtime-guard-core.mjs": "4dda705af1bc15cb4bc1848a35e25428569589d8e3faa29d0ab0195ef035443b",
     "src/runtime-guard-plugin.mjs": "86df82b9a0390d76f421ad3bb01838948bccba500c6845632c5bb273f33534e5"
   },
+  "figure_style_source_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
   "prompt_sha256": {
     "prompts/shared.md": "62a04dd78324dd61a66cd784114399adbf9d390d31d99602697170db592e81c2",
     "prompts/mcm-captain.md": "be0abcbaa347a743e0b4fb9d80e0c733f0e3a41acd65d886bda6c5a0852a5a4e",
-    "prompts/mcm-model-lead.md": "13bc6c339a6999272a29e42b02359bc2849ba4ee3882d73e73550e534271675c",
+    "prompts/mcm-model-lead.md": "a1cd4c6f6aeb43971e42c10e9ddc0d6c7fdaf9aa070e182c0cd5236ed676c64d",
     "prompts/mcm-modeler.md": "b415575b8ca7aac9e9ce8078b010605439679f4299091dd1815d073ad1d49ad3",
     "prompts/mcm-evidence.md": "1c35df16f89af6aab452c14686693f40385655dbca5765d3b90f6fbdfed85c4b",
-    "prompts/mcm-programmer.md": "e685fd9a3fe0010150b328afe26ef1bad4cf9ddf7bdfbb305b47a2aec9c27cf3",
+    "prompts/mcm-programmer.md": "3cedc36029994ee546c29da2e37c89d6c4914098c1fa056de55f0e8ae6a51933",
     "prompts/mcm-code-lead.md": "f6be118dde9cfb264dc3700313c9017bff3684a796c95c800ed2a02b84dcebb1",
     "prompts/mcm-verifier.md": "1d7d5d1489c490fae2c2f1093fadfa520f29d914cb984fbd4357067be42a10f8",
-    "prompts/mcm-paper-lead.md": "9dc2ec0daf8766c7aacbf09f77b41c5929e1b4ed82eec51c858d0a7eda416457",
-    "prompts/mcm-writer.md": "593640b0d4aba5f98227df576b32b405f8cf1017e6cc67d92a690c35df0c6a94",
-    "prompts/mcm-figure.md": "c53a15fc50d1ebaefc0a796c71f307d424733cd5c7d06aaea5e2670c5742b85b",
-    "prompts/mcm-typesetter.md": "6b1ee19976c54a23043016c14ba6298c4b9d41f4f4fcf4df7f19be068ce65521",
-    "prompts/mcm-reviewer.md": "a4edabc5176ccc47dd4aed34c18363513f63735c52e0b163e1139a61dee07f8c"
+    "prompts/mcm-paper-lead.md": "ce3232d761d1ef837e97a0e9a794672bbd00cba8c7fc3fe76fd371e9a3dd9423",
+    "prompts/mcm-writer.md": "507b6ba8135cda9439e0128b1cf90db2a1d2e7699f518ba99655b0d07c5acd69",
+    "prompts/mcm-figure.md": "8eafe0a2ebc57cbffa364e4993d11e39f67a76b4244f1c53fa3e5d78424004ce",
+    "prompts/mcm-typesetter.md": "c7ac4b00b524b564068cdab656087eb216ec9b307c4ed3fb7cc04c9763cf6dc1",
+    "prompts/mcm-reviewer.md": "c7030e8461bb8c5681a0ece792015f322103a0c502e7a68569c2984569cab98c"
   }
 }

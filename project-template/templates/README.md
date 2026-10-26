@@ -15,6 +15,9 @@
 | decision.json | 路线/风险/调度等决定，合并 decisions registry |
 | human-confirmation.json | 真实人工关口决定，合并 decisions，字段同步 config/gates |
 | figure-contract.json | 图表支持主张、数据、脚本和输出 |
+| argument-design.json | 主要答案、基线缺口、必要增量、验证和代价；填写后作为普通输入成果登记 |
+| question-transfer.json | 跨问变量、单位、时间窗、不确定性与消费条件；配合固定成果引用 |
+| summary-claims.json | 摘要论断与实际结果、基准、条件及边界的记录；不规定数字配额 |
 | ai-usage.json | 实际 AI 用途与采用记录 |
 | scorecard.json | 自拟内部评分，不代表官方分数 |
 | verification-report.json | 独立结果复现；由 artifact.verification_report 引用 |

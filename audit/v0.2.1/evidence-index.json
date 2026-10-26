@@ -1,0 +1,26 @@
+{
+  "version": "0.2.1",
+  "assembled_at": "2026-10-26T12:17:45.512546+00:00",
+  "artifacts": {
+    "demo/alignment.json": "6f8b79d9422fcb18f971f1c56cf4352cc5f51c673db1e7bd3d64aaf07d17da54",
+    "demo/demo.json": "24fa85c4c49bc23ff0b7ed588e47d03adcbbeec72c1a396e6a031d10984733b8",
+    "demo/evidence-panels.pdf": "a7d3e75eab28f8724c3ee0186f7b5ace97520b26b8c82a5fca163bdea38e764e",
+    "demo/evidence-panels.png": "8831a4bf2b741ca4080b8dde1dfbc2764e8cd64bc6e57864bfe556eebda3003d",
+    "demo/evidence-panels.svg": "2e06720e0a24351c1a8ff186482928b4774a2409a2b03baa2fe4fe0c39813de6",
+    "demo/font-audit.json": "956a145323480e07eaad6b8e83dba83a30192107e3e11ea98685d565cb3474a5",
+    "demo/independent-pdf-page.png": "29591f7b8e3241608e8bdbbac1e2c911efcdfa28cd169be3f61fc239b3461213",
+    "demo/independent-visual.json": "80b4b611da13e2b952674eb27412da587f1fc3bedabd2825ee7416b509638d4c",
+    "deployment.json": "2f80df885fdc787bde06377b1510f52cc2904f15eaf0f6fbe6321c968d89b7d2",
+    "guard-native-runtime.json": "0b6eef5ba37fdd760b578e8a789520a9453944c63c747742a57785d0af410447",
+    "installed-independent.json": "8678821d3ee887b1286e29dea3c24aa8554e8cd3aa8eeeaa5b9ab15aca9f6ff9",
+    "native-runtime-smoke.json": "1ec64bfb1f7639f0c37aa3d8e6584ea45d7f4a024f0ff2af4863c086c5ba2135",
+    "package-index.json": "90c8c192454f281287357863c0d4875334bbeca42cdf99fa7389833e6a475cbd",
+    "privacy.json": "6da56f50632eb037b6986917de3ea9df64ff69be2a85615048dbb4cb039769a0",
+    "skill-forward-trial.json": "ef194ae826f25d445cefbd5e51c507b75b55ede545f60d1be1a524b796b71964",
+    "verification.json": "ce21749437cfa3912bd0a66358cccbab8bc7c6191226ac470e311380aa828613"
+  },
+  "scope": "Current source tests, actual native runtime with a scripted model, independent staged-skill trial, and standalone synthetic figure review. Deployment is recorded separately.",
+  "original_rehearsal_resumed": false,
+  "human_gates_modified": false,
+  "private_materials_uploaded": false
+}

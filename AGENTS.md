@@ -25,6 +25,7 @@
 - `project-template/` 和 `rehearsal-v2/` 内的 AGENTS.md 是比赛项目的交付内容；维护任务不因此启动比赛任务。
 - 图表和论文仍遵循用户结构、真实证据、最终尺寸、独立审阅与逐页视觉检查。
 - 修改提示词/路由后用 `node bundle/src/build.mjs` 生成有效配置，再执行 `--check` 和相关测试。
+- 当前维护版本为0.2.1。默认图表样式只改 `bundle/src/figure-style.json`，用构建器 `--sync-project-style` 同步模板并检查；MCM专项引用只在 `skill-overlays/` 维护。使用 `python tools/verify-v021.py --run-tests` 检查当前源码，不把audit根的0.2.0旧报告当作新版本通过。
 - 软件回归入口：`python -m unittest discover -s project-template/tests -q` 与 `node --test bundle/tests/*.test.mjs`。
 - 原生运行时、桌面模型和视觉检查有不同范围；未实际复验时明确缺口。
 - 冻结的验收报告、原始制品及其哈希保留历史含义，不能改数字伪造新版本通过；新候选另留相应证据。

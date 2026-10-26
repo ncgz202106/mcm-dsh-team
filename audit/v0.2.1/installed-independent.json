@@ -1,0 +1,1306 @@
+{
+  "format_version": 1,
+  "review_type": "independent_read_only_installed_verification",
+  "reviewer_authored_installer_overlays_or_bundle": false,
+  "generated_at": "2026-10-26T11:58:31.950217+00:00",
+  "status": "installed_static_and_frozen_runtime_provenance_verified",
+  "all_static_installation_checks_passed": true,
+  "truecheck": {
+    "plugin_source_installed_receipt_complete_file_sets_equal": true,
+    "plugin_source_installed_receipt_every_file_sha256_equal": true,
+    "plugin_source_installed_directory_sets_equal": true,
+    "plugin_source_installed_no_reparse_or_symlink_entries": true,
+    "plugin_identity_and_version_0_2_1": true,
+    "plugin_backup_complete_tree_matches_before_receipt": true,
+    "plugin_backup_version_matches_0_2_0": true,
+    "profile_whitelist_exactly_five_receipted_files": true,
+    "profile_current_and_saved_hashes_equal_before_and_after": true,
+    "unrelated_dependency_name_set_preserved": true,
+    "unrelated_whitelisted_package_metadata_preserved": true,
+    "profile_resolves_current_installed_plugin_metadata": true,
+    "skill_roots_exactly_codex_and_dsh": true,
+    "each_skill_root_has_exact_five_receipted_overlays": true,
+    "skill_overlay_versions_are_0_2_1": true,
+    "all_ten_current_skill_entrypoints_match_after_receipts": true,
+    "all_ten_original_skill_backups_match_before_receipts": true,
+    "all_ten_mcm_references_match_repo_and_after_receipts": true,
+    "all_ten_original_skill_bodies_preserved_outside_new_hook": true,
+    "all_ten_hooks_match_manifest_and_precede_upstream_defaults": true,
+    "all_ten_new_reference_paths_previously_absent": true,
+    "both_reports_declare_installed_plugin_source": true,
+    "both_reports_have_exact_current_thirteen_source_files": true,
+    "both_report_source_hashes_equal_current_installed_repo_and_receipt": true,
+    "guard_report_status_passed_and_exact_ten_passed_unique_checks": true,
+    "main_report_status_passed_and_exact_nine_passed_unique_checks": true,
+    "both_reports_bind_current_repo_launcher": true,
+    "guard_report_binds_current_guard_fixture": true,
+    "main_report_binds_current_main_fixture": true,
+    "main_guard_report_path_binds_actual_frozen_guard_report": true,
+    "main_guard_report_sha256_binds_actual_frozen_guard_bytes": true,
+    "main_guard_count_binds_ten_actual_passed_checks": true,
+    "main_prompt_set_and_provenance_have_exact_thirteen_current_prompts": true,
+    "all_thirteen_canonical_prompt_hashes_match_installed_and_provenance": true,
+    "provenance_routing_guard_and_figure_style_source_hashes_match_current_installed": true,
+    "bundle_and_runtime_versions_match_installed_provenance": true,
+    "report_times_follow_installation_and_guard_precedes_main": true,
+    "current_full_installed_and_repo_trees_unchanged_since_static_audit": true,
+    "current_profile_metadata_unchanged_since_static_audit": true,
+    "current_unrelated_whitelisted_metadata_unchanged_since_static_audit": true,
+    "current_ten_skill_entrypoints_and_references_unchanged_since_static_audit": true,
+    "both_frozen_report_files_unchanged_during_review": true
+  },
+  "inputs": {
+    "deployment": "<WORKSPACE>\\work\\v021-deployment-local.json",
+    "deployment_sha256": "6fab3444c4fb449c9d6506fc404a787a21fda637d7cc268d730477e0f697bf38",
+    "plugin_receipt": "<WORKSPACE>\\work\\v021-install-backups\\20261026-195325-815\\installation.json",
+    "plugin_receipt_sha256": "06e6504a3a3e19fbf7b054137d27364ad9abca075c3b2bd73693c2f76002feac"
+  },
+  "plugin": {
+    "source": "<WORKSPACE>\\outputs\\mcm-dsh-team-v0.2.0\\bundle",
+    "installed": "<USER_HOME>\\.dsh\\plugins\\dsh-mcm-team",
+    "backup": "<WORKSPACE>\\work\\v021-install-backups\\20261026-195325-815\\plugin",
+    "source_file_count": 30,
+    "installed_file_count": 30,
+    "receipt_source_file_count": 30,
+    "source_directory_count": 3,
+    "installed_directory_count": 3,
+    "source_version": "0.2.1",
+    "installed_version": "0.2.1",
+    "file_checks": [
+      {
+        "path": "cordis.patch.yml",
+        "source_sha256": "54821b7f90286dd3d56bd15b338be4198e0ce43c554e7212623ad1fde3efedf0",
+        "installed_sha256": "54821b7f90286dd3d56bd15b338be4198e0ce43c554e7212623ad1fde3efedf0",
+        "receipt_source_sha256": "54821b7f90286dd3d56bd15b338be4198e0ce43c554e7212623ad1fde3efedf0",
+        "match": true
+      },
+      {
+        "path": "package.json",
+        "source_sha256": "857d216aabb0092ef28a8612d91803050fd697af967ac3e34c486f6544d74aeb",
+        "installed_sha256": "857d216aabb0092ef28a8612d91803050fd697af967ac3e34c486f6544d74aeb",
+        "receipt_source_sha256": "857d216aabb0092ef28a8612d91803050fd697af967ac3e34c486f6544d74aeb",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-captain.md",
+        "source_sha256": "ab1978642cb5b8f1ce5e7fd663524135e094ee635cf449cae6953c0f4e22f891",
+        "installed_sha256": "ab1978642cb5b8f1ce5e7fd663524135e094ee635cf449cae6953c0f4e22f891",
+        "receipt_source_sha256": "ab1978642cb5b8f1ce5e7fd663524135e094ee635cf449cae6953c0f4e22f891",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-code-lead.md",
+        "source_sha256": "9826df9512035166329ed21643c7c434c01c63ff50667d4a23a74469d5c930c3",
+        "installed_sha256": "9826df9512035166329ed21643c7c434c01c63ff50667d4a23a74469d5c930c3",
+        "receipt_source_sha256": "9826df9512035166329ed21643c7c434c01c63ff50667d4a23a74469d5c930c3",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-evidence.md",
+        "source_sha256": "90457d24e77f7765dd01444f6bbb58c13720ddfd1e98dde7ffebdb336920d867",
+        "installed_sha256": "90457d24e77f7765dd01444f6bbb58c13720ddfd1e98dde7ffebdb336920d867",
+        "receipt_source_sha256": "90457d24e77f7765dd01444f6bbb58c13720ddfd1e98dde7ffebdb336920d867",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-figure.md",
+        "source_sha256": "0a7aaa4311d688e451337b0d03349e1106d711f6bb08ca625adb03ed2ce67463",
+        "installed_sha256": "0a7aaa4311d688e451337b0d03349e1106d711f6bb08ca625adb03ed2ce67463",
+        "receipt_source_sha256": "0a7aaa4311d688e451337b0d03349e1106d711f6bb08ca625adb03ed2ce67463",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-model-lead.md",
+        "source_sha256": "9e10db7fa9346f12e86ab0ffb440a9060e23e776d096c29b42359158e474bbfe",
+        "installed_sha256": "9e10db7fa9346f12e86ab0ffb440a9060e23e776d096c29b42359158e474bbfe",
+        "receipt_source_sha256": "9e10db7fa9346f12e86ab0ffb440a9060e23e776d096c29b42359158e474bbfe",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-modeler.md",
+        "source_sha256": "caa59256db97ac662518fe42675a56423ee347db0425da5934dfbc1923896440",
+        "installed_sha256": "caa59256db97ac662518fe42675a56423ee347db0425da5934dfbc1923896440",
+        "receipt_source_sha256": "caa59256db97ac662518fe42675a56423ee347db0425da5934dfbc1923896440",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-paper-lead.md",
+        "source_sha256": "d4b729d2b82a1f3005f039444984eee4769940ced769a1e8e5480e68cd3151f6",
+        "installed_sha256": "d4b729d2b82a1f3005f039444984eee4769940ced769a1e8e5480e68cd3151f6",
+        "receipt_source_sha256": "d4b729d2b82a1f3005f039444984eee4769940ced769a1e8e5480e68cd3151f6",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-programmer.md",
+        "source_sha256": "6b8a6ff722da40556d32c4a69de3c058f23d365e6557cfcb79b58bb89f5081e8",
+        "installed_sha256": "6b8a6ff722da40556d32c4a69de3c058f23d365e6557cfcb79b58bb89f5081e8",
+        "receipt_source_sha256": "6b8a6ff722da40556d32c4a69de3c058f23d365e6557cfcb79b58bb89f5081e8",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-reviewer.md",
+        "source_sha256": "368b172455d8adf4e88ea88838f5bc0964680ab89eaaac57c21fc0f6d46e51d6",
+        "installed_sha256": "368b172455d8adf4e88ea88838f5bc0964680ab89eaaac57c21fc0f6d46e51d6",
+        "receipt_source_sha256": "368b172455d8adf4e88ea88838f5bc0964680ab89eaaac57c21fc0f6d46e51d6",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-typesetter.md",
+        "source_sha256": "10e2c30c8b8e55bc4db92d44ecba392934370407f6d5838aa2825093e35fbc09",
+        "installed_sha256": "10e2c30c8b8e55bc4db92d44ecba392934370407f6d5838aa2825093e35fbc09",
+        "receipt_source_sha256": "10e2c30c8b8e55bc4db92d44ecba392934370407f6d5838aa2825093e35fbc09",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-verifier.md",
+        "source_sha256": "2e0353587e1b6a1eaba41eca1442516c7158658d1d7b6214b132cd11a458d68b",
+        "installed_sha256": "2e0353587e1b6a1eaba41eca1442516c7158658d1d7b6214b132cd11a458d68b",
+        "receipt_source_sha256": "2e0353587e1b6a1eaba41eca1442516c7158658d1d7b6214b132cd11a458d68b",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-writer.md",
+        "source_sha256": "d00ad2fba3ef26b14a4698c7566049e0a64f7c4353365cacf75ffb6397917eb2",
+        "installed_sha256": "d00ad2fba3ef26b14a4698c7566049e0a64f7c4353365cacf75ffb6397917eb2",
+        "receipt_source_sha256": "d00ad2fba3ef26b14a4698c7566049e0a64f7c4353365cacf75ffb6397917eb2",
+        "match": true
+      },
+      {
+        "path": "prompts/shared.md",
+        "source_sha256": "3c1c258db49db8f1c13df48de153e3672c4ed76ca55ce83eb8ca042eb90902c2",
+        "installed_sha256": "3c1c258db49db8f1c13df48de153e3672c4ed76ca55ce83eb8ca042eb90902c2",
+        "receipt_source_sha256": "3c1c258db49db8f1c13df48de153e3672c4ed76ca55ce83eb8ca042eb90902c2",
+        "match": true
+      },
+      {
+        "path": "provenance.json",
+        "source_sha256": "1e65a755373ae357e2ada19fe5c85a02ab64fe8f9cd6ab8ec348e0b9212f5bd3",
+        "installed_sha256": "1e65a755373ae357e2ada19fe5c85a02ab64fe8f9cd6ab8ec348e0b9212f5bd3",
+        "receipt_source_sha256": "1e65a755373ae357e2ada19fe5c85a02ab64fe8f9cd6ab8ec348e0b9212f5bd3",
+        "match": true
+      },
+      {
+        "path": "src/archive-core.mjs",
+        "source_sha256": "efa29618cf67b8d59bcbb64fcb107417558db5886668f1e3e974656ce4a31730",
+        "installed_sha256": "efa29618cf67b8d59bcbb64fcb107417558db5886668f1e3e974656ce4a31730",
+        "receipt_source_sha256": "efa29618cf67b8d59bcbb64fcb107417558db5886668f1e3e974656ce4a31730",
+        "match": true
+      },
+      {
+        "path": "src/archive-plugin.mjs",
+        "source_sha256": "8c905ad4a731284f379825de9e79290812142d18c7cb5571ba4a6eaa4d2b1598",
+        "installed_sha256": "8c905ad4a731284f379825de9e79290812142d18c7cb5571ba4a6eaa4d2b1598",
+        "receipt_source_sha256": "8c905ad4a731284f379825de9e79290812142d18c7cb5571ba4a6eaa4d2b1598",
+        "match": true
+      },
+      {
+        "path": "src/archive-tool.mjs",
+        "source_sha256": "f7359fee9f246227f4155613a99c76553c30c4307b2edc725adc427f963b2d3b",
+        "installed_sha256": "f7359fee9f246227f4155613a99c76553c30c4307b2edc725adc427f963b2d3b",
+        "receipt_source_sha256": "f7359fee9f246227f4155613a99c76553c30c4307b2edc725adc427f963b2d3b",
+        "match": true
+      },
+      {
+        "path": "src/build.mjs",
+        "source_sha256": "21f3e81dc0668e025bca172d69d3e79c47ce593ae0ff99775f55bf10779a7243",
+        "installed_sha256": "21f3e81dc0668e025bca172d69d3e79c47ce593ae0ff99775f55bf10779a7243",
+        "receipt_source_sha256": "21f3e81dc0668e025bca172d69d3e79c47ce593ae0ff99775f55bf10779a7243",
+        "match": true
+      },
+      {
+        "path": "src/figure-style.json",
+        "source_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+        "installed_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+        "receipt_source_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+        "match": true
+      },
+      {
+        "path": "src/native-plan.mjs",
+        "source_sha256": "3560efde6e7f2de58d4c1e354eccc5877667b9c7b52e31c127071946bec105dc",
+        "installed_sha256": "3560efde6e7f2de58d4c1e354eccc5877667b9c7b52e31c127071946bec105dc",
+        "receipt_source_sha256": "3560efde6e7f2de58d4c1e354eccc5877667b9c7b52e31c127071946bec105dc",
+        "match": true
+      },
+      {
+        "path": "src/presets.mjs",
+        "source_sha256": "b11b136a7465f5210ca0bacd003520d656662b5c4cfe3111769597e0fd09bffb",
+        "installed_sha256": "b11b136a7465f5210ca0bacd003520d656662b5c4cfe3111769597e0fd09bffb",
+        "receipt_source_sha256": "b11b136a7465f5210ca0bacd003520d656662b5c4cfe3111769597e0fd09bffb",
+        "match": true
+      },
+      {
+        "path": "src/runtime-guard-core.mjs",
+        "source_sha256": "4dda705af1bc15cb4bc1848a35e25428569589d8e3faa29d0ab0195ef035443b",
+        "installed_sha256": "4dda705af1bc15cb4bc1848a35e25428569589d8e3faa29d0ab0195ef035443b",
+        "receipt_source_sha256": "4dda705af1bc15cb4bc1848a35e25428569589d8e3faa29d0ab0195ef035443b",
+        "match": true
+      },
+      {
+        "path": "src/runtime-guard-plugin.mjs",
+        "source_sha256": "86df82b9a0390d76f421ad3bb01838948bccba500c6845632c5bb273f33534e5",
+        "installed_sha256": "86df82b9a0390d76f421ad3bb01838948bccba500c6845632c5bb273f33534e5",
+        "receipt_source_sha256": "86df82b9a0390d76f421ad3bb01838948bccba500c6845632c5bb273f33534e5",
+        "match": true
+      },
+      {
+        "path": "src/skill-routing.mjs",
+        "source_sha256": "97ce6eced9a5336359986ed4e68a7695d7b94888a5ba2e4f44c34bdc31091134",
+        "installed_sha256": "97ce6eced9a5336359986ed4e68a7695d7b94888a5ba2e4f44c34bdc31091134",
+        "receipt_source_sha256": "97ce6eced9a5336359986ed4e68a7695d7b94888a5ba2e4f44c34bdc31091134",
+        "match": true
+      },
+      {
+        "path": "tests/archive.test.mjs",
+        "source_sha256": "4ef1636557f8041f4c93f5265cc113f120f23962d82204af700626c8061e1be3",
+        "installed_sha256": "4ef1636557f8041f4c93f5265cc113f120f23962d82204af700626c8061e1be3",
+        "receipt_source_sha256": "4ef1636557f8041f4c93f5265cc113f120f23962d82204af700626c8061e1be3",
+        "match": true
+      },
+      {
+        "path": "tests/build.test.mjs",
+        "source_sha256": "2735dba4e503716d81b1b31bccbd1b90d80b4b179893bf43c6e75ba3aaf24ab2",
+        "installed_sha256": "2735dba4e503716d81b1b31bccbd1b90d80b4b179893bf43c6e75ba3aaf24ab2",
+        "receipt_source_sha256": "2735dba4e503716d81b1b31bccbd1b90d80b4b179893bf43c6e75ba3aaf24ab2",
+        "match": true
+      },
+      {
+        "path": "tests/runtime-guard.test.mjs",
+        "source_sha256": "3d49b9a469fbf8e071c90c3f55d81c4e8eb49af93fab561fefdf4a9b03a9648a",
+        "installed_sha256": "3d49b9a469fbf8e071c90c3f55d81c4e8eb49af93fab561fefdf4a9b03a9648a",
+        "receipt_source_sha256": "3d49b9a469fbf8e071c90c3f55d81c4e8eb49af93fab561fefdf4a9b03a9648a",
+        "match": true
+      },
+      {
+        "path": "tests/skill-routing.test.mjs",
+        "source_sha256": "6284c2769f74435cea0b181a87c5d386f3d177d8daecb63d5cc234ca54576aa5",
+        "installed_sha256": "6284c2769f74435cea0b181a87c5d386f3d177d8daecb63d5cc234ca54576aa5",
+        "receipt_source_sha256": "6284c2769f74435cea0b181a87c5d386f3d177d8daecb63d5cc234ca54576aa5",
+        "match": true
+      }
+    ],
+    "saved_plugin_file_count": 29
+  },
+  "profile_saved_and_current": {
+    "root": "<USER_HOME>\\.dsh\\profiles\\desktop",
+    "saved_root": "<WORKSPACE>\\work\\v021-install-backups\\20261026-195325-815\\profile",
+    "files": [
+      {
+        "path": "package.json",
+        "receipt_before": "5b222f9d0f6dbcc0653cc54f0b9676d556f9be27d310ebada036bcf5cd0441ea",
+        "receipt_after": "5b222f9d0f6dbcc0653cc54f0b9676d556f9be27d310ebada036bcf5cd0441ea",
+        "current_sha256": "5b222f9d0f6dbcc0653cc54f0b9676d556f9be27d310ebada036bcf5cd0441ea",
+        "profile_saved_sha256": "5b222f9d0f6dbcc0653cc54f0b9676d556f9be27d310ebada036bcf5cd0441ea",
+        "match": true
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "receipt_before": "b7356a46257d0186b36c5675c763af49aaa4207bf33130c6d185341555ba2678",
+        "receipt_after": "b7356a46257d0186b36c5675c763af49aaa4207bf33130c6d185341555ba2678",
+        "current_sha256": "b7356a46257d0186b36c5675c763af49aaa4207bf33130c6d185341555ba2678",
+        "profile_saved_sha256": "b7356a46257d0186b36c5675c763af49aaa4207bf33130c6d185341555ba2678",
+        "match": true
+      },
+      {
+        "path": "pnpm-workspace.yaml",
+        "receipt_before": "79af1188d3ef5509c3d304ed1520062326a08b2cb2d9dbb8ff4272a898e0d0e9",
+        "receipt_after": "79af1188d3ef5509c3d304ed1520062326a08b2cb2d9dbb8ff4272a898e0d0e9",
+        "current_sha256": "79af1188d3ef5509c3d304ed1520062326a08b2cb2d9dbb8ff4272a898e0d0e9",
+        "profile_saved_sha256": "79af1188d3ef5509c3d304ed1520062326a08b2cb2d9dbb8ff4272a898e0d0e9",
+        "match": true
+      },
+      {
+        "path": "cordis.yml",
+        "receipt_before": "c300dcf2ebc5f02062d6591268d29d3db6fe45e0cb138f5467276fe2ba06076e",
+        "receipt_after": "c300dcf2ebc5f02062d6591268d29d3db6fe45e0cb138f5467276fe2ba06076e",
+        "current_sha256": "c300dcf2ebc5f02062d6591268d29d3db6fe45e0cb138f5467276fe2ba06076e",
+        "profile_saved_sha256": "c300dcf2ebc5f02062d6591268d29d3db6fe45e0cb138f5467276fe2ba06076e",
+        "match": true
+      },
+      {
+        "path": "cordis.patch.yml",
+        "receipt_before": "57b465203f17321c827b0604543fea175a6094a9d2b509b7046c205987417f0e",
+        "receipt_after": "57b465203f17321c827b0604543fea175a6094a9d2b509b7046c205987417f0e",
+        "current_sha256": "57b465203f17321c827b0604543fea175a6094a9d2b509b7046c205987417f0e",
+        "profile_saved_sha256": "57b465203f17321c827b0604543fea175a6094a9d2b509b7046c205987417f0e",
+        "match": true
+      }
+    ]
+  },
+  "unrelated_plugins": {
+    "scope": "Only the package.json metadata named by receipt dependencies; no unrelated package code or configuration was read.",
+    "package_count": 44,
+    "packages": [
+      {
+        "package": "@deepseek-ai/dsh-subagent-claude-code",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\@deepseek-ai\\dsh-subagent-claude-code\\package.json",
+        "receipt_before_sha256": "7a1bfb40e31592aca02b0fd7aa776af6bf188dbab62ae23294b44d9a2b95a24f",
+        "current_sha256": "7a1bfb40e31592aca02b0fd7aa776af6bf188dbab62ae23294b44d9a2b95a24f",
+        "match": true
+      },
+      {
+        "package": "@deepseek-ai/dsh-subagent-codex",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\@deepseek-ai\\dsh-subagent-codex\\package.json",
+        "receipt_before_sha256": "cc209be45a0fb790630bef338927463991fcd07f75e89062a8b66a6412579c7f",
+        "current_sha256": "cc209be45a0fb790630bef338927463991fcd07f75e89062a8b66a6412579c7f",
+        "match": true
+      },
+      {
+        "package": "@dsh-eac/skin-aurora",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\@dsh-eac\\skin-aurora\\package.json",
+        "receipt_before_sha256": "5ae50c574f840d9b6629cfc49ae049394c22189fb27876cdb60a266b6c572c63",
+        "current_sha256": "5ae50c574f840d9b6629cfc49ae049394c22189fb27876cdb60a266b6c572c63",
+        "match": true
+      },
+      {
+        "package": "@dsh-eac/skin-blue-fantasy",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\@dsh-eac\\skin-blue-fantasy\\package.json",
+        "receipt_before_sha256": "f5623c30a1e7524ddd744207f33d3ca1007b1c0e3d96ee9907de1c074f66406e",
+        "current_sha256": "f5623c30a1e7524ddd744207f33d3ca1007b1c0e3d96ee9907de1c074f66406e",
+        "match": true
+      },
+      {
+        "package": "@dsh-eac/skin-deep-whale-day-night",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\@dsh-eac\\skin-deep-whale-day-night\\package.json",
+        "receipt_before_sha256": "a3f0690b3b60eb35d2d05fa7d1e88f1eee645ca49918bb1f230489a7f62481c9",
+        "current_sha256": "a3f0690b3b60eb35d2d05fa7d1e88f1eee645ca49918bb1f230489a7f62481c9",
+        "match": true
+      },
+      {
+        "package": "@dsh-eac/skin-dragon-heir",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\@dsh-eac\\skin-dragon-heir\\package.json",
+        "receipt_before_sha256": "a7c0a0b6c9dca4a39b56c5b9f6d18c5a2b053d99da4d9219d34a8c642f20828f",
+        "current_sha256": "a7c0a0b6c9dca4a39b56c5b9f6d18c5a2b053d99da4d9219d34a8c642f20828f",
+        "match": true
+      },
+      {
+        "package": "@dsh-eac/skin-inkwash",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\@dsh-eac\\skin-inkwash\\package.json",
+        "receipt_before_sha256": "30c0d15e2a59f922b468b18babd390351654f1530a2292870f51b840871a32ec",
+        "current_sha256": "30c0d15e2a59f922b468b18babd390351654f1530a2292870f51b840871a32ec",
+        "match": true
+      },
+      {
+        "package": "@dsh-eac/skin-maid-atelier",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\@dsh-eac\\skin-maid-atelier\\package.json",
+        "receipt_before_sha256": "3a66d9a8b7b2679723b2f6f77719109c2365c02992a8f4ca1192e9aad3b2317f",
+        "current_sha256": "3a66d9a8b7b2679723b2f6f77719109c2365c02992a8f4ca1192e9aad3b2317f",
+        "match": true
+      },
+      {
+        "package": "@dsh-eac/skin-miku",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\@dsh-eac\\skin-miku\\package.json",
+        "receipt_before_sha256": "9e1e879a4bdd1432e1ba7cd662b9c336a2b74a09c1543b27222fe28514ac3376",
+        "current_sha256": "9e1e879a4bdd1432e1ba7cd662b9c336a2b74a09c1543b27222fe28514ac3376",
+        "match": true
+      },
+      {
+        "package": "@dsh-eac/skin-minecraft",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\@dsh-eac\\skin-minecraft\\package.json",
+        "receipt_before_sha256": "3fb79dce8a94d92c06954fbef8d49716ca73923d9e993a9080db47523b407cbd",
+        "current_sha256": "3fb79dce8a94d92c06954fbef8d49716ca73923d9e993a9080db47523b407cbd",
+        "match": true
+      },
+      {
+        "package": "@dsh-eac/skin-qq98",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\@dsh-eac\\skin-qq98\\package.json",
+        "receipt_before_sha256": "d081aa8bce9dbd5c60f9d0f8bed95751e3d4ae64bdb20cb6d0afe57e997983fe",
+        "current_sha256": "d081aa8bce9dbd5c60f9d0f8bed95751e3d4ae64bdb20cb6d0afe57e997983fe",
+        "match": true
+      },
+      {
+        "package": "@dsh-eac/skin-ths",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\@dsh-eac\\skin-ths\\package.json",
+        "receipt_before_sha256": "f3067696907d0e3d72ca3e71e6852df75c219a68753de9514cd5c31fd9a594e5",
+        "current_sha256": "f3067696907d0e3d72ca3e71e6852df75c219a68753de9514cd5c31fd9a594e5",
+        "match": true
+      },
+      {
+        "package": "@dsh-eac/skin-trading",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\@dsh-eac\\skin-trading\\package.json",
+        "receipt_before_sha256": "a9f746cf4c9403b04b88974b8bd7c0c29ccfacedc0e8e1040b3975aa12cec198",
+        "current_sha256": "a9f746cf4c9403b04b88974b8bd7c0c29ccfacedc0e8e1040b3975aa12cec198",
+        "match": true
+      },
+      {
+        "package": "@dsh-eac/skin-whale-song",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\@dsh-eac\\skin-whale-song\\package.json",
+        "receipt_before_sha256": "0c3fe1efdfcd582fe4e2be5fc3d36c8c27e49d716241a33edd6568d06599db05",
+        "current_sha256": "0c3fe1efdfcd582fe4e2be5fc3d36c8c27e49d716241a33edd6568d06599db05",
+        "match": true
+      },
+      {
+        "package": "@dsh-eac/skin-xp",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\@dsh-eac\\skin-xp\\package.json",
+        "receipt_before_sha256": "3a776f7a2372a9bc6948c09d8a78116efc52674acf125b9d2b5c47708b4d513a",
+        "current_sha256": "3a776f7a2372a9bc6948c09d8a78116efc52674acf125b9d2b5c47708b4d513a",
+        "match": true
+      },
+      {
+        "package": "@dsh-eac/ui-skin-loader",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\@dsh-eac\\ui-skin-loader\\package.json",
+        "receipt_before_sha256": "f33f936902caa3d4e0505066d90116c6b581772ac350847293aaf093e033fe08",
+        "current_sha256": "f33f936902caa3d4e0505066d90116c6b581772ac350847293aaf093e033fe08",
+        "match": true
+      },
+      {
+        "package": "@linxin666/dsh-client-ui-skill-explorer",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\@linxin666\\dsh-client-ui-skill-explorer\\package.json",
+        "receipt_before_sha256": "f215522bbfc0d1e8d3ef9282a8566c3fad4259ae2adad9351d6c598f4ef0768b",
+        "current_sha256": "f215522bbfc0d1e8d3ef9282a8566c3fad4259ae2adad9351d6c598f4ef0768b",
+        "match": true
+      },
+      {
+        "package": "@linxin666/dsh-client-ui-task-board",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\@linxin666\\dsh-client-ui-task-board\\package.json",
+        "receipt_before_sha256": "a104a9350f1a0ce095c548f8fbd6dfb18b771068e0f723fc190a626cabd6abfc",
+        "current_sha256": "a104a9350f1a0ce095c548f8fbd6dfb18b771068e0f723fc190a626cabd6abfc",
+        "match": true
+      },
+      {
+        "package": "@vectorize-io/hindsight-coding-agents",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\@vectorize-io\\hindsight-coding-agents\\package.json",
+        "receipt_before_sha256": "f761bc91b53f5972cb67a50d96636ebd87511743c28883c3b557edf810df80e5",
+        "current_sha256": "f761bc91b53f5972cb67a50d96636ebd87511743c28883c3b557edf810df80e5",
+        "match": true
+      },
+      {
+        "package": "@wxg-prc-cpg/dsh-weknora",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\@wxg-prc-cpg\\dsh-weknora\\package.json",
+        "receipt_before_sha256": "66c22ddbbb9e7dada04fe2d9fc5402d0eada4effbb0e9fd51d09c4aedd765864",
+        "current_sha256": "66c22ddbbb9e7dada04fe2d9fc5402d0eada4effbb0e9fd51d09c4aedd765864",
+        "match": true
+      },
+      {
+        "package": "dsh-bili-subagent",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dsh-bili-subagent\\package.json",
+        "receipt_before_sha256": "8cef32082f76a633d852a5eacfe6d73d5980c569fe6f2de6f5ba37adf861066e",
+        "current_sha256": "8cef32082f76a633d852a5eacfe6d73d5980c569fe6f2de6f5ba37adf861066e",
+        "match": true
+      },
+      {
+        "package": "dsh-bili-whale",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dsh-bili-whale\\package.json",
+        "receipt_before_sha256": "c26fa7ddc871674261c8247540538e98727e75a542f8ea920d66fc941b241ffc",
+        "current_sha256": "c26fa7ddc871674261c8247540538e98727e75a542f8ea920d66fc941b241ffc",
+        "match": true
+      },
+      {
+        "package": "dsh-context",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dsh-context\\package.json",
+        "receipt_before_sha256": "5216dfd5bab7dd2d37ad6a480e1b7dab5e0859212aea8f9276098c861cea2ba5",
+        "current_sha256": "5216dfd5bab7dd2d37ad6a480e1b7dab5e0859212aea8f9276098c861cea2ba5",
+        "match": true
+      },
+      {
+        "package": "dsh-dispatchdock-bridge",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dsh-dispatchdock-bridge\\package.json",
+        "receipt_before_sha256": "6e1334dc0491570478d16bf299a5353fd6998e6ee93b151ff470a6a4c1d2db1d",
+        "current_sha256": "6e1334dc0491570478d16bf299a5353fd6998e6ee93b151ff470a6a4c1d2db1d",
+        "match": true
+      },
+      {
+        "package": "dsh-eac-agent-presets-official",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dsh-eac-agent-presets-official\\package.json",
+        "receipt_before_sha256": "f27ff874b4a94559074d4f2d5a253e8e180ec13b168fe4c4a53cf017f944c1d6",
+        "current_sha256": "f27ff874b4a94559074d4f2d5a253e8e180ec13b168fe4c4a53cf017f944c1d6",
+        "match": true
+      },
+      {
+        "package": "dsh-eac-pet",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dsh-eac-pet\\package.json",
+        "receipt_before_sha256": "521d8c2fa4762c87b39b9282925266f4591edcf23b467a1a7f629d19e126c06c",
+        "current_sha256": "521d8c2fa4762c87b39b9282925266f4591edcf23b467a1a7f629d19e126c06c",
+        "match": true
+      },
+      {
+        "package": "dsh-fish-memory",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dsh-fish-memory\\package.json",
+        "receipt_before_sha256": "8842ddb91b537c98c8c1d24ce313e887b6c31c84dca856f474131c031aa0fc5a",
+        "current_sha256": "8842ddb91b537c98c8c1d24ce313e887b6c31c84dca856f474131c031aa0fc5a",
+        "match": true
+      },
+      {
+        "package": "dsh-meme",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dsh-meme\\package.json",
+        "receipt_before_sha256": "893e016647f90e5f6575b8e275b8ca97278679c62026bf3249f66502bf0c26c0",
+        "current_sha256": "893e016647f90e5f6575b8e275b8ca97278679c62026bf3249f66502bf0c26c0",
+        "match": true
+      },
+      {
+        "package": "dsh-nekowhale-stickers",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dsh-nekowhale-stickers\\package.json",
+        "receipt_before_sha256": "79f6c8c2ecb8de6a29f187787995288f98d9b15c2067a0de25da07c35643d7d5",
+        "current_sha256": "79f6c8c2ecb8de6a29f187787995288f98d9b15c2067a0de25da07c35643d7d5",
+        "match": true
+      },
+      {
+        "package": "dsh-ops",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dsh-ops\\package.json",
+        "receipt_before_sha256": "bf84e454ceaa1215f7c25de001ce0e82ddaf8a2e099cd48df2a7f60eaac4e43e",
+        "current_sha256": "bf84e454ceaa1215f7c25de001ce0e82ddaf8a2e099cd48df2a7f60eaac4e43e",
+        "match": true
+      },
+      {
+        "package": "dsh-our-free-model",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dsh-our-free-model\\package.json",
+        "receipt_before_sha256": "a0a1b5d5f8b51533535d4e67e677098fc80694b5f544a99d6e12a13ca5103cb2",
+        "current_sha256": "a0a1b5d5f8b51533535d4e67e677098fc80694b5f544a99d6e12a13ca5103cb2",
+        "match": true
+      },
+      {
+        "package": "dsh-persona-cards-official",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dsh-persona-cards-official\\package.json",
+        "receipt_before_sha256": "7b49abf00c6c835a9b5c8b39fecbade46b325f085fd30dcdfae506d00c83b8d5",
+        "current_sha256": "7b49abf00c6c835a9b5c8b39fecbade46b325f085fd30dcdfae506d00c83b8d5",
+        "match": true
+      },
+      {
+        "package": "dsh-pet",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dsh-pet\\package.json",
+        "receipt_before_sha256": "949e5a2715d77bb63db8b13d22cd8cdfe9d214897debb7d9b1c682f254ddb246",
+        "current_sha256": "949e5a2715d77bb63db8b13d22cd8cdfe9d214897debb7d9b1c682f254ddb246",
+        "match": true
+      },
+      {
+        "package": "dsh-pet-settings",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dsh-pet-settings\\package.json",
+        "receipt_before_sha256": "ca57654bed67d4cffa4bc7f54a0a266b5b0584f35f0cabebe3f0df2a1c5de211",
+        "current_sha256": "ca57654bed67d4cffa4bc7f54a0a266b5b0584f35f0cabebe3f0df2a1c5de211",
+        "match": true
+      },
+      {
+        "package": "dsh-raw-html-official",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dsh-raw-html-official\\package.json",
+        "receipt_before_sha256": "b8c3238da4162a3165648c6f8ae1e939dfd695db30b5f0a2ae51b7f8bc226bf8",
+        "current_sha256": "b8c3238da4162a3165648c6f8ae1e939dfd695db30b5f0a2ae51b7f8bc226bf8",
+        "match": true
+      },
+      {
+        "package": "dsh-read-animation",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dsh-read-animation\\package.json",
+        "receipt_before_sha256": "6b273e8d3b4939b7c87f01bf117a3e3f83443efec45bcea15d0b4a13b67a1cb3",
+        "current_sha256": "6b273e8d3b4939b7c87f01bf117a3e3f83443efec45bcea15d0b4a13b67a1cb3",
+        "match": true
+      },
+      {
+        "package": "dsh-undo-savepoint",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dsh-undo-savepoint\\package.json",
+        "receipt_before_sha256": "d2cad796c1c3566bbb7dde6d3ac5e58cf4458ff19d3c24891e2082b932bb3d6d",
+        "current_sha256": "d2cad796c1c3566bbb7dde6d3ac5e58cf4458ff19d3c24891e2082b932bb3d6d",
+        "match": true
+      },
+      {
+        "package": "dsh-unified-market",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dsh-unified-market\\package.json",
+        "receipt_before_sha256": "a59987894c416619f1bd24bf26cf6bdcfb7cbaeba72745dc19ff732e19349814",
+        "current_sha256": "a59987894c416619f1bd24bf26cf6bdcfb7cbaeba72745dc19ff732e19349814",
+        "match": true
+      },
+      {
+        "package": "dsh-web-mobile-fix",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dsh-web-mobile-fix\\package.json",
+        "receipt_before_sha256": "0e575a80d051975e15a5d49194749e78c9816f14bf88cf757074c4f58dd6d905",
+        "current_sha256": "0e575a80d051975e15a5d49194749e78c9816f14bf88cf757074c4f58dd6d905",
+        "match": true
+      },
+      {
+        "package": "dsh-workbuddy-connect",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dsh-workbuddy-connect\\package.json",
+        "receipt_before_sha256": "578146b165c5e07becd8e3d34f234509f4b3bb54d4a3b5a9aeb42e41ec5b1139",
+        "current_sha256": "578146b165c5e07becd8e3d34f234509f4b3bb54d4a3b5a9aeb42e41ec5b1139",
+        "match": true
+      },
+      {
+        "package": "dshmarket",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\dshmarket\\package.json",
+        "receipt_before_sha256": "adb7825322740715afed83067b399a0c3bd1e0640078262ac51b38ff8964588a",
+        "current_sha256": "adb7825322740715afed83067b399a0c3bd1e0640078262ac51b38ff8964588a",
+        "match": true
+      },
+      {
+        "package": "meow-smooth",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\meow-smooth\\package.json",
+        "receipt_before_sha256": "3aa128314d4368cd7696552a6a69c03c66a336fa18b8ae8f71974a8e142ccb6f",
+        "current_sha256": "3aa128314d4368cd7696552a6a69c03c66a336fa18b8ae8f71974a8e142ccb6f",
+        "match": true
+      },
+      {
+        "package": "qq-agent-presets",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\qq-agent-presets\\package.json",
+        "receipt_before_sha256": "6849ef73ded4e06799434dd3cc27b888ea1092817c2a6641913f52f1405f1563",
+        "current_sha256": "6849ef73ded4e06799434dd3cc27b888ea1092817c2a6641913f52f1405f1563",
+        "match": true
+      },
+      {
+        "package": "qq-mode-console",
+        "metadata_path": "<USER_HOME>\\.dsh\\profiles\\desktop\\node_modules\\qq-mode-console\\package.json",
+        "receipt_before_sha256": "85770956f4b5ef5a2ae655aa010f49d6d41158fd9f9785146cc044c05713ef8b",
+        "current_sha256": "85770956f4b5ef5a2ae655aa010f49d6d41158fd9f9785146cc044c05713ef8b",
+        "match": true
+      }
+    ]
+  },
+  "resolved_plugin_metadata": [
+    {
+      "path": "package.json",
+      "resolved_sha256": "857d216aabb0092ef28a8612d91803050fd697af967ac3e34c486f6544d74aeb",
+      "installed_sha256": "857d216aabb0092ef28a8612d91803050fd697af967ac3e34c486f6544d74aeb",
+      "match": true
+    },
+    {
+      "path": "cordis.patch.yml",
+      "resolved_sha256": "54821b7f90286dd3d56bd15b338be4198e0ce43c554e7212623ad1fde3efedf0",
+      "installed_sha256": "54821b7f90286dd3d56bd15b338be4198e0ce43c554e7212623ad1fde3efedf0",
+      "match": true
+    }
+  ],
+  "skill_roots": [
+    {
+      "alias": "dsh",
+      "root": "<USER_HOME>\\.dsh\\skills",
+      "receipt": "<WORKSPACE>\\work\\v021-skill-backups\\dsh\\20261026T115417820954Z\\receipt.json",
+      "receipt_sha256": "5021a676edb73d0b1f7ae500ff9640877690acf7808fb40fdb6c902f437eebe4",
+      "overlay_version": "0.2.1",
+      "receipt_status": "applied_verified",
+      "expected_skill_count": 5,
+      "actual_skill_count": 5,
+      "receipt_file_set_exact": true,
+      "backup_file_set_exact": true,
+      "backup_unusual_paths": [],
+      "skills": [
+        {
+          "skill": "nature-figure",
+          "current_skill_sha256": "efa1284fa702bb0b63196fada29cf6934cf4c108b0ecd4f5f0fb0b512f5edb8b",
+          "receipt_skill_after_sha256": "efa1284fa702bb0b63196fada29cf6934cf4c108b0ecd4f5f0fb0b512f5edb8b",
+          "skill_after_matches": true,
+          "backup_skill_sha256": "5aefe708a2531c5ddaa8ee74d5155d747e96c0f21a33143d38316b7c5c88ffc4",
+          "receipt_skill_before_sha256": "5aefe708a2531c5ddaa8ee74d5155d747e96c0f21a33143d38316b7c5c88ffc4",
+          "skill_backup_matches": true,
+          "original_had_mcm_hook": false,
+          "original_utf8_bom_present": false,
+          "upstream_text_exact_outside_inserted_hook": true,
+          "single_hook_matches_repo_manifest": true,
+          "new_hook_precedes_all_upstream_body_defaults": true,
+          "reference_current_sha256": "cbbe734a8fb6f48ad680c9c8ae4b86fcdb77153986d55f4a328d6028e8fdd8c0",
+          "reference_repo_sha256": "cbbe734a8fb6f48ad680c9c8ae4b86fcdb77153986d55f4a328d6028e8fdd8c0",
+          "reference_receipt_after_sha256": "cbbe734a8fb6f48ad680c9c8ae4b86fcdb77153986d55f4a328d6028e8fdd8c0",
+          "reference_matches_repo_and_receipt": true,
+          "reference_before_was_absent": true
+        },
+        {
+          "skill": "nature-writing",
+          "current_skill_sha256": "ad0022f36703bd729598c3963e5b305a191f73a80ed898f867bd1f24e10d2584",
+          "receipt_skill_after_sha256": "ad0022f36703bd729598c3963e5b305a191f73a80ed898f867bd1f24e10d2584",
+          "skill_after_matches": true,
+          "backup_skill_sha256": "ce7c4d20329b96b03b0f0c0bb744411b1b4deaa7a7b69b90757705a83c195b12",
+          "receipt_skill_before_sha256": "ce7c4d20329b96b03b0f0c0bb744411b1b4deaa7a7b69b90757705a83c195b12",
+          "skill_backup_matches": true,
+          "original_had_mcm_hook": false,
+          "original_utf8_bom_present": false,
+          "upstream_text_exact_outside_inserted_hook": true,
+          "single_hook_matches_repo_manifest": true,
+          "new_hook_precedes_all_upstream_body_defaults": true,
+          "reference_current_sha256": "47eb8077e023eeadc311981283d8cf354b10341b0524fa70db7277652918e240",
+          "reference_repo_sha256": "47eb8077e023eeadc311981283d8cf354b10341b0524fa70db7277652918e240",
+          "reference_receipt_after_sha256": "47eb8077e023eeadc311981283d8cf354b10341b0524fa70db7277652918e240",
+          "reference_matches_repo_and_receipt": true,
+          "reference_before_was_absent": true
+        },
+        {
+          "skill": "nature-polishing",
+          "current_skill_sha256": "48d74da55ddd3a619870e328e3e531f430c9c3337705ff7d0c76f48fb0f7b1b6",
+          "receipt_skill_after_sha256": "48d74da55ddd3a619870e328e3e531f430c9c3337705ff7d0c76f48fb0f7b1b6",
+          "skill_after_matches": true,
+          "backup_skill_sha256": "9391b2a2487306cf2ed560377d4bc10c339fd2c220a79db278cb7f9d31e79023",
+          "receipt_skill_before_sha256": "9391b2a2487306cf2ed560377d4bc10c339fd2c220a79db278cb7f9d31e79023",
+          "skill_backup_matches": true,
+          "original_had_mcm_hook": false,
+          "original_utf8_bom_present": false,
+          "upstream_text_exact_outside_inserted_hook": true,
+          "single_hook_matches_repo_manifest": true,
+          "new_hook_precedes_all_upstream_body_defaults": true,
+          "reference_current_sha256": "32b6969c0552c7dd1434862898d38523684b63404f7ec9be0c3b87d27ee62772",
+          "reference_repo_sha256": "32b6969c0552c7dd1434862898d38523684b63404f7ec9be0c3b87d27ee62772",
+          "reference_receipt_after_sha256": "32b6969c0552c7dd1434862898d38523684b63404f7ec9be0c3b87d27ee62772",
+          "reference_matches_repo_and_receipt": true,
+          "reference_before_was_absent": true
+        },
+        {
+          "skill": "nature-reviewer",
+          "current_skill_sha256": "7feb98e1d5238b5513be67332bbe5a6e8dc4f45151a4efafd1029aa3718b87e0",
+          "receipt_skill_after_sha256": "7feb98e1d5238b5513be67332bbe5a6e8dc4f45151a4efafd1029aa3718b87e0",
+          "skill_after_matches": true,
+          "backup_skill_sha256": "8ca28cc8e8bda2b5254056940d2a696dc0d3cabcd5573cdec98ffc3cbd162610",
+          "receipt_skill_before_sha256": "8ca28cc8e8bda2b5254056940d2a696dc0d3cabcd5573cdec98ffc3cbd162610",
+          "skill_backup_matches": true,
+          "original_had_mcm_hook": false,
+          "original_utf8_bom_present": false,
+          "upstream_text_exact_outside_inserted_hook": true,
+          "single_hook_matches_repo_manifest": true,
+          "new_hook_precedes_all_upstream_body_defaults": true,
+          "reference_current_sha256": "939b0ec27037beafe5b7d08f93fbaad9b3339ff6e562665cd48021945938c33f",
+          "reference_repo_sha256": "939b0ec27037beafe5b7d08f93fbaad9b3339ff6e562665cd48021945938c33f",
+          "reference_receipt_after_sha256": "939b0ec27037beafe5b7d08f93fbaad9b3339ff6e562665cd48021945938c33f",
+          "reference_matches_repo_and_receipt": true,
+          "reference_before_was_absent": true
+        },
+        {
+          "skill": "nature-statistics",
+          "current_skill_sha256": "1482bbc231fbc48b523ef4abb84433db6101fc2aee9440e9d274bd64e91f23b3",
+          "receipt_skill_after_sha256": "1482bbc231fbc48b523ef4abb84433db6101fc2aee9440e9d274bd64e91f23b3",
+          "skill_after_matches": true,
+          "backup_skill_sha256": "89d2a101fc45d7adf8ca327a6da4bda4a696d6364d7c36ead4f53413627a9b6f",
+          "receipt_skill_before_sha256": "89d2a101fc45d7adf8ca327a6da4bda4a696d6364d7c36ead4f53413627a9b6f",
+          "skill_backup_matches": true,
+          "original_had_mcm_hook": false,
+          "original_utf8_bom_present": false,
+          "upstream_text_exact_outside_inserted_hook": true,
+          "single_hook_matches_repo_manifest": true,
+          "new_hook_precedes_all_upstream_body_defaults": true,
+          "reference_current_sha256": "32bd24a64b1d8a2f774ffc3582fafe7d9992ce4a20e9580b17d020d15775e4b0",
+          "reference_repo_sha256": "32bd24a64b1d8a2f774ffc3582fafe7d9992ce4a20e9580b17d020d15775e4b0",
+          "reference_receipt_after_sha256": "32bd24a64b1d8a2f774ffc3582fafe7d9992ce4a20e9580b17d020d15775e4b0",
+          "reference_matches_repo_and_receipt": true,
+          "reference_before_was_absent": true
+        }
+      ]
+    },
+    {
+      "alias": "codex",
+      "root": "<USER_HOME>\\.codex\\skills",
+      "receipt": "<WORKSPACE>\\work\\v021-skill-backups\\codex\\20261026T115417919183Z\\receipt.json",
+      "receipt_sha256": "9e0e18c78a5b84391f3107dd504501f7c24f25dd1577ff62db1a69436c9e1a35",
+      "overlay_version": "0.2.1",
+      "receipt_status": "applied_verified",
+      "expected_skill_count": 5,
+      "actual_skill_count": 5,
+      "receipt_file_set_exact": true,
+      "backup_file_set_exact": true,
+      "backup_unusual_paths": [],
+      "skills": [
+        {
+          "skill": "nature-figure",
+          "current_skill_sha256": "1ac00452bef2e097def116beb1fafacb5f03f0108b87b27e667d281a3cf61226",
+          "receipt_skill_after_sha256": "1ac00452bef2e097def116beb1fafacb5f03f0108b87b27e667d281a3cf61226",
+          "skill_after_matches": true,
+          "backup_skill_sha256": "cf441e634da4b2667005b4b3eff6407b485bd38f1f1e595cb84f9c03ddf0eae9",
+          "receipt_skill_before_sha256": "cf441e634da4b2667005b4b3eff6407b485bd38f1f1e595cb84f9c03ddf0eae9",
+          "skill_backup_matches": true,
+          "original_had_mcm_hook": false,
+          "original_utf8_bom_present": false,
+          "upstream_text_exact_outside_inserted_hook": true,
+          "single_hook_matches_repo_manifest": true,
+          "new_hook_precedes_all_upstream_body_defaults": true,
+          "reference_current_sha256": "cbbe734a8fb6f48ad680c9c8ae4b86fcdb77153986d55f4a328d6028e8fdd8c0",
+          "reference_repo_sha256": "cbbe734a8fb6f48ad680c9c8ae4b86fcdb77153986d55f4a328d6028e8fdd8c0",
+          "reference_receipt_after_sha256": "cbbe734a8fb6f48ad680c9c8ae4b86fcdb77153986d55f4a328d6028e8fdd8c0",
+          "reference_matches_repo_and_receipt": true,
+          "reference_before_was_absent": true
+        },
+        {
+          "skill": "nature-writing",
+          "current_skill_sha256": "3ab88b1ae6fa730bb72319060b756243628ea545f3f51db5339285ba7637bca2",
+          "receipt_skill_after_sha256": "3ab88b1ae6fa730bb72319060b756243628ea545f3f51db5339285ba7637bca2",
+          "skill_after_matches": true,
+          "backup_skill_sha256": "cd9a7094963017e462f226b43c9677a9ffc600a62968cadb1f4cd277e6313c30",
+          "receipt_skill_before_sha256": "cd9a7094963017e462f226b43c9677a9ffc600a62968cadb1f4cd277e6313c30",
+          "skill_backup_matches": true,
+          "original_had_mcm_hook": false,
+          "original_utf8_bom_present": false,
+          "upstream_text_exact_outside_inserted_hook": true,
+          "single_hook_matches_repo_manifest": true,
+          "new_hook_precedes_all_upstream_body_defaults": true,
+          "reference_current_sha256": "47eb8077e023eeadc311981283d8cf354b10341b0524fa70db7277652918e240",
+          "reference_repo_sha256": "47eb8077e023eeadc311981283d8cf354b10341b0524fa70db7277652918e240",
+          "reference_receipt_after_sha256": "47eb8077e023eeadc311981283d8cf354b10341b0524fa70db7277652918e240",
+          "reference_matches_repo_and_receipt": true,
+          "reference_before_was_absent": true
+        },
+        {
+          "skill": "nature-polishing",
+          "current_skill_sha256": "d1aa4efe785351bb11ec3c769029e39e38a6185848f2e29d781529e26ffc0147",
+          "receipt_skill_after_sha256": "d1aa4efe785351bb11ec3c769029e39e38a6185848f2e29d781529e26ffc0147",
+          "skill_after_matches": true,
+          "backup_skill_sha256": "c8ff9503a8d3e1457a8ac23f1d18baefc94ee05a70c4677f046cc33be9c62110",
+          "receipt_skill_before_sha256": "c8ff9503a8d3e1457a8ac23f1d18baefc94ee05a70c4677f046cc33be9c62110",
+          "skill_backup_matches": true,
+          "original_had_mcm_hook": false,
+          "original_utf8_bom_present": false,
+          "upstream_text_exact_outside_inserted_hook": true,
+          "single_hook_matches_repo_manifest": true,
+          "new_hook_precedes_all_upstream_body_defaults": true,
+          "reference_current_sha256": "32b6969c0552c7dd1434862898d38523684b63404f7ec9be0c3b87d27ee62772",
+          "reference_repo_sha256": "32b6969c0552c7dd1434862898d38523684b63404f7ec9be0c3b87d27ee62772",
+          "reference_receipt_after_sha256": "32b6969c0552c7dd1434862898d38523684b63404f7ec9be0c3b87d27ee62772",
+          "reference_matches_repo_and_receipt": true,
+          "reference_before_was_absent": true
+        },
+        {
+          "skill": "nature-reviewer",
+          "current_skill_sha256": "71dab49971591c669944064de54da8218c148bb80791adb75bcff81d43c24d90",
+          "receipt_skill_after_sha256": "71dab49971591c669944064de54da8218c148bb80791adb75bcff81d43c24d90",
+          "skill_after_matches": true,
+          "backup_skill_sha256": "88aab215096a1883b56a36e087fa8c2f64b39087461f1e69dbfcf5700ae80c19",
+          "receipt_skill_before_sha256": "88aab215096a1883b56a36e087fa8c2f64b39087461f1e69dbfcf5700ae80c19",
+          "skill_backup_matches": true,
+          "original_had_mcm_hook": false,
+          "original_utf8_bom_present": false,
+          "upstream_text_exact_outside_inserted_hook": true,
+          "single_hook_matches_repo_manifest": true,
+          "new_hook_precedes_all_upstream_body_defaults": true,
+          "reference_current_sha256": "939b0ec27037beafe5b7d08f93fbaad9b3339ff6e562665cd48021945938c33f",
+          "reference_repo_sha256": "939b0ec27037beafe5b7d08f93fbaad9b3339ff6e562665cd48021945938c33f",
+          "reference_receipt_after_sha256": "939b0ec27037beafe5b7d08f93fbaad9b3339ff6e562665cd48021945938c33f",
+          "reference_matches_repo_and_receipt": true,
+          "reference_before_was_absent": true
+        },
+        {
+          "skill": "nature-statistics",
+          "current_skill_sha256": "12da50a821eae19754a9a991616d2c65008abc9de8a959f30baee2d343138ef4",
+          "receipt_skill_after_sha256": "12da50a821eae19754a9a991616d2c65008abc9de8a959f30baee2d343138ef4",
+          "skill_after_matches": true,
+          "backup_skill_sha256": "d2373a2eaff22c741d50e8b7f4886ec103d9393cae6087d07c97ee30f3e01ef8",
+          "receipt_skill_before_sha256": "d2373a2eaff22c741d50e8b7f4886ec103d9393cae6087d07c97ee30f3e01ef8",
+          "skill_backup_matches": true,
+          "original_had_mcm_hook": false,
+          "original_utf8_bom_present": false,
+          "upstream_text_exact_outside_inserted_hook": true,
+          "single_hook_matches_repo_manifest": true,
+          "new_hook_precedes_all_upstream_body_defaults": true,
+          "reference_current_sha256": "32bd24a64b1d8a2f774ffc3582fafe7d9992ce4a20e9580b17d020d15775e4b0",
+          "reference_repo_sha256": "32bd24a64b1d8a2f774ffc3582fafe7d9992ce4a20e9580b17d020d15775e4b0",
+          "reference_receipt_after_sha256": "32bd24a64b1d8a2f774ffc3582fafe7d9992ce4a20e9580b17d020d15775e4b0",
+          "reference_matches_repo_and_receipt": true,
+          "reference_before_was_absent": true
+        }
+      ]
+    }
+  ],
+  "runtime_evidence": {
+    "status": "frozen_installed_reports_verified",
+    "guard_report": {
+      "path": "<WORKSPACE>\\work\\v021-runtime\\guard-native-runtime.json",
+      "sha256": "0ed6cd21ac526c465e0964aab64feaf230518de95d3dac9055bfa3802ef2ff9d",
+      "executed_at": "2026-10-26T11:56:12.072Z",
+      "status": "passed",
+      "check_count": 10,
+      "checks": [
+        {
+          "name": "unknown_capacity_and_direct_native_spawn_blocked_through_ptc",
+          "passed": true
+        },
+        {
+          "name": "expired_exhausted_and_paused_admission_blocked_through_ptc",
+          "passed": true
+        },
+        {
+          "name": "pause_after_permit_before_native_dispatch_blocks",
+          "passed": true
+        },
+        {
+          "name": "permit_natural_expiry_blocks_without_artificial_clock_override",
+          "passed": true
+        },
+        {
+          "name": "fresh_evidence_permit_exact_arguments_native_dispatch",
+          "passed": true
+        },
+        {
+          "name": "single_permit_concurrent_consumption_at_most_once",
+          "passed": true
+        },
+        {
+          "name": "native_actual_role_parent_depth_and_direct_child_authorization",
+          "passed": true
+        },
+        {
+          "name": "global_alternative_delegation_tools_cannot_bypass_native_policy",
+          "passed": true
+        },
+        {
+          "name": "completed_child_readback_uses_history_without_resuming",
+          "passed": true
+        },
+        {
+          "name": "real_ptc_nested_dispatch_events_recorded",
+          "passed": true
+        }
+      ]
+    },
+    "main_report": {
+      "path": "<WORKSPACE>\\work\\v021-runtime\\native-runtime-smoke.json",
+      "sha256": "363385d97a480d8819a41a8bb98c2ac433b4d13f8e0faff10440cd3eda22efff",
+      "executed_at": "2026-10-26T11:58:34.239Z",
+      "status": "passed",
+      "check_count": 9,
+      "checks": [
+        {
+          "name": "native_registry_12_presets",
+          "passed": true
+        },
+        {
+          "name": "native_preset_mount_and_generated_ptc_sdk",
+          "passed": true
+        },
+        {
+          "name": "captain_native_plan_defaults_to_execution",
+          "passed": true
+        },
+        {
+          "name": "native_spawn_depth2_and_adjacent_message_controls",
+          "passed": true
+        },
+        {
+          "name": "native_ptc_execution_and_archive_public_api_write",
+          "passed": true
+        },
+        {
+          "name": "native_capacity_7_plus_1_then_reclaim",
+          "passed": true
+        },
+        {
+          "name": "native_optional_code_lead_two_programmers",
+          "passed": true
+        },
+        {
+          "name": "native_paper_lead_figure_skill_real_outputs",
+          "passed": true
+        },
+        {
+          "name": "native_evidence_skill_and_public_metadata_probe",
+          "passed": true
+        }
+      ]
+    },
+    "launcher": {
+      "path": "<WORKSPACE>\\outputs\\mcm-dsh-team-v0.2.0\\audit\\run-native-smoke.mjs",
+      "current_sha256": "f1c68a757eb38480fcd6b0e5b3ce0e35ee004fdaeade5cfe6869bbe990337c2f",
+      "guard_report_sha256": "f1c68a757eb38480fcd6b0e5b3ce0e35ee004fdaeade5cfe6869bbe990337c2f",
+      "main_report_sha256": "f1c68a757eb38480fcd6b0e5b3ce0e35ee004fdaeade5cfe6869bbe990337c2f"
+    },
+    "fixtures": [
+      {
+        "kind": "guard",
+        "path": "<WORKSPACE>\\outputs\\mcm-dsh-team-v0.2.0\\audit\\guard-native-fixture.mjs",
+        "current_sha256": "e01f30548aeb1840a23229864e5b0be08fe4dacfc53218a2902adac04dbd0563",
+        "reported_sha256": "e01f30548aeb1840a23229864e5b0be08fe4dacfc53218a2902adac04dbd0563"
+      },
+      {
+        "kind": "main",
+        "path": "<WORKSPACE>\\outputs\\mcm-dsh-team-v0.2.0\\audit\\native-fixture.mjs",
+        "current_sha256": "0afc30f1ac289125f436e684ec8dda2082478111b0c0063ba7b204f7b6936254",
+        "reported_sha256": "0afc30f1ac289125f436e684ec8dda2082478111b0c0063ba7b204f7b6936254"
+      }
+    ],
+    "source_fingerprint_count": 13,
+    "source_file_checks": [
+      {
+        "path": "cordis.patch.yml",
+        "guard_report_sha256": "54821b7f90286dd3d56bd15b338be4198e0ce43c554e7212623ad1fde3efedf0",
+        "main_report_sha256": "54821b7f90286dd3d56bd15b338be4198e0ce43c554e7212623ad1fde3efedf0",
+        "current_installed_sha256": "54821b7f90286dd3d56bd15b338be4198e0ce43c554e7212623ad1fde3efedf0",
+        "current_repo_bundle_sha256": "54821b7f90286dd3d56bd15b338be4198e0ce43c554e7212623ad1fde3efedf0",
+        "installation_receipt_sha256": "54821b7f90286dd3d56bd15b338be4198e0ce43c554e7212623ad1fde3efedf0",
+        "match": true
+      },
+      {
+        "path": "package.json",
+        "guard_report_sha256": "857d216aabb0092ef28a8612d91803050fd697af967ac3e34c486f6544d74aeb",
+        "main_report_sha256": "857d216aabb0092ef28a8612d91803050fd697af967ac3e34c486f6544d74aeb",
+        "current_installed_sha256": "857d216aabb0092ef28a8612d91803050fd697af967ac3e34c486f6544d74aeb",
+        "current_repo_bundle_sha256": "857d216aabb0092ef28a8612d91803050fd697af967ac3e34c486f6544d74aeb",
+        "installation_receipt_sha256": "857d216aabb0092ef28a8612d91803050fd697af967ac3e34c486f6544d74aeb",
+        "match": true
+      },
+      {
+        "path": "provenance.json",
+        "guard_report_sha256": "1e65a755373ae357e2ada19fe5c85a02ab64fe8f9cd6ab8ec348e0b9212f5bd3",
+        "main_report_sha256": "1e65a755373ae357e2ada19fe5c85a02ab64fe8f9cd6ab8ec348e0b9212f5bd3",
+        "current_installed_sha256": "1e65a755373ae357e2ada19fe5c85a02ab64fe8f9cd6ab8ec348e0b9212f5bd3",
+        "current_repo_bundle_sha256": "1e65a755373ae357e2ada19fe5c85a02ab64fe8f9cd6ab8ec348e0b9212f5bd3",
+        "installation_receipt_sha256": "1e65a755373ae357e2ada19fe5c85a02ab64fe8f9cd6ab8ec348e0b9212f5bd3",
+        "match": true
+      },
+      {
+        "path": "src/archive-core.mjs",
+        "guard_report_sha256": "efa29618cf67b8d59bcbb64fcb107417558db5886668f1e3e974656ce4a31730",
+        "main_report_sha256": "efa29618cf67b8d59bcbb64fcb107417558db5886668f1e3e974656ce4a31730",
+        "current_installed_sha256": "efa29618cf67b8d59bcbb64fcb107417558db5886668f1e3e974656ce4a31730",
+        "current_repo_bundle_sha256": "efa29618cf67b8d59bcbb64fcb107417558db5886668f1e3e974656ce4a31730",
+        "installation_receipt_sha256": "efa29618cf67b8d59bcbb64fcb107417558db5886668f1e3e974656ce4a31730",
+        "match": true
+      },
+      {
+        "path": "src/archive-plugin.mjs",
+        "guard_report_sha256": "8c905ad4a731284f379825de9e79290812142d18c7cb5571ba4a6eaa4d2b1598",
+        "main_report_sha256": "8c905ad4a731284f379825de9e79290812142d18c7cb5571ba4a6eaa4d2b1598",
+        "current_installed_sha256": "8c905ad4a731284f379825de9e79290812142d18c7cb5571ba4a6eaa4d2b1598",
+        "current_repo_bundle_sha256": "8c905ad4a731284f379825de9e79290812142d18c7cb5571ba4a6eaa4d2b1598",
+        "installation_receipt_sha256": "8c905ad4a731284f379825de9e79290812142d18c7cb5571ba4a6eaa4d2b1598",
+        "match": true
+      },
+      {
+        "path": "src/archive-tool.mjs",
+        "guard_report_sha256": "f7359fee9f246227f4155613a99c76553c30c4307b2edc725adc427f963b2d3b",
+        "main_report_sha256": "f7359fee9f246227f4155613a99c76553c30c4307b2edc725adc427f963b2d3b",
+        "current_installed_sha256": "f7359fee9f246227f4155613a99c76553c30c4307b2edc725adc427f963b2d3b",
+        "current_repo_bundle_sha256": "f7359fee9f246227f4155613a99c76553c30c4307b2edc725adc427f963b2d3b",
+        "installation_receipt_sha256": "f7359fee9f246227f4155613a99c76553c30c4307b2edc725adc427f963b2d3b",
+        "match": true
+      },
+      {
+        "path": "src/build.mjs",
+        "guard_report_sha256": "21f3e81dc0668e025bca172d69d3e79c47ce593ae0ff99775f55bf10779a7243",
+        "main_report_sha256": "21f3e81dc0668e025bca172d69d3e79c47ce593ae0ff99775f55bf10779a7243",
+        "current_installed_sha256": "21f3e81dc0668e025bca172d69d3e79c47ce593ae0ff99775f55bf10779a7243",
+        "current_repo_bundle_sha256": "21f3e81dc0668e025bca172d69d3e79c47ce593ae0ff99775f55bf10779a7243",
+        "installation_receipt_sha256": "21f3e81dc0668e025bca172d69d3e79c47ce593ae0ff99775f55bf10779a7243",
+        "match": true
+      },
+      {
+        "path": "src/figure-style.json",
+        "guard_report_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+        "main_report_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+        "current_installed_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+        "current_repo_bundle_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+        "installation_receipt_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+        "match": true
+      },
+      {
+        "path": "src/native-plan.mjs",
+        "guard_report_sha256": "3560efde6e7f2de58d4c1e354eccc5877667b9c7b52e31c127071946bec105dc",
+        "main_report_sha256": "3560efde6e7f2de58d4c1e354eccc5877667b9c7b52e31c127071946bec105dc",
+        "current_installed_sha256": "3560efde6e7f2de58d4c1e354eccc5877667b9c7b52e31c127071946bec105dc",
+        "current_repo_bundle_sha256": "3560efde6e7f2de58d4c1e354eccc5877667b9c7b52e31c127071946bec105dc",
+        "installation_receipt_sha256": "3560efde6e7f2de58d4c1e354eccc5877667b9c7b52e31c127071946bec105dc",
+        "match": true
+      },
+      {
+        "path": "src/presets.mjs",
+        "guard_report_sha256": "b11b136a7465f5210ca0bacd003520d656662b5c4cfe3111769597e0fd09bffb",
+        "main_report_sha256": "b11b136a7465f5210ca0bacd003520d656662b5c4cfe3111769597e0fd09bffb",
+        "current_installed_sha256": "b11b136a7465f5210ca0bacd003520d656662b5c4cfe3111769597e0fd09bffb",
+        "current_repo_bundle_sha256": "b11b136a7465f5210ca0bacd003520d656662b5c4cfe3111769597e0fd09bffb",
+        "installation_receipt_sha256": "b11b136a7465f5210ca0bacd003520d656662b5c4cfe3111769597e0fd09bffb",
+        "match": true
+      },
+      {
+        "path": "src/runtime-guard-core.mjs",
+        "guard_report_sha256": "4dda705af1bc15cb4bc1848a35e25428569589d8e3faa29d0ab0195ef035443b",
+        "main_report_sha256": "4dda705af1bc15cb4bc1848a35e25428569589d8e3faa29d0ab0195ef035443b",
+        "current_installed_sha256": "4dda705af1bc15cb4bc1848a35e25428569589d8e3faa29d0ab0195ef035443b",
+        "current_repo_bundle_sha256": "4dda705af1bc15cb4bc1848a35e25428569589d8e3faa29d0ab0195ef035443b",
+        "installation_receipt_sha256": "4dda705af1bc15cb4bc1848a35e25428569589d8e3faa29d0ab0195ef035443b",
+        "match": true
+      },
+      {
+        "path": "src/runtime-guard-plugin.mjs",
+        "guard_report_sha256": "86df82b9a0390d76f421ad3bb01838948bccba500c6845632c5bb273f33534e5",
+        "main_report_sha256": "86df82b9a0390d76f421ad3bb01838948bccba500c6845632c5bb273f33534e5",
+        "current_installed_sha256": "86df82b9a0390d76f421ad3bb01838948bccba500c6845632c5bb273f33534e5",
+        "current_repo_bundle_sha256": "86df82b9a0390d76f421ad3bb01838948bccba500c6845632c5bb273f33534e5",
+        "installation_receipt_sha256": "86df82b9a0390d76f421ad3bb01838948bccba500c6845632c5bb273f33534e5",
+        "match": true
+      },
+      {
+        "path": "src/skill-routing.mjs",
+        "guard_report_sha256": "97ce6eced9a5336359986ed4e68a7695d7b94888a5ba2e4f44c34bdc31091134",
+        "main_report_sha256": "97ce6eced9a5336359986ed4e68a7695d7b94888a5ba2e4f44c34bdc31091134",
+        "current_installed_sha256": "97ce6eced9a5336359986ed4e68a7695d7b94888a5ba2e4f44c34bdc31091134",
+        "current_repo_bundle_sha256": "97ce6eced9a5336359986ed4e68a7695d7b94888a5ba2e4f44c34bdc31091134",
+        "installation_receipt_sha256": "97ce6eced9a5336359986ed4e68a7695d7b94888a5ba2e4f44c34bdc31091134",
+        "match": true
+      }
+    ],
+    "prompt_fingerprint_count": 13,
+    "prompt_hash_rule": "Independent recomputation as UTF-8 text, CRLF to LF, then outer whitespace trim, matching build.mjs prompt provenance semantics; raw file hashes are separately retained in full-tree checks.",
+    "prompt_file_checks": [
+      {
+        "path": "prompts/mcm-captain.md",
+        "raw_current_installed_sha256": "ab1978642cb5b8f1ce5e7fd663524135e094ee635cf449cae6953c0f4e22f891",
+        "canonical_current_installed_sha256": "be0abcbaa347a743e0b4fb9d80e0c733f0e3a41acd65d886bda6c5a0852a5a4e",
+        "main_report_prompt_sha256": "be0abcbaa347a743e0b4fb9d80e0c733f0e3a41acd65d886bda6c5a0852a5a4e",
+        "installed_provenance_prompt_sha256": "be0abcbaa347a743e0b4fb9d80e0c733f0e3a41acd65d886bda6c5a0852a5a4e",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-code-lead.md",
+        "raw_current_installed_sha256": "9826df9512035166329ed21643c7c434c01c63ff50667d4a23a74469d5c930c3",
+        "canonical_current_installed_sha256": "f6be118dde9cfb264dc3700313c9017bff3684a796c95c800ed2a02b84dcebb1",
+        "main_report_prompt_sha256": "f6be118dde9cfb264dc3700313c9017bff3684a796c95c800ed2a02b84dcebb1",
+        "installed_provenance_prompt_sha256": "f6be118dde9cfb264dc3700313c9017bff3684a796c95c800ed2a02b84dcebb1",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-evidence.md",
+        "raw_current_installed_sha256": "90457d24e77f7765dd01444f6bbb58c13720ddfd1e98dde7ffebdb336920d867",
+        "canonical_current_installed_sha256": "1c35df16f89af6aab452c14686693f40385655dbca5765d3b90f6fbdfed85c4b",
+        "main_report_prompt_sha256": "1c35df16f89af6aab452c14686693f40385655dbca5765d3b90f6fbdfed85c4b",
+        "installed_provenance_prompt_sha256": "1c35df16f89af6aab452c14686693f40385655dbca5765d3b90f6fbdfed85c4b",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-figure.md",
+        "raw_current_installed_sha256": "0a7aaa4311d688e451337b0d03349e1106d711f6bb08ca625adb03ed2ce67463",
+        "canonical_current_installed_sha256": "8eafe0a2ebc57cbffa364e4993d11e39f67a76b4244f1c53fa3e5d78424004ce",
+        "main_report_prompt_sha256": "8eafe0a2ebc57cbffa364e4993d11e39f67a76b4244f1c53fa3e5d78424004ce",
+        "installed_provenance_prompt_sha256": "8eafe0a2ebc57cbffa364e4993d11e39f67a76b4244f1c53fa3e5d78424004ce",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-model-lead.md",
+        "raw_current_installed_sha256": "9e10db7fa9346f12e86ab0ffb440a9060e23e776d096c29b42359158e474bbfe",
+        "canonical_current_installed_sha256": "a1cd4c6f6aeb43971e42c10e9ddc0d6c7fdaf9aa070e182c0cd5236ed676c64d",
+        "main_report_prompt_sha256": "a1cd4c6f6aeb43971e42c10e9ddc0d6c7fdaf9aa070e182c0cd5236ed676c64d",
+        "installed_provenance_prompt_sha256": "a1cd4c6f6aeb43971e42c10e9ddc0d6c7fdaf9aa070e182c0cd5236ed676c64d",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-modeler.md",
+        "raw_current_installed_sha256": "caa59256db97ac662518fe42675a56423ee347db0425da5934dfbc1923896440",
+        "canonical_current_installed_sha256": "b415575b8ca7aac9e9ce8078b010605439679f4299091dd1815d073ad1d49ad3",
+        "main_report_prompt_sha256": "b415575b8ca7aac9e9ce8078b010605439679f4299091dd1815d073ad1d49ad3",
+        "installed_provenance_prompt_sha256": "b415575b8ca7aac9e9ce8078b010605439679f4299091dd1815d073ad1d49ad3",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-paper-lead.md",
+        "raw_current_installed_sha256": "d4b729d2b82a1f3005f039444984eee4769940ced769a1e8e5480e68cd3151f6",
+        "canonical_current_installed_sha256": "ce3232d761d1ef837e97a0e9a794672bbd00cba8c7fc3fe76fd371e9a3dd9423",
+        "main_report_prompt_sha256": "ce3232d761d1ef837e97a0e9a794672bbd00cba8c7fc3fe76fd371e9a3dd9423",
+        "installed_provenance_prompt_sha256": "ce3232d761d1ef837e97a0e9a794672bbd00cba8c7fc3fe76fd371e9a3dd9423",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-programmer.md",
+        "raw_current_installed_sha256": "6b8a6ff722da40556d32c4a69de3c058f23d365e6557cfcb79b58bb89f5081e8",
+        "canonical_current_installed_sha256": "3cedc36029994ee546c29da2e37c89d6c4914098c1fa056de55f0e8ae6a51933",
+        "main_report_prompt_sha256": "3cedc36029994ee546c29da2e37c89d6c4914098c1fa056de55f0e8ae6a51933",
+        "installed_provenance_prompt_sha256": "3cedc36029994ee546c29da2e37c89d6c4914098c1fa056de55f0e8ae6a51933",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-reviewer.md",
+        "raw_current_installed_sha256": "368b172455d8adf4e88ea88838f5bc0964680ab89eaaac57c21fc0f6d46e51d6",
+        "canonical_current_installed_sha256": "c7030e8461bb8c5681a0ece792015f322103a0c502e7a68569c2984569cab98c",
+        "main_report_prompt_sha256": "c7030e8461bb8c5681a0ece792015f322103a0c502e7a68569c2984569cab98c",
+        "installed_provenance_prompt_sha256": "c7030e8461bb8c5681a0ece792015f322103a0c502e7a68569c2984569cab98c",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-typesetter.md",
+        "raw_current_installed_sha256": "10e2c30c8b8e55bc4db92d44ecba392934370407f6d5838aa2825093e35fbc09",
+        "canonical_current_installed_sha256": "c7ac4b00b524b564068cdab656087eb216ec9b307c4ed3fb7cc04c9763cf6dc1",
+        "main_report_prompt_sha256": "c7ac4b00b524b564068cdab656087eb216ec9b307c4ed3fb7cc04c9763cf6dc1",
+        "installed_provenance_prompt_sha256": "c7ac4b00b524b564068cdab656087eb216ec9b307c4ed3fb7cc04c9763cf6dc1",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-verifier.md",
+        "raw_current_installed_sha256": "2e0353587e1b6a1eaba41eca1442516c7158658d1d7b6214b132cd11a458d68b",
+        "canonical_current_installed_sha256": "1d7d5d1489c490fae2c2f1093fadfa520f29d914cb984fbd4357067be42a10f8",
+        "main_report_prompt_sha256": "1d7d5d1489c490fae2c2f1093fadfa520f29d914cb984fbd4357067be42a10f8",
+        "installed_provenance_prompt_sha256": "1d7d5d1489c490fae2c2f1093fadfa520f29d914cb984fbd4357067be42a10f8",
+        "match": true
+      },
+      {
+        "path": "prompts/mcm-writer.md",
+        "raw_current_installed_sha256": "d00ad2fba3ef26b14a4698c7566049e0a64f7c4353365cacf75ffb6397917eb2",
+        "canonical_current_installed_sha256": "507b6ba8135cda9439e0128b1cf90db2a1d2e7699f518ba99655b0d07c5acd69",
+        "main_report_prompt_sha256": "507b6ba8135cda9439e0128b1cf90db2a1d2e7699f518ba99655b0d07c5acd69",
+        "installed_provenance_prompt_sha256": "507b6ba8135cda9439e0128b1cf90db2a1d2e7699f518ba99655b0d07c5acd69",
+        "match": true
+      },
+      {
+        "path": "prompts/shared.md",
+        "raw_current_installed_sha256": "3c1c258db49db8f1c13df48de153e3672c4ed76ca55ce83eb8ca042eb90902c2",
+        "canonical_current_installed_sha256": "62a04dd78324dd61a66cd784114399adbf9d390d31d99602697170db592e81c2",
+        "main_report_prompt_sha256": "62a04dd78324dd61a66cd784114399adbf9d390d31d99602697170db592e81c2",
+        "installed_provenance_prompt_sha256": "62a04dd78324dd61a66cd784114399adbf9d390d31d99602697170db592e81c2",
+        "match": true
+      }
+    ],
+    "provenance_additional_source_hash_checks": [
+      {
+        "field": "routing_source_sha256",
+        "path": "src/skill-routing.mjs",
+        "expected": "97ce6eced9a5336359986ed4e68a7695d7b94888a5ba2e4f44c34bdc31091134",
+        "actual": "97ce6eced9a5336359986ed4e68a7695d7b94888a5ba2e4f44c34bdc31091134",
+        "match": true
+      },
+      {
+        "field": "figure_style_source_sha256",
+        "path": "src/figure-style.json",
+        "expected": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+        "actual": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+        "match": true
+      },
+      {
+        "field": "runtime_guard_source_sha256",
+        "path": "src/runtime-guard-core.mjs",
+        "expected": "4dda705af1bc15cb4bc1848a35e25428569589d8e3faa29d0ab0195ef035443b",
+        "actual": "4dda705af1bc15cb4bc1848a35e25428569589d8e3faa29d0ab0195ef035443b",
+        "match": true
+      },
+      {
+        "field": "runtime_guard_source_sha256",
+        "path": "src/runtime-guard-plugin.mjs",
+        "expected": "86df82b9a0390d76f421ad3bb01838948bccba500c6845632c5bb273f33534e5",
+        "actual": "86df82b9a0390d76f421ad3bb01838948bccba500c6845632c5bb273f33534e5",
+        "match": true
+      }
+    ],
+    "guard_report_cross_binding": {
+      "path": "<WORKSPACE>\\work\\v021-runtime\\guard-native-runtime.json",
+      "sha256": "0ed6cd21ac526c465e0964aab64feaf230518de95d3dac9055bfa3802ef2ff9d",
+      "checks": 10,
+      "scope": "Independent real model-stream -> run_code -> nested-tool pre-execute/monotonic guard. Baseline direct native API conformance calls below do not prove this guard."
+    },
+    "checks": {
+      "both_reports_declare_installed_plugin_source": true,
+      "both_reports_have_exact_current_thirteen_source_files": true,
+      "both_report_source_hashes_equal_current_installed_repo_and_receipt": true,
+      "guard_report_status_passed_and_exact_ten_passed_unique_checks": true,
+      "main_report_status_passed_and_exact_nine_passed_unique_checks": true,
+      "both_reports_bind_current_repo_launcher": true,
+      "guard_report_binds_current_guard_fixture": true,
+      "main_report_binds_current_main_fixture": true,
+      "main_guard_report_path_binds_actual_frozen_guard_report": true,
+      "main_guard_report_sha256_binds_actual_frozen_guard_bytes": true,
+      "main_guard_count_binds_ten_actual_passed_checks": true,
+      "main_prompt_set_and_provenance_have_exact_thirteen_current_prompts": true,
+      "all_thirteen_canonical_prompt_hashes_match_installed_and_provenance": true,
+      "provenance_routing_guard_and_figure_style_source_hashes_match_current_installed": true,
+      "bundle_and_runtime_versions_match_installed_provenance": true,
+      "report_times_follow_installation_and_guard_precedes_main": true,
+      "current_full_installed_and_repo_trees_unchanged_since_static_audit": true,
+      "current_profile_metadata_unchanged_since_static_audit": true,
+      "current_unrelated_whitelisted_metadata_unchanged_since_static_audit": true,
+      "current_ten_skill_entrypoints_and_references_unchanged_since_static_audit": true,
+      "both_frozen_report_files_unchanged_during_review": true
+    },
+    "old_candidate_reports_used": false,
+    "models_or_tests_launched_by_reviewer": false,
+    "new_model_calls_or_network_requests_by_reviewer": false,
+    "report_isolation_values_are_declarations_not_independent_process_observation": true,
+    "reviews_raw_original_sessions": false
+  },
+  "limits": [
+    "This verifies a filesystem snapshot, receipt hashes and explicitly whitelisted metadata, not live UI behavior or a runtime success claim.",
+    "Unrelated plugin preservation is established only at the receipt package-name and package.json metadata level, not each unrelated plugin's full tree.",
+    "Skill preservation compares all original UTF-8 text outside the inserted hook, preserving original line endings; UTF-8 BOM presence is separately recorded.",
+    "Before-state evidence is verified against saved backup bytes and receipts; the reviewer did not observe the installation action itself.",
+    "No credential file, original session or original E project was read. No UI, installation, receipt, source or configuration was changed. The only reviewer output is this JSON.",
+    "Frozen runtime report result statuses and their 10/9 check outcomes were read and their provenance independently rehashed. The reviewer did not observe or rerun the original runtime processes and did not inspect raw sessions.",
+    "Both reports exercise the current installed plugin bytes in isolated test Hosts. They do not establish activation or available capacity in the user's running desktop Host.",
+    "The native fixture copies prompt hashes from installed provenance. This review independently recomputes all 13 source prompt canonical hashes, but does not claim a separate digest readback of every effective runtime-composed prompt.",
+    "The guard report covers the actual PTC pre-execute guard path; controlled direct native API conformance checks in the main report alone do not prove that guard.",
+    "Fixtures use deterministic LLM outputs; these passes do not establish autonomous model quality, scientific validity or competition outcomes. They do not certify OS sandbox isolation.",
+    "The metadata probe records an OpenAlex fallback search rate limit and a public Crossref/DOI crosscheck. This is not a full-text or human literature verification and does not prove an optional literature MCP is mounted."
+  ],
+  "all_runtime_report_provenance_checks_passed": true,
+  "all_checks_passed": true,
+  "updated_at": "2026-10-26T12:02:54.455226+00:00",
+  "local_source_sha256": "c4a3d78d3e2e3b85242e382dd265702346363b425962c55d6b2c360b3d7a4e23",
+  "portable_derivation": "Personal paths and isolated-session identifiers anonymized. Original local record is unchanged; this derivation does not create a review or run."
+}

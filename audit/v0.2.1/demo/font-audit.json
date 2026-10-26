@@ -1,0 +1,172 @@
+{
+  "ok": true,
+  "errors": [],
+  "minimum_final_font_pt": 12.0,
+  "text_runs": [
+    {
+      "text": "0.0",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "0.5",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "1.0",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "1.5",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "2.0",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "2.5",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "3.0",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "3.5",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "4.0",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "Time (dimensionless)",
+      "final_size_pt": 13.0
+    },
+    {
+      "text": "0.0",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "0.2",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "0.4",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "0.6",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "0.8",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "1.0",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "Remaining fraction",
+      "final_size_pt": 13.0
+    },
+    {
+      "text": "(a) Synthetic trajectories",
+      "final_size_pt": 14.0
+    },
+    {
+      "text": "Analytical",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "Euler",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "RK4",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "0.0",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "0.5",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "1.0",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "1.5",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "2.0",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "2.5",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "3.0",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "3.5",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "4.0",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "Time (dimensionless)",
+      "final_size_pt": 13.0
+    },
+    {
+      "text": "0.000",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "0.005",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "0.010",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "0.015",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "0.020",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "Absolute error",
+      "final_size_pt": 13.0
+    },
+    {
+      "text": "(b) Error against reference",
+      "final_size_pt": 14.0
+    },
+    {
+      "text": "Euler",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "RK4",
+      "final_size_pt": 12.0
+    }
+  ],
+  "visual_status": "pending",
+  "limitations": [
+    "Text-origin checks do not prove complete glyph/line/image containment.",
+    "No automated aesthetic or scientific correctness certification."
+  ]
+}

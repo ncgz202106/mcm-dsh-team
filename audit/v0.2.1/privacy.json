@@ -1,0 +1,24 @@
+{
+  "version": "0.2.1",
+  "checked_at": "2026-10-26T12:17:45.354172+00:00",
+  "secret_scan": {
+    "tool": "gitleaks",
+    "tool_version": "8.30.1",
+    "scope": "repository working tree",
+    "exit_code": 0,
+    "findings": 0,
+    "redaction": "100 percent"
+  },
+  "new_and_modified_metadata_scan": {
+    "files_checked": 62,
+    "personal_home_paths": 0,
+    "private_sample_root_paths": 0,
+    "raw_session_identifiers": 0
+  },
+  "source_papers_or_raw_conversations_added": false,
+  "local_backups_added": false,
+  "limits": [
+    "Pattern scanning cannot guarantee the absence of every possible secret.",
+    "Existing v0.2.0 audit files retain previously published history; this check does not reclassify or rewrite them as anonymized."
+  ]
+}

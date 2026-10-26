@@ -67,7 +67,8 @@ test('paper prompts retain the user framework, early evidence figures and final-
   assert.match(figure, /最终放入PDF的尺寸保持12pt/);
   assert.match(figure, /缩小后仍12pt/);
   assert.match(figure, /全篇仅允许两张定量图/);
-  for (const color of ['#2463A6','#20A7B5','#3A8D5D','#E28B33']) assert.ok(figure.includes(color));
+  assert.match(figure, /config\/figure-style\.json/);
+  assert.equal(/#[a-fA-F0-9]{6}/.test(figure), false, 'Source persona must not duplicate palette literals');
   assert.match(figure, /上游失效/);
   assert.match(figure, /不能自签独立验收/);
 });

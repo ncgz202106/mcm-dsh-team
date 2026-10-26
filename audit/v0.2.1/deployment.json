@@ -1,0 +1,69 @@
+{
+  "version": "0.2.1",
+  "status": "installed_verified",
+  "verified_at": "2026-10-26T12:09:51.885347+00:00",
+  "method": "Official DSH CLI update after the desktop app was closed; conditional Skill overlays applied separately with byte-level backup receipts.",
+  "plugin": {
+    "id": "dsh-mcm-team",
+    "installed_version": "0.2.1",
+    "matched_files": 30,
+    "role_presets": 12
+  },
+  "skill_roots": [
+    {
+      "root_alias": "dsh",
+      "overlay_version": "0.2.1",
+      "skills": [
+        "nature-figure",
+        "nature-writing",
+        "nature-polishing",
+        "nature-reviewer",
+        "nature-statistics"
+      ],
+      "changed_files": 10,
+      "status": "applied_verified"
+    },
+    {
+      "root_alias": "codex",
+      "overlay_version": "0.2.1",
+      "skills": [
+        "nature-figure",
+        "nature-writing",
+        "nature-polishing",
+        "nature-reviewer",
+        "nature-statistics"
+      ],
+      "changed_files": 10,
+      "status": "applied_verified"
+    }
+  ],
+  "unrelated_plugin_packages_preserved": 44,
+  "independent_checks": 42,
+  "independent_report": {
+    "path": "installed-independent.json",
+    "sha256": "8678821d3ee887b1286e29dea3c24aa8554e8cd3aa8eeeaa5b9ab15aca9f6ff9",
+    "raw_local_sha256": "c4a3d78d3e2e3b85242e382dd265702346363b425962c55d6b2c360b3d7a4e23"
+  },
+  "runtime_reports": {
+    "guard-native-runtime.json": {
+      "path": "guard-native-runtime.json",
+      "sha256": "0b6eef5ba37fdd760b578e8a789520a9453944c63c747742a57785d0af410447",
+      "raw_local_sha256": "0ed6cd21ac526c465e0964aab64feaf230518de95d3dac9055bfa3802ef2ff9d"
+    },
+    "native-runtime-smoke.json": {
+      "path": "native-runtime-smoke.json",
+      "sha256": "1ec64bfb1f7639f0c37aa3d8e6584ea45d7f4a024f0ff2af4863c086c5ba2135",
+      "raw_local_sha256": "363385d97a480d8819a41a8bb98c2ac433b4d13f8e0faff10440cd3eda22efff"
+    }
+  },
+  "backups_available_locally": true,
+  "backups_published": false,
+  "activation": "New sessions on the next desktop launch; no migration or resumed original rehearsal.",
+  "original_rehearsal_resumed": false,
+  "human_gates_modified": false,
+  "limits": [
+    "Native runtime tests used isolated Hosts with deterministic model outputs; not an autonomous competition solution.",
+    "The independent check rehashed installation snapshots and frozen runtime reports, without observing or rerunning their processes.",
+    "The figure review covers a synthetic standalone comparison, not a complete current contest paper."
+  ]
+}

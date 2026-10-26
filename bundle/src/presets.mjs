@@ -89,7 +89,7 @@ export function emitYaml(value, indent = 0) {
     if (v && typeof v === 'object' && !('__rawYaml' in v) && (Array.isArray(v) ? v.length > 0 : Object.keys(v).length > 0)) {
       return `${pad}${key}:\n${emitYaml(v, indent + 2)}`;
     }
-    if (typeof v === 'string' && v.includes('\n')) return `${pad}${key}: |-\n${v.split('\n').map((line) => `${' '.repeat(indent + 2)}${line}`).join('\n')}`;
+    if (typeof v === 'string' && v.includes('\n')) return `${pad}${key}: |-\n${v.split('\n').map((line) => line.trim() ? `${' '.repeat(indent + 2)}${line}` : '').join('\n')}`;
     return `${pad}${key}: ${scalar(v)}`;
   }).join('\n');
 }

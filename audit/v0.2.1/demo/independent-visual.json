@@ -1,0 +1,113 @@
+{
+  "format_version": 1,
+  "bundle_version": "0.2.1",
+  "reviewed_at": "2026-10-26T11:51:07.769752+00:00",
+  "reviewer_agent_id": "/root/mcm_skill_references",
+  "independent_of_plot_author": true,
+  "reviewer_authored_only": "MCM reference prose; did not author the plot generator, scientific plot, source style, or installer.",
+  "status": "passed",
+  "human_confirmation": false,
+  "synthetic": true,
+  "scope": "Fresh review of release-directory PNG and independently rendered current PDF. No previous visual report is used as current evidence.",
+  "files": [
+    {
+      "path": "evidence-panels.pdf",
+      "sha256": "a7d3e75eab28f8724c3ee0186f7b5ace97520b26b8c82a5fca163bdea38e764e",
+      "actually_viewed": false
+    },
+    {
+      "path": "evidence-panels.png",
+      "sha256": "8831a4bf2b741ca4080b8dde1dfbc2764e8cd64bc6e57864bfe556eebda3003d",
+      "actually_viewed": true
+    },
+    {
+      "path": "evidence-panels.svg",
+      "sha256": "2e06720e0a24351c1a8ff186482928b4774a2409a2b03baa2fe4fe0c39813de6",
+      "actually_viewed": false
+    },
+    {
+      "path": "demo.json",
+      "sha256": "24fa85c4c49bc23ff0b7ed588e47d03adcbbeec72c1a396e6a031d10984733b8",
+      "actually_viewed": false
+    },
+    {
+      "path": "independent-pdf-page.png",
+      "sha256": "29591f7b8e3241608e8bdbbac1e2c911efcdfa28cd169be3f61fc239b3461213",
+      "actually_viewed": true
+    }
+  ],
+  "current_style_sources": [
+    {
+      "path": "bundle/src/figure-style.json",
+      "sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+      "matches_generated_manifest": true
+    },
+    {
+      "path": "project-template/config/figure-style.json",
+      "sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+      "matches_generated_manifest": true
+    }
+  ],
+  "physical_size_mm": [
+    165.1,
+    177.8
+  ],
+  "independent_pdf_text_observation": {
+    "text_spans": 40,
+    "minimum_span_font_pt": 12.0,
+    "font_sizes_pt": [
+      12.0,
+      13.0,
+      14.0
+    ]
+  },
+  "checks": [
+    {
+      "name": "text_legibility_at_contracted_size",
+      "passed": true,
+      "observation": "The current PDF independently measures 12/13/14 pt text; panel headings, legends, units and tick labels are legible in the newly viewed render."
+    },
+    {
+      "name": "no_visible_clipping_or_accidental_overlap",
+      "passed": true,
+      "observation": "All panel titles, labels, ticks and legends fit the canvas. Legends lie in clear regions; the two panels have adequate separation."
+    },
+    {
+      "name": "palette_and_redundant_encoding",
+      "passed": true,
+      "observation": "Gray solid analytical reference, orange dashed Euler and blue dotted RK4 stay consistent across panels and do not rely on color alone."
+    },
+    {
+      "name": "complementary_panel_roles",
+      "passed": true,
+      "observation": "The upper panel shows shared-input trajectories, while the lower panel makes their absolute errors visible against the analytical reference."
+    },
+    {
+      "name": "comparable_geometry_and_explicit_scales",
+      "passed": true,
+      "observation": "Time ranges and horizontal plot extents match. Remaining fraction and absolute error have separately labeled vertical scales."
+    },
+    {
+      "name": "bounded_scientific_presentation",
+      "passed": true,
+      "observation": "Synthetic is visible in the figure. The current caption explicitly distinguishes deterministic solver errors from confidence intervals."
+    }
+  ],
+  "nonblocking_observations": [
+    "At the common absolute-error scale RK4 is near the baseline; use an inset or a small-magnitude annotation only if exact error reading becomes part of the claim.",
+    "The analytical and RK4 upper trajectories nearly overlap intentionally; the lower panel supplies the missing discriminating evidence."
+  ],
+  "limitations": [
+    "This is a standalone figure review at 165.1 mm width, not acceptance of later manuscript insertion scaling or surrounding page layout.",
+    "No human approval, contest scientific result, independent solver reproduction, native DSH behavior or OS isolation is certified.",
+    "I authored the supplementary MCM prose but did not independently accept that prose or certify its behavioral routing through this visual review."
+  ],
+  "installer_static_followup": {
+    "source_sha256": "137d76cdd171e5611e79257b3ac745bf5d8609d876be051ce09bced4b638f554",
+    "observation": "The restore success path now compares every written target with its expected pre-overlay bytes or absence before marking restored_verified; the successful path also clears stale recovery errors.",
+    "replayed_fault_probes": false,
+    "scope": "Read-only follow-up of the added verification loop; earlier probes remain historical."
+  },
+  "local_source_sha256": "70990f5f0fd47f20269790bb43f972a560f1a00b3a9495ce3fb2ee414164c61c",
+  "portable_derivation": "Personal paths and isolated-session identifiers anonymized. Original local record is unchanged; this derivation does not create a review or run."
+}

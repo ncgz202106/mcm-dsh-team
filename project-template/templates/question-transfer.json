@@ -1,0 +1,21 @@
+{
+  "format_version": 1,
+  "_template_only": true,
+  "from_question": null,
+  "to_question": null,
+  "artifact_ref": null,
+  "fields": [
+    {
+      "field": null,
+      "meaning": null,
+      "unit": null,
+      "representation": null,
+      "time_window": null
+    }
+  ],
+  "uncertainty_definition": null,
+  "propagation_or_reduction": null,
+  "consumer_conditions": [],
+  "invalidated_by": [],
+  "note": "Explain semantics as well as path/version/hash. representation may be point/state/distribution/constraint, as applicable."
+}

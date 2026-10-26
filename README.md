@@ -1,3 +1,23 @@
+# MCM A/B/C · DSH PTC 多 Agent v0.2.1
+
+当前维护版本为 **0.2.1**。历史工作目录名保留不变，实际版本以 bundle/package.json 为准。
+
+本次新增五个专项Skill的MCM条件分支、三类论证内容卡、多面板证据设计与叙事审阅；图表默认色号改为单一配置源。12角色、默认两名编程手、论文→写作/图表/排版、PTC和原生派发门禁保持。
+
+- [v0.2.1更新、Skill安装与恢复说明](docs/v0.2.1更新说明.md)
+- [本版软件与源码检查](audit/v0.2.1/verification.json)
+- [实际安装与独立复核记录](audit/v0.2.1/deployment.json)（已安装0.2.1；42项安装与证据绑定检查通过）
+- [角色与Skill源码](skill-overlays/manifest.json)
+- [图表组合演示](audit/v0.2.1/demo/evidence-panels.png)（合成数据）
+- 新会话使用“美赛 · 队长”和[启动词](启动词.txt)，填唯一项目根；原暂停演练不因升级恢复。
+
+重新安装或维护时，先运行 `python tools/verify-v021.py --run-tests`。DSH插件通过官方更新器安装，需正常退出桌面版，不能热覆盖。实际安装与Skill部署状态以本版deployment.json为准，源码或单元测试通过不自证安装成功。
+
+公开仓库的后续改动按[同步约定](docs/GitHub同步.md)检查、提交和推送。新报告去除本机路径；旧版公开历史未在本次改写或追认脱敏。
+
+<details>
+<summary>v0.2.0 历史交付与使用说明（以下旧报告不证明当前源码通过）</summary>
+
 # MCM A/B/C · DSH PTC 多 Agent v0.2.0
 
 中文协作、英文论文。DSH队长是唯一日常内部调度者；Codex在模型路线、核心结果、论文整合三个检查点提供技术审阅。PTC指Programmatic Tool Calling。本版用于新启动会话，原已暂停演练不恢复、不迁移、不覆盖。
@@ -43,7 +63,7 @@ pwsh -File tools/update-dsh.ps1 -DshCli 'E:\dsh desktop\resources\runtime\cli\bi
 
 启动DSH后核对版本0.2.0、12个“美赛 · ”角色和有效配置；建立隔离新会话，验证实际角色、派发、技能执行和成果。命令成功不等于运行时验收通过；本README不自证已安装成功。
 
-本机已实际安装含原生门禁的0.2.0，目录为C:\Users\zy\.dsh\plugins\dsh-mcm-team。最新收据在工作区work/v020-install-backups/20261026-121456-625/installation.json；[非作者安装核验](audit/installed-verification.json)的14项检查确认29份安装文件、配置/依赖保留、12角色及新工具绑定、当前安装字节的主9项与门禁10项证据。最终收据状态及证据入口见[本机安装摘要](audit/installation-summary.json)。用户profile备份不混入公开包。
+v0.2.0历史安装目录为当前用户的 `.dsh/plugins/dsh-mcm-team`。当时的收据保留在仓库外本机备份中；[非作者安装核验](audit/installed-verification.json)的14项检查确认当时29份安装文件、配置/依赖保留、12角色及新工具绑定，以及当时安装字节的主9项与门禁10项证据。旧收据状态及证据入口见[历史安装摘要](audit/installation-summary.json)。用户profile备份不混入公开包。
 
 最新备份回到本次门禁修订前的0.2.0；20261025-221327-045仍保存原0.1.0。两轮之间profile的cordis.patch.yml已有变化，第二段回到0.1.0的预检可能拒绝，须核对并保留用户后续配置，不能承诺直接连续执行两次恢复。详见[更新与回滚](docs/更新与回滚.md)。
 
@@ -97,7 +117,7 @@ setup默认准备Python 3.12环境；已有兼容、经检查的环境可复用�
 独立新项目可运行四图合成演示：
 
 ```powershell
-python scripts/figure_demo.py --root . --skill-root 'C:\Users\zy\.dsh\skills\nature-figure'
+python scripts/figure_demo.py --root . --skill-root "$env:USERPROFILE\.dsh\skills\nature-figure"
 python scripts/paper.py --root . build --demo
 ```
 
@@ -121,3 +141,5 @@ python scripts/mcm.py --root . restore last-good
 AI归档保留可见输入输出、实际模型、PTC及附件清单，排除内部推理和凭据；核对warnings与覆盖，失败可用原生/export补充。实际核验后才登记人工确认，正式披露按适用政策生成。内部评分只排序改进项，不保证O奖。
 
 流程与故障索引见[协作协议](docs/协作协议.md)及diagrams三张架构图。
+
+</details>

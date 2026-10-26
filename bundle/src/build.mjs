@@ -8,6 +8,20 @@ import { SKILL_ROUTING, OPTIONAL_ROLES, renderSkillRouting } from './skill-routi
 export async function buildBundle(root, { check = false } = {}) {
   const prompts = {};
   const sources = {};
+  const styleBytes = await readFile(join(root, 'src', 'figure-style.json'));
+  const style = JSON.parse(styleBytes.toString('utf8'));
+  if (!style.palette || !Number.isFinite(style.minimum_final_glyph_pt) || style.minimum_final_glyph_pt < 12)
+    throw new Error('Default figure style must preserve the project final-size font requirement');
+  for (const name of ['blue','teal','green','orange','neutral']) {
+    if (!/^#[a-fA-F0-9]{6}$/.test(style.palette[name] ?? '')) throw new Error(`Invalid palette color ${name}`);
+  }
+  const styleSection = [
+    '## 构建附带的默认图表样式',
+    '实际绘图首先读取本项目config/figure-style.json；以下是新项目默认值，不替代项目已确认的样式。',
+    `字体：${style.font_family}；最终核心文字至少${style.minimum_final_glyph_pt}pt；默认全宽${style.final_width_mm}mm。`,
+    `默认语义色：${Object.entries(style.palette).map(([name,value])=>`${name}=${value}`).join('，')}。`,
+    '默认源为bundle/src/figure-style.json；不同实例不另写近似色号，项目调整以同一配置读回。'
+  ].join('\n');
   const shared = (await readFile(join(root, 'prompts', 'shared.md'), 'utf8')).replace(/\r\n/g, '\n').trim();
   if (!shared) throw new Error('prompts/shared.md is empty');
   sources['prompts/shared.md'] = createHash('sha256').update(shared).digest('hex');
@@ -16,6 +30,7 @@ export async function buildBundle(root, { check = false } = {}) {
     const text = (await readFile(join(root, relativePath), 'utf8')).replace(/\r\n/g, '\n').trim();
     if (!text) throw new Error(`${relativePath} is empty`);
     prompts[role.id] = `${shared}\n\n${text}\n\n${renderSkillRouting(role.id)}`;
+    if (['mcm-figure','mcm-paper-lead','mcm-typesetter'].includes(role.id)) prompts[role.id] += `\n\n${styleSection}`;
     sources[relativePath] = createHash('sha256').update(text).digest('hex');
   }
   const files = {
@@ -30,6 +45,7 @@ export async function buildBundle(root, { check = false } = {}) {
       skill_routing_sha256: createHash('sha256').update(JSON.stringify(SKILL_ROUTING)).digest('hex'),
       routing_source_sha256: createHash('sha256').update(await readFile(new URL('./skill-routing.mjs', import.meta.url))).digest('hex'),
       runtime_guard_source_sha256: Object.fromEntries(await Promise.all(['runtime-guard-core.mjs','runtime-guard-plugin.mjs'].map(async name=>[`src/${name}`,createHash('sha256').update(await readFile(new URL(`./${name}`,import.meta.url))).digest('hex')]))),
+      figure_style_source_sha256: createHash('sha256').update(styleBytes).digest('hex'),
       prompt_sha256: sources
     }, null, 2)}\n`
   };
@@ -46,5 +62,12 @@ export async function buildBundle(root, { check = false } = {}) {
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   const root = fileURLToPath(new URL('../', import.meta.url));
   const result = await buildBundle(root, { check: process.argv.includes('--check') });
+  if (process.argv.includes('--sync-project-style')) {
+    const target = resolve(root, '../project-template/config/figure-style.json');
+    const desired = await readFile(join(root, 'src/figure-style.json'), 'utf8');
+    if (process.argv.includes('--check')) {
+      if (await readFile(target,'utf8') !== desired) throw new Error('Project default style differs from the bundle source');
+    } else await writeFile(target, desired, 'utf8');
+  }
   console.log(`${process.argv.includes('--check') ? 'Verified' : 'Built'} ${result.role_count} role presets.`);
 }

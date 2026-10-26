@@ -12,23 +12,62 @@
   "inherited_inputs": [],
   "core_claims": [],
   "assumptions": [
-    {"assumption_id": null, "statement": null, "reason": null, "evidence_refs": [], "validity_boundary": null, "sensitivity_required": true}
+    {
+      "assumption_id": null,
+      "statement": null,
+      "reason": null,
+      "evidence_refs": [],
+      "validity_boundary": null,
+      "sensitivity_required": true,
+      "affected_outputs": [],
+      "failure_consequence": null,
+      "check_ref": null
+    }
   ],
   "variables": [
-    {"symbol": null, "meaning": null, "role": null, "unit": null, "domain": null, "shape": null}
+    {
+      "symbol": null,
+      "meaning": null,
+      "role": null,
+      "unit": null,
+      "domain": null,
+      "shape": null
+    }
   ],
   "parameters": [
-    {"parameter_id": null, "symbol": null, "value": null, "unit": null, "range": null, "evidence_refs": [], "evidence_type": "unverified", "adoption_reason": null}
+    {
+      "parameter_id": null,
+      "symbol": null,
+      "value": null,
+      "unit": null,
+      "range": null,
+      "evidence_refs": [],
+      "evidence_type": "unverified",
+      "adoption_reason": null
+    }
   ],
   "formulas": [
-    {"formula_id": null, "expression_latex": null, "meaning": null, "conditions": [], "units_check": null}
+    {
+      "formula_id": null,
+      "expression_latex": null,
+      "meaning": null,
+      "conditions": [],
+      "units_check": null
+    }
   ],
   "objectives": [],
   "constraints": [],
   "initial_conditions": [],
   "boundary_conditions": [],
   "formula_code_map": [
-    {"formula_id": null, "module_path": null, "function": null, "input_schema": null, "output_schema": null, "test_ids": []}
+    {
+      "formula_id": null,
+      "module_path": null,
+      "function": null,
+      "input_schema": null,
+      "output_schema": null,
+      "test_ids": []
+    }
   ],
   "algorithm": {
     "method": null,
@@ -41,18 +80,44 @@
     "expected_compute_budget": null
   },
   "result_schema": [
-    {"field": null, "meaning": null, "dtype": null, "unit": null, "valid_range": null}
+    {
+      "field": null,
+      "meaning": null,
+      "dtype": null,
+      "unit": null,
+      "valid_range": null
+    }
   ],
   "question_outputs": [
-    {"question_id": null, "artifact_kind": null, "fields": [], "consumed_by_questions": []}
+    {
+      "question_id": null,
+      "artifact_kind": null,
+      "fields": [],
+      "consumed_by_questions": []
+    }
   ],
-  "baseline": {"description": null, "comparison_metric": null, "shared_inputs": []},
+  "baseline": {
+    "description": null,
+    "comparison_metric": null,
+    "shared_inputs": []
+  },
   "validation_plan": [
-    {"test_id": null, "claim_id": null, "test_type": null, "input_case": null, "expected_behavior": null, "metric": null, "acceptance_criterion": null, "independent_check": null}
+    {
+      "test_id": null,
+      "claim_id": null,
+      "test_type": null,
+      "input_case": null,
+      "expected_behavior": null,
+      "metric": null,
+      "acceptance_criterion": null,
+      "independent_check": null
+    }
   ],
   "figure_plan": [],
   "known_limitations": [],
   "change_impact": [],
   "human_gate": "H1_MODEL",
-  "synthetic": false
+  "synthetic": false,
+  "argument_design_ref": null,
+  "question_transfer_refs": []
 }
