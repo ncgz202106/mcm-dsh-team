@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "bundle_version": "0.2.0",
+  "target_runtime": "0.2.1-rc.2",
+  "ptc": "Programmatic Tool Calling",
+  "role_count": 12,
+  "optional_roles": {
+    "mcm-code-lead": {
+      "enabled_by_default": false,
+      "requires_explicit_enable": true,
+      "allowed_parent": "mcm-captain",
+      "allowed_children": [
+        "mcm-programmer"
+      ],
+      "reason": "Only enable for real parallel implementation and integration work after capacity and host capabilities are checked."
+    }
+  },
+  "base": "Installed dsh-web-app/presets/ptc.patch.yml, read from E:/dsh desktop/resources/app.asar on 2026-10-24",
+  "omissions": [
+    "schedule and goal automation",
+    "fork delegation",
+    "workflow and Ralph",
+    "plugin management"
+  ],
+  "modifications": [
+    "12 role personas retaining the original 11 IDs",
+    "optional code lead off by default at task policy level",
+    "native spawn preset allowlists and readback preflight",
+    "explicit maxDepth=2",
+    ".mcm-project root marker",
+    "captain-only audit tool",
+    "task-specific skill routing without invented SDK permission fields",
+    "lightweight context packs, dynamic capacity, visual evidence and user paper framework",
+    "skill-filesystem watch=false; external skill changes require verified session refresh, not assumed hot reload"
+  ],
+  "assurance": "Role/tool declarations are not an OS sandbox; inherited or global tools require runtime inspection. Optional role activation and skill routing are task policies, not Host-enforced permissions.",
+  "skill_routing_sha256": "f9c4b726c1be173e55b634d1683eb006af59f9bdcf87aa7cbd92b7391eab601d",
+  "routing_source_sha256": "3c0185beb8f2b6cd43f5692aa062062a8d79d1cd5217079fcaf4dcddbe538c61",
+  "runtime_guard_source_sha256": {
+    "src/runtime-guard-core.mjs": "4dda705af1bc15cb4bc1848a35e25428569589d8e3faa29d0ab0195ef035443b",
+    "src/runtime-guard-plugin.mjs": "86df82b9a0390d76f421ad3bb01838948bccba500c6845632c5bb273f33534e5"
+  },
+  "prompt_sha256": {
+    "prompts/shared.md": "62a04dd78324dd61a66cd784114399adbf9d390d31d99602697170db592e81c2",
+    "prompts/mcm-captain.md": "be0abcbaa347a743e0b4fb9d80e0c733f0e3a41acd65d886bda6c5a0852a5a4e",
+    "prompts/mcm-model-lead.md": "13bc6c339a6999272a29e42b02359bc2849ba4ee3882d73e73550e534271675c",
+    "prompts/mcm-modeler.md": "b415575b8ca7aac9e9ce8078b010605439679f4299091dd1815d073ad1d49ad3",
+    "prompts/mcm-evidence.md": "1c35df16f89af6aab452c14686693f40385655dbca5765d3b90f6fbdfed85c4b",
+    "prompts/mcm-programmer.md": "e685fd9a3fe0010150b328afe26ef1bad4cf9ddf7bdfbb305b47a2aec9c27cf3",
+    "prompts/mcm-code-lead.md": "f6be118dde9cfb264dc3700313c9017bff3684a796c95c800ed2a02b84dcebb1",
+    "prompts/mcm-verifier.md": "1d7d5d1489c490fae2c2f1093fadfa520f29d914cb984fbd4357067be42a10f8",
+    "prompts/mcm-paper-lead.md": "9dc2ec0daf8766c7aacbf09f77b41c5929e1b4ed82eec51c858d0a7eda416457",
+    "prompts/mcm-writer.md": "593640b0d4aba5f98227df576b32b405f8cf1017e6cc67d92a690c35df0c6a94",
+    "prompts/mcm-figure.md": "c53a15fc50d1ebaefc0a796c71f307d424733cd5c7d06aaea5e2670c5742b85b",
+    "prompts/mcm-typesetter.md": "6b1ee19976c54a23043016c14ba6298c4b9d41f4f4fcf4df7f19be068ce65521",
+    "prompts/mcm-reviewer.md": "a4edabc5176ccc47dd4aed34c18363513f63735c52e0b163e1139a61dee07f8c"
+  }
+}

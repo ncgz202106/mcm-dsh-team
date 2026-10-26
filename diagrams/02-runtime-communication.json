@@ -1,0 +1,278 @@
+{
+  "title": "02-runtime-communication",
+  "width": 1920,
+  "height": 1280,
+  "nodes": [
+    {
+      "id": "worker",
+      "x": 60,
+      "y": 220,
+      "width": 360,
+      "height": 130,
+      "title": "建模手",
+      "lines": [
+        "子 Agent → 直接父级"
+      ]
+    },
+    {
+      "id": "lead",
+      "x": 540,
+      "y": 220,
+      "width": 360,
+      "height": 130,
+      "title": "建模负责人",
+      "lines": [
+        "父级汇总问题"
+      ]
+    },
+    {
+      "id": "captain",
+      "x": 1020,
+      "y": 220,
+      "width": 360,
+      "height": 130,
+      "title": "队长 / 共同父级",
+      "lines": [
+        "跨分支路由"
+      ]
+    },
+    {
+      "id": "programmer",
+      "x": 1500,
+      "y": 220,
+      "width": 360,
+      "height": 130,
+      "title": "编程手",
+      "lines": [
+        "读取指定版本并响应"
+      ]
+    },
+    {
+      "id": "routingrule",
+      "x": 60,
+      "y": 400,
+      "width": 1800,
+      "height": 105,
+      "title": "任务交接与检查点",
+      "lines": [
+        "原生子树使用父子消息；Codex 交编号工作包给队长。收到、读取、执行、验收分别留证。"
+      ]
+    },
+    {
+      "id": "source",
+      "x": 60,
+      "y": 625,
+      "width": 320,
+      "height": 140,
+      "title": "来源与数据",
+      "lines": [
+        "出处、单位、清洗"
+      ]
+    },
+    {
+      "id": "contract",
+      "x": 430,
+      "y": 625,
+      "width": 320,
+      "height": 140,
+      "title": "模型契约",
+      "lines": [
+        "假设、公式、接口"
+      ]
+    },
+    {
+      "id": "run",
+      "x": 800,
+      "y": 625,
+      "width": 320,
+      "height": 140,
+      "title": "运行与结果",
+      "lines": [
+        "配置、种子、摘要"
+      ]
+    },
+    {
+      "id": "figure",
+      "x": 1170,
+      "y": 625,
+      "width": 320,
+      "height": 140,
+      "title": "正式图表",
+      "lines": [
+        "数据核对、图注"
+      ]
+    },
+    {
+      "id": "manuscript",
+      "x": 1540,
+      "y": 625,
+      "width": 320,
+      "height": 140,
+      "title": "英文论文",
+      "lines": [
+        "核心数字统一引用"
+      ]
+    },
+    {
+      "id": "invalidate",
+      "x": 60,
+      "y": 820,
+      "width": 1800,
+      "height": 105,
+      "title": "上游变化 → 递归失效 → 重跑、复核、重新批准",
+      "lines": [
+        "数据或公式变化后，旧结果、图表、摘要数字不能继续作为最终证据；主文件只由论文负责人整合。"
+      ]
+    },
+    {
+      "id": "budget",
+      "x": 60,
+      "y": 980,
+      "width": 560,
+      "height": 160,
+      "title": "容量与原生派发门禁",
+      "lines": [
+        "新鲜容量与任务证据 → 一次许可",
+        "原生 spawn 受检；暂停或未知即拒绝"
+      ]
+    },
+    {
+      "id": "archive",
+      "x": 680,
+      "y": 980,
+      "width": 560,
+      "height": 160,
+      "title": "AI 可见证据归档",
+      "lines": [
+        "根会话 + 全部本地子会话",
+        "模型、可见输入输出、用途与核验"
+      ]
+    },
+    {
+      "id": "check",
+      "x": 1300,
+      "y": 980,
+      "width": 560,
+      "height": 160,
+      "title": "固定版本审阅",
+      "lines": [
+        "作者修复 → 原审阅者复验",
+        "缺失记录和未核验内容显式保留"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "worker-lead",
+      "source": "worker",
+      "target": "lead",
+      "points": [
+        [
+          420,
+          285
+        ],
+        [
+          540,
+          285
+        ]
+      ],
+      "color": "#2563eb"
+    },
+    {
+      "id": "lead-captain",
+      "source": "lead",
+      "target": "captain",
+      "points": [
+        [
+          900,
+          285
+        ],
+        [
+          1020,
+          285
+        ]
+      ],
+      "color": "#2563eb"
+    },
+    {
+      "id": "captain-programmer",
+      "source": "captain",
+      "target": "programmer",
+      "points": [
+        [
+          1380,
+          285
+        ],
+        [
+          1500,
+          285
+        ]
+      ],
+      "color": "#2563eb"
+    },
+    {
+      "id": "source-contract",
+      "source": "source",
+      "target": "contract",
+      "points": [
+        [
+          380,
+          695
+        ],
+        [
+          430,
+          695
+        ]
+      ],
+      "color": "#0f766e"
+    },
+    {
+      "id": "contract-run",
+      "source": "contract",
+      "target": "run",
+      "points": [
+        [
+          750,
+          695
+        ],
+        [
+          800,
+          695
+        ]
+      ],
+      "color": "#0f766e"
+    },
+    {
+      "id": "run-figure",
+      "source": "run",
+      "target": "figure",
+      "points": [
+        [
+          1120,
+          695
+        ],
+        [
+          1170,
+          695
+        ]
+      ],
+      "color": "#0f766e"
+    },
+    {
+      "id": "figure-manuscript",
+      "source": "figure",
+      "target": "manuscript",
+      "points": [
+        [
+          1490,
+          695
+        ],
+        [
+          1540,
+          695
+        ]
+      ],
+      "color": "#0f766e"
+    }
+  ]
+}

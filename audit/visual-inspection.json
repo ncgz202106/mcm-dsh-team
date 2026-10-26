@@ -1,0 +1,259 @@
+{
+  "format_version": 1,
+  "bundle_version": "0.2.0",
+  "checked_at": "2026-10-26T04:17:33.445333+00:00",
+  "reviewer": "/root (unchanged paper/figures reused); /root/live_evidence_finalize (current architecture)",
+  "human_confirmation": false,
+  "passed": true,
+  "images": [
+    {
+      "path": "diagrams/01-role-architecture.png",
+      "sha256": "3a4fa76a28bdc77d5f08156255c0426f59339a2a701f3c8c15345f2d07117ee8",
+      "size_px": [
+        1920,
+        1880
+      ],
+      "checked": true,
+      "checked_by": "/root/live_evidence_finalize",
+      "checks": {
+        "text_complete": true,
+        "readable_at_intended_screen_size": true,
+        "no_overlap": true,
+        "no_clipping": true,
+        "arrow_direction_and_endpoints_clear": true,
+        "consistent_hierarchy_palette_and_spacing": true
+      },
+      "observations": "已看完整1920×1880渲染：12类角色与层级清楚，队长左列、建模/编程/论文分支文字完整；连线/箭头与框边分离，未见文字重叠或裁切。页脚日期2026-10-26完整。",
+      "author_agent_ids": [
+        "/root"
+      ]
+    },
+    {
+      "path": "diagrams/02-runtime-communication.png",
+      "sha256": "f42d58d8d3774f37aa685e666bf6a84c89d250774f68a9effd64c55cf5a12c00",
+      "size_px": [
+        1920,
+        1280
+      ],
+      "checked": true,
+      "checked_by": "/root/live_evidence_finalize",
+      "checks": {
+        "text_complete": true,
+        "readable_at_intended_screen_size": true,
+        "no_overlap": true,
+        "no_clipping": true,
+        "arrow_direction_and_endpoints_clear": true,
+        "consistent_hierarchy_palette_and_spacing": true
+      },
+      "observations": "已看完整1920×1280渲染：消息链和成果依赖链箭头清楚；下排容量与原生派发门禁卡的标题、一次许可说明及“原生spawn受检；暂停或未知即拒绝”均完整留在卡内，没有重叠或裁切。页脚日期2026-10-26完整。",
+      "author_agent_ids": [
+        "/root"
+      ]
+    },
+    {
+      "path": "diagrams/03-workflow-review.png",
+      "sha256": "8cf6c12ec27eba6c8d6e89491e0132e0ccde313bffe4fbabb898691bff37228c",
+      "size_px": [
+        1920,
+        1430
+      ],
+      "checked": true,
+      "checked_by": "/root/live_evidence_finalize",
+      "checks": {
+        "text_complete": true,
+        "readable_at_intended_screen_size": true,
+        "no_overlap": true,
+        "no_clipping": true,
+        "arrow_direction_and_endpoints_clear": true,
+        "consistent_hierarchy_palette_and_spacing": true
+      },
+      "observations": "已看完整1920×1430渲染：五阶段、贯穿流程、整改闭环、冻结时点和恢复说明层级一致；箭头端点明确；全部文字和框线完整，无重叠或裁切。页脚日期2026-10-26完整。",
+      "author_agent_ids": [
+        "/root"
+      ]
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/method.png",
+      "sha256": "2feea3ba2b16d52847c3fabbcfc46067ae6d68164639c8b7ad3d3a02be1211eb",
+      "author_agent_ids": [
+        "/root/paper_reference_patterns",
+        "/root/paper_finalize"
+      ],
+      "checked_by": "/root",
+      "checked": [
+        "实际查看完整PNG",
+        "轴/单位/线型/图例完整",
+        "图例未遮挡数据",
+        "无裁切/明显重叠",
+        "风格一致且文字清晰"
+      ]
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/comparison.png",
+      "sha256": "e01806e539cfaf2afc80f3b58c79e190e820ab1dfeef4b6c09a485edea59a77b",
+      "author_agent_ids": [
+        "/root/paper_reference_patterns",
+        "/root/paper_finalize"
+      ],
+      "checked_by": "/root",
+      "checked": [
+        "实际查看完整PNG",
+        "轴/单位/线型/图例完整",
+        "图例未遮挡数据",
+        "无裁切/明显重叠",
+        "风格一致且文字清晰"
+      ]
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/sensitivity.png",
+      "sha256": "df51336574c570d0660e9352dd8fea48aadc34061a31ebe8b5849eeff8427825",
+      "author_agent_ids": [
+        "/root/paper_reference_patterns",
+        "/root/paper_finalize"
+      ],
+      "checked_by": "/root",
+      "checked": [
+        "实际查看完整PNG",
+        "轴/单位/线型/图例完整",
+        "图例未遮挡数据",
+        "无裁切/明显重叠",
+        "风格一致且文字清晰"
+      ]
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/uncertainty.png",
+      "sha256": "c1b73e5740cd38c8f73acee693fb82defc4a152e62d188011add23d55a41f42b",
+      "author_agent_ids": [
+        "/root/paper_reference_patterns",
+        "/root/paper_finalize"
+      ],
+      "checked_by": "/root",
+      "checked": [
+        "实际查看完整PNG",
+        "轴/单位/线型/图例完整",
+        "图例未遮挡数据",
+        "无裁切/明显重叠",
+        "风格一致且文字清晰"
+      ]
+    },
+    {
+      "path": "rehearsal-v2/build/paper/demo-pages/page-1.png",
+      "sha256": "87d862e5473a84153ffa95c826824045118b1c4e3dd772906fd756a004ae3ca0",
+      "author_agent_ids": [
+        "/root/paper_reference_patterns",
+        "/root/paper_finalize"
+      ],
+      "checked_by": "/root",
+      "checked": [
+        "实际逐页查看最终渲染",
+        "无裁切/重叠/意外空白页",
+        "公式及上下标可见",
+        "页眉/图注可读",
+        "图与相应解释同页（适用页）"
+      ]
+    },
+    {
+      "path": "rehearsal-v2/build/paper/demo-pages/page-2.png",
+      "sha256": "f23688339f094be095bbadac206e3158d081ea53889e5f5311c3cc43a0df9020",
+      "author_agent_ids": [
+        "/root/paper_reference_patterns",
+        "/root/paper_finalize"
+      ],
+      "checked_by": "/root",
+      "checked": [
+        "实际逐页查看最终渲染",
+        "无裁切/重叠/意外空白页",
+        "公式及上下标可见",
+        "页眉/图注可读",
+        "图与相应解释同页（适用页）"
+      ]
+    },
+    {
+      "path": "rehearsal-v2/build/paper/demo-pages/page-3.png",
+      "sha256": "47e142db10bd5aac11d17bf338f061b68a4b76caa4aa54069793570a0a665b42",
+      "author_agent_ids": [
+        "/root/paper_reference_patterns",
+        "/root/paper_finalize"
+      ],
+      "checked_by": "/root",
+      "checked": [
+        "实际逐页查看最终渲染",
+        "无裁切/重叠/意外空白页",
+        "公式及上下标可见",
+        "页眉/图注可读",
+        "图与相应解释同页（适用页）"
+      ]
+    },
+    {
+      "path": "rehearsal-v2/build/paper/demo-pages/page-4.png",
+      "sha256": "59e6f9f441b0ac58286ee39bd3f7ee52c14bbd80565a57f425163357e49ed282",
+      "author_agent_ids": [
+        "/root/paper_reference_patterns",
+        "/root/paper_finalize"
+      ],
+      "checked_by": "/root",
+      "checked": [
+        "实际逐页查看最终渲染",
+        "无裁切/重叠/意外空白页",
+        "公式及上下标可见",
+        "页眉/图注可读",
+        "图与相应解释同页（适用页）"
+      ]
+    },
+    {
+      "path": "rehearsal-v2/build/paper/demo-pages/page-5.png",
+      "sha256": "b8a656c639b61d958f4e0ad41dceff3a382b750c338460d81d2e7b6f3f743a43",
+      "author_agent_ids": [
+        "/root/paper_reference_patterns",
+        "/root/paper_finalize"
+      ],
+      "checked_by": "/root",
+      "checked": [
+        "实际逐页查看最终渲染",
+        "无裁切/重叠/意外空白页",
+        "公式及上下标可见",
+        "页眉/图注可读",
+        "图与相应解释同页（适用页）"
+      ]
+    },
+    {
+      "path": "rehearsal-v2/build/paper/demo-pages/page-6.png",
+      "sha256": "c3fd0070362e43add67a385d90f19ea9dd5e12253f7a798d113e9d81662c65bc",
+      "author_agent_ids": [
+        "/root/paper_reference_patterns",
+        "/root/paper_finalize"
+      ],
+      "checked_by": "/root",
+      "checked": [
+        "实际逐页查看最终渲染",
+        "无裁切/重叠/意外空白页",
+        "公式及上下标可见",
+        "页眉/图注可读",
+        "图与相应解释同页（适用页）"
+      ]
+    },
+    {
+      "path": "rehearsal-v2/build/paper/demo-pages/page-7.png",
+      "sha256": "fbd2bab2829d05b2db1e244b86c6fc643d95820a34dc3cb4abfa842153628021",
+      "author_agent_ids": [
+        "/root/paper_reference_patterns",
+        "/root/paper_finalize"
+      ],
+      "checked_by": "/root",
+      "checked": [
+        "实际逐页查看最终渲染",
+        "无裁切/重叠/意外空白页",
+        "公式及上下标可见",
+        "页眉/图注可读",
+        "图与相应解释同页（适用页）"
+      ]
+    }
+  ],
+  "observations": [
+    "首轮8页版定量图浮至文末；已要求作者整改，最终7页版全部重新逐页查看。",
+    "独立图是清爽的可复用基础样式，复杂赛题仍须专门设计；这里没有用自动评分承诺审美或O奖。",
+    "此记录只批准软件交付演示的视觉状态，不创建参赛H2/H3或独立科学认证。",
+    "Current architecture update independently viewed; previously viewed unchanged seven-page PDF and four figures reused by SHA, no new scientific or human approval.",
+    "Current architecture update independently viewed; previously viewed unchanged seven-page PDF and four figures reused by SHA, no new scientific or human approval."
+  ]
+}

@@ -1,0 +1,384 @@
+{
+  "format_version": 1,
+  "report_id": "GUARD-LIVE-001-independent",
+  "verified_at": "2026-10-26T06:28:18.158574+00:00",
+  "reviewer_agent_id": "/root/live_evidence_finalize",
+  "independent_of_desktop_test_author": true,
+  "status": "passed",
+  "scope": "Real desktop external-model negative gate rehearsal; not a scientific task or autonomous full-team positive rehearsal.",
+  "project": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\dsh-v020-guard-live",
+  "root_session_id": "session-8c4d7878-b4b9-4351-9bba-8e2848bb28ee",
+  "checks": [
+    {
+      "name": "real_captain_role_depth0_from_native_header_selection_and_tool_readback",
+      "passed": true
+    },
+    {
+      "name": "unknown_capacity_preflight_rejection_from_native_nested_tool_result",
+      "passed": true,
+      "call_seq": 53,
+      "result_seq": 54
+    },
+    {
+      "name": "one_unpermitted_native_spawn_rejected_by_actual_tool_pipeline",
+      "passed": true,
+      "call_seq": 61,
+      "result_seq": 62
+    },
+    {
+      "name": "native_header_enumeration_has_zero_children_and_no_retry_or_alternate_delegation",
+      "passed": true,
+      "child_header_count": 0,
+      "delegation_attempts": 1
+    },
+    {
+      "name": "forty_protected_file_digests_and_four_human_gates_unchanged_at_end",
+      "passed": true,
+      "protected_file_count": 40,
+      "template_equal": 39,
+      "preparation_baseline_equal": 1,
+      "pending_gates": 4
+    },
+    {
+      "name": "unknown_capacity_not_inferred_from_configured_limit_or_member_list",
+      "passed": true,
+      "capacity_known": false,
+      "host_allocation_count_known": false,
+      "configured_limit_only": 15
+    },
+    {
+      "name": "native_turn_completed_without_child_task_write_artifacts",
+      "passed": true,
+      "turn_end_seq": 125
+    }
+  ],
+  "native_readback": {
+    "session_id": "session-8c4d7878-b4b9-4351-9bba-8e2848bb28ee",
+    "parent_session_id": null,
+    "delegation_depth": 0,
+    "effective_preset": "mcm-captain",
+    "cwd": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\dsh-v020-guard-live",
+    "observed_at": "2026-10-26T06:23:24.025Z",
+    "live_agent_present": true,
+    "preset_evidence": "agentPresets.composedPreset",
+    "configured_max_active_descendants": 15,
+    "host_allocation_count_known": false,
+    "capacity_known": false,
+    "human_gates_modified": false,
+    "loaded_or_resumed_session": false,
+    "sdk_evidence": {
+      "source": "latest persisted system ToolArgsMap snapshot; not a fresh registry enumeration",
+      "recorded_seq": 9,
+      "required_tools_present": {
+        "mcm_dispatch_preflight": true,
+        "mcm_runtime_readback": true,
+        "subagent": true,
+        "mcm_archive_audit": true
+      }
+    }
+  },
+  "rejection_evidence": {
+    "preflight": {
+      "seq": 54,
+      "time": 1792995812414,
+      "type": "tool/ptc-dispatch",
+      "tool": "mcm_dispatch_preflight",
+      "is_error": true,
+      "rootCallId": "call_00_YdvAJ71mbPTGGhjiWKTa8382",
+      "parentCallId": "call_00_YdvAJ71mbPTGGhjiWKTa8382",
+      "subCallId": "call_00_YdvAJ71mbPTGGhjiWKTa8382:ptc:1",
+      "denial_messages": [
+        "MCM_DISPATCH_DENIED: unknown Host capacity; runtime_snapshot is unset"
+      ]
+    },
+    "native_subagent": {
+      "seq": 62,
+      "time": 1792995815875,
+      "type": "tool/ptc-dispatch",
+      "tool": "subagent",
+      "is_error": true,
+      "rootCallId": "call_00_CSd0gywRKxmdbM8iZkH10528",
+      "parentCallId": "call_00_CSd0gywRKxmdbM8iZkH10528",
+      "subCallId": "call_00_CSd0gywRKxmdbM8iZkH10528:ptc:1",
+      "denial_messages": [
+        "MCM_DISPATCH_DENIED: native subagent requires a current one-use mcm_dispatch_preflight permit"
+      ]
+    },
+    "identical_native_arguments": true
+  },
+  "session_header_inventory": {
+    "root_count": 2,
+    "child_count": 0,
+    "draft_roots": [
+      "session-d04eb550-712e-4b94-bbde-1f39af6bf76b"
+    ],
+    "headers": [
+      {
+        "id": "session-8c4d7878-b4b9-4351-9bba-8e2848bb28ee",
+        "cwd": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\dsh-v020-guard-live",
+        "parentSession": null,
+        "agentPreset": "standard",
+        "delegationDepth": 0,
+        "version": 4
+      },
+      {
+        "id": "session-d04eb550-712e-4b94-bbde-1f39af6bf76b",
+        "cwd": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\dsh-v020-guard-live",
+        "parentSession": null,
+        "agentPreset": "standard",
+        "delegationDepth": 0,
+        "version": 4
+      }
+    ]
+  },
+  "protected_files": [
+    {
+      "path": "scripts/ai_report.py",
+      "sha256": "470f4a87ee29029fbe1a9671a4bee8f2c96a3dc71886f9505a129bcebb47e183",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "scripts/figure_check.py",
+      "sha256": "ab17338b461f68b20289e098bc130563f01ca27337c627543a3a1d4f15ad70e7",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "scripts/figure_demo.py",
+      "sha256": "c38c6e919531b24dfc31b62a71c1265ff049c71230c9bdb34ffa9edafd94d674",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "scripts/mcm.py",
+      "sha256": "bf41be7d68319e274a302631e4017c6eb5ab7a9729cb635b9c61cdb6961ffd4f",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "scripts/paper.py",
+      "sha256": "a1788a66b970c9002ed8c13151b197d7df39e5ae7375642e01717cdc81a563a6",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "scripts/setup.ps1",
+      "sha256": "836e996875b48ab5ebba56cce164c8398d85d3f6914660c9467ed8e8d312b076",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "config/contest-mcm-2027.json",
+      "sha256": "54d05826c9d156a98226ef461be9bfd5308bf6bef160f2ba0ef12ad165737fcf",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "config/figure-style.json",
+      "sha256": "ae483be929dd0a46038a8abf8313d8ab3ff7b773cb14ad4641b6a204c5a167c7",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "config/gates.json",
+      "sha256": "39cf9b04761d28a82c00ae6a2f8b3dd33042865a4b9c47a7a93aaa62be388d79",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "config/runtime.json",
+      "sha256": "11feae383844d4fc9a553c4494e09b7b50384608ed2a5fb0149423f47371d3dc",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "config/skill-routing.json",
+      "sha256": "924b23c187b221b8564c47c17e7670f152f4f6b8b104590a8fedfa8deaac4622",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": ".mcm/artifacts.json",
+      "sha256": "d7d379da31d579402866db62646dc0d90747b761a23006c0bf25874bb5c149f4",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": ".mcm/decisions.json",
+      "sha256": "d7d379da31d579402866db62646dc0d90747b761a23006c0bf25874bb5c149f4",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": ".mcm/issues.json",
+      "sha256": "d7d379da31d579402866db62646dc0d90747b761a23006c0bf25874bb5c149f4",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/demo.tex",
+      "sha256": "a31fcba86c11788b7efc49acd1ef7cf844251a08d9d0a46843bc15d6718a81f3",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/main.tex",
+      "sha256": "0d705cd412d6cbbbfdb6dad90636a1bb7601c6ed685535d41238af18bcfc137e",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/paper-plan.json",
+      "sha256": "708999a0ba8c1354149c3a2107abf71a0557a347a32b8cb1caf853231cb9d5b5",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/README.md",
+      "sha256": "408ca70a5a471aef2cc30b970a52186e073664afa50af13f1fef3a0c44cd90b9",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/references.bib",
+      "sha256": "011c78c838755974e4227214fa22c13111ca5a2b5e6ae10b86666d098ee381a8",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/team.tex",
+      "sha256": "b2574779dbe758ec5577a37554762e313dc01e592a5f686c079ffb695147c64d",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/ai-use/report.tex",
+      "sha256": "5332632c8ba811d9b854069716c9594e8971309af5b3f682c20cf496be8b5dcf",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/demo/ai-use.tex",
+      "sha256": "0f4fde101a2cf2045c89fc3dde6f9c2814bf9d7c2acdeb731d029176e191e7d6",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/demo/body.tex",
+      "sha256": "30becfe1929974b2922a4dad2f5b7c0e1df1caf4f066b32e86426e7070f68b28",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/demo/figure-body.tex",
+      "sha256": "c5a51ff66fdee81342747f4ff7bf659eedbd6237ba398c717f2b7e75d1a872a3",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/demo/figure-summary.tex",
+      "sha256": "0273bdae6e6a5870cf3341c7fb8a315948e0be772339d38f08ca216960258415",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/demo/summary.tex",
+      "sha256": "b134750ef50f167048ed24ede57e4512b1406d49c65ef51bc274b2f15122cc0b",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/generated/README.md",
+      "sha256": "5c43e1b089a96103126056f36e112bd4ad113bfbf89db3dfefadbdae2a7a2b3b",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/provenance/latex-project.json",
+      "sha256": "46251d83a736ce8add1d6b9b1547a98079197fd0a4919f3fc094956d3f4e8164",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/provenance/MCM-ICM_Summary.tex",
+      "sha256": "ad98e51d59a8dbd4f582984276ba52783201321473e54572d53a999844b1bfa3",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/sections/appendix.tex",
+      "sha256": "b81e5a29bf748f5a42b4f91a04c1b64d88c239e3118aac4147b8d456fcea365b",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/sections/assumptions.tex",
+      "sha256": "67fcaca093b016e1b8fc5074c510f1e9e68eda9974ab28f2b9ff3abfbf027030",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/sections/conclusion.tex",
+      "sha256": "d03ba8c1e232baa1072f80edb19c6e17f3cbc59eb8e92699ff54717e23ae9530",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/sections/evaluation.tex",
+      "sha256": "df2292f68ccfc20c9bbf4cd5af6fcd95709922d9d4d86e958a64e5826f83a3d3",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/sections/introduction.tex",
+      "sha256": "9c1fbfaf764dee31438cad4f8699ae367465584bac9f3812dace8571b2f6a769",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/sections/model.tex",
+      "sha256": "4f2bf4ce872df397184a6ff8cb6e7b8ac035b38836cee18dfbcd2dcef6154d41",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/sections/results.tex",
+      "sha256": "11c4d0cb5590da6f6ee7529ee35e429f40dc3feddd7ed6d862e86639f3875aa0",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/sections/sensitivity.tex",
+      "sha256": "bcb7c8ccab8d8b03d62c56b7dd1449b3cab6ebd5152307aba7a08826416bca12",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/sections/summary.tex",
+      "sha256": "6232b071b46e0c575e4a62036df08a445fc256d5be2a9e5cb1754d2ef3dd3c02",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": "paper/sections/validation.tex",
+      "sha256": "944cb43ce62f899633c30909e99b41efb545d11298aed440fcdc0d01e1fa9f30",
+      "basis": "equal to current clean template"
+    },
+    {
+      "path": ".mcm/tasks.json",
+      "sha256": "cd9b66019d9027219d0af44945601e83bf1568503ed767703f384e9bec0fda24",
+      "basis": "matches the preparation baseline digest supplied by root; expected synthetic queued task retained, planned owner is explicitly not a native Session identity"
+    }
+  ],
+  "human_gate_statuses": [
+    {
+      "gate_id": "H0_TOPIC",
+      "status": "pending"
+    },
+    {
+      "gate_id": "H1_MODEL",
+      "status": "pending"
+    },
+    {
+      "gate_id": "H2_RESULTS",
+      "status": "pending"
+    },
+    {
+      "gate_id": "H3_RELEASE",
+      "status": "pending"
+    }
+  ],
+  "source_reports": [
+    {
+      "path": "audit/guard-live-verification/GUARD-LIVE-001.md",
+      "bytes": 1782,
+      "sha256": "47549ec2123327e0cf7e0d4e2f6cadb201d870ca05e94f1b8e90a5b5457fa405"
+    },
+    {
+      "path": "audit/guard-live-verification/GUARD-LIVE-001-result.json",
+      "bytes": 4215,
+      "sha256": "ea366ce1e210464b0a38df24a0250927fef2e6fb8d48757dd38fb108b0e824dd"
+    },
+    {
+      "path": "audit/guard-live-verification/GUARD-LIVE-001-result.md",
+      "bytes": 7417,
+      "sha256": "f55adaa19a1a4a475ff5b8fb41370ea4a2c195dfb22b9a2d82b31c1a2f10e1a1"
+    }
+  ],
+  "filtered_evidence": {
+    "path": "audit/guard-live-verification/filtered-native-events.json",
+    "sha256": "3d5c6e64bf339894ed3ef9c8f39c6b117a1b2a6de37939b2af48d8d5bd25f3d8"
+  },
+  "human_gates_modified": false,
+  "original_rehearsal_resumed": false,
+  "limitations": [
+    "The zero-child statement covers all native headers in this isolated project and actual native rejection results; unrelated project sessions were not read.",
+    "Final protected bytes match the clean template or root-provided preparation digest; this does not certify that arbitrary external processes never made a transient write.",
+    "Configured max_active_descendants is reported only as configuration, not proof of occupied/reserved slots. No empty Team/list_agents observation is used as Host-capacity evidence.",
+    "Normal tool-pipeline negative behavior was exercised by a real desktop model. This does not establish scientific quality, a full autonomous modeling workflow, OS isolation or arbitrary shell confinement.",
+    "Original E:/meisai state was not opened by this review; non-resumption is the maintained task boundary, not a new whole-machine proof."
+  ]
+}

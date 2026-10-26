@@ -1,0 +1,124 @@
+{
+  "format_version": 1,
+  "checked_at": "2026-10-26T04:18:39.198070+00:00",
+  "python": "3.14.7 (tags/v3.14.7:823f032, Aug  5 2026, 10:51:32) [MSC v.1944 64 bit (AMD64)]",
+  "python_executable": "C:\\Program Files\\Python314\\python.exe",
+  "passed": true,
+  "checks": {
+    "python_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "output": "----------------------------------------------------------------------\nRan 107 tests in 1.601s\n\nOK",
+      "tests": 107
+    },
+    "preset_build": {
+      "passed": true,
+      "exit_code": 0,
+      "output": "Verified 12 role presets."
+    },
+    "bundle_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "output": "✔ nested local tree and a cold restored child are read through public read handles (3.6598ms)\n✔ PTC parent and nested tool calls retain their ids, purpose and source event references (0.4774ms)\n✔ actual DSH 0.2.1 PTC dispatch events enter the archive and nested-use index once (0.4572ms)\n✔ public native ToolDefinition schemas have standard required arrays and reject malformed inputs (0.7911ms)\n✔ reasoning, private replay state and credential values never enter the filtered archive (0.3373ms)\n✔ attachment references are explicit and never falsely reported as archived bytes (0.3289ms)\n✔ failRead produces a partial archive with the affected session identified (0.3796ms)\n✔ failFlush produces a partial archive with the affected session identified (0.2768ms)\n✔ failClose produces a partial archive with the affected session identified (0.3825ms)\n✔ failed lineage exports the known root and does not claim complete tree coverage (0.3802ms)\n✔ cancellation propagates rather than being converted to a successful partial export (0.1548ms)\n✔ visible scientific analysis survives and common credential spellings are filtered (0.1051ms)\n✔ tool adapter honors current selected role, initial root and standing sandbox on every new file (1.5647ms)\n✔ tool adapter rejects another project root, absent marker, non-captain and missing sandbox policy (0.3797ms)\n✔ an archive write failure rejects the tool and never reports a complete saved archive (0.7554ms)\n✔ role graph preserves eleven IDs and adds one optional supervisor without leaf delegation (1.9242ms)\n✔ build embeds source prompt bytes reproducibly and check detects prompt drift (35.6423ms)\n✔ native declaration format and generated YAML retain list structure and safe scalar quoting (1.1669ms)\n✔ capacity is fail-closed for missing, unverified, stale or timezone-free evidence (1.8483ms)\n✔ smaller real capacity retains reserve, and waiting supervisors count (0.2321ms)\n✔ malformed string root flags or nonstring evidence cannot hide occupied slots (0.1549ms)\n✔ registered compatible task and exact original cwd pass without changing registries (18.9162ms)\n✔ actual parent role and real depth gate native preset independently of names (5.7395ms)\n✔ unset snapshot and explicit admit=false never become a capacity probe (10.4478ms)\n✔ unknown tasks, wrong owners, absent acceptance and unsafe write scope fail closed (11.8165ms)\n✔ pause, unapproved dependencies and reclaimed ownership block a task (9.1073ms)\n✔ upstream input bytes and path/version/hash references are independently bound (9.7023ms)\n✔ one exact permission can be consumed once under concurrent attempts, expires, and reserves capacity (0.5166ms)\n✔ same or future-skew evidence cannot repeatedly erase already-started reservations (0.1804ms)\n✔ alternate delegation names are recognized while ordinary communication remains available (0.2143ms)\n✔ monotonic guard denies bypass and atomically consumes only a revalidated exact permit (8.1336ms)\n✔ body-stage asynchronous delay cannot outlive the permit even when capacity evidence lasts longer (8.0469ms)\n✔ JSON-exportable task routes exclude full orchestrators and restricted journal workflows (0.9784ms)\n✔ figure, evidence, writing and review receive distinct relevant task routes (0.1745ms)\n✔ current prompt sources retain pause, small-context, role readback and honest tool boundaries (4.7422ms)\n✔ paper prompts retain the user framework, early evidence figures and final-size typography (0.882ms)\n✔ package version and generated metadata are tied to the routing source (1.3932ms)\nℹ tests 37\nℹ suites 0\nℹ pass 37\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 162.5603",
+      "tests": 37
+    },
+    "v020_role_and_skill_contract": {
+      "passed": true,
+      "errors": []
+    },
+    "native_runtime_record": {
+      "passed": true,
+      "checks": 9,
+      "runtime": "0.2.1-rc.2",
+      "source_drift": [],
+      "executed_at": "2026-10-26T04:16:30.292Z",
+      "replayed_now": false,
+      "missing_source_fingerprints": [],
+      "missing_prompt_fingerprints": [],
+      "all_twelve_registry_roles_covered": true,
+      "prompt_digest_policy": "CRLF normalized to LF; surrounding whitespace trimmed as in build.mjs",
+      "live_desktop_installation_checked": false,
+      "installed_into_live_desktop_by_this_tool": false,
+      "llm_output": "scripted fixture; no external model calls"
+    },
+    "native_dispatch_guard_record": {
+      "passed": true,
+      "errors": [],
+      "checks": 10,
+      "runtime": "0.2.1-rc.2",
+      "executed_at": "2026-10-26T04:15:38.763Z",
+      "replayed_now": false,
+      "scope": "real agent turn → run_code → nested PTC → tool pre-execute/monotonic guard; scripted LLM"
+    },
+    "templates": {
+      "passed": true,
+      "count": 18,
+      "internal_score_total": 100
+    },
+    "clean_template": {
+      "passed": true,
+      "records": {
+        "tasks": 0,
+        "artifacts": 0,
+        "issues": 0,
+        "decisions": 0
+      },
+      "human_gates_pending": true
+    },
+    "installer_script_syntax": {
+      "passed": true,
+      "exit_code": 0,
+      "output": "PowerShell scripts parsed successfully"
+    },
+    "isolated_installer_fault_injection": {
+      "passed": true,
+      "exit_code": 0,
+      "output": "{\n  \"passed\": true,\n  \"checks\": [\n    \"isolated_successful_upgrade_and_hashed_backup\",\n    \"restore_check_only_has_no_mutation\",\n    \"tampered_backup_rejected_before_switch\",\n    \"later_user_configuration_change_preserved\",\n    \"verified_restore_returns_exact_old_fixture_bytes\",\n    \"nested_backup_path_rejected\",\n    \"failed_add_rolls_back_exact_plugin_profile_and_dependency_resolution\",\n    \"dependency_recovery_failure_reports_partial\",\n    \"unrelated_dependency_and_bundle_mutation_rejected_and_restored\",\n    \"running_host_refuses_mutation\"\n  ],\n  \"count\": 10,\n  \"fixture_root\": \"C:\\\\Users\\\\zy\\\\AppData\\\\Local\\\\Temp\\\\mcm-installer-tests-dbb952293271471caaad29bff2432690\",\n  \"official_cli_mocked\": true,\n  \"process_inventory_mocked\": true,\n  \"actual_user_plugin_modified\": false\n}",
+      "tests": 10
+    },
+    "current_delivery_evidence": {
+      "passed": true,
+      "errors": [],
+      "figure_checks": [
+        {
+          "contract": "figures/figure-demo/method.contract.json",
+          "passed": true,
+          "exit_code": 0,
+          "output": "{\n  \"ok\": true,\n  \"errors\": [],\n  \"pdf_checks\": [\n    {\n      \"ok\": true,\n      \"errors\": [],\n      \"minimum_final_font_pt\": 12.0,\n      \"text_runs\": [\n        {\n          \"text\": \"Assumed equation\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"Decay at rate k\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"Numerical solvers\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"Euler and RK4\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"Analytical reference\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"Exponential decay\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"Compare and check\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"Errors and sensitivity\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"Synthetic demonstration\",\n          \"final_size_pt\": 14.0\n        }\n      ],\n      \"visual_status\": \"pending\",\n      \"limitations\": [\n        \"Text-origin checks do not prove complete glyph/line/image containment.\",\n        \"No automated aesthetic or scientific correctness certification.\"\n      ]\n    }\n  ],\n  \"figure_id\": \"SYNTHETIC-method\",\n  \"visual_status\": \"pending\",\n  \"synthetic\": true\n}"
+        },
+        {
+          "contract": "figures/figure-demo/comparison.contract.json",
+          "passed": true,
+          "exit_code": 0,
+          "output": "{\n  \"ok\": true,\n  \"errors\": [],\n  \"pdf_checks\": [\n    {\n      \"ok\": true,\n      \"errors\": [],\n      \"minimum_final_font_pt\": 12.0,\n      \"text_runs\": [\n        {\n          \"text\": \"0\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"1\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"2\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"3\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"4\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"Time (dimensionless)\",\n          \"final_size_pt\": 13.0\n        },\n        {\n          \"text\": \"0.00\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"0.25\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"0.50\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"0.75\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"1.00\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"Remaining amount (fraction)\",\n          \"final_size_pt\": 13.0\n        },\n        {\n          \"text\": \"Synthetic demonstration\",\n          \"final_size_pt\": 14.0\n        },\n        {\n          \"text\": \"Analytical\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"Euler\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"RK4\",\n          \"final_size_pt\": 12.0\n        }\n      ],\n      \"visual_status\": \"pending\",\n      \"limitations\": [\n        \"Text-origin checks do not prove complete glyph/line/image containment.\",\n        \"No automated aesthetic or scientific correctness certification.\"\n      ]\n    }\n  ],\n  \"figure_id\": \"SYNTHETIC-comparison\",\n  \"visual_status\": \"pending\",\n  \"synthetic\": true\n}"
+        },
+        {
+          "contract": "figures/figure-demo/sensitivity.contract.json",
+          "passed": true,
+          "exit_code": 0,
+          "output": "{\n  \"ok\": true,\n  \"errors\": [],\n  \"pdf_checks\": [\n    {\n      \"ok\": true,\n      \"errors\": [],\n      \"minimum_final_font_pt\": 12.0,\n      \"text_runs\": [\n        {\n          \"text\": \"0\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"1\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"2\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"3\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"4\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"Time (dimensionless)\",\n          \"final_size_pt\": 13.0\n        },\n        {\n          \"text\": \"0.00\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"0.25\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"0.50\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"0.75\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"1.00\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"Remaining amount (fraction)\",\n          \"final_size_pt\": 13.0\n        },\n        {\n          \"text\": \"Synthetic demonstration\",\n          \"final_size_pt\": 14.0\n        },\n        {\n          \"text\": \"Rate 0.7\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"Rate 1.0\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"Rate 1.3\",\n          \"final_size_pt\": 12.0\n        }\n      ],\n      \"visual_status\": \"pending\",\n      \"limitations\": [\n        \"Text-origin checks do not prove complete glyph/line/image containment.\",\n        \"No automated aesthetic or scientific correctness certification.\"\n      ]\n    }\n  ],\n  \"figure_id\": \"SYNTHETIC-sensitivity\",\n  \"visual_status\": \"pending\",\n  \"synthetic\": true\n}"
+        },
+        {
+          "contract": "figures/figure-demo/uncertainty.contract.json",
+          "passed": true,
+          "exit_code": 0,
+          "output": "{\n  \"ok\": true,\n  \"errors\": [],\n  \"pdf_checks\": [\n    {\n      \"ok\": true,\n      \"errors\": [],\n      \"minimum_final_font_pt\": 12.0,\n      \"text_runs\": [\n        {\n          \"text\": \"0\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"1\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"2\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"3\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"4\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"Time (dimensionless)\",\n          \"final_size_pt\": 13.0\n        },\n        {\n          \"text\": \"0.00\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"0.25\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"0.50\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"0.75\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"1.00\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"Remaining amount (fraction)\",\n          \"final_size_pt\": 13.0\n        },\n        {\n          \"text\": \"Synthetic demonstration\",\n          \"final_size_pt\": 14.0\n        },\n        {\n          \"text\": \"Parameter envelope\",\n          \"final_size_pt\": 12.0\n        },\n        {\n          \"text\": \"Rate 1.0\",\n          \"final_size_pt\": 12.0\n        }\n      ],\n      \"visual_status\": \"pending\",\n      \"limitations\": [\n        \"Text-origin checks do not prove complete glyph/line/image containment.\",\n        \"No automated aesthetic or scientific correctness certification.\"\n      ]\n    }\n  ],\n  \"figure_id\": \"SYNTHETIC-uncertainty\",\n  \"visual_status\": \"pending\",\n  \"synthetic\": true\n}"
+        }
+      ],
+      "paper_check": {
+        "passed": true,
+        "exit_code": 0,
+        "output": "{\n  \"mechanical_passed\": true,\n  \"main_report_pages\": 6,\n  \"total_pdf_pages\": 7,\n  \"pdf_bytes\": 80192,\n  \"errors\": [],\n  \"requires_visual_review\": true,\n  \"review_items\": [\n    \"Inspect every rendered page for clipping, overlap and readable figures\",\n    \"Check anonymity in text, acknowledgments, images and PDF metadata\",\n    \"Verify citations against sources and AI disclosure against visible records\"\n  ],\n  \"human_release_approved\": false,\n  \"release_requested\": false,\n  \"release_ready\": false,\n  \"content_status\": \"draft_or_incomplete\",\n  \"content_errors\": [\n    \"Template/demo marker remains: 0000000\",\n    \"Template/demo marker remains: Demonstration only\",\n    \"Template/demo marker remains: Synthetic Workflow Rehearsal\"\n  ]\n}"
+      },
+      "source_files": 43,
+      "artifacts": 47,
+      "visual_outputs_required": 14,
+      "note": "Recorded AI visual review is checked for current-file binding; this tool does not see images or create a human approval."
+    }
+  },
+  "limitations": [
+    "Native record uses the real DSH runtime with a scripted LLM; it does not test scientific quality.",
+    "No package installation was made into the user running desktop profile.",
+    "Human gates remain pending. Example results are synthetic and cannot be submitted as a contest paper."
+  ]
+}

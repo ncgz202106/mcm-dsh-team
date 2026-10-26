@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1430" viewBox="0 0 1920 1430" data-generator="mcm-team-diagrams" data-quality-profile="showcase">
+<title>竞赛工作循环：从选题到可提交论文</title>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif} .muted{fill:#475569}</style>
+<defs><marker id="a0" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#2563eb"/></marker><marker id="a1" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#0f766e"/></marker><marker id="a2" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#7c3aed"/></marker><marker id="a3" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#b45309"/></marker><marker id="a4" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#b91c1c"/></marker></defs>
+<rect width="1920" height="1430" fill="#ffffff" data-graph-role="background"/>
+<text x="60" y="59" font-size="37" fill="#172554" font-weight="700">竞赛工作循环：从选题到可提交论文</text>
+<text x="60" y="103" font-size="22" fill="#475569">检索、验证与写作滚动推进；审阅反馈返回有明确责任人的任务</text>
+<rect id="n-start" data-graph-role="node" data-node-id="start" data-graph-bounds="60 210 380 480" x="60" y="210" width="320" height="270" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<rect x="60" y="225" width="5" height="240" rx="2" fill="#2563eb" data-graph-role="decoration"/>
+<text x="84" y="249" font-size="26" fill="#2563eb" font-weight="700">01  启动与选题</text>
+<text x="84" y="286" font-size="22" fill="#334155">拆解每问与输出</text>
+<text x="84" y="319" font-size="22" fill="#334155">检查数据条件</text>
+<text x="84" y="352" font-size="22" fill="#334155">建立英文论文骨架</text>
+<text x="84" y="385" font-size="22" fill="#334155">H0：确认题目与题意</text>
+<rect id="n-model" data-graph-role="node" data-node-id="model" data-graph-bounds="430 210 750 480" x="430" y="210" width="320" height="270" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<rect x="430" y="225" width="5" height="240" rx="2" fill="#2563eb" data-graph-role="decoration"/>
+<text x="454" y="249" font-size="26" fill="#2563eb" font-weight="700">02  候选与证据</text>
+<text x="454" y="286" font-size="22" fill="#334155">三个建模任务先独立</text>
+<text x="454" y="319" font-size="22" fill="#334155">比较数据、计算与解释性</text>
+<text x="454" y="352" font-size="22" fill="#334155">小实验检验可行性</text>
+<text x="454" y="385" font-size="22" fill="#334155">H1：确认路线与假设</text>
+<path id="e-start-model" data-edge-id="start-model" data-graph-role="edge" data-source="start" data-target="model" d="M 380 345 L 430 345" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)"/>
+<rect id="n-solve" data-graph-role="node" data-node-id="solve" data-graph-bounds="800 210 1120 480" x="800" y="210" width="320" height="270" rx="14" fill="#f0fdfa" stroke="#0f766e" stroke-width="2"/>
+<rect x="800" y="225" width="5" height="240" rx="2" fill="#0f766e" data-graph-role="decoration"/>
+<text x="824" y="249" font-size="26" fill="#0f766e" font-weight="700">03  求解与验证</text>
+<text x="824" y="286" font-size="22" fill="#334155">先跑通完整基线</text>
+<text x="824" y="319" font-size="22" fill="#334155">对照、敏感性与改进</text>
+<text x="824" y="352" font-size="22" fill="#334155">验证者独立复现</text>
+<text x="824" y="385" font-size="22" fill="#334155">保存真实结果与配置</text>
+<path id="e-model-solve" data-edge-id="model-solve" data-graph-role="edge" data-source="model" data-target="solve" d="M 750 345 L 800 345" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)"/>
+<rect id="n-write" data-graph-role="node" data-node-id="write" data-graph-bounds="1170 210 1490 480" x="1170" y="210" width="320" height="270" rx="14" fill="#faf5ff" stroke="#7c3aed" stroke-width="2"/>
+<rect x="1170" y="225" width="5" height="240" rx="2" fill="#7c3aed" data-graph-role="decoration"/>
+<text x="1194" y="249" font-size="26" fill="#7c3aed" font-weight="700">04  论文与整合</text>
+<text x="1194" y="286" font-size="22" fill="#334155">方法提前、结果滚动写</text>
+<text x="1194" y="319" font-size="22" fill="#334155">图表只消费核验结果</text>
+<text x="1194" y="352" font-size="22" fill="#334155">摘要最后定稿</text>
+<text x="1194" y="385" font-size="22" fill="#334155">H2：确认结论与边界</text>
+<path id="e-solve-write" data-edge-id="solve-write" data-graph-role="edge" data-source="solve" data-target="write" d="M 1120 345 L 1170 345" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)"/>
+<rect id="n-deliver" data-graph-role="node" data-node-id="deliver" data-graph-bounds="1540 210 1860 480" x="1540" y="210" width="320" height="270" rx="14" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<rect x="1540" y="225" width="5" height="240" rx="2" fill="#b45309" data-graph-role="decoration"/>
+<text x="1564" y="249" font-size="26" fill="#b45309" font-weight="700">05  冻结与交付</text>
+<text x="1564" y="286" font-size="22" fill="#334155">整改、复验、PDF 逐页检查</text>
+<text x="1564" y="319" font-size="22" fill="#334155">核对页数、匿名与披露</text>
+<text x="1564" y="352" font-size="22" fill="#334155">归档源码和完整快照</text>
+<text x="1564" y="385" font-size="22" fill="#334155">H3：确认最终稿</text>
+<path id="e-write-deliver" data-edge-id="write-deliver" data-graph-role="edge" data-source="write" data-target="deliver" d="M 1490 345 L 1540 345" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)"/>
+<rect id="n-early" data-graph-role="node" data-node-id="early" data-graph-bounds="60 550 1860 660" x="60" y="550" width="1800" height="110" rx="14" fill="#f0fdfa" stroke="#0f766e" stroke-width="2"/>
+<rect x="60" y="565" width="5" height="80" rx="2" fill="#0f766e" data-graph-role="decoration"/>
+<text x="84" y="589" font-size="26" fill="#0f766e" font-weight="700">贯穿全程：用户论文框架、图表证据清单、专项技能与独立审阅</text>
+<text x="84" y="626" font-size="22" fill="#334155">方法可提前写；核心结果用真实运行；定量图核数据与视觉；模型、结果、论文三个 Codex 检查点。</text>
+<rect id="n-reviewcycle" data-graph-role="node" data-node-id="reviewcycle" data-graph-bounds="60 710 1860 820" x="60" y="710" width="1800" height="110" rx="14" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<rect x="60" y="725" width="5" height="80" rx="2" fill="#b45309" data-graph-role="decoration"/>
+<text x="84" y="749" font-size="26" fill="#b45309" font-weight="700">整改闭环：冻结版本 → 有证据的问题 → 队长派发 → 作者修复 → 原审阅者复验</text>
+<text x="84" y="786" font-size="22" fill="#334155">阻断 / 重要 / 建议三级；每个检查点默认最多三轮集中整改；争议可提交反证并由队长组织裁决。</text>
+<rect id="n-model-freeze" data-graph-role="node" data-node-id="model-freeze" data-graph-bounds="60 890 620 1050" x="60" y="890" width="560" height="160" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<rect x="60" y="905" width="5" height="130" rx="2" fill="#2563eb" data-graph-role="decoration"/>
+<text x="84" y="929" font-size="26" fill="#2563eb" font-weight="700">停止修改前 18 小时</text>
+<text x="84" y="966" font-size="22" fill="#334155">冻结模型结构</text>
+<text x="84" y="999" font-size="22" fill="#334155">重大路线变更需人工决策</text>
+<rect id="n-result-freeze" data-graph-role="node" data-node-id="result-freeze" data-graph-bounds="680 890 1240 1050" x="680" y="890" width="560" height="160" rx="14" fill="#f0fdfa" stroke="#0f766e" stroke-width="2"/>
+<rect x="680" y="905" width="5" height="130" rx="2" fill="#0f766e" data-graph-role="decoration"/>
+<text x="704" y="929" font-size="26" fill="#0f766e" font-weight="700">停止修改前 10 小时</text>
+<text x="704" y="966" font-size="22" fill="#334155">冻结核心结果</text>
+<text x="704" y="999" font-size="22" fill="#334155">修复必须同步结果、图表与论文</text>
+<rect id="n-paper-freeze" data-graph-role="node" data-node-id="paper-freeze" data-graph-bounds="1300 890 1860 1050" x="1300" y="890" width="560" height="160" rx="14" fill="#faf5ff" stroke="#7c3aed" stroke-width="2"/>
+<rect x="1300" y="905" width="5" height="130" rx="2" fill="#7c3aed" data-graph-role="decoration"/>
+<text x="1324" y="929" font-size="26" fill="#7c3aed" font-weight="700">停止修改前 2 小时</text>
+<text x="1324" y="966" font-size="22" fill="#334155">冻结论文与最终 PDF</text>
+<text x="1324" y="999" font-size="22" fill="#334155">官方停止时间后不再修改解答</text>
+<rect id="n-fallback" data-graph-role="node" data-node-id="fallback" data-graph-bounds="60 1100 1860 1210" x="60" y="1100" width="1800" height="110" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<rect x="60" y="1115" width="5" height="80" rx="2" fill="#2563eb" data-graph-role="decoration"/>
+<text x="84" y="1139" font-size="26" fill="#2563eb" font-weight="700">持续保留最近完整版本；失败时恢复已验证快照</text>
+<text x="84" y="1176" font-size="22" fill="#334155">正式提交：按当届规则生成单个 PDF。内部另存代码、数据、图表源、LaTeX 源码、复现与审阅记录。</text>
+<text x="60" y="1290" font-size="23" fill="#475569">内部质量评分用于定位问题；O 奖属于竞赛评审结果，不以分数阈值或获奖概率承诺。</text>
+<text x="60" y="1405" font-size="18" fill="#64748b">MCM A/B/C  |  PTC = Programmatic Tool Calling  |  v0.2.0  ·  2026-10-26</text>
+</svg>

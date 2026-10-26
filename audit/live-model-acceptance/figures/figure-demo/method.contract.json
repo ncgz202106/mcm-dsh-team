@@ -1,0 +1,186 @@
+{
+  "format_version": 2,
+  "figure_id": "SYNTHETIC-method",
+  "version": 1,
+  "synthetic": true,
+  "status": "draft",
+  "argument_sentence": "The assumed decay equation has an analytical reference and a numerical validation route.",
+  "figure_type": "schematic",
+  "backend": "python",
+  "archetype": "single-panel",
+  "data_inputs": [],
+  "columns_and_units": {
+    "time": "dimensionless",
+    "exact": "fraction",
+    "euler": "fraction",
+    "rk4": "fraction",
+    "k_0_7": "fraction",
+    "k_1_0": "fraction",
+    "k_1_3": "fraction",
+    "p10": "fraction",
+    "p90": "fraction"
+  },
+  "column_mapping": {
+    "x": "time",
+    "y": []
+  },
+  "transformation": "No excluded rows; lines use all 41 time points, RK4 markers every fourth point. Parameter quantiles use all 301 deterministic rate scenarios.",
+  "uncertainty_definition": "Not applicable; deterministic scenarios.",
+  "size_mm": {
+    "width": 165.1,
+    "height": 101.6
+  },
+  "minimum_final_glyph_pt": 12,
+  "style_profile": "mcm-clear-science-v2",
+  "script_path": "scripts/figure_demo.py",
+  "script_sha256": "c38c6e919531b24dfc31b62a71c1265ff049c71230c9bdb34ffa9edafd94d674",
+  "generation_command": "python scripts/figure_demo.py --root PROJECT --output NEW_DIRECTORY [--skill-root INSTALLED_SKILL]",
+  "outputs": [
+    {
+      "path": "figures/figure-demo/method.pdf",
+      "sha256": "d55a47f4e7f384889e77a67bbfb48d5c2ca6e5e2fb9d38dba7e8e1c409794f3c",
+      "format": "pdf"
+    },
+    {
+      "path": "figures/figure-demo/method.svg",
+      "sha256": "ac29c78dbf7364992e33316ca807790beb4a98e491c6d2c12915926b108ad7f4",
+      "format": "svg"
+    },
+    {
+      "path": "figures/figure-demo/method.png",
+      "sha256": "2feea3ba2b16d52847c3fabbcfc46067ae6d68164639c8b7ad3d3a02be1211eb",
+      "format": "png"
+    }
+  ],
+  "caption_english": "Synthetic method overview. The equation, analytical reference and two numerical solvers form a verifiable comparison; this is not a real-system claim.",
+  "paper_label": "fig:demo-method",
+  "skill_read": [
+    {
+      "document": "figure-style.json",
+      "sha256": "ae483be929dd0a46038a8abf8313d8ab3ff7b773cb14ad4641b6a204c5a167c7",
+      "read_at": "2026-10-25T14:58:02.509983+00:00"
+    },
+    {
+      "document": "05-paper-figures-latex.md",
+      "sha256": "055110b71846de5c86279561704eff85f599715b566387f9a78e9eb787cce454",
+      "read_at": "2026-10-25T14:58:02.510178+00:00"
+    },
+    {
+      "document": "SKILL.md",
+      "sha256": "5aefe708a2531c5ddaa8ee74d5155d747e96c0f21a33143d38316b7c5c88ffc4",
+      "read_at": "2026-10-25T14:58:02.510325+00:00"
+    },
+    {
+      "document": "manifest.yaml",
+      "sha256": "f6cf1e50f55c74e159134edb8ca5a57fd5097b72b37463c7b2612757e01c24be",
+      "read_at": "2026-10-25T14:58:02.510463+00:00"
+    },
+    {
+      "document": "contract.md",
+      "sha256": "a2b6523a48192cf1dff0d194264c5662c832f4d1da6e9e4763ccd98cc0664d4c",
+      "read_at": "2026-10-25T14:58:02.510574+00:00"
+    },
+    {
+      "document": "stance.md",
+      "sha256": "c7e6860e955a2ee9c24a30dbe88e28741da4eef8290c019e849c6b220ea0f07a",
+      "read_at": "2026-10-25T14:58:02.510715+00:00"
+    },
+    {
+      "document": "python.md",
+      "sha256": "1d4809e4ec4ed2d40995d74828732012a6a72c941dfec341745a3118e9312865",
+      "read_at": "2026-10-25T14:58:02.510841+00:00"
+    },
+    {
+      "document": "qa-contract.md",
+      "sha256": "4f31375cdb614d74eddb8aa7691c0bdfc8a8f20defcca27ce4a36192308748a8",
+      "read_at": "2026-10-25T14:58:02.511031+00:00"
+    }
+  ],
+  "skill_executed": [
+    {
+      "tool": "figure_check.audit_pdf",
+      "status": "passed",
+      "output_refs": [
+        {
+          "path": "figures/figure-demo/method.mechanical.json",
+          "sha256": "4d2a96c9e941f073abe162a47253259e7892728ce0fe95cac8fe0a048f4ae83a"
+        }
+      ]
+    },
+    {
+      "tool": "panel_alignment",
+      "status": "not_applicable",
+      "output_refs": [
+        {
+          "path": "figures/figure-demo/method.alignment.json",
+          "sha256": "d2382bb8eb05f7a9208e2815acb5eb369cd746e812daa394f8e37b178622890a"
+        }
+      ]
+    },
+    {
+      "tool": "validate_figure.py",
+      "status": "passed",
+      "exit_code": 0,
+      "command": [
+        "C:\\Program Files\\Python314\\python.exe",
+        "C:\\Users\\zy\\.dsh\\skills\\nature-figure\\scripts\\validate_figure.py",
+        "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\dsh-v020-live-smoke\\scripts\\figure_demo.py",
+        "--backend",
+        "python",
+        "--json"
+      ],
+      "output_refs": [
+        {
+          "path": "figures/figure-demo/method.validate_figure.py.log",
+          "sha256": "e816f6d8bd584abd7369732e89e0f3478013bddcad4ba7d7afceca026ffcb735"
+        }
+      ]
+    },
+    {
+      "tool": "audit_pdf_text.py",
+      "status": "passed",
+      "exit_code": 0,
+      "command": [
+        "C:\\Program Files\\Python314\\python.exe",
+        "C:\\Users\\zy\\.dsh\\skills\\nature-figure\\scripts\\audit_pdf_text.py",
+        "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\dsh-v020-live-smoke\\figures\\figure-demo\\method.pdf",
+        "--min-pt",
+        "12",
+        "--json"
+      ],
+      "output_refs": [
+        {
+          "path": "figures/figure-demo/method.audit_pdf_text.py.log",
+          "sha256": "21d57b6be423aaf5467d179d0b20cf9efe4e07e83683bb701a7f5caca63b0267"
+        }
+      ]
+    },
+    {
+      "tool": "audit_figure_collisions.py",
+      "status": "passed",
+      "exit_code": 0,
+      "command": [
+        "C:\\Program Files\\Python314\\python.exe",
+        "C:\\Users\\zy\\.dsh\\skills\\nature-figure\\scripts\\audit_figure_collisions.py",
+        "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\dsh-v020-live-smoke\\figures\\figure-demo\\method.pdf",
+        "--json"
+      ],
+      "output_refs": [
+        {
+          "path": "figures/figure-demo/method.audit_figure_collisions.py.log",
+          "sha256": "fee154bf48a0aa54c89573715a104d7a7ea843edd64cbabffd41f4b1913d5484"
+        }
+      ]
+    }
+  ],
+  "visual_check_ref": null,
+  "visual_status": "pending",
+  "numeric_verification_ref": {
+    "path": "figures/figure-demo/analytic-check.json",
+    "sha256": "af497c2f014f284ea9fc722790035af7709fbb59293fc45f7505a8b5e1554aca"
+  },
+  "qa_readback": {
+    "mechanical_report_sha256": "4d2a96c9e941f073abe162a47253259e7892728ce0fe95cac8fe0a048f4ae83a",
+    "visual_reviewed": false
+  }
+}

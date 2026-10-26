@@ -1,0 +1,26 @@
+{
+  "format_version": 1,
+  "version": "0.2.0",
+  "generated_at": "2026-10-26T06:29:49.586855+00:00",
+  "entry_root": "mcm-dsh-team-v0.2.0",
+  "contains": [
+    "bundle sources and npm tgz",
+    "clean project template",
+    "docs and launch prompt",
+    "scientific style and four synthetic figure samples",
+    "seven-page synthetic PDF and rendered pages",
+    "three editable architecture diagrams",
+    "filtered verification reports"
+  ],
+  "excludes": [
+    "Python and environment caches",
+    "node_modules and virtual environments",
+    "user profile backups",
+    "raw native session logs",
+    "credentials and hidden reasoning",
+    "original E:/meisai rehearsal"
+  ],
+  "checksums": "SHA256SUMS.txt covers every included regular file except itself",
+  "software_upgrade_authorized_by_user": true,
+  "scientific_release_approved": false
+}

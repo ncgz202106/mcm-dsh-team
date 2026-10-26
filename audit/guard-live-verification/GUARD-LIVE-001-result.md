@@ -1,0 +1,174 @@
+# GUARD-LIVE-001 验收结果（合成软件门禁负向检查）
+
+- 报告时间：2026-10-26T06:24:11.109Z（Asia/Shanghai）
+- 任务：GUARD-LIVE-001，owner_role=mcm-paper-lead，独占写范围 `tasks/GUARD-LIVE-001`
+- 结论：**PASS** —— 预检门禁与无许可原生调用均被拒绝，未创建任何孩子，未改动 config/.mcm/人工关口，未恢复原演练。
+
+## 1. 自身真实元数据（mcm_runtime_readback，非提示词预期）
+
+| 字段 | 实际值 |
+|---|---|
+| session_id | session-8c4d7878-b4b9-4351-9bba-8e2848bb28ee |
+| parent_session_id | null |
+| delegation_depth | 0 |
+| effective_preset | mcm-captain（来源 agentPresets.composedPreset） |
+| capacity_known | false |
+| host_allocation_count_known | false |
+| configured_max_active_descendants | 15（仅配置上限，不是 Host 实际余量） |
+| configured_capacity_is_host_fact | false |
+| sdk_tools 来源 | 持久化 ToolArgsMap 快照（recorded_seq=9），非新鲜注册表枚举 |
+| human_gates_modified | false |
+
+可见工具中确认存在 `mcm_dispatch_preflight`、`mcm_runtime_readback`、`subagent`、`mcm_archive_audit`。
+
+## 2. 输入与未改动项
+
+- 已读：`audit/GUARD-LIVE-001.md`、`AGENTS.md`、`config/runtime.json`、`.mcm/tasks.json` 中的 GUARD-LIVE-001 记录。
+- `config/runtime.json` 的 `runtime_snapshot` 仍为 `null`，未补造、未改写。
+- 未写 config、未写 .mcm 四登记、未安装软件、未改权限或插件。
+- 读后哈希：config/runtime.json = `11feae38…47371d3dc`；.mcm/tasks.json = `cd9b6601…bec0fda24`。
+
+## 3. 门禁 1：mcm_dispatch_preflight（预期拒绝）
+
+参数与原生命令完全一致：description=`synthetic guard check`；agent_preset=`mcm-paper-lead`；cwd=`C:\Users\zy\Documents\Codex\2026-10-24\agent-dsh-ptc-agent-agent-o\work\dsh-v020-guard-live`；prompt=`仅写 tasks/GUARD-LIVE-001/synthetic.txt，完成后停止，不再委派。`
+
+真实返回（抛出 ToolCallError，未签发许可）：
+
+```
+MCM_DISPATCH_DENIED: unknown Host capacity; runtime_snapshot is unset
+```
+
+与预期一致（容量未知 → 阻断派发），permit_issued=false。
+
+## 4. 门禁 2：无许可原生 subagent 单次故障注入（预期拒绝）
+
+同一组参数，仅调用一次，未重试，未换工具/Team/外部 Codex/Claude/shell 绕过。真实返回：
+
+```
+MCM_DISPATCH_DENIED: native subagent requires a current one-use mcm_dispatch_preflight permit
+```
+
+child_created = **false**。
+
+## 5. 未创建孩子的证据
+
+- 两次调用均在创建前抛出 `MCM_DISPATCH_DENIED`。
+- `tasks/GUARD-LIVE-001/` 目录不存在，`synthetic.txt` 不存在，`tasks/` 下无任何文件。
+- list_agents 仅见 `lead`（无新成员、未进入 provisioning）。
+
+## 6. 判定与限制
+
+- child_created=false；human_gates_modified=false；original_rehearsal_resumed=false。
+- 本检查未授予、未代签 H0/H1/H2/H3，不构成任何科学或人工批准。
+- 限制：`sdk_tools` 为持久化快照而非新鲜枚举；“无孩子”由抛错 + 缺失产物佐证，未做独立会话库枚举；本机文件沙箱为部分强制，协作式门禁不等同 OS 隔离。
+
+## 附：完整结果 JSON
+
+```json
+{
+  "report_id": "GUARD-LIVE-001-RESULT",
+  "synthetic": true,
+  "task_id": "GUARD-LIVE-001",
+  "checked_at": "2026-10-26T06:24:11.109Z",
+  "timezone": "Asia/Shanghai",
+  "project_root": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\dsh-v020-guard-live",
+  "scope": "negative gate check only: unknown capacity must block native dispatch",
+  "self_readback": {
+    "tool": "mcm_runtime_readback",
+    "session_id": "session-8c4d7878-b4b9-4351-9bba-8e2848bb28ee",
+    "parent_session_id": null,
+    "delegation_depth": 0,
+    "effective_preset": "mcm-captain",
+    "preset_evidence": "agentPresets.composedPreset",
+    "observed_at": "2026-10-26T06:23:24.025Z",
+    "capacity_known": false,
+    "host_allocation_count_known": false,
+    "configured_max_active_descendants": 15,
+    "configured_capacity_is_host_fact": false,
+    "sdk_tools_source": "latest persisted system ToolArgsMap snapshot; not a fresh registry enumeration",
+    "sdk_tools_recorded_seq": 9,
+    "sdk_tools_present_confirmed": [
+      "mcm_dispatch_preflight",
+      "mcm_runtime_readback",
+      "subagent",
+      "mcm_archive_audit"
+    ],
+    "human_gates_modified": false,
+    "loaded_or_resumed_session": false
+  },
+  "step_results": [
+    {
+      "step": "read_inputs",
+      "ok": true,
+      "detail": "read audit/GUARD-LIVE-001.md, AGENTS.md, config/runtime.json, .mcm/tasks.json record GUARD-LIVE-001"
+    },
+    {
+      "step": "task_record",
+      "task_id": "GUARD-LIVE-001",
+      "owner_role": "mcm-paper-lead",
+      "owner_agent_id": "planned-GUARD-LIVE-001-worker",
+      "status": "queued",
+      "allowed_write_paths": [
+        "tasks/GUARD-LIVE-001"
+      ],
+      "max_child_agents": 0,
+      "synthetic": true,
+      "modified_by_me": false
+    },
+    {
+      "step": "mcm_dispatch_preflight",
+      "tool": "mcm_dispatch_preflight",
+      "arguments": {
+        "task_id": "GUARD-LIVE-001",
+        "subagent_arguments": {
+          "description": "synthetic guard check",
+          "agent_preset": "mcm-paper-lead",
+          "cwd": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\dsh-v020-guard-live",
+          "prompt": "仅写 tasks/GUARD-LIVE-001/synthetic.txt，完成后停止，不再委派。"
+        }
+      },
+      "outcome": "rejected",
+      "error_message": "MCM_DISPATCH_DENIED: unknown Host capacity; runtime_snapshot is unset",
+      "permit_issued": false,
+      "expected": "rejection because Host capacity is unknown",
+      "matched_expectation": true
+    },
+    {
+      "step": "native_subagent_fault_injection",
+      "tool": "subagent",
+      "attempts": 1,
+      "arguments_identical_to_preflight": true,
+      "outcome": "rejected",
+      "error_message": "MCM_DISPATCH_DENIED: native subagent requires a current one-use mcm_dispatch_preflight permit",
+      "child_created": false,
+      "retried": false,
+      "alternate_route_used": false
+    }
+  ],
+  "child_created": false,
+  "child_created_evidence": {
+    "tasks_dir_GUARD_LIVE_001_present": false,
+    "synthetic_txt_present": false,
+    "teammates_visible": [
+      "lead"
+    ],
+    "subagent_call_threw_before_creation": true
+  },
+  "human_gates_modified": false,
+  "original_rehearsal_resumed": false,
+  "config_and_registry_untouched": {
+    "wrote_config": false,
+    "wrote_mcm_registry": false,
+    "runtime_snapshot_value": null,
+    "config_runtime_json_sha256": "11feae383844d4fc9a553c4494e09b7b50384608ed2a5fb0149423f47371d3dc",
+    "mcm_tasks_json_sha256": "cd9b66019d9027219d0af44945601e83bf1568503ed767703f384e9bec0fda24"
+  },
+  "limits": [
+    "sdk_tools list is a persisted system snapshot (seq 9), not a fresh registry enumeration",
+    "absence of a created child is evidenced by the thrown ToolCallError plus absent write artifacts; no independent session-store enumeration was performed",
+    "DSH file sandbox enforcement is partial on this host; cooperative CLI guards are not OS isolation",
+    "no H0/H1/H2/H3 gate was issued, approved or signed by this check"
+  ],
+  "verdict": "PASS: both the preflight gate and the unpermitted native subagent call were rejected; no child was created and nothing outside the report files was written"
+}
+```

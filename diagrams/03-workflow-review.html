@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data: blob:">
+  <title>03-workflow-review</title>
+  <style>
+    :root { color-scheme: dark; --page:#0f0f1a; --panel:#0f172a; --border:#334155; --text:#e2e8f0; --muted:#94a3b8; --accent:#a855f7; }
+    html[data-theme="light"] { color-scheme:light; --page:#f8fafc; --panel:#fff; --border:#cbd5e1; --text:#0f172a; --muted:#475569; --accent:#7c3aed; }
+    * { box-sizing:border-box; }
+    html,body { width:100%; height:100%; margin:0; overflow:hidden; background:linear-gradient(135deg,var(--page),#1a1a2e); color:var(--text); font-family:'SF Mono','Fira Code',ui-monospace,monospace; }
+    body { display:grid; grid-template-rows:auto 1fr; }
+    .toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:10px 14px; background:color-mix(in srgb,var(--panel) 92%,transparent); border-bottom:1px solid var(--border); z-index:2; }
+    .title { margin-right:auto; font-size:13px; font-weight:700; }
+    button,select { min-height:34px; padding:6px 10px; color:var(--text); background:var(--panel); border:1px solid var(--border); border-radius:8px; font:inherit; cursor:pointer; }
+    button:hover,button:focus-visible,select:focus-visible { border-color:var(--accent); outline:2px solid color-mix(in srgb,var(--accent) 35%,transparent); outline-offset:1px; }
+    #stage { position:relative; overflow:hidden; touch-action:none; cursor:grab; }
+    #stage.dragging { cursor:grabbing; }
+    #canvas { width:100%; height:100%; display:grid; place-items:center; transform-origin:0 0; will-change:transform; }
+    #canvas svg { max-width:calc(100vw - 40px); max-height:calc(100vh - 92px); width:auto; height:auto; filter:drop-shadow(0 22px 60px rgba(0,0,0,.28)); user-select:none; }
+    #status { min-width:76px; color:var(--muted); font-size:12px; text-align:center; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    @media (prefers-reduced-motion:reduce) { * { scroll-behavior:auto!important; transition:none!important; } }
+  </style>
+</head>
+<body>
+  <header class="toolbar" aria-label="Diagram controls">
+    <span class="title">03-workflow-review</span>
+    <button type="button" data-action="zoom-out" aria-label="Zoom out">−</button>
+    <button type="button" data-action="reset" aria-label="Reset view">Reset</button>
+    <button type="button" data-action="zoom-in" aria-label="Zoom in">+</button>
+    <span id="status" aria-live="polite">100%</span>
+    <button type="button" data-action="theme" aria-label="Toggle theme">Theme</button>
+    <button type="button" data-action="copy" aria-label="Copy SVG source">Copy SVG</button>
+    <select id="scale" aria-label="Raster export scale"><option value="1">1×</option><option value="2" selected>2×</option><option value="3">3×</option><option value="4">4×</option></select>
+    <select id="format" aria-label="Export format"><option>SVG</option><option>PNG</option><option>JPEG</option><option>WebP</option></select>
+    <button type="button" data-action="download">Export</button>
+  </header>
+  <main id="stage" tabindex="0" aria-label="Interactive diagram. Drag to pan; use plus and minus to zoom.">
+    <div id="canvas"><svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1430" viewBox="0 0 1920 1430" data-generator="mcm-team-diagrams" data-quality-profile="showcase" role="img" focusable="false">
+<title>竞赛工作循环：从选题到可提交论文</title>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif} .muted{fill:#475569}</style>
+<defs><marker id="a0" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#2563eb" /></marker><marker id="a1" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#0f766e" /></marker><marker id="a2" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#7c3aed" /></marker><marker id="a3" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#b45309" /></marker><marker id="a4" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#b91c1c" /></marker></defs>
+<rect width="1920" height="1430" fill="#ffffff" data-graph-role="background" />
+<text x="60" y="59" font-size="37" fill="#172554" font-weight="700">竞赛工作循环：从选题到可提交论文</text>
+<text x="60" y="103" font-size="22" fill="#475569">检索、验证与写作滚动推进；审阅反馈返回有明确责任人的任务</text>
+<rect id="n-start" data-graph-role="node" data-node-id="start" data-graph-bounds="60 210 380 480" x="60" y="210" width="320" height="270" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<rect x="60" y="225" width="5" height="240" rx="2" fill="#2563eb" data-graph-role="decoration" />
+<text x="84" y="249" font-size="26" fill="#2563eb" font-weight="700">01  启动与选题</text>
+<text x="84" y="286" font-size="22" fill="#334155">拆解每问与输出</text>
+<text x="84" y="319" font-size="22" fill="#334155">检查数据条件</text>
+<text x="84" y="352" font-size="22" fill="#334155">建立英文论文骨架</text>
+<text x="84" y="385" font-size="22" fill="#334155">H0：确认题目与题意</text>
+<rect id="n-model" data-graph-role="node" data-node-id="model" data-graph-bounds="430 210 750 480" x="430" y="210" width="320" height="270" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<rect x="430" y="225" width="5" height="240" rx="2" fill="#2563eb" data-graph-role="decoration" />
+<text x="454" y="249" font-size="26" fill="#2563eb" font-weight="700">02  候选与证据</text>
+<text x="454" y="286" font-size="22" fill="#334155">三个建模任务先独立</text>
+<text x="454" y="319" font-size="22" fill="#334155">比较数据、计算与解释性</text>
+<text x="454" y="352" font-size="22" fill="#334155">小实验检验可行性</text>
+<text x="454" y="385" font-size="22" fill="#334155">H1：确认路线与假设</text>
+<path id="e-start-model" data-edge-id="start-model" data-graph-role="edge" data-source="start" data-target="model" d="M 380 345 L 430 345" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)" />
+<rect id="n-solve" data-graph-role="node" data-node-id="solve" data-graph-bounds="800 210 1120 480" x="800" y="210" width="320" height="270" rx="14" fill="#f0fdfa" stroke="#0f766e" stroke-width="2" />
+<rect x="800" y="225" width="5" height="240" rx="2" fill="#0f766e" data-graph-role="decoration" />
+<text x="824" y="249" font-size="26" fill="#0f766e" font-weight="700">03  求解与验证</text>
+<text x="824" y="286" font-size="22" fill="#334155">先跑通完整基线</text>
+<text x="824" y="319" font-size="22" fill="#334155">对照、敏感性与改进</text>
+<text x="824" y="352" font-size="22" fill="#334155">验证者独立复现</text>
+<text x="824" y="385" font-size="22" fill="#334155">保存真实结果与配置</text>
+<path id="e-model-solve" data-edge-id="model-solve" data-graph-role="edge" data-source="model" data-target="solve" d="M 750 345 L 800 345" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)" />
+<rect id="n-write" data-graph-role="node" data-node-id="write" data-graph-bounds="1170 210 1490 480" x="1170" y="210" width="320" height="270" rx="14" fill="#faf5ff" stroke="#7c3aed" stroke-width="2" />
+<rect x="1170" y="225" width="5" height="240" rx="2" fill="#7c3aed" data-graph-role="decoration" />
+<text x="1194" y="249" font-size="26" fill="#7c3aed" font-weight="700">04  论文与整合</text>
+<text x="1194" y="286" font-size="22" fill="#334155">方法提前、结果滚动写</text>
+<text x="1194" y="319" font-size="22" fill="#334155">图表只消费核验结果</text>
+<text x="1194" y="352" font-size="22" fill="#334155">摘要最后定稿</text>
+<text x="1194" y="385" font-size="22" fill="#334155">H2：确认结论与边界</text>
+<path id="e-solve-write" data-edge-id="solve-write" data-graph-role="edge" data-source="solve" data-target="write" d="M 1120 345 L 1170 345" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)" />
+<rect id="n-deliver" data-graph-role="node" data-node-id="deliver" data-graph-bounds="1540 210 1860 480" x="1540" y="210" width="320" height="270" rx="14" fill="#fffbeb" stroke="#b45309" stroke-width="2" />
+<rect x="1540" y="225" width="5" height="240" rx="2" fill="#b45309" data-graph-role="decoration" />
+<text x="1564" y="249" font-size="26" fill="#b45309" font-weight="700">05  冻结与交付</text>
+<text x="1564" y="286" font-size="22" fill="#334155">整改、复验、PDF 逐页检查</text>
+<text x="1564" y="319" font-size="22" fill="#334155">核对页数、匿名与披露</text>
+<text x="1564" y="352" font-size="22" fill="#334155">归档源码和完整快照</text>
+<text x="1564" y="385" font-size="22" fill="#334155">H3：确认最终稿</text>
+<path id="e-write-deliver" data-edge-id="write-deliver" data-graph-role="edge" data-source="write" data-target="deliver" d="M 1490 345 L 1540 345" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)" />
+<rect id="n-early" data-graph-role="node" data-node-id="early" data-graph-bounds="60 550 1860 660" x="60" y="550" width="1800" height="110" rx="14" fill="#f0fdfa" stroke="#0f766e" stroke-width="2" />
+<rect x="60" y="565" width="5" height="80" rx="2" fill="#0f766e" data-graph-role="decoration" />
+<text x="84" y="589" font-size="26" fill="#0f766e" font-weight="700">贯穿全程：用户论文框架、图表证据清单、专项技能与独立审阅</text>
+<text x="84" y="626" font-size="22" fill="#334155">方法可提前写；核心结果用真实运行；定量图核数据与视觉；模型、结果、论文三个 Codex 检查点。</text>
+<rect id="n-reviewcycle" data-graph-role="node" data-node-id="reviewcycle" data-graph-bounds="60 710 1860 820" x="60" y="710" width="1800" height="110" rx="14" fill="#fffbeb" stroke="#b45309" stroke-width="2" />
+<rect x="60" y="725" width="5" height="80" rx="2" fill="#b45309" data-graph-role="decoration" />
+<text x="84" y="749" font-size="26" fill="#b45309" font-weight="700">整改闭环：冻结版本 → 有证据的问题 → 队长派发 → 作者修复 → 原审阅者复验</text>
+<text x="84" y="786" font-size="22" fill="#334155">阻断 / 重要 / 建议三级；每个检查点默认最多三轮集中整改；争议可提交反证并由队长组织裁决。</text>
+<rect id="n-model-freeze" data-graph-role="node" data-node-id="model-freeze" data-graph-bounds="60 890 620 1050" x="60" y="890" width="560" height="160" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<rect x="60" y="905" width="5" height="130" rx="2" fill="#2563eb" data-graph-role="decoration" />
+<text x="84" y="929" font-size="26" fill="#2563eb" font-weight="700">停止修改前 18 小时</text>
+<text x="84" y="966" font-size="22" fill="#334155">冻结模型结构</text>
+<text x="84" y="999" font-size="22" fill="#334155">重大路线变更需人工决策</text>
+<rect id="n-result-freeze" data-graph-role="node" data-node-id="result-freeze" data-graph-bounds="680 890 1240 1050" x="680" y="890" width="560" height="160" rx="14" fill="#f0fdfa" stroke="#0f766e" stroke-width="2" />
+<rect x="680" y="905" width="5" height="130" rx="2" fill="#0f766e" data-graph-role="decoration" />
+<text x="704" y="929" font-size="26" fill="#0f766e" font-weight="700">停止修改前 10 小时</text>
+<text x="704" y="966" font-size="22" fill="#334155">冻结核心结果</text>
+<text x="704" y="999" font-size="22" fill="#334155">修复必须同步结果、图表与论文</text>
+<rect id="n-paper-freeze" data-graph-role="node" data-node-id="paper-freeze" data-graph-bounds="1300 890 1860 1050" x="1300" y="890" width="560" height="160" rx="14" fill="#faf5ff" stroke="#7c3aed" stroke-width="2" />
+<rect x="1300" y="905" width="5" height="130" rx="2" fill="#7c3aed" data-graph-role="decoration" />
+<text x="1324" y="929" font-size="26" fill="#7c3aed" font-weight="700">停止修改前 2 小时</text>
+<text x="1324" y="966" font-size="22" fill="#334155">冻结论文与最终 PDF</text>
+<text x="1324" y="999" font-size="22" fill="#334155">官方停止时间后不再修改解答</text>
+<rect id="n-fallback" data-graph-role="node" data-node-id="fallback" data-graph-bounds="60 1100 1860 1210" x="60" y="1100" width="1800" height="110" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<rect x="60" y="1115" width="5" height="80" rx="2" fill="#2563eb" data-graph-role="decoration" />
+<text x="84" y="1139" font-size="26" fill="#2563eb" font-weight="700">持续保留最近完整版本；失败时恢复已验证快照</text>
+<text x="84" y="1176" font-size="22" fill="#334155">正式提交：按当届规则生成单个 PDF。内部另存代码、数据、图表源、LaTeX 源码、复现与审阅记录。</text>
+<text x="60" y="1290" font-size="23" fill="#475569">内部质量评分用于定位问题；O 奖属于竞赛评审结果，不以分数阈值或获奖概率承诺。</text>
+<text x="60" y="1405" font-size="18" fill="#64748b">MCM A/B/C  |  PTC = Programmatic Tool Calling  |  v0.2.0  ·  2026-10-26</text>
+</svg></div>
+    <p class="sr-only">Keyboard shortcuts: plus and minus zoom, zero resets, T toggles theme, S exports.</p>
+  </main>
+  <script>
+  (() => {
+    'use strict';
+    const metadata = {"slug": "03-workflow-review"};
+    const stage = document.getElementById('stage');
+    const canvas = document.getElementById('canvas');
+    const svg = canvas.querySelector('svg');
+    const status = document.getElementById('status');
+    const scaleSelect = document.getElementById('scale');
+    const formatSelect = document.getElementById('format');
+    let view = { x:0, y:0, scale:1 };
+    let drag = null;
+    const clamp = value => Math.max(.2, Math.min(8, value));
+    const render = () => {
+      canvas.style.transform = `translate(${view.x}px,${view.y}px) scale(${view.scale})`;
+      status.textContent = `${Math.round(view.scale * 100)}%`;
+    };
+    const zoom = (factor, originX=stage.clientWidth/2, originY=stage.clientHeight/2) => {
+      const next = clamp(view.scale * factor);
+      const ratio = next / view.scale;
+      view.x = originX - (originX - view.x) * ratio;
+      view.y = originY - (originY - view.y) * ratio;
+      view.scale = next; render();
+    };
+    const reset = () => { view = {x:0,y:0,scale:1}; render(); };
+    stage.addEventListener('wheel', event => { event.preventDefault(); const rect=stage.getBoundingClientRect(); zoom(event.deltaY < 0 ? 1.12 : .89, event.clientX-rect.left, event.clientY-rect.top); }, {passive:false});
+    stage.addEventListener('pointerdown', event => { drag={id:event.pointerId,x:event.clientX,y:event.clientY,vx:view.x,vy:view.y}; stage.setPointerCapture(event.pointerId); stage.classList.add('dragging'); });
+    stage.addEventListener('pointermove', event => { if(!drag||drag.id!==event.pointerId)return; view.x=drag.vx+event.clientX-drag.x; view.y=drag.vy+event.clientY-drag.y; render(); });
+    const endDrag = () => { drag=null; stage.classList.remove('dragging'); };
+    stage.addEventListener('pointerup', endDrag); stage.addEventListener('pointercancel', endDrag);
+    const source = () => new XMLSerializer().serializeToString(svg);
+    const saveBlob = (blob, extension) => { const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`${(metadata.slug||'fireworks-tech-graph')}.${extension}`; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000); };
+    const copySource = async () => {
+      const value=source();
+      try { await navigator.clipboard.writeText(value); status.textContent='Copied'; return; } catch {}
+      const area=document.createElement('textarea'); area.value=value; area.setAttribute('readonly',''); area.style.position='fixed'; area.style.opacity='0'; document.body.appendChild(area); area.select();
+      status.textContent=document.execCommand('copy')?'Copied':'Copy failed'; area.remove();
+    };
+    const exportDiagram = async () => {
+      const format = formatSelect.value.toLowerCase();
+      if(format==='svg') { saveBlob(new Blob([source()],{type:'image/svg+xml;charset=utf-8'}),'svg'); return; }
+      const scale = Math.max(1,Math.min(4,Number(scaleSelect.value)||2));
+      const box = svg.viewBox.baseVal; const width=box.width||svg.clientWidth; const height=box.height||svg.clientHeight;
+      const image = new Image(); const url=URL.createObjectURL(new Blob([source()],{type:'image/svg+xml'}));
+      await new Promise((resolve,reject)=>{ image.onload=resolve; image.onerror=reject; image.src=url; });
+      const raster=document.createElement('canvas'); raster.width=Math.round(width*scale); raster.height=Math.round(height*scale);
+      const ctx=raster.getContext('2d'); if(format==='jpeg'){ctx.fillStyle='#ffffff';ctx.fillRect(0,0,raster.width,raster.height);} ctx.drawImage(image,0,0,raster.width,raster.height); URL.revokeObjectURL(url);
+      const mime=format==='jpeg'?'image/jpeg':format==='webp'?'image/webp':'image/png';
+      const blob=await new Promise(resolve=>raster.toBlob(resolve,mime,.94)); if(blob) saveBlob(blob,format==='jpeg'?'jpg':format);
+    };
+    document.querySelector('.toolbar').addEventListener('click', async event => {
+      const action=event.target.closest('[data-action]')?.dataset.action; if(!action)return;
+      if(action==='zoom-in')zoom(1.2); else if(action==='zoom-out')zoom(.83); else if(action==='reset')reset();
+      else if(action==='theme')document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark';
+      else if(action==='download')await exportDiagram();
+      else if(action==='copy') await copySource();
+    });
+    document.addEventListener('keydown', event => {
+      if(event.target.matches('select'))return;
+      if(event.key==='+'||event.key==='=')zoom(1.2); else if(event.key==='-')zoom(.83); else if(event.key==='0'||event.key.toLowerCase()==='r')reset();
+      else if(event.key.toLowerCase()==='t')document.querySelector('[data-action=theme]').click(); else if(event.key.toLowerCase()==='s'){event.preventDefault();exportDiagram();}
+    });
+    render();
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "pdf": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\dsh-v020-live-smoke\\figures\\figure-demo\\sensitivity.pdf",
+  "auditable": true,
+  "verdict": "PASS",
+  "page_count": 1,
+  "visible_text_box_count": 16,
+  "text_trace_count": 16,
+  "stroke_path_count": 18,
+  "filled_region_count": 12,
+  "image_region_count": 0,
+  "summary": {
+    "fail": 0,
+    "warn": 0,
+    "contained_fill_overlays": 0,
+    "contained_image_overlays": 0
+  },
+  "thresholds": {
+    "text_inset_pt": 0.6,
+    "min_overlap_ratio": 0.05,
+    "clipping_tolerance_pt": 0.5
+  },
+  "findings": []
+}
+

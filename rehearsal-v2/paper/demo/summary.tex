@@ -1,0 +1,26 @@
+\begin{center}
+\textbf{Synthetic Workflow Rehearsal: Two-Resource Allocation}\\[0.5em]
+\textbf{Demonstration only -- not a competition submission}
+\end{center}
+This document exercises a reproducible model--code--figure--paper handoff.
+All inputs are synthetic; no claim is made about an actual MCM problem.
+We allocate a demand $T$ between two resources by minimizing
+$C=x^2+2y^2$, subject to $x+y=T$ and nonnegative allocations.
+The strict convexity of the objective gives a unique global optimum.
+
+At the demonstration demand $T=\DemoDemand$, the allocation is
+$x=\DemoX$ and $y=\DemoY$, with cost $C=\DemoCost$.
+An equal-allocation baseline costs $\DemoBaselineCost$, so the reduction is
+\DemoSavingPct\%.
+These values are loaded from generated macros produced by the verified result
+file; they are not independently typed into the summary.
+
+An independent checker, which does not import the solver, uses feasibility
+checks, a dense one-dimensional grid and a finite-difference optimality check.
+A demand sweep tests the structural relation $C^*(T)=2T^2/3$.
+The result supports the mathematical workflow within the stated synthetic
+quadratic-cost assumptions. It does not validate either cost function for a
+real application.
+
+\noindent\textbf{Keywords:} convex allocation; independent verification;
+synthetic data; reproducible workflow.

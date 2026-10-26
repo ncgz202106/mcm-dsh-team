@@ -1,0 +1,3 @@
+# Preserve exact bytes: frozen source/artifact evidence is bound to SHA-256.
+# Git may still display text diffs; disable automatic line-ending conversion.
+* -text

@@ -1,0 +1,22 @@
+{
+  "mechanical_passed": true,
+  "main_report_pages": 7,
+  "total_pdf_pages": 8,
+  "pdf_bytes": 80661,
+  "errors": [],
+  "requires_visual_review": true,
+  "review_items": [
+    "Inspect every rendered page for clipping, overlap and readable figures",
+    "Check anonymity in text, acknowledgments, images and PDF metadata",
+    "Verify citations against sources and AI disclosure against visible records"
+  ],
+  "human_release_approved": false,
+  "release_requested": false,
+  "release_ready": false,
+  "content_status": "draft_or_incomplete",
+  "content_errors": [
+    "Template/demo marker remains: 0000000",
+    "Template/demo marker remains: Demonstration only",
+    "Template/demo marker remains: Synthetic Workflow Rehearsal"
+  ]
+}

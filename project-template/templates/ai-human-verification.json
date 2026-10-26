@@ -1,0 +1,16 @@
+{
+  "format_version": 1,
+  "_template_only": true,
+  "source": null,
+  "synthetic": false,
+  "record_id": "REPLACE_AI_USAGE_ID",
+  "checked_by": null,
+  "checked_at": null,
+  "query_sha256": null,
+  "response_sha256": null,
+  "adoption_status": "not_reviewed",
+  "purpose": null,
+  "purpose_confirmed": false,
+  "citations_verified": false,
+  "notes": "仅在真实人工批量核验后填写source=human及实际记录；不能让AI伪造签署。无来源型主张时说明引用不适用的理由。"
+}

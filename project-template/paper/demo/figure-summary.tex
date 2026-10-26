@@ -1,0 +1,24 @@
+\begin{center}
+\textbf{From Model to Evidence: A Reproducible Decay Demonstration}\\[0.5em]
+\textbf{Synthetic Workflow Rehearsal -- Demonstration only}
+\end{center}
+\noindent\textbf{Summary}\par
+This synthetic example demonstrates how a mathematical assumption becomes a
+solution, a validation check and a readable figure. We model a remaining amount
+by exponential decay. Euler and fourth-order Runge--Kutta methods use the same
+initial state, rate and time grid and are compared with the analytical solution.
+
+At a time step of \FigureDemoStep, the largest absolute errors over the shared
+grid are \FigureDemoEulerError\ for Euler and \FigureDemoRKError\ for Runge--Kutta.
+These values are generated from the actual demonstration run. We also compare
+three rate scenarios and propagate \FigureDemoRateCount\ specified rate values
+to a pointwise parameter envelope. The envelope describes assumed parameter
+variation; it is not a sampling confidence interval.
+
+The example supports an internally checkable numerical comparison and a clear
+handoff from fixed data to graphics and text. It does not establish the decay
+equation for any real MCM system, constitute an independent scientific review,
+or create a human contest approval.
+
+\noindent\textbf{Keywords:} exponential decay; numerical validation; sensitivity;
+parameter uncertainty; reproducible figures.

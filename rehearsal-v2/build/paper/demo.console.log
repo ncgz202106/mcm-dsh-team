@@ -1,0 +1,578 @@
+Rc files read (in order):
+  NONE
+Latexmk: This is Latexmk, John Collins, 9 March 2026. Version 4.88.
+No existing .aux file, so I'll make a simple one, and require run of *latex.
+Latexmk: applying rule 'xelatex'...
+Rule 'xelatex':  Reasons for rerun
+Category 'other':
+  Rerun of 'xelatex' forced or previously required:
+    Reason or flag: 'Initial setup'
+
+------------
+Run number 1 of rule 'xelatex'
+------------
+------------
+Running 'xelatex -no-pdf -no-shell-escape -interaction=nonstopmode -halt-on-error -file-line-error -recorder -output-directory="out"  "demo.tex"'
+------------
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex.fmt)
+entering extended mode
+(demo.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-04-28>
+(main.tex (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\newtxtext.sty
+`newtxtext' v1.744, 2024/04/01 Text macros taking advantage of TeXGyre Termes a
+nd its extensions (msharpe)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/xpatch\xpatch.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-xetex.
+def))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xparse.s
+ty) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty)
+) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\xetex.def)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex)))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/xstring\xstring.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/xstring\xstring.tex))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/carlisle\scalefnt.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/binhex\binhex.tex)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fontspec.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fontspec-xetex.st
+y (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fontspec.cfg))))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+For additional information on amsmath, use the `?' option.
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\newtxmath.sty
+`newtxmath' v1.754, 2024/09/22 Math macros based originally on txfonts (msharpe
+) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/oberdiek\centernot.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/binhex\binhex.tex)
+amsthm NOT loaded
+) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/xelatex/xecjk\xeCJK.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/ctex\ctexhook.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xtemplate\xtemp
+late.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/xelatex/xecjk\xeCJK.cfg))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg)
+)) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekey
+s.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.st
+y
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty)
+)) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitles
+tring.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty)))
+ (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.sty
+) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.st
+y))) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hxetex.def
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilech
+eck.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecoun
+ter.sty))) (team.tex)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\TeXGyreTermesX.fonts
+pec) (C:\Users\zy\AppData\Local\Temp\mcm-paper-4eeufrhe\paper\out\demo.aux)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\omlntxmi.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxexa.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\lmsntxsy.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\lmxntxexx.fd)
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+
+Package hyperref Warning: Rerun to get /PageLabels entry.
+
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\ot1minntx.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxmia.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxsym.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxsyc.fd)
+(../figures/figure-demo/numbers.tex) (demo/figure-summary.tex) [1]
+(demo/figure-body.tex
+
+LaTeX Warning: Reference `fig:demo-method' on page 2 undefined on input line 12
+.
+
+[2]
+
+LaTeX Warning: Reference `eq:demo-decay' on page 3 undefined on input line 39.
+
+
+LaTeX Warning: Reference `fig:demo-comparison' on page 3 undefined on input lin
+e 43.
+
+[3]
+
+LaTeX Warning: Reference `fig:demo-sensitivity' on page 4 undefined on input li
+ne 60.
+
+[4]
+
+LaTeX Warning: Reference `fig:demo-uncertainty' on page 5 undefined on input li
+ne 77.
+
+
+LaTeX Warning: Citation `comap2027rules' on page 5 undefined on input line 98.
+
+
+LaTeX Warning: Citation `comap2025ai' on page 5 undefined on input line 98.
+
+) [5]
+No file demo.bbl.
+(sections/appendix.tex) (demo/ai-use.tex
+
+LaTeX Warning: Citation `comap2025ai' on page 6 undefined on input line 14.
+
+) [6] (C:\Users\zy\AppData\Local\Temp\mcm-paper-4eeufrhe\paper\out\demo.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `demo.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ ) )
+Output written on C:\Users\zy\AppData\Local\Temp\mcm-paper-4eeufrhe\paper\out\d
+emo.xdv (6 pages, 63844 bytes).
+Transcript written on C:\Users\zy\AppData\Local\Temp\mcm-paper-4eeufrhe\paper\o
+ut\demo.log.
+Latexmk: Getting log file 'out/demo.log'
+Latexmk: Examining 'out/demo.fls'
+Latexmk: Examining 'out/demo.log'
+Latexmk: References changed.
+Latexmk: References changed.
+Latexmk: References changed.
+Latexmk: Log file says output to 'C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper/out/demo.xdv'
+  ===Source file 'out/demo.bbl' for 'xelatex'
+Create bibtex out/demo
+Latexmk: Found bibliography file(s):
+  C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper/out/references.bib
+Latexmk: applying rule 'bibtex out/demo'...
+Rule 'bibtex out/demo':  Reasons for rerun
+Category 'other':
+  Rerun of 'bibtex out/demo' forced or previously required:
+    Reason or flag: 'Initial set up of rule'
+
+------------
+Run number 1 of rule 'bibtex out/demo'
+------------
+====== ENV{BIBINPUTS} changed to '/tmp/mcm-paper-4eeufrhe/paper;out;/tmp/mcm-paper-4eeufrhe/paper/out;C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper;'
+Latexmk: Change directory to 'out/'.
+To assist finding of files in document directory, I set
+  BIBINPUTS='/tmp/mcm-paper-4eeufrhe/paper;out;/tmp/mcm-paper-4eeufrhe/paper/out;C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper;'
+  BSTINPUTS='/tmp/mcm-paper-4eeufrhe/paper;C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper;'.
+------------
+Running 'bibtex  "demo.aux"'
+------------
+This is BibTeX, Version 0.99e (MiKTeX 26.2)
+The top-level auxiliary file: demo.aux
+The style file: plain.bst
+Database file #1: references.bib
+Latexmk: Change directory back to '/tmp/mcm-paper-4eeufrhe/paper'
+Latexmk: applying rule 'xelatex'...
+Rule 'xelatex':  Reasons for rerun
+Changed files or newly in use/created:
+  out/demo.aux
+  out/demo.bbl
+  out/demo.out
+
+------------
+Run number 2 of rule 'xelatex'
+------------
+------------
+Running 'xelatex -no-pdf -no-shell-escape -interaction=nonstopmode -halt-on-error -file-line-error -recorder -output-directory="out"  "demo.tex"'
+------------
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex.fmt)
+entering extended mode
+(demo.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-04-28>
+(main.tex (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\newtxtext.sty
+`newtxtext' v1.744, 2024/04/01 Text macros taking advantage of TeXGyre Termes a
+nd its extensions (msharpe)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/xpatch\xpatch.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-xetex.
+def))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xparse.s
+ty) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty)
+) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\xetex.def)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex)))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/xstring\xstring.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/xstring\xstring.tex))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/carlisle\scalefnt.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/binhex\binhex.tex)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fontspec.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fontspec-xetex.st
+y (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fontspec.cfg))))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+For additional information on amsmath, use the `?' option.
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\newtxmath.sty
+`newtxmath' v1.754, 2024/09/22 Math macros based originally on txfonts (msharpe
+) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/oberdiek\centernot.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/binhex\binhex.tex)
+amsthm NOT loaded
+) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/xelatex/xecjk\xeCJK.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/ctex\ctexhook.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xtemplate\xtemp
+late.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/xelatex/xecjk\xeCJK.cfg))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg)
+)) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekey
+s.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.st
+y
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty)
+)) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitles
+tring.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty)))
+ (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.sty
+) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.st
+y))) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hxetex.def
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilech
+eck.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecoun
+ter.sty))) (team.tex)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\TeXGyreTermesX.fonts
+pec) (C:\Users\zy\AppData\Local\Temp\mcm-paper-4eeufrhe\paper\out\demo.aux)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\omlntxmi.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxexa.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\lmsntxsy.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\lmxntxexx.fd)
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+(C:\Users\zy\AppData\Local\Temp\mcm-paper-4eeufrhe\paper\out\demo.out)
+(C:\Users\zy\AppData\Local\Temp\mcm-paper-4eeufrhe\paper\out\demo.out)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\ot1minntx.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxmia.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxsym.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxsyc.fd)
+(../figures/figure-demo/numbers.tex) (demo/figure-summary.tex) [1]
+(demo/figure-body.tex [2] [3] [4]
+
+LaTeX Warning: Citation `comap2027rules' on page 5 undefined on input line 98.
+
+
+LaTeX Warning: Citation `comap2025ai' on page 5 undefined on input line 98.
+
+) [5] (C:\Users\zy\AppData\Local\Temp\mcm-paper-4eeufrhe\paper\out\demo.bbl)
+(sections/appendix.tex) [6] (demo/ai-use.tex
+
+LaTeX Warning: Citation `comap2025ai' on page 7 undefined on input line 14.
+
+) [7] (C:\Users\zy\AppData\Local\Temp\mcm-paper-4eeufrhe\paper\out\demo.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) )
+Output written on C:\Users\zy\AppData\Local\Temp\mcm-paper-4eeufrhe\paper\out\d
+emo.xdv (7 pages, 72576 bytes).
+Transcript written on C:\Users\zy\AppData\Local\Temp\mcm-paper-4eeufrhe\paper\o
+ut\demo.log.
+Latexmk: Getting log file 'out/demo.log'
+Latexmk: Examining 'out/demo.fls'
+Latexmk: Examining 'out/demo.log'
+Latexmk: Found input bbl file 'C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper/out/demo.bbl'
+Latexmk: References changed.
+Latexmk: Log file says output to 'C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper/out/demo.xdv'
+  ===Source file 'C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper/out/demo.bbl' for 'xelatex'
+Create bibtex C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper/out/demo
+Latexmk: Found bibliography file(s):
+  C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper/out/references.bib
+  ===Source file 'out/demo.bbl' for 'xelatex'
+Latexmk: Found bibliography file(s):
+  C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper/out/references.bib
+Latexmk: applying rule 'bibtex out/demo'...
+Rule 'bibtex out/demo':  Reasons for rerun
+Changed files or newly in use/created:
+  out/demo.aux
+
+------------
+Run number 2 of rule 'bibtex out/demo'
+------------
+====== ENV{BIBINPUTS} changed to '/tmp/mcm-paper-4eeufrhe/paper;out;/tmp/mcm-paper-4eeufrhe/paper/out;C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper;'
+Latexmk: Change directory to 'out/'.
+To assist finding of files in document directory, I set
+  BIBINPUTS='/tmp/mcm-paper-4eeufrhe/paper;out;/tmp/mcm-paper-4eeufrhe/paper/out;C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper;'
+  BSTINPUTS='/tmp/mcm-paper-4eeufrhe/paper;C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper;'.
+------------
+Running 'bibtex  "demo.aux"'
+------------
+This is BibTeX, Version 0.99e (MiKTeX 26.2)
+The top-level auxiliary file: demo.aux
+The style file: plain.bst
+Database file #1: references.bib
+Latexmk: Change directory back to '/tmp/mcm-paper-4eeufrhe/paper'
+Latexmk: applying rule 'bibtex C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper/out/demo'...
+Rule 'bibtex C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper/out/demo':  Reasons for rerun
+Category 'other':
+  Rerun of 'bibtex C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper/out/demo' forced or previously required:
+    Reason or flag: 'Initial set up of rule'
+
+------------
+Run number 1 of rule 'bibtex C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper/out/demo'
+------------
+====== ENV{BIBINPUTS} changed to '/tmp/mcm-paper-4eeufrhe/paper;out;/tmp/mcm-paper-4eeufrhe/paper/out;C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper;'
+Latexmk: Change directory to 'C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper/out/'.
+To assist finding of files in document directory, I set
+  BIBINPUTS='/tmp/mcm-paper-4eeufrhe/paper;out;/tmp/mcm-paper-4eeufrhe/paper/out;C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper;'
+  BSTINPUTS='/tmp/mcm-paper-4eeufrhe/paper;C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper;'.
+------------
+Running 'bibtex  "demo.aux"'
+------------
+This is BibTeX, Version 0.99e (MiKTeX 26.2)
+The top-level auxiliary file: demo.aux
+The style file: plain.bst
+Database file #1: references.bib
+Latexmk: Change directory back to '/tmp/mcm-paper-4eeufrhe/paper'
+Latexmk: applying rule 'xelatex'...
+Rule 'xelatex':  Reasons for rerun
+Changed files or newly in use/created:
+  C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper/out/demo.aux
+  out/demo.aux
+Category 'changed_user':
+  C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper/out/demo.aux
+
+------------
+Run number 3 of rule 'xelatex'
+------------
+------------
+Running 'xelatex -no-pdf -no-shell-escape -interaction=nonstopmode -halt-on-error -file-line-error -recorder -output-directory="out"  "demo.tex"'
+------------
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.2) (preloaded format=xelatex.fmt)
+entering extended mode
+(demo.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2026-04-28>
+(main.tex (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\newtxtext.sty
+`newtxtext' v1.744, 2024/04/01 Text macros taking advantage of TeXGyre Termes a
+nd its extensions (msharpe)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/xpatch\xpatch.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-xetex.
+def))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xparse.s
+ty) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty)
+) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\xetex.def)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex)))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/xstring\xstring.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/xstring\xstring.tex))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/carlisle\scalefnt.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/binhex\binhex.tex)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fontspec.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fontspec-xetex.st
+y (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/fontspec\fontspec.cfg))))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+For additional information on amsmath, use the `?' option.
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\newtxmath.sty
+`newtxmath' v1.754, 2024/09/22 Math macros based originally on txfonts (msharpe
+) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/oberdiek\centernot.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/binhex\binhex.tex)
+amsthm NOT loaded
+) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/xelatex/xecjk\xeCJK.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/ctex\ctexhook.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xtemplate\xtemp
+late.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/xelatex/xecjk\xeCJK.cfg))
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg)
+)) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekey
+s.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.st
+y
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty)
+)) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitles
+tring.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty)))
+ (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/stringenc\stringenc.sty
+) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.st
+y))) (C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hxetex.def
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilech
+eck.sty
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecoun
+ter.sty))) (team.tex)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\TeXGyreTermesX.fonts
+pec) (C:\Users\zy\AppData\Local\Temp\mcm-paper-4eeufrhe\paper\out\demo.aux)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\omlntxmi.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxexa.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\lmsntxsy.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\lmxntxexx.fd)
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+(C:\Users\zy\AppData\Local\Temp\mcm-paper-4eeufrhe\paper\out\demo.out)
+(C:\Users\zy\AppData\Local\Temp\mcm-paper-4eeufrhe\paper\out\demo.out)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\ot1minntx.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxmia.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxsym.fd)
+(C:\Users\zy\AppData\Local\Programs\MiKTeX\tex/latex/newtx\untxsyc.fd)
+(../figures/figure-demo/numbers.tex) (demo/figure-summary.tex) [1]
+(demo/figure-body.tex [2] [3] [4]) [5]
+(C:\Users\zy\AppData\Local\Temp\mcm-paper-4eeufrhe\paper\out\demo.bbl)
+(sections/appendix.tex) [6] (demo/ai-use.tex) [7]
+(C:\Users\zy\AppData\Local\Temp\mcm-paper-4eeufrhe\paper\out\demo.aux) ) )
+Output written on C:\Users\zy\AppData\Local\Temp\mcm-paper-4eeufrhe\paper\out\d
+emo.xdv (7 pages, 72892 bytes).
+Transcript written on C:\Users\zy\AppData\Local\Temp\mcm-paper-4eeufrhe\paper\o
+ut\demo.log.
+Latexmk: Getting log file 'out/demo.log'
+Latexmk: Examining 'out/demo.fls'
+Latexmk: Examining 'out/demo.log'
+Latexmk: Found input bbl file 'C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper/out/demo.bbl'
+Latexmk: Log file says output to 'C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper/out/demo.xdv'
+  ===Source file 'C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper/out/demo.bbl' for 'xelatex'
+Latexmk: Found bibliography file(s):
+  C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper/out/references.bib
+  ===Source file 'out/demo.bbl' for 'xelatex'
+Latexmk: Found bibliography file(s):
+  C:/Users/zy/AppData/Local/Temp/mcm-paper-4eeufrhe/paper/out/references.bib
+Latexmk: applying rule 'xdvipdfmx'...
+Rule 'xdvipdfmx':  Reasons for rerun
+Changed files or newly in use/created:
+  out/demo.xdv
+Category 'changed_source_rules':
+  xelatex
+Category 'no_dest':
+  xdvipdfmx
+
+------------
+Run number 1 of rule 'xdvipdfmx'
+------------
+------------
+Running 'xdvipdfmx -E -o "out/demo.pdf"  "out/demo.xdv"'
+------------
+Latexmk: All targets (out/demo.xdv out/demo.pdf) are up-to-date
+
+
+Latexmk: Missing bbl file 'out/demo.bbl' in following:
+ No file demo.bbl.
+Latexmk: Using bibtex to make bibliography file(s).
+Latexmk: Using bibtex to make bibliography file(s).
+Latexmk: Using bibtex to make bibliography file(s).
+out/demo.xdv -> out/demo.pdf
+[1][2][3][4][5][6][7]
+80192 bytes written

@@ -1,0 +1,28 @@
+{
+  "format_version": 2,
+  "_template_only": true,
+  "synthetic": false,
+  "status": "pending",
+  "reviewer_agent_id": null,
+  "reviewed_at": null,
+  "pdf_sha256": null,
+  "pages": [
+    {
+      "path": null,
+      "sha256": null,
+      "checks": {
+        "no_clipping": false,
+        "no_overlap": false,
+        "readable_text": false,
+        "readable_figures": false,
+        "consistent_headers": false,
+        "readable_equations": false,
+        "figure_font_at_final_size": false
+      },
+      "notes": null
+    }
+  ],
+  "note": "Fill only after actually opening every final-size page. Bind PDF, build manifest and each render hash. A paper author cannot sign an independent review; do not auto-fill passed checks. H2/H3 approvals are separate.",
+  "paper_author_agent_ids": [],
+  "build_manifest_sha256": null
+}

@@ -1,0 +1,774 @@
+{
+  "task_id": "LIVE-ACCEPTANCE-001/live-figure",
+  "synthetic": true,
+  "disclaimer": "Synthetic installation-acceptance rehearsal. No production result, measured data, independent review or human approval is claimed. All four gates remain pending.",
+  "role_readback": {
+    "agent_preset": "mcm-figure",
+    "evidence_for_preset": "Declared only by the delegated task card and this session system prompt. No tool available here exposes Host-side preset metadata, so preset/depth are attested by the task card, NOT independently read back from the Host.",
+    "parent_agent_id": "session-5cb9f2f7-7399-4e8d-b3c6-b7db5d71316a",
+    "parent_evidence": "Parent id came from the task card; used it for send_message delivery confirmation. I cannot inspect the parent/child graph through any tool.",
+    "depth": 2,
+    "can_spawn": false,
+    "tools_available_and_usage": [
+      {
+        "tool": "working_directory",
+        "called": true,
+        "note": "returned the project cwd exactly"
+      },
+      {
+        "tool": "ops_bash",
+        "called": true,
+        "note": "host bash: ls, sha256sum, stat, python runs, time"
+      },
+      {
+        "tool": "read",
+        "called": true,
+        "note": "SKILL.md, manifest.yaml, static/core/contract.md, static/fragments/backend/python.md, static/core/stance.md (partial), scripts/figure_demo.py, and re-read of child-report.json"
+      },
+      {
+        "tool": "write",
+        "called": true,
+        "note": "audit/live-figure/build_report.py, audit/live-figure/summarize_check.py, audit/live-figure/child-report.json; one aborted write to /tmp that never reached the project"
+      },
+      {
+        "tool": "ops_inspect_local_file",
+        "called": true,
+        "note": "read config/figure-style.json"
+      },
+      {
+        "tool": "read_image",
+        "called": true,
+        "note": "visual self-inspection of comparison.png and uncertainty.png"
+      },
+      {
+        "tool": "send_message",
+        "called": true,
+        "note": "delivered this result to the parent agent id"
+      },
+      {
+        "tool": "grep",
+        "called": false,
+        "note": "content search used ops_bash grep instead"
+      },
+      {
+        "tool": "glob",
+        "called": false,
+        "note": "file discovery used ops_bash ls"
+      },
+      {
+        "tool": "skill",
+        "called": false,
+        "note": "nature-figure docs were read with the read tool; the skill loader was not invoked"
+      },
+      {
+        "tool": "subagent_claude_code / subagent_codex",
+        "called": false,
+        "note": "no spawning; out of scope for this leaf"
+      },
+      {
+        "tool": "task_board_* / undo_* / present / web_*",
+        "called": false,
+        "note": "not used"
+      }
+    ]
+  },
+  "cwd_readback": {
+    "cwd_absolute": "C:/Users/zy/Documents/Codex/2026-10-24/agent-dsh-ptc-agent-agent-o/work/dsh-v020-live-smoke",
+    "verified_with": [
+      "working_directory tool returned this exact path",
+      "ops_bash ls in that directory shows .mcm-project, .mcm, AGENTS.md, config, protocols, scripts, figures"
+    ],
+    "project_markers_seen": [
+      ".mcm-project",
+      ".mcm",
+      "AGENTS.md",
+      "config/contest-mcm-2027.json",
+      "protocols/05-paper-figures-latex.md"
+    ]
+  },
+  "skill": {
+    "primary": "nature-figure",
+    "skill_root": "C:/Users/zy/.dsh/skills/nature-figure",
+    "installed": {
+      "status": "verified",
+      "evidence": {
+        "skill_md_sha256": "5aefe708a2531c5ddaa8ee74d5155d747e96c0f21a33143d38316b7c5c88ffc4",
+        "skill_md_bytes": 12367,
+        "manifest_version": "2.8.0",
+        "top_level": [
+          "SKILL.md",
+          "manifest.yaml",
+          "README.md",
+          "README_EN.md",
+          "references/",
+          "static/",
+          "scripts/",
+          "agents/",
+          "evals/",
+          "tests/",
+          "assets/",
+          "requirements.txt"
+        ],
+        "audit_scripts_present": [
+          "validate_figure.py",
+          "audit_pdf_text.py",
+          "audit_figure_collisions.py",
+          "audit_panel_alignment.py",
+          "audit_svg_schematic.py",
+          "figure_safety.py",
+          "nature_figure_backend.py",
+          "plot_templates.py",
+          "panel_alignment.R",
+          "generate_openrouter_schematic.py"
+        ],
+        "runtime_seen": {
+          "python": "3.14.7",
+          "matplotlib": "3.10.9",
+          "pymupdf": "1.27.2.3"
+        }
+      }
+    },
+    "read": {
+      "documents": [
+        {
+          "document": "SKILL.md",
+          "sha256": "5aefe708a2531c5ddaa8ee74d5155d747e96c0f21a33143d38316b7c5c88ffc4",
+          "bytes": 12367,
+          "coverage": "full, 145 lines"
+        },
+        {
+          "document": "manifest.yaml",
+          "sha256": "f6cf1e50f55c74e159134edb8ca5a57fd5097b72b37463c7b2612757e01c24be",
+          "bytes": 7782,
+          "coverage": "full, 120 lines"
+        },
+        {
+          "document": "static/core/contract.md",
+          "sha256": "a2b6523a48192cf1dff0d194264c5662c832f4d1da6e9e4763ccd98cc0664d4c",
+          "bytes": 6274,
+          "coverage": "full, 55 lines"
+        },
+        {
+          "document": "static/core/stance.md",
+          "sha256": "c7e6860e955a2ee9c24a30dbe88e28741da4eef8290c019e849c6b220ea0f07a",
+          "bytes": 4595,
+          "coverage": "approx first 2600 of 4595 bytes: title, color policy, stance bullets; tail NOT read"
+        },
+        {
+          "document": "static/fragments/backend/python.md",
+          "sha256": "1d4809e4ec4ed2d40995d74828732012a6a72c941dfec341745a3118e9312865",
+          "bytes": 3535,
+          "coverage": "full, 56 lines"
+        },
+        {
+          "document": "references/qa-contract.md",
+          "sha256": "4f31375cdb614d74eddb8aa7691c0bdfc8a8f20defcca27ce4a36192308748a8",
+          "bytes": 24785,
+          "coverage": "section headings and Contents index only; body NOT read"
+        }
+      ],
+      "branch_or_sections_read": "quantitative-figure -> python backend branch: SKILL.md routing steps 0-5; manifest always_load (static/core/contract.md, static/core/stance.md); static/fragments/backend/python.md Python-only rule, quick-start rcParams and save_pub_py helper, going-deeper tool list; qa-contract.md table of contents (source preflight, exported-PDF glyph audit, panel-layout manifest audit, rendered collision audit, typography and PDF glyph floor, printed size, export checks). Not loaded: r backend fragment, references/figure-contract.md, references/multipanel-evidence-architecture.md, references/api.md, references/design-theory.md, references/nature-article-requirements.md, nature-shared files.",
+      "note": "Reading docs is not skill execution. No Python/R question was asked because config/figure-style.json already fixes backend=python for this project; the script also records its own skill_read list (8 documents) inside each contract."
+    },
+    "executed": {
+      "status": "executed",
+      "commands": [
+        {
+          "command": "cd <PROJECT_ROOT>; time python scripts/figure_demo.py --root <PROJECT_ROOT> --skill-root C:/Users/zy/.dsh/skills/nature-figure",
+          "exit_code": 0,
+          "stdout_tail": "demo-manifest JSON ending with note: Generated and mechanically audited only. No human gate or independent visual review is fabricated.",
+          "stderr_tail": ""
+        },
+        {
+          "command": "python scripts/figure_check.py --root <PROJECT_ROOT> figures/figure-demo/comparison.contract.json",
+          "exit_code": 0,
+          "stdout_tail": "contract check JSON, figure_id SYNTHETIC-comparison, visual_status pending, synthetic true",
+          "stderr_tail": ""
+        },
+        {
+          "command": "python <skill>/scripts/validate_figure.py <PROJECT_ROOT>/scripts/figure_demo.py --backend python --json (x4, subprocess from figure_demo.py)",
+          "exit_code": 0,
+          "stdout_tail": "summary.ready true; counts PASS 18 WARN 3 FAIL 0",
+          "stderr_tail": ""
+        },
+        {
+          "command": "python <skill>/scripts/audit_pdf_text.py <figure>.pdf --min-pt 12 --json (x4, subprocess)",
+          "exit_code": 0,
+          "stdout_tail": "warnings: []",
+          "stderr_tail": ""
+        },
+        {
+          "command": "python <skill>/scripts/audit_figure_collisions.py <figure>.pdf --json (x4, subprocess)",
+          "exit_code": 0,
+          "stdout_tail": "findings: []",
+          "stderr_tail": ""
+        }
+      ],
+      "note": "12 skill subprocess audit calls (3 per figure), all exit 0, recorded per contract in skill_executed. audit_figure_collisions.py ran without --strict, so WARN would not have blocked. Per-call command arrays and log sha256 are inside each contract.json."
+    },
+    "not_loaded_excluded_orchestrators": true,
+    "excluded_orchestrators_note": "shumo2, shumo2-v2, shumo-core, askill, askill-v2, math-modeling, mathematical-modeling, paper-spine were never loaded or invoked, directly or indirectly. SKILL.md and manifest.yaml route only to this skill own static/, references/ and scripts/; no document I read required launching an excluded orchestrator, so no step had to be skipped."
+  },
+  "execution": {
+    "command": "cd <PROJECT_ROOT> && time python scripts/figure_demo.py --root C:/Users/zy/Documents/Codex/2026-10-24/agent-dsh-ptc-agent-agent-o/work/dsh-v020-live-smoke --skill-root C:/Users/zy/.dsh/skills/nature-figure",
+    "exit_code": 0,
+    "python_version": "3.14.7",
+    "matplotlib_version": "3.10.9",
+    "pymupdf_version": "1.27.2.3",
+    "duration_seconds": 3.794,
+    "duration_evidence": "bash time: real 0m3.794s, user 0m0.015s, sys 0m0.000s",
+    "rerun_or_fixup": null,
+    "output_dir_state": "figures/figure-demo did not exist before the run (figures/ held only .gitkeep); the script refuses an existing output directory, so no rerun or fixup was needed.",
+    "stdout_retention": "Full stdout (demo-manifest JSON) went to a temp file outside the project; only the tail is quoted. The full manifest is persisted at figures/figure-demo/demo-manifest.json."
+  },
+  "artifacts": [
+    {
+      "path": "figures/figure-demo/analytic-check.json",
+      "bytes": 330,
+      "sha256": "af497c2f014f284ea9fc722790035af7709fbb59293fc45f7505a8b5e1554aca"
+    },
+    {
+      "path": "figures/figure-demo/comparison.alignment.json",
+      "bytes": 277,
+      "sha256": "d2382bb8eb05f7a9208e2815acb5eb369cd746e812daa394f8e37b178622890a"
+    },
+    {
+      "path": "figures/figure-demo/comparison.audit_figure_collisions.py.log",
+      "bytes": 629,
+      "sha256": "cbe6533cf7263700a12b767364d292eb62e308318a459f39c046a5e2a986812d"
+    },
+    {
+      "path": "figures/figure-demo/comparison.audit_pdf_text.py.log",
+      "bytes": 337,
+      "sha256": "2e44e8399c3208e8f3bca2eb187931cb5305ec91276abb364a5261e9f53b8139"
+    },
+    {
+      "path": "figures/figure-demo/comparison.contract.json",
+      "bytes": 6952,
+      "sha256": "ad66e415cda3538fcfbbb85c2f4c75868328918f35ce085f4b7218410dcbf513"
+    },
+    {
+      "path": "figures/figure-demo/comparison.mechanical.json",
+      "bytes": 1422,
+      "sha256": "72820021b6d5b6f5854902bf206ee6d42a96e23db52f90df3c30af7bc0987d03"
+    },
+    {
+      "path": "figures/figure-demo/comparison.pdf",
+      "bytes": 13663,
+      "sha256": "545ee72a2af5b6bd3916f1cc3d985068a766777bf53347e7661ad18e952be5c9"
+    },
+    {
+      "path": "figures/figure-demo/comparison.png",
+      "bytes": 133731,
+      "sha256": "e01806e539cfaf2afc80f3b58c79e190e820ab1dfeef4b6c09a485edea59a77b"
+    },
+    {
+      "path": "figures/figure-demo/comparison.svg",
+      "bytes": 13201,
+      "sha256": "26804972c459d8ad6adc4e1330af0c4e752a78be27ae2de6cffcd32db3ebf947"
+    },
+    {
+      "path": "figures/figure-demo/comparison.validate_figure.py.log",
+      "bytes": 4101,
+      "sha256": "e816f6d8bd584abd7369732e89e0f3478013bddcad4ba7d7afceca026ffcb735"
+    },
+    {
+      "path": "figures/figure-demo/decay-results.csv",
+      "bytes": 6802,
+      "sha256": "5003a1039915f350db292a266166ea06add1447183ea353d3aa5a177bf975627"
+    },
+    {
+      "path": "figures/figure-demo/demo-manifest.json",
+      "bytes": 9392,
+      "sha256": "9e6e2698809690f24a3637fa662b5d0c7828e5c42f218b71df3a53bb60a10a31"
+    },
+    {
+      "path": "figures/figure-demo/method.alignment.json",
+      "bytes": 277,
+      "sha256": "d2382bb8eb05f7a9208e2815acb5eb369cd746e812daa394f8e37b178622890a"
+    },
+    {
+      "path": "figures/figure-demo/method.audit_figure_collisions.py.log",
+      "bytes": 622,
+      "sha256": "fee154bf48a0aa54c89573715a104d7a7ea843edd64cbabffd41f4b1913d5484"
+    },
+    {
+      "path": "figures/figure-demo/method.audit_pdf_text.py.log",
+      "bytes": 333,
+      "sha256": "21d57b6be423aaf5467d179d0b20cf9efe4e07e83683bb701a7f5caca63b0267"
+    },
+    {
+      "path": "figures/figure-demo/method.contract.json",
+      "bytes": 6638,
+      "sha256": "b7582e3f642cd30c43e0ed6b85e3d32697eff9e76f33e524fdab0fc5bda21235"
+    },
+    {
+      "path": "figures/figure-demo/method.mechanical.json",
+      "bytes": 1028,
+      "sha256": "4d2a96c9e941f073abe162a47253259e7892728ce0fe95cac8fe0a048f4ae83a"
+    },
+    {
+      "path": "figures/figure-demo/method.pdf",
+      "bytes": 11918,
+      "sha256": "d55a47f4e7f384889e77a67bbfb48d5c2ca6e5e2fb9d38dba7e8e1c409794f3c"
+    },
+    {
+      "path": "figures/figure-demo/method.png",
+      "bytes": 88437,
+      "sha256": "2feea3ba2b16d52847c3fabbcfc46067ae6d68164639c8b7ad3d3a02be1211eb"
+    },
+    {
+      "path": "figures/figure-demo/method.svg",
+      "bytes": 5860,
+      "sha256": "ac29c78dbf7364992e33316ca807790beb4a98e491c6d2c12915926b108ad7f4"
+    },
+    {
+      "path": "figures/figure-demo/method.validate_figure.py.log",
+      "bytes": 4101,
+      "sha256": "e816f6d8bd584abd7369732e89e0f3478013bddcad4ba7d7afceca026ffcb735"
+    },
+    {
+      "path": "figures/figure-demo/numbers.tex",
+      "bytes": 282,
+      "sha256": "a51789f337140c5650a5d22ccea37dff27ffeb7b8fa6e224c8282627387a450d"
+    },
+    {
+      "path": "figures/figure-demo/sensitivity.alignment.json",
+      "bytes": 277,
+      "sha256": "d2382bb8eb05f7a9208e2815acb5eb369cd746e812daa394f8e37b178622890a"
+    },
+    {
+      "path": "figures/figure-demo/sensitivity.audit_figure_collisions.py.log",
+      "bytes": 630,
+      "sha256": "1826f2a664501663ce9afbfbb453b79ff94d8fee13b323a22d375295d0f34fab"
+    },
+    {
+      "path": "figures/figure-demo/sensitivity.audit_pdf_text.py.log",
+      "bytes": 338,
+      "sha256": "17509c683c927d06a9da3062eb4c7bb8fce468d150caeaa1f959795565086f07"
+    },
+    {
+      "path": "figures/figure-demo/sensitivity.contract.json",
+      "bytes": 6897,
+      "sha256": "c0a209c4fdcece9cd1578bcf811df93b82b074b6ef29cde73eb6b4d79c8f9bbd"
+    },
+    {
+      "path": "figures/figure-demo/sensitivity.mechanical.json",
+      "bytes": 1428,
+      "sha256": "c8de9b229092dfee4acec69adf13bb8fa0e844ce62cec4e8f9937ff2f2198678"
+    },
+    {
+      "path": "figures/figure-demo/sensitivity.pdf",
+      "bytes": 12533,
+      "sha256": "2e9ece7f1d44a6e87a61dcdedd18d57a8c096c1fbfd5af7cbbba00b5196d55bc"
+    },
+    {
+      "path": "figures/figure-demo/sensitivity.png",
+      "bytes": 145740,
+      "sha256": "df51336574c570d0660e9352dd8fea48aadc34061a31ebe8b5849eeff8427825"
+    },
+    {
+      "path": "figures/figure-demo/sensitivity.svg",
+      "bytes": 11400,
+      "sha256": "175ea2b6323020bf1385cc797993309bb26ddedc95446ffde51828285ce1272c"
+    },
+    {
+      "path": "figures/figure-demo/sensitivity.validate_figure.py.log",
+      "bytes": 4101,
+      "sha256": "e816f6d8bd584abd7369732e89e0f3478013bddcad4ba7d7afceca026ffcb735"
+    },
+    {
+      "path": "figures/figure-demo/uncertainty.alignment.json",
+      "bytes": 277,
+      "sha256": "d2382bb8eb05f7a9208e2815acb5eb369cd746e812daa394f8e37b178622890a"
+    },
+    {
+      "path": "figures/figure-demo/uncertainty.audit_figure_collisions.py.log",
+      "bytes": 630,
+      "sha256": "8f80b58df02e9a2bb5a9876ae315fb0ae33db447b65d03410690ac0162966aee"
+    },
+    {
+      "path": "figures/figure-demo/uncertainty.audit_pdf_text.py.log",
+      "bytes": 338,
+      "sha256": "1fc3999def7e7cecaef61c68ed560148b230e1e496062878718b8557cd6a1fe2"
+    },
+    {
+      "path": "figures/figure-demo/uncertainty.contract.json",
+      "bytes": 7015,
+      "sha256": "96f6cb92497c735c39e9c1ab0296a7845acbcfc0f40583e25d820aa3895ecf7d"
+    },
+    {
+      "path": "figures/figure-demo/uncertainty.mechanical.json",
+      "bytes": 1367,
+      "sha256": "b654791abf6d86125b2eccdb4f0099c9da57e012c884c0c6f715d6d67fd26dd5"
+    },
+    {
+      "path": "figures/figure-demo/uncertainty.pdf",
+      "bytes": 13134,
+      "sha256": "4311f9c7f1e024cd501980f37873fc8ec065b4dfe529ce71b1c0521103c647e7"
+    },
+    {
+      "path": "figures/figure-demo/uncertainty.png",
+      "bytes": 148315,
+      "sha256": "c1b73e5740cd38c8f73acee693fb82defc4a152e62d188011add23d55a41f42b"
+    },
+    {
+      "path": "figures/figure-demo/uncertainty.svg",
+      "bytes": 11092,
+      "sha256": "6b87f8fae0532e73f7497d340ac1ae1a3ac82c3afbe3174d666e220fc4f1250f"
+    },
+    {
+      "path": "figures/figure-demo/uncertainty.validate_figure.py.log",
+      "bytes": 4101,
+      "sha256": "e816f6d8bd584abd7369732e89e0f3478013bddcad4ba7d7afceca026ffcb735"
+    }
+  ],
+  "figures": [
+    {
+      "name": "method",
+      "figure_id": "SYNTHETIC-method",
+      "contract_path": "figures/figure-demo/method.contract.json",
+      "contract_bytes": 6638,
+      "contract_sha256": "b7582e3f642cd30c43e0ed6b85e3d32697eff9e76f33e524fdab0fc5bda21235",
+      "status": "draft",
+      "approval_state_key_present": false,
+      "synthetic": true,
+      "visual_status": "pending",
+      "size_mm": {
+        "width": 165.1,
+        "height": 101.6
+      },
+      "minimum_final_glyph_pt": 12,
+      "mechanical_ok": true,
+      "figure_check_rerun_by_me": false,
+      "skill_executed": [
+        {
+          "tool": "figure_check.audit_pdf",
+          "status": "passed",
+          "exit_code": null
+        },
+        {
+          "tool": "panel_alignment",
+          "status": "not_applicable",
+          "exit_code": null
+        },
+        {
+          "tool": "validate_figure.py",
+          "status": "passed",
+          "exit_code": 0
+        },
+        {
+          "tool": "audit_pdf_text.py",
+          "status": "passed",
+          "exit_code": 0
+        },
+        {
+          "tool": "audit_figure_collisions.py",
+          "status": "passed",
+          "exit_code": 0
+        }
+      ],
+      "outputs": [
+        {
+          "format": "pdf",
+          "path": "figures/figure-demo/method.pdf"
+        },
+        {
+          "format": "svg",
+          "path": "figures/figure-demo/method.svg"
+        },
+        {
+          "format": "png",
+          "path": "figures/figure-demo/method.png"
+        }
+      ]
+    },
+    {
+      "name": "comparison",
+      "figure_id": "SYNTHETIC-comparison",
+      "contract_path": "figures/figure-demo/comparison.contract.json",
+      "contract_bytes": 6952,
+      "contract_sha256": "ad66e415cda3538fcfbbb85c2f4c75868328918f35ce085f4b7218410dcbf513",
+      "status": "draft",
+      "approval_state_key_present": false,
+      "synthetic": true,
+      "visual_status": "pending",
+      "size_mm": {
+        "width": 165.1,
+        "height": 101.6
+      },
+      "minimum_final_glyph_pt": 12,
+      "mechanical_ok": true,
+      "figure_check_rerun_by_me": true,
+      "skill_executed": [
+        {
+          "tool": "figure_check.audit_pdf",
+          "status": "passed",
+          "exit_code": null
+        },
+        {
+          "tool": "panel_alignment",
+          "status": "not_applicable",
+          "exit_code": null
+        },
+        {
+          "tool": "validate_figure.py",
+          "status": "passed",
+          "exit_code": 0
+        },
+        {
+          "tool": "audit_pdf_text.py",
+          "status": "passed",
+          "exit_code": 0
+        },
+        {
+          "tool": "audit_figure_collisions.py",
+          "status": "passed",
+          "exit_code": 0
+        }
+      ],
+      "outputs": [
+        {
+          "format": "pdf",
+          "path": "figures/figure-demo/comparison.pdf"
+        },
+        {
+          "format": "svg",
+          "path": "figures/figure-demo/comparison.svg"
+        },
+        {
+          "format": "png",
+          "path": "figures/figure-demo/comparison.png"
+        }
+      ]
+    },
+    {
+      "name": "sensitivity",
+      "figure_id": "SYNTHETIC-sensitivity",
+      "contract_path": "figures/figure-demo/sensitivity.contract.json",
+      "contract_bytes": 6897,
+      "contract_sha256": "c0a209c4fdcece9cd1578bcf811df93b82b074b6ef29cde73eb6b4d79c8f9bbd",
+      "status": "draft",
+      "approval_state_key_present": false,
+      "synthetic": true,
+      "visual_status": "pending",
+      "size_mm": {
+        "width": 165.1,
+        "height": 101.6
+      },
+      "minimum_final_glyph_pt": 12,
+      "mechanical_ok": true,
+      "figure_check_rerun_by_me": false,
+      "skill_executed": [
+        {
+          "tool": "figure_check.audit_pdf",
+          "status": "passed",
+          "exit_code": null
+        },
+        {
+          "tool": "panel_alignment",
+          "status": "not_applicable",
+          "exit_code": null
+        },
+        {
+          "tool": "validate_figure.py",
+          "status": "passed",
+          "exit_code": 0
+        },
+        {
+          "tool": "audit_pdf_text.py",
+          "status": "passed",
+          "exit_code": 0
+        },
+        {
+          "tool": "audit_figure_collisions.py",
+          "status": "passed",
+          "exit_code": 0
+        }
+      ],
+      "outputs": [
+        {
+          "format": "pdf",
+          "path": "figures/figure-demo/sensitivity.pdf"
+        },
+        {
+          "format": "svg",
+          "path": "figures/figure-demo/sensitivity.svg"
+        },
+        {
+          "format": "png",
+          "path": "figures/figure-demo/sensitivity.png"
+        }
+      ]
+    },
+    {
+      "name": "uncertainty",
+      "figure_id": "SYNTHETIC-uncertainty",
+      "contract_path": "figures/figure-demo/uncertainty.contract.json",
+      "contract_bytes": 7015,
+      "contract_sha256": "96f6cb92497c735c39e9c1ab0296a7845acbcfc0f40583e25d820aa3895ecf7d",
+      "status": "draft",
+      "approval_state_key_present": false,
+      "synthetic": true,
+      "visual_status": "pending",
+      "size_mm": {
+        "width": 165.1,
+        "height": 101.6
+      },
+      "minimum_final_glyph_pt": 12,
+      "mechanical_ok": true,
+      "figure_check_rerun_by_me": false,
+      "skill_executed": [
+        {
+          "tool": "figure_check.audit_pdf",
+          "status": "passed",
+          "exit_code": null
+        },
+        {
+          "tool": "panel_alignment",
+          "status": "not_applicable",
+          "exit_code": null
+        },
+        {
+          "tool": "validate_figure.py",
+          "status": "passed",
+          "exit_code": 0
+        },
+        {
+          "tool": "audit_pdf_text.py",
+          "status": "passed",
+          "exit_code": 0
+        },
+        {
+          "tool": "audit_figure_collisions.py",
+          "status": "passed",
+          "exit_code": 0
+        }
+      ],
+      "outputs": [
+        {
+          "format": "pdf",
+          "path": "figures/figure-demo/uncertainty.pdf"
+        },
+        {
+          "format": "svg",
+          "path": "figures/figure-demo/uncertainty.svg"
+        },
+        {
+          "format": "png",
+          "path": "figures/figure-demo/uncertainty.png"
+        }
+      ]
+    }
+  ],
+  "acceptance": {
+    "mechanical": {
+      "figure_check_per_contract": [
+        {
+          "contract": "figures/figure-demo/comparison.contract.json",
+          "exit_code": 0,
+          "ok": true,
+          "note": "the optional extra self-check; demo-manifest also records check ok=true for all four contracts"
+        }
+      ],
+      "mechanical_json_all_ok": true,
+      "skill_audits": [
+        {
+          "tool": "validate_figure.py",
+          "runs": 4,
+          "all_exit_zero": true,
+          "warn_findings": [
+            "EXPORT-RASTER: PNG preview present but no TIFF submission raster",
+            "RASTER-DPI: 300 dpi floor met, 600 dpi skill default not",
+            "FINAL-WIDTH: no static final width detected in source"
+          ]
+        },
+        {
+          "tool": "audit_pdf_text.py",
+          "runs": 4,
+          "min_pt": 12,
+          "all_exit_zero": true,
+          "warnings": "[] for all four PDFs"
+        },
+        {
+          "tool": "audit_figure_collisions.py",
+          "runs": 4,
+          "strict": false,
+          "all_exit_zero": true,
+          "findings": "[] for all four PDFs"
+        },
+        {
+          "tool": "panel_alignment",
+          "runs": 4,
+          "status": "not_applicable",
+          "reason": "one plot area per figure; the script wrote its own alignment JSON with status not_applicable"
+        }
+      ],
+      "status": "passed",
+      "scope_note": "Automated/mechanical only: PDF glyph-size audit, source preflight, collision audit, contract schema check. The three WARNs are skill preflight warnings, not failures."
+    },
+    "numeric": {
+      "analytic_check_ref": "figures/figure-demo/analytic-check.json",
+      "analytic_check_sha256": "af497c2f014f284ea9fc722790035af7709fbb59293fc45f7505a8b5e1554aca",
+      "equation": "y'=-k*y; y(0)=1",
+      "euler_max_abs_error": 0.01920100107144218,
+      "rk4_max_abs_error": 3.3324105608301124e-7,
+      "guard": "frozen script enforces rk4 error < 1e-5 and rk4 < euler; both hold",
+      "numbers_tex_ref": "figures/figure-demo/numbers.tex"
+    },
+    "visual": {
+      "status": "self_inspection_only",
+      "independent_review": false,
+      "inspected": [
+        "figures/figure-demo/comparison.png (1950x1200)",
+        "figures/figure-demo/uncertainty.png (1950x1200)"
+      ],
+      "not_inspected": [
+        "method.png",
+        "sensitivity.png"
+      ],
+      "note": "I do have an image tool (read_image) and looked at two rendered PNGs: white background, legible labels, 12-14 pt text, palette blue/teal/green/orange as configured, legend entries consistent with the contract claims (Analytical/Euler/RK4; Parameter envelope/Rate 1.0). I did NOT measure glyph size on the rendered PDF page, did not inspect the other two figures, and did not check them as inserted in the manuscript. Both contracts keep visual_status=pending. This is NOT independent visual acceptance."
+    }
+  },
+  "capacity_and_tools": {
+    "host_slots_observed": "unknown",
+    "team_member_limit_observed": "unknown",
+    "note": "No tool in this session exposes Host slot counts, Team member limits or a job/child inventory for me. Observed only my own session and the parent agent id from the task card."
+  },
+  "wrote_only_allowed_paths": true,
+  "wrote_paths": [
+    "figures/figure-demo/ (40 files created by scripts/figure_demo.py; full list under artifacts)",
+    "audit/live-figure/summarize_check.py",
+    "audit/live-figure/build_report.py",
+    "audit/live-figure/child-report.json"
+  ],
+  "results_dir_copies": "none - no structured copy under results/ was needed",
+  "build_class_files": "none_observed",
+  "spawned_children": 0,
+  "gates_touched": false,
+  "gates_note": "config/gates.json was never written or modified; H0_TOPIC, H1_MODEL, H2_RESULTS and H3_RELEASE all remain pending, and this run claims nothing else. No .mcm record written. Contract status stays the script default draft; contracts contain no approval_state key and I did not add one.",
+  "untouched_paths_confirmed": [
+    "scripts/**",
+    "config/**",
+    "paper/**",
+    ".mcm/**",
+    "templates/**",
+    "protocols/**",
+    "tests/**",
+    "models/**",
+    "data/**",
+    "AGENTS.md",
+    "audit/LIVE-ACCEPTANCE-001.md",
+    "audit/LIVE-ACCEPTANCE-001-result.json",
+    "audit/LIVE-ACCEPTANCE-001-result.md"
+  ],
+  "blocked_or_gaps": [
+    "No Host-level readback of my own preset, depth or parent: those come from the task card and system prompt only, so they are attested rather than verified.",
+    "references/qa-contract.md body and the tail of static/core/stance.md were not read.",
+    "Visual inspection covered 2 of 4 PNGs; visual_status stays pending, no independent visual review, no final-insertion-size check.",
+    "3 validate_figure.py WARNs left unfixed (no TIFF raster, 300 vs 600 dpi, no static final width) because fixing them needs script/config edits outside my write scope.",
+    "audit_figure_collisions.py ran without --strict; a WARN-level collision would not have blocked export.",
+    "One stray write to /tmp/fig_summary.py landed in the host temp dir (not the project) and was never executed; python /tmp did not resolve to the same file. Reported for transparency; no project file was touched by it."
+  ],
+  "finished_at": "2026-10-25T22:59:56+08:00"
+}

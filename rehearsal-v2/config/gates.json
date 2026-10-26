@@ -1,0 +1,9 @@
+{
+  "format_version": 1,
+  "records": [
+    {"gate_id": "H0_TOPIC", "status": "pending", "decision_id": null, "approved_by": null, "approved_at": null, "scope_refs": []},
+    {"gate_id": "H1_MODEL", "status": "pending", "decision_id": null, "approved_by": null, "approved_at": null, "scope_refs": []},
+    {"gate_id": "H2_RESULTS", "status": "pending", "decision_id": null, "approved_by": null, "approved_at": null, "scope_refs": []},
+    {"gate_id": "H3_RELEASE", "status": "pending", "decision_id": null, "approved_by": null, "approved_at": null, "scope_refs": []}
+  ]
+}

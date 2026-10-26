@@ -1,0 +1,196 @@
+{
+  "format_version": 2,
+  "figure_id": "SYNTHETIC-comparison",
+  "version": 1,
+  "synthetic": true,
+  "status": "draft",
+  "argument_sentence": "RK4 follows the analytical reference more closely than Euler at the same step.",
+  "figure_type": "quantitative",
+  "backend": "python",
+  "archetype": "single-panel",
+  "data_inputs": [
+    {
+      "path": "figures/figure-demo/decay-results.csv",
+      "sha256": "5003a1039915f350db292a266166ea06add1447183ea353d3aa5a177bf975627",
+      "synthetic": true
+    }
+  ],
+  "columns_and_units": {
+    "time": "dimensionless",
+    "exact": "fraction",
+    "euler": "fraction",
+    "rk4": "fraction",
+    "k_0_7": "fraction",
+    "k_1_0": "fraction",
+    "k_1_3": "fraction",
+    "p10": "fraction",
+    "p90": "fraction"
+  },
+  "column_mapping": {
+    "x": "time",
+    "y": [
+      "exact",
+      "euler",
+      "rk4"
+    ]
+  },
+  "transformation": "No excluded rows; lines use all 41 time points, RK4 markers every fourth point. Parameter quantiles use all 301 deterministic rate scenarios.",
+  "uncertainty_definition": "Not applicable; deterministic scenarios.",
+  "size_mm": {
+    "width": 165.1,
+    "height": 101.6
+  },
+  "minimum_final_glyph_pt": 12,
+  "style_profile": "mcm-clear-science-v2",
+  "script_path": "scripts/figure_demo.py",
+  "script_sha256": "c38c6e919531b24dfc31b62a71c1265ff049c71230c9bdb34ffa9edafd94d674",
+  "generation_command": "python scripts/figure_demo.py --root PROJECT --output NEW_DIRECTORY [--skill-root INSTALLED_SKILL]",
+  "outputs": [
+    {
+      "path": "figures/figure-demo/comparison.pdf",
+      "sha256": "b38776de6f1d86ba3e68388e52b6fec2cc69c9385418b6cf0dcba4234185c9c4",
+      "format": "pdf"
+    },
+    {
+      "path": "figures/figure-demo/comparison.svg",
+      "sha256": "7492b4238f5218b3de088fc9f202803996ee1cdb742f1169424552bcc323e318",
+      "format": "svg"
+    },
+    {
+      "path": "figures/figure-demo/comparison.png",
+      "sha256": "e01806e539cfaf2afc80f3b58c79e190e820ab1dfeef4b6c09a485edea59a77b",
+      "format": "png"
+    }
+  ],
+  "caption_english": "Synthetic decay comparison at k=1 and step 0.1, using 41 shared time points. Solid blue: analytical reference; dashed orange: Euler; green markers: RK4. Values and units are dimensionless.",
+  "paper_label": "fig:demo-comparison",
+  "skill_read": [
+    {
+      "document": "figure-style.json",
+      "sha256": "ae483be929dd0a46038a8abf8313d8ab3ff7b773cb14ad4641b6a204c5a167c7",
+      "read_at": "2026-10-25T13:48:36.849149+00:00"
+    },
+    {
+      "document": "05-paper-figures-latex.md",
+      "sha256": "055110b71846de5c86279561704eff85f599715b566387f9a78e9eb787cce454",
+      "read_at": "2026-10-25T13:48:36.849664+00:00"
+    },
+    {
+      "document": "SKILL.md",
+      "sha256": "5aefe708a2531c5ddaa8ee74d5155d747e96c0f21a33143d38316b7c5c88ffc4",
+      "read_at": "2026-10-25T13:48:36.850185+00:00"
+    },
+    {
+      "document": "manifest.yaml",
+      "sha256": "f6cf1e50f55c74e159134edb8ca5a57fd5097b72b37463c7b2612757e01c24be",
+      "read_at": "2026-10-25T13:48:36.850603+00:00"
+    },
+    {
+      "document": "contract.md",
+      "sha256": "a2b6523a48192cf1dff0d194264c5662c832f4d1da6e9e4763ccd98cc0664d4c",
+      "read_at": "2026-10-25T13:48:36.851045+00:00"
+    },
+    {
+      "document": "stance.md",
+      "sha256": "c7e6860e955a2ee9c24a30dbe88e28741da4eef8290c019e849c6b220ea0f07a",
+      "read_at": "2026-10-25T13:48:36.851850+00:00"
+    },
+    {
+      "document": "python.md",
+      "sha256": "1d4809e4ec4ed2d40995d74828732012a6a72c941dfec341745a3118e9312865",
+      "read_at": "2026-10-25T13:48:36.852235+00:00"
+    },
+    {
+      "document": "qa-contract.md",
+      "sha256": "4f31375cdb614d74eddb8aa7691c0bdfc8a8f20defcca27ce4a36192308748a8",
+      "read_at": "2026-10-25T13:48:36.852795+00:00"
+    }
+  ],
+  "skill_executed": [
+    {
+      "tool": "figure_check.audit_pdf",
+      "status": "passed",
+      "output_refs": [
+        {
+          "path": "figures/figure-demo/comparison.mechanical.json",
+          "sha256": "72820021b6d5b6f5854902bf206ee6d42a96e23db52f90df3c30af7bc0987d03"
+        }
+      ]
+    },
+    {
+      "tool": "panel_alignment",
+      "status": "not_applicable",
+      "output_refs": [
+        {
+          "path": "figures/figure-demo/comparison.alignment.json",
+          "sha256": "d2382bb8eb05f7a9208e2815acb5eb369cd746e812daa394f8e37b178622890a"
+        }
+      ]
+    },
+    {
+      "tool": "validate_figure.py",
+      "status": "passed",
+      "exit_code": 0,
+      "command": [
+        "C:\\Program Files\\Python314\\python.exe",
+        "C:\\Users\\zy\\.dsh\\skills\\nature-figure\\scripts\\validate_figure.py",
+        "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\outputs\\mcm-dsh-team-v0.2.0\\rehearsal-v2\\scripts\\figure_demo.py",
+        "--backend",
+        "python",
+        "--json"
+      ],
+      "output_refs": [
+        {
+          "path": "figures/figure-demo/comparison.validate_figure.py.log",
+          "sha256": "edc5ad084de28038617c6f4f28ac7406f7b80c591ca8fb187316e057e3ede39b"
+        }
+      ]
+    },
+    {
+      "tool": "audit_pdf_text.py",
+      "status": "passed",
+      "exit_code": 0,
+      "command": [
+        "C:\\Program Files\\Python314\\python.exe",
+        "C:\\Users\\zy\\.dsh\\skills\\nature-figure\\scripts\\audit_pdf_text.py",
+        "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\outputs\\mcm-dsh-team-v0.2.0\\rehearsal-v2\\figures\\figure-demo\\comparison.pdf",
+        "--min-pt",
+        "12",
+        "--json"
+      ],
+      "output_refs": [
+        {
+          "path": "figures/figure-demo/comparison.audit_pdf_text.py.log",
+          "sha256": "5eef3fb20e8bb4c5b1083177451795ca66f77fbfe7c78b6f697f8208e98599c8"
+        }
+      ]
+    },
+    {
+      "tool": "audit_figure_collisions.py",
+      "status": "passed",
+      "exit_code": 0,
+      "command": [
+        "C:\\Program Files\\Python314\\python.exe",
+        "C:\\Users\\zy\\.dsh\\skills\\nature-figure\\scripts\\audit_figure_collisions.py",
+        "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\outputs\\mcm-dsh-team-v0.2.0\\rehearsal-v2\\figures\\figure-demo\\comparison.pdf",
+        "--json"
+      ],
+      "output_refs": [
+        {
+          "path": "figures/figure-demo/comparison.audit_figure_collisions.py.log",
+          "sha256": "5781137999ae6f496682c0ac0ef5585f9294791128f418655cf2251499973d6a"
+        }
+      ]
+    }
+  ],
+  "visual_check_ref": null,
+  "visual_status": "pending",
+  "numeric_verification_ref": {
+    "path": "figures/figure-demo/analytic-check.json",
+    "sha256": "af497c2f014f284ea9fc722790035af7709fbb59293fc45f7505a8b5e1554aca"
+  },
+  "qa_readback": {
+    "mechanical_report_sha256": "72820021b6d5b6f5854902bf206ee6d42a96e23db52f90df3c30af7bc0987d03",
+    "visual_reviewed": false
+  }
+}

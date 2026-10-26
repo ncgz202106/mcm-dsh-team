@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data: blob:">
+  <title>01-role-architecture</title>
+  <style>
+    :root { color-scheme: dark; --page:#0f0f1a; --panel:#0f172a; --border:#334155; --text:#e2e8f0; --muted:#94a3b8; --accent:#a855f7; }
+    html[data-theme="light"] { color-scheme:light; --page:#f8fafc; --panel:#fff; --border:#cbd5e1; --text:#0f172a; --muted:#475569; --accent:#7c3aed; }
+    * { box-sizing:border-box; }
+    html,body { width:100%; height:100%; margin:0; overflow:hidden; background:linear-gradient(135deg,var(--page),#1a1a2e); color:var(--text); font-family:'SF Mono','Fira Code',ui-monospace,monospace; }
+    body { display:grid; grid-template-rows:auto 1fr; }
+    .toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:10px 14px; background:color-mix(in srgb,var(--panel) 92%,transparent); border-bottom:1px solid var(--border); z-index:2; }
+    .title { margin-right:auto; font-size:13px; font-weight:700; }
+    button,select { min-height:34px; padding:6px 10px; color:var(--text); background:var(--panel); border:1px solid var(--border); border-radius:8px; font:inherit; cursor:pointer; }
+    button:hover,button:focus-visible,select:focus-visible { border-color:var(--accent); outline:2px solid color-mix(in srgb,var(--accent) 35%,transparent); outline-offset:1px; }
+    #stage { position:relative; overflow:hidden; touch-action:none; cursor:grab; }
+    #stage.dragging { cursor:grabbing; }
+    #canvas { width:100%; height:100%; display:grid; place-items:center; transform-origin:0 0; will-change:transform; }
+    #canvas svg { max-width:calc(100vw - 40px); max-height:calc(100vh - 92px); width:auto; height:auto; filter:drop-shadow(0 22px 60px rgba(0,0,0,.28)); user-select:none; }
+    #status { min-width:76px; color:var(--muted); font-size:12px; text-align:center; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    @media (prefers-reduced-motion:reduce) { * { scroll-behavior:auto!important; transition:none!important; } }
+  </style>
+</head>
+<body>
+  <header class="toolbar" aria-label="Diagram controls">
+    <span class="title">01-role-architecture</span>
+    <button type="button" data-action="zoom-out" aria-label="Zoom out">−</button>
+    <button type="button" data-action="reset" aria-label="Reset view">Reset</button>
+    <button type="button" data-action="zoom-in" aria-label="Zoom in">+</button>
+    <span id="status" aria-live="polite">100%</span>
+    <button type="button" data-action="theme" aria-label="Toggle theme">Theme</button>
+    <button type="button" data-action="copy" aria-label="Copy SVG source">Copy SVG</button>
+    <select id="scale" aria-label="Raster export scale"><option value="1">1×</option><option value="2" selected>2×</option><option value="3">3×</option><option value="4">4×</option></select>
+    <select id="format" aria-label="Export format"><option>SVG</option><option>PNG</option><option>JPEG</option><option>WebP</option></select>
+    <button type="button" data-action="download">Export</button>
+  </header>
+  <main id="stage" tabindex="0" aria-label="Interactive diagram. Drag to pan; use plus and minus to zoom.">
+    <div id="canvas"><svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1880" viewBox="0 0 1920 1880" data-generator="mcm-team-diagrams" data-quality-profile="showcase" role="img" focusable="false">
+<title>MCM 多 Agent：12 类角色与检查点协作</title>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif} .muted{fill:#475569}</style>
+<defs><marker id="a0" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#2563eb" /></marker><marker id="a1" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#0f766e" /></marker><marker id="a2" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#7c3aed" /></marker><marker id="a3" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#b45309" /></marker><marker id="a4" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#b91c1c" /></marker></defs>
+<rect width="1920" height="1880" fill="#ffffff" data-graph-role="background" />
+<text x="60" y="59" font-size="37" fill="#172554" font-weight="700">MCM 多 Agent：12 类角色与检查点协作</text>
+<text x="60" y="103" font-size="22" fill="#475569">独立建模 · 两名编程默认分工 · 早期图表规划 · 专项 Skill 按需路由</text>
+<rect id="n-codex" data-graph-role="node" data-node-id="codex" data-graph-bounds="60 150 410 260" x="60" y="150" width="350" height="110" rx="14" fill="#fffbeb" stroke="#b45309" stroke-width="2" />
+<rect x="60" y="165" width="5" height="80" rx="2" fill="#b45309" data-graph-role="decoration" />
+<text x="84" y="189" font-size="26" fill="#b45309" font-weight="700">Codex 技术总监</text>
+<text x="84" y="226" font-size="22" fill="#334155">模型 / 结果 / 论文检查点</text>
+<rect id="n-user" data-graph-role="node" data-node-id="user" data-graph-bounds="510 150 1020 260" x="510" y="150" width="510" height="110" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<rect x="510" y="165" width="5" height="80" rx="2" fill="#2563eb" data-graph-role="decoration" />
+<text x="534" y="189" font-size="26" fill="#2563eb" font-weight="700">参赛队：H0–H3 决策</text>
+<text x="534" y="226" font-size="22" fill="#334155">确认科学路线、结论与最终稿</text>
+<rect id="n-external" data-graph-role="node" data-node-id="external" data-graph-bounds="1140 150 1800 260" x="1140" y="150" width="660" height="110" rx="14" fill="#f0fdfa" stroke="#0f766e" stroke-width="2" />
+<rect x="1140" y="165" width="5" height="80" rx="2" fill="#0f766e" data-graph-role="decoration" />
+<text x="1164" y="189" font-size="26" fill="#0f766e" font-weight="700">联合模式为可选增强</text>
+<text x="1164" y="226" font-size="22" fill="#334155">编号工作包与真实回执；作者回避自审</text>
+<path id="e-user-codex" data-edge-id="user-codex" data-graph-role="edge" data-source="user" data-target="codex" d="M 510 205 L 410 205" stroke="#b45309" stroke-width="2.5" fill="none" marker-end="url(#a3)" />
+<rect id="n-captain" data-graph-role="node" data-node-id="captain" data-graph-bounds="60 330 410 1590" x="60" y="330" width="350" height="1260" rx="14" fill="#2563eb" stroke="#2563eb" stroke-width="2" />
+<rect x="60" y="345" width="5" height="1230" rx="2" fill="#2563eb" data-graph-role="decoration" />
+<text x="84" y="369" font-size="26" fill="#ffffff" font-weight="700">DSH 执行队长</text>
+<text x="84" y="406" font-size="22" fill="#ffffff">mcm-captain · 深度 0</text>
+<text x="84" y="439" font-size="22" fill="#ffffff" />
+<text x="84" y="472" font-size="22" fill="#ffffff">唯一内部派发与全局登记</text>
+<text x="84" y="505" font-size="22" fill="#ffffff">分配子树配额与写入范围</text>
+<text x="84" y="538" font-size="22" fill="#ffffff">跨分支转发短任务通知</text>
+<text x="84" y="571" font-size="22" fill="#ffffff">组织修复与非作者复验</text>
+<text x="84" y="604" font-size="22" fill="#ffffff">维护固定版本和上下文包</text>
+<text x="84" y="637" font-size="22" fill="#ffffff" />
+<text x="84" y="670" font-size="22" fill="#ffffff">启动后核实真实角色</text>
+<text x="84" y="703" font-size="22" fill="#ffffff">原生 spawn 指定 preset</text>
+<text x="84" y="736" font-size="22" fill="#ffffff">不能用成员名代替绑定</text>
+<text x="84" y="769" font-size="22" fill="#ffffff" />
+<text x="84" y="802" font-size="22" fill="#ffffff">容量 = 配置与 Host 核实</text>
+<text x="84" y="835" font-size="22" fill="#ffffff">预留 1 个应急名额</text>
+<text x="84" y="868" font-size="22" fill="#ffffff">等待主管仍占名额</text>
+<text x="84" y="901" font-size="22" fill="#ffffff" />
+<text x="84" y="934" font-size="22" fill="#ffffff">H0 题目与交付要求</text>
+<text x="84" y="967" font-size="22" fill="#ffffff">H1 主模型与关键假设</text>
+<text x="84" y="1000" font-size="22" fill="#ffffff">H2 结果、模型与验证代次</text>
+<text x="84" y="1033" font-size="22" fill="#ffffff">H3 固定最终 PDF</text>
+<text x="84" y="1066" font-size="22" fill="#ffffff" />
+<text x="84" y="1099" font-size="22" fill="#ffffff">用户暂停优先</text>
+<text x="84" y="1132" font-size="22" fill="#ffffff">旧会话不自动获得新预设</text>
+<path id="e-codex-captain" data-edge-id="codex-captain" data-graph-role="edge" data-source="codex" data-target="captain" d="M 235 260 L 235 330" stroke="#b45309" stroke-width="2.5" fill="none" marker-end="url(#a3)" />
+<rect id="n-model" data-graph-role="node" data-node-id="model" data-graph-bounds="510 330 1020 450" x="510" y="330" width="510" height="120" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<rect x="510" y="345" width="5" height="90" rx="2" fill="#2563eb" data-graph-role="decoration" />
+<text x="534" y="369" font-size="26" fill="#2563eb" font-weight="700">建模总负责人</text>
+<text x="534" y="406" font-size="22" fill="#334155">统一假设、符号、公式与接口</text>
+<path id="e-captain-model" data-edge-id="captain-model" data-graph-role="edge" data-source="captain" data-target="model" d="M 410 390 L 510 390" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)" />
+<rect id="n-evidence" data-graph-role="node" data-node-id="evidence" data-graph-bounds="510 510 1020 630" x="510" y="510" width="510" height="120" rx="14" fill="#f0fdfa" stroke="#0f766e" stroke-width="2" />
+<rect x="510" y="525" width="5" height="90" rx="2" fill="#0f766e" data-graph-role="decoration" />
+<text x="534" y="549" font-size="26" fill="#0f766e" font-weight="700">证据与数据负责人</text>
+<text x="534" y="586" font-size="22" fill="#334155">检索、全文、参数依据与引用核验</text>
+<path id="e-captain-evidence" data-edge-id="captain-evidence" data-graph-role="edge" data-source="captain" data-target="evidence" d="M 410 570 L 510 570" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)" />
+<rect id="n-code" data-graph-role="node" data-node-id="code" data-graph-bounds="510 690 1020 830" x="510" y="690" width="510" height="140" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<rect x="510" y="705" width="5" height="110" rx="2" fill="#2563eb" data-graph-role="decoration" />
+<text x="534" y="729" font-size="26" fill="#2563eb" font-weight="700">编程分支 / 可选主管</text>
+<text x="534" y="766" font-size="22" fill="#334155">无主管时队长直接派两个编程实例</text>
+<text x="534" y="799" font-size="22" fill="#334155">主管仅在持续集成任务需要时启用</text>
+<path id="e-captain-code" data-edge-id="captain-code" data-graph-role="edge" data-source="captain" data-target="code" d="M 410 750 L 510 750" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)" />
+<rect id="n-verify" data-graph-role="node" data-node-id="verify" data-graph-bounds="510 900 1020 1020" x="510" y="900" width="510" height="120" rx="14" fill="#f0fdfa" stroke="#0f766e" stroke-width="2" />
+<rect x="510" y="915" width="5" height="90" rx="2" fill="#0f766e" data-graph-role="decoration" />
+<text x="534" y="939" font-size="26" fill="#0f766e" font-weight="700">独立验证与复现</text>
+<text x="534" y="976" font-size="22" fill="#334155">边界、收敛、复跑与同代证据</text>
+<path id="e-captain-verify" data-edge-id="captain-verify" data-graph-role="edge" data-source="captain" data-target="verify" d="M 410 960 L 510 960" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)" />
+<rect id="n-paper" data-graph-role="node" data-node-id="paper" data-graph-bounds="510 1130 1020 1250" x="510" y="1130" width="510" height="120" rx="14" fill="#faf5ff" stroke="#7c3aed" stroke-width="2" />
+<rect x="510" y="1145" width="5" height="90" rx="2" fill="#7c3aed" data-graph-role="decoration" />
+<text x="534" y="1169" font-size="26" fill="#7c3aed" font-weight="700">论文负责人</text>
+<text x="534" y="1206" font-size="22" fill="#334155">用户指定框架；题问—主张—图表</text>
+<path id="e-captain-paper" data-edge-id="captain-paper" data-graph-role="edge" data-source="captain" data-target="paper" d="M 410 1190 L 510 1190" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)" />
+<rect id="n-review" data-graph-role="node" data-node-id="review" data-graph-bounds="510 1410 1020 1530" x="510" y="1410" width="510" height="120" rx="14" fill="#fffbeb" stroke="#b45309" stroke-width="2" />
+<rect x="510" y="1425" width="5" height="90" rx="2" fill="#b45309" data-graph-role="decoration" />
+<text x="534" y="1449" font-size="26" fill="#b45309" font-weight="700">AI 审阅老师</text>
+<text x="534" y="1486" font-size="22" fill="#334155">科学、表达与实际 PDF 独立审查</text>
+<path id="e-captain-review" data-edge-id="captain-review" data-graph-role="edge" data-source="captain" data-target="review" d="M 410 1470 L 510 1470" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)" />
+<rect id="n-model-child-1" data-graph-role="node" data-node-id="model-child-1" data-graph-bounds="1140 330 1800 420" x="1140" y="330" width="660" height="90" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<rect x="1140" y="345" width="5" height="60" rx="2" fill="#2563eb" data-graph-role="decoration" />
+<text x="1164" y="369" font-size="26" fill="#2563eb" font-weight="700">建模手 1：基线方案</text>
+<text x="1164" y="406" font-size="22" fill="#334155">先独立思考，尽快覆盖主要题问</text>
+<path id="e-model-model-child-1" data-edge-id="model-model-child-1" data-graph-role="edge" data-source="model" data-target="model-child-1" d="M 1020 360 L 1140 375" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)" />
+<rect id="n-model-child-2" data-graph-role="node" data-node-id="model-child-2" data-graph-bounds="1140 460 1800 550" x="1140" y="460" width="660" height="90" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<rect x="1140" y="475" width="5" height="60" rx="2" fill="#2563eb" data-graph-role="decoration" />
+<text x="1164" y="499" font-size="26" fill="#2563eb" font-weight="700">建模手 2：替代方案</text>
+<text x="1164" y="536" font-size="22" fill="#334155">比较模型机制、可解性和适用范围</text>
+<path id="e-model-model-child-2" data-edge-id="model-model-child-2" data-graph-role="edge" data-source="model" data-target="model-child-2" d="M 1020 390 L 1140 505" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)" />
+<rect id="n-model-child-3" data-graph-role="node" data-node-id="model-child-3" data-graph-bounds="1140 590 1800 680" x="1140" y="590" width="660" height="90" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<rect x="1140" y="605" width="5" height="60" rx="2" fill="#2563eb" data-graph-role="decoration" />
+<text x="1164" y="629" font-size="26" fill="#2563eb" font-weight="700">建模手 3：反证与假设</text>
+<text x="1164" y="666" font-size="22" fill="#334155">检验边界、结构与解释是否成立</text>
+<path id="e-model-model-child-3" data-edge-id="model-model-child-3" data-graph-role="edge" data-source="model" data-target="model-child-3" d="M 1020 420 L 1140 635" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)" />
+<rect id="n-code-child-1" data-graph-role="node" data-node-id="code-child-1" data-graph-bounds="1140 740 1800 830" x="1140" y="740" width="660" height="90" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<rect x="1140" y="755" width="5" height="60" rx="2" fill="#2563eb" data-graph-role="decoration" />
+<text x="1164" y="779" font-size="26" fill="#2563eb" font-weight="700">P1：核心求解</text>
+<text x="1164" y="816" font-size="22" fill="#334155">模型接口、算法实现、基线与数值结果</text>
+<path id="e-code-code-child-1" data-edge-id="code-code-child-1" data-graph-role="edge" data-source="code" data-target="code-child-1" d="M 1020 720 L 1140 785" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)" />
+<rect id="n-code-child-2" data-graph-role="node" data-node-id="code-child-2" data-graph-bounds="1140 870 1800 960" x="1140" y="870" width="660" height="90" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<rect x="1140" y="885" width="5" height="60" rx="2" fill="#2563eb" data-graph-role="decoration" />
+<text x="1164" y="909" font-size="26" fill="#2563eb" font-weight="700">P2：实验与结果导出</text>
+<text x="1164" y="946" font-size="22" fill="#334155">对照、灵敏性、批量运行及机器可读结果</text>
+<path id="e-code-code-child-2" data-edge-id="code-code-child-2" data-graph-role="edge" data-source="code" data-target="code-child-2" d="M 1020 750 L 1140 915" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)" />
+<rect id="n-code-child-3" data-graph-role="node" data-node-id="code-child-3" data-graph-bounds="1140 1000 1800 1090" x="1140" y="1000" width="660" height="90" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<rect x="1140" y="1015" width="5" height="60" rx="2" fill="#2563eb" data-graph-role="decoration" />
+<text x="1164" y="1039" font-size="26" fill="#2563eb" font-weight="700">P3：工程支持（按需）</text>
+<text x="1164" y="1076" font-size="22" fill="#334155">复现、构建与隔离设施；单一文件负责人</text>
+<path id="e-code-code-child-3" data-edge-id="code-code-child-3" data-graph-role="edge" data-source="code" data-target="code-child-3" d="M 1020 780 L 1140 1045" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)" />
+<rect id="n-paper-child-1" data-graph-role="node" data-node-id="paper-child-1" data-graph-bounds="1140 1160 1800 1250" x="1140" y="1160" width="660" height="90" rx="14" fill="#faf5ff" stroke="#7c3aed" stroke-width="2" />
+<rect x="1140" y="1175" width="5" height="60" rx="2" fill="#7c3aed" data-graph-role="decoration" />
+<text x="1164" y="1199" font-size="26" fill="#7c3aed" font-weight="700">论文写作子 Agent</text>
+<text x="1164" y="1236" font-size="22" fill="#334155">按分配章节交稿，正式结果绑定有效版本</text>
+<path id="e-paper-paper-child-1" data-edge-id="paper-paper-child-1" data-graph-role="edge" data-source="paper" data-target="paper-child-1" d="M 1020 1160 L 1140 1205" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#a2)" />
+<rect id="n-paper-child-2" data-graph-role="node" data-node-id="paper-child-2" data-graph-bounds="1140 1290 1800 1380" x="1140" y="1290" width="660" height="90" rx="14" fill="#faf5ff" stroke="#7c3aed" stroke-width="2" />
+<rect x="1140" y="1305" width="5" height="60" rx="2" fill="#7c3aed" data-graph-role="decoration" />
+<text x="1164" y="1329" font-size="26" fill="#7c3aed" font-weight="700">科研图表子 Agent</text>
+<text x="1164" y="1366" font-size="22" fill="#334155">nature-figure / 矢量示意；数据与视觉双检</text>
+<path id="e-paper-paper-child-2" data-edge-id="paper-paper-child-2" data-graph-role="edge" data-source="paper" data-target="paper-child-2" d="M 1020 1190 L 1140 1335" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#a2)" />
+<rect id="n-paper-child-3" data-graph-role="node" data-node-id="paper-child-3" data-graph-bounds="1140 1420 1800 1510" x="1140" y="1420" width="660" height="90" rx="14" fill="#faf5ff" stroke="#7c3aed" stroke-width="2" />
+<rect x="1140" y="1435" width="5" height="60" rx="2" fill="#7c3aed" data-graph-role="decoration" />
+<text x="1164" y="1459" font-size="26" fill="#7c3aed" font-weight="700">LaTeX 与 PDF 排版</text>
+<text x="1164" y="1496" font-size="22" fill="#334155">原生公式、统一图注、实际尺寸逐页检查</text>
+<path id="e-paper-paper-child-3" data-edge-id="paper-paper-child-3" data-graph-role="edge" data-source="paper" data-target="paper-child-3" d="M 1020 1220 L 1140 1465" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#a2)" />
+<rect id="n-rulemodule" data-graph-role="node" data-node-id="rulemodule" data-graph-bounds="60 1640 1860 1740" x="60" y="1640" width="1800" height="100" rx="14" fill="#f0fdfa" stroke="#0f766e" stroke-width="2" />
+<rect x="60" y="1655" width="5" height="70" rx="2" fill="#0f766e" data-graph-role="decoration" />
+<text x="84" y="1679" font-size="26" fill="#0f766e" font-weight="700">专项技能与论文视觉约定</text>
+<text x="84" y="1716" font-size="22" fill="#334155">排除全流程总控自动接管；示意图默认 1–2 张；定量图按证据配置；最终文字 12pt。</text>
+<text x="60" y="1795" font-size="21" fill="#475569">蓝 / 紫 = DSH 内部分支；橙 = Codex 检查点。叶子不再派生，最大本地深度为 2。</text>
+<text x="60" y="1855" font-size="18" fill="#64748b">MCM A/B/C  |  PTC = Programmatic Tool Calling  |  v0.2.0  ·  2026-10-26</text>
+</svg></div>
+    <p class="sr-only">Keyboard shortcuts: plus and minus zoom, zero resets, T toggles theme, S exports.</p>
+  </main>
+  <script>
+  (() => {
+    'use strict';
+    const metadata = {"slug": "01-role-architecture"};
+    const stage = document.getElementById('stage');
+    const canvas = document.getElementById('canvas');
+    const svg = canvas.querySelector('svg');
+    const status = document.getElementById('status');
+    const scaleSelect = document.getElementById('scale');
+    const formatSelect = document.getElementById('format');
+    let view = { x:0, y:0, scale:1 };
+    let drag = null;
+    const clamp = value => Math.max(.2, Math.min(8, value));
+    const render = () => {
+      canvas.style.transform = `translate(${view.x}px,${view.y}px) scale(${view.scale})`;
+      status.textContent = `${Math.round(view.scale * 100)}%`;
+    };
+    const zoom = (factor, originX=stage.clientWidth/2, originY=stage.clientHeight/2) => {
+      const next = clamp(view.scale * factor);
+      const ratio = next / view.scale;
+      view.x = originX - (originX - view.x) * ratio;
+      view.y = originY - (originY - view.y) * ratio;
+      view.scale = next; render();
+    };
+    const reset = () => { view = {x:0,y:0,scale:1}; render(); };
+    stage.addEventListener('wheel', event => { event.preventDefault(); const rect=stage.getBoundingClientRect(); zoom(event.deltaY < 0 ? 1.12 : .89, event.clientX-rect.left, event.clientY-rect.top); }, {passive:false});
+    stage.addEventListener('pointerdown', event => { drag={id:event.pointerId,x:event.clientX,y:event.clientY,vx:view.x,vy:view.y}; stage.setPointerCapture(event.pointerId); stage.classList.add('dragging'); });
+    stage.addEventListener('pointermove', event => { if(!drag||drag.id!==event.pointerId)return; view.x=drag.vx+event.clientX-drag.x; view.y=drag.vy+event.clientY-drag.y; render(); });
+    const endDrag = () => { drag=null; stage.classList.remove('dragging'); };
+    stage.addEventListener('pointerup', endDrag); stage.addEventListener('pointercancel', endDrag);
+    const source = () => new XMLSerializer().serializeToString(svg);
+    const saveBlob = (blob, extension) => { const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`${(metadata.slug||'fireworks-tech-graph')}.${extension}`; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000); };
+    const copySource = async () => {
+      const value=source();
+      try { await navigator.clipboard.writeText(value); status.textContent='Copied'; return; } catch {}
+      const area=document.createElement('textarea'); area.value=value; area.setAttribute('readonly',''); area.style.position='fixed'; area.style.opacity='0'; document.body.appendChild(area); area.select();
+      status.textContent=document.execCommand('copy')?'Copied':'Copy failed'; area.remove();
+    };
+    const exportDiagram = async () => {
+      const format = formatSelect.value.toLowerCase();
+      if(format==='svg') { saveBlob(new Blob([source()],{type:'image/svg+xml;charset=utf-8'}),'svg'); return; }
+      const scale = Math.max(1,Math.min(4,Number(scaleSelect.value)||2));
+      const box = svg.viewBox.baseVal; const width=box.width||svg.clientWidth; const height=box.height||svg.clientHeight;
+      const image = new Image(); const url=URL.createObjectURL(new Blob([source()],{type:'image/svg+xml'}));
+      await new Promise((resolve,reject)=>{ image.onload=resolve; image.onerror=reject; image.src=url; });
+      const raster=document.createElement('canvas'); raster.width=Math.round(width*scale); raster.height=Math.round(height*scale);
+      const ctx=raster.getContext('2d'); if(format==='jpeg'){ctx.fillStyle='#ffffff';ctx.fillRect(0,0,raster.width,raster.height);} ctx.drawImage(image,0,0,raster.width,raster.height); URL.revokeObjectURL(url);
+      const mime=format==='jpeg'?'image/jpeg':format==='webp'?'image/webp':'image/png';
+      const blob=await new Promise(resolve=>raster.toBlob(resolve,mime,.94)); if(blob) saveBlob(blob,format==='jpeg'?'jpg':format);
+    };
+    document.querySelector('.toolbar').addEventListener('click', async event => {
+      const action=event.target.closest('[data-action]')?.dataset.action; if(!action)return;
+      if(action==='zoom-in')zoom(1.2); else if(action==='zoom-out')zoom(.83); else if(action==='reset')reset();
+      else if(action==='theme')document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark';
+      else if(action==='download')await exportDiagram();
+      else if(action==='copy') await copySource();
+    });
+    document.addEventListener('keydown', event => {
+      if(event.target.matches('select'))return;
+      if(event.key==='+'||event.key==='=')zoom(1.2); else if(event.key==='-')zoom(.83); else if(event.key==='0'||event.key.toLowerCase()==='r')reset();
+      else if(event.key.toLowerCase()==='t')document.querySelector('[data-action=theme]').click(); else if(event.key.toLowerCase()==='s'){event.preventDefault();exportDiagram();}
+    });
+    render();
+  })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+{
+  "format_version": 2,
+  "figure_id": "SYNTHETIC-uncertainty",
+  "version": 1,
+  "synthetic": true,
+  "status": "draft",
+  "argument_sentence": "An assumed range of k produces a time-dependent parameter envelope.",
+  "figure_type": "quantitative",
+  "backend": "python",
+  "archetype": "single-panel",
+  "data_inputs": [
+    {
+      "path": "figures/figure-demo/decay-results.csv",
+      "sha256": "5003a1039915f350db292a266166ea06add1447183ea353d3aa5a177bf975627",
+      "synthetic": true
+    }
+  ],
+  "columns_and_units": {
+    "time": "dimensionless",
+    "exact": "fraction",
+    "euler": "fraction",
+    "rk4": "fraction",
+    "k_0_7": "fraction",
+    "k_1_0": "fraction",
+    "k_1_3": "fraction",
+    "p10": "fraction",
+    "p90": "fraction"
+  },
+  "column_mapping": {
+    "x": "time",
+    "y": [
+      "exact",
+      "p10",
+      "p90"
+    ]
+  },
+  "transformation": "No excluded rows; lines use all 41 time points, RK4 markers every fourth point. Parameter quantiles use all 301 deterministic rate scenarios.",
+  "uncertainty_definition": "Pointwise parameter-grid percentiles; not sampling confidence.",
+  "size_mm": {
+    "width": 165.1,
+    "height": 101.6
+  },
+  "minimum_final_glyph_pt": 12,
+  "style_profile": "mcm-clear-science-v2",
+  "script_path": "scripts/figure_demo.py",
+  "script_sha256": "c38c6e919531b24dfc31b62a71c1265ff049c71230c9bdb34ffa9edafd94d674",
+  "generation_command": "python scripts/figure_demo.py --root PROJECT --output NEW_DIRECTORY [--skill-root INSTALLED_SKILL]",
+  "outputs": [
+    {
+      "path": "figures/figure-demo/uncertainty.pdf",
+      "sha256": "e59fda926587eb7203692f93330d3531f49f8b9461c2d29cc3f62986f9c1ab05",
+      "format": "pdf"
+    },
+    {
+      "path": "figures/figure-demo/uncertainty.svg",
+      "sha256": "eccc96950e190d0b21054d8740affdd92ff50df4cadc74c9bed0ae2cf9feba29",
+      "format": "svg"
+    },
+    {
+      "path": "figures/figure-demo/uncertainty.png",
+      "sha256": "c1b73e5740cd38c8f73acee693fb82defc4a152e62d188011add23d55a41f42b",
+      "format": "png"
+    }
+  ],
+  "caption_english": "Synthetic uncertainty propagation from 301 equally spaced rate values in [0.7,1.3]. Shading is the pointwise 10th-90th percentile of this specified parameter grid, not a confidence interval or measurement error. The line uses k=1.",
+  "paper_label": "fig:demo-uncertainty",
+  "skill_read": [
+    {
+      "document": "figure-style.json",
+      "sha256": "ae483be929dd0a46038a8abf8313d8ab3ff7b773cb14ad4641b6a204c5a167c7",
+      "read_at": "2026-10-25T13:48:36.849149+00:00"
+    },
+    {
+      "document": "05-paper-figures-latex.md",
+      "sha256": "055110b71846de5c86279561704eff85f599715b566387f9a78e9eb787cce454",
+      "read_at": "2026-10-25T13:48:36.849664+00:00"
+    },
+    {
+      "document": "SKILL.md",
+      "sha256": "5aefe708a2531c5ddaa8ee74d5155d747e96c0f21a33143d38316b7c5c88ffc4",
+      "read_at": "2026-10-25T13:48:36.850185+00:00"
+    },
+    {
+      "document": "manifest.yaml",
+      "sha256": "f6cf1e50f55c74e159134edb8ca5a57fd5097b72b37463c7b2612757e01c24be",
+      "read_at": "2026-10-25T13:48:36.850603+00:00"
+    },
+    {
+      "document": "contract.md",
+      "sha256": "a2b6523a48192cf1dff0d194264c5662c832f4d1da6e9e4763ccd98cc0664d4c",
+      "read_at": "2026-10-25T13:48:36.851045+00:00"
+    },
+    {
+      "document": "stance.md",
+      "sha256": "c7e6860e955a2ee9c24a30dbe88e28741da4eef8290c019e849c6b220ea0f07a",
+      "read_at": "2026-10-25T13:48:36.851850+00:00"
+    },
+    {
+      "document": "python.md",
+      "sha256": "1d4809e4ec4ed2d40995d74828732012a6a72c941dfec341745a3118e9312865",
+      "read_at": "2026-10-25T13:48:36.852235+00:00"
+    },
+    {
+      "document": "qa-contract.md",
+      "sha256": "4f31375cdb614d74eddb8aa7691c0bdfc8a8f20defcca27ce4a36192308748a8",
+      "read_at": "2026-10-25T13:48:36.852795+00:00"
+    }
+  ],
+  "skill_executed": [
+    {
+      "tool": "figure_check.audit_pdf",
+      "status": "passed",
+      "output_refs": [
+        {
+          "path": "figures/figure-demo/uncertainty.mechanical.json",
+          "sha256": "b654791abf6d86125b2eccdb4f0099c9da57e012c884c0c6f715d6d67fd26dd5"
+        }
+      ]
+    },
+    {
+      "tool": "panel_alignment",
+      "status": "not_applicable",
+      "output_refs": [
+        {
+          "path": "figures/figure-demo/uncertainty.alignment.json",
+          "sha256": "d2382bb8eb05f7a9208e2815acb5eb369cd746e812daa394f8e37b178622890a"
+        }
+      ]
+    },
+    {
+      "tool": "validate_figure.py",
+      "status": "passed",
+      "exit_code": 0,
+      "command": [
+        "C:\\Program Files\\Python314\\python.exe",
+        "C:\\Users\\zy\\.dsh\\skills\\nature-figure\\scripts\\validate_figure.py",
+        "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\outputs\\mcm-dsh-team-v0.2.0\\rehearsal-v2\\scripts\\figure_demo.py",
+        "--backend",
+        "python",
+        "--json"
+      ],
+      "output_refs": [
+        {
+          "path": "figures/figure-demo/uncertainty.validate_figure.py.log",
+          "sha256": "edc5ad084de28038617c6f4f28ac7406f7b80c591ca8fb187316e057e3ede39b"
+        }
+      ]
+    },
+    {
+      "tool": "audit_pdf_text.py",
+      "status": "passed",
+      "exit_code": 0,
+      "command": [
+        "C:\\Program Files\\Python314\\python.exe",
+        "C:\\Users\\zy\\.dsh\\skills\\nature-figure\\scripts\\audit_pdf_text.py",
+        "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\outputs\\mcm-dsh-team-v0.2.0\\rehearsal-v2\\figures\\figure-demo\\uncertainty.pdf",
+        "--min-pt",
+        "12",
+        "--json"
+      ],
+      "output_refs": [
+        {
+          "path": "figures/figure-demo/uncertainty.audit_pdf_text.py.log",
+          "sha256": "1d075489b22b0410bbbcab3ff8106d123aa9db1f5e87994134acdf4d88b638e9"
+        }
+      ]
+    },
+    {
+      "tool": "audit_figure_collisions.py",
+      "status": "passed",
+      "exit_code": 0,
+      "command": [
+        "C:\\Program Files\\Python314\\python.exe",
+        "C:\\Users\\zy\\.dsh\\skills\\nature-figure\\scripts\\audit_figure_collisions.py",
+        "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\outputs\\mcm-dsh-team-v0.2.0\\rehearsal-v2\\figures\\figure-demo\\uncertainty.pdf",
+        "--json"
+      ],
+      "output_refs": [
+        {
+          "path": "figures/figure-demo/uncertainty.audit_figure_collisions.py.log",
+          "sha256": "90a9a27df1e3da9ecca5b750a7c0467d5320b08756effe6c56232d959a968efd"
+        }
+      ]
+    }
+  ],
+  "visual_check_ref": null,
+  "visual_status": "pending",
+  "numeric_verification_ref": {
+    "path": "figures/figure-demo/analytic-check.json",
+    "sha256": "af497c2f014f284ea9fc722790035af7709fbb59293fc45f7505a8b5e1554aca"
+  },
+  "qa_readback": {
+    "mechanical_report_sha256": "b654791abf6d86125b2eccdb4f0099c9da57e012c884c0c6f715d6d67fd26dd5",
+    "visual_reviewed": false
+  }
+}

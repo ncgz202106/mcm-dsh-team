@@ -1,0 +1,4 @@
+# Python 3.12 is the default project runtime. CLI and tests use only stdlib.
+# Matplotlib is needed only for the synthetic demonstration's figures.
+matplotlib==3.10.9
+pypdf==6.11.0

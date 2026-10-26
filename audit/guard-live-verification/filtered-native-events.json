@@ -1,0 +1,259 @@
+{
+  "format_version": 1,
+  "captured_at": "2026-10-26T06:28:18.156133+00:00",
+  "scope": "Only this isolated project native header/selection/PTC calls and rejection fields/turn-end; no raw log, reasoning, assistant messages, credentials or unrelated sessions exported.",
+  "sessions": [
+    {
+      "source_file_sha256": "c220311eecf613fd3cf807b2ed6ff4f3267519d52991f0966a92c9deaede63ee",
+      "source_bytes": 150281,
+      "snapshot_changed_during_read": false,
+      "selected_events": [
+        {
+          "seq": 4,
+          "time": 1792995636244,
+          "preset": "mcm-captain"
+        }
+      ],
+      "tool_call_count": 9,
+      "nested_tool_start_count": 15,
+      "delegation_starts": [
+        {
+          "seq": 61,
+          "time": 1792995815874,
+          "tool": "subagent",
+          "arguments": {
+            "description": "synthetic guard check",
+            "agent_preset": "mcm-paper-lead",
+            "cwd": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\dsh-v020-guard-live",
+            "prompt_sha256": "7bfce2780e156f67253a6d749140d151c5b4e12faf2b066b998f4d4109ba9055",
+            "arguments_sha256": "efc13a6447912a9b77a20a52ae13cbd33f0f3c3a9062fb79b08f64ce828e6947"
+          }
+        }
+      ],
+      "tool_results": [
+        {
+          "seq": 38,
+          "time": 1792995804025,
+          "type": "tool/ptc-dispatch",
+          "tool": "mcm_runtime_readback",
+          "is_error": false,
+          "rootCallId": "call_00_325KoyNFsn3JsnepeI696975",
+          "parentCallId": "call_00_325KoyNFsn3JsnepeI696975",
+          "subCallId": "call_00_325KoyNFsn3JsnepeI696975:ptc:2",
+          "denial_messages": [],
+          "readback": {
+            "session_id": "session-8c4d7878-b4b9-4351-9bba-8e2848bb28ee",
+            "parent_session_id": null,
+            "delegation_depth": 0,
+            "effective_preset": "mcm-captain",
+            "cwd": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\dsh-v020-guard-live",
+            "observed_at": "2026-10-26T06:23:24.025Z",
+            "live_agent_present": true,
+            "preset_evidence": "agentPresets.composedPreset",
+            "configured_max_active_descendants": 15,
+            "host_allocation_count_known": false,
+            "capacity_known": false,
+            "human_gates_modified": false,
+            "loaded_or_resumed_session": false,
+            "sdk_evidence": {
+              "source": "latest persisted system ToolArgsMap snapshot; not a fresh registry enumeration",
+              "recorded_seq": 9,
+              "required_tools_present": {
+                "mcm_dispatch_preflight": true,
+                "mcm_runtime_readback": true,
+                "subagent": true,
+                "mcm_archive_audit": true
+              }
+            }
+          }
+        },
+        {
+          "seq": 54,
+          "time": 1792995812414,
+          "type": "tool/ptc-dispatch",
+          "tool": "mcm_dispatch_preflight",
+          "is_error": true,
+          "rootCallId": "call_00_YdvAJ71mbPTGGhjiWKTa8382",
+          "parentCallId": "call_00_YdvAJ71mbPTGGhjiWKTa8382",
+          "subCallId": "call_00_YdvAJ71mbPTGGhjiWKTa8382:ptc:1",
+          "denial_messages": [
+            "MCM_DISPATCH_DENIED: unknown Host capacity; runtime_snapshot is unset"
+          ]
+        },
+        {
+          "seq": 62,
+          "time": 1792995815875,
+          "type": "tool/ptc-dispatch",
+          "tool": "subagent",
+          "is_error": true,
+          "rootCallId": "call_00_CSd0gywRKxmdbM8iZkH10528",
+          "parentCallId": "call_00_CSd0gywRKxmdbM8iZkH10528",
+          "subCallId": "call_00_CSd0gywRKxmdbM8iZkH10528:ptc:1",
+          "denial_messages": [
+            "MCM_DISPATCH_DENIED: native subagent requires a current one-use mcm_dispatch_preflight permit"
+          ]
+        }
+      ],
+      "header": {
+        "id": "session-8c4d7878-b4b9-4351-9bba-8e2848bb28ee",
+        "cwd": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\dsh-v020-guard-live",
+        "parentSession": null,
+        "agentPreset": "standard",
+        "delegationDepth": 0,
+        "version": 4
+      },
+      "effective_preset": "mcm-captain",
+      "last_turn": {
+        "seq": 125,
+        "time": 1792995857123,
+        "reason_kind": "completed"
+      }
+    },
+    {
+      "source_file_sha256": "73d8427470bfea64a41910f1dba2246c9387e23701ebda0240e1e61f074c8908",
+      "source_bytes": 766,
+      "snapshot_changed_during_read": false,
+      "selected_events": [
+        {
+          "seq": 4,
+          "time": 1792988588837,
+          "preset": "mcm-model-lead"
+        },
+        {
+          "seq": 5,
+          "time": 1792988639736,
+          "preset": "mcm-captain"
+        }
+      ],
+      "tool_call_count": 0,
+      "nested_tool_start_count": 0,
+      "delegation_starts": [],
+      "tool_results": [],
+      "header": {
+        "id": "session-d04eb550-712e-4b94-bbde-1f39af6bf76b",
+        "cwd": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\dsh-v020-guard-live",
+        "parentSession": null,
+        "agentPreset": "standard",
+        "delegationDepth": 0,
+        "version": 4
+      },
+      "effective_preset": "mcm-captain"
+    }
+  ],
+  "relevant_root_events": [
+    {
+      "seq": 36,
+      "time": 1792995803982,
+      "type": "tool/ptc-dispatch-start",
+      "tool": "mcm_runtime_readback",
+      "rootCallId": "call_00_325KoyNFsn3JsnepeI696975",
+      "parentCallId": "call_00_325KoyNFsn3JsnepeI696975",
+      "subCallId": "call_00_325KoyNFsn3JsnepeI696975:ptc:2",
+      "arguments": {
+        "arguments_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+      }
+    },
+    {
+      "seq": 38,
+      "time": 1792995804025,
+      "type": "tool/ptc-dispatch",
+      "tool": "mcm_runtime_readback",
+      "is_error": false,
+      "rootCallId": "call_00_325KoyNFsn3JsnepeI696975",
+      "parentCallId": "call_00_325KoyNFsn3JsnepeI696975",
+      "subCallId": "call_00_325KoyNFsn3JsnepeI696975:ptc:2",
+      "denial_messages": [],
+      "readback": {
+        "session_id": "session-8c4d7878-b4b9-4351-9bba-8e2848bb28ee",
+        "parent_session_id": null,
+        "delegation_depth": 0,
+        "effective_preset": "mcm-captain",
+        "cwd": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\dsh-v020-guard-live",
+        "observed_at": "2026-10-26T06:23:24.025Z",
+        "live_agent_present": true,
+        "preset_evidence": "agentPresets.composedPreset",
+        "configured_max_active_descendants": 15,
+        "host_allocation_count_known": false,
+        "capacity_known": false,
+        "human_gates_modified": false,
+        "loaded_or_resumed_session": false,
+        "sdk_evidence": {
+          "source": "latest persisted system ToolArgsMap snapshot; not a fresh registry enumeration",
+          "recorded_seq": 9,
+          "required_tools_present": {
+            "mcm_dispatch_preflight": true,
+            "mcm_runtime_readback": true,
+            "subagent": true,
+            "mcm_archive_audit": true
+          }
+        }
+      }
+    },
+    {
+      "seq": 53,
+      "time": 1792995812409,
+      "type": "tool/ptc-dispatch-start",
+      "tool": "mcm_dispatch_preflight",
+      "rootCallId": "call_00_YdvAJ71mbPTGGhjiWKTa8382",
+      "parentCallId": "call_00_YdvAJ71mbPTGGhjiWKTa8382",
+      "subCallId": "call_00_YdvAJ71mbPTGGhjiWKTa8382:ptc:1",
+      "arguments": {
+        "task_id": "GUARD-LIVE-001",
+        "subagent_arguments": {
+          "description": "synthetic guard check",
+          "agent_preset": "mcm-paper-lead",
+          "cwd": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\dsh-v020-guard-live",
+          "prompt_sha256": "7bfce2780e156f67253a6d749140d151c5b4e12faf2b066b998f4d4109ba9055",
+          "arguments_sha256": "efc13a6447912a9b77a20a52ae13cbd33f0f3c3a9062fb79b08f64ce828e6947"
+        },
+        "arguments_sha256": "9def08f477bd0579a0f11531d670809b6b779149084f5bb565225670d9a38d21"
+      }
+    },
+    {
+      "seq": 54,
+      "time": 1792995812414,
+      "type": "tool/ptc-dispatch",
+      "tool": "mcm_dispatch_preflight",
+      "is_error": true,
+      "rootCallId": "call_00_YdvAJ71mbPTGGhjiWKTa8382",
+      "parentCallId": "call_00_YdvAJ71mbPTGGhjiWKTa8382",
+      "subCallId": "call_00_YdvAJ71mbPTGGhjiWKTa8382:ptc:1",
+      "denial_messages": [
+        "MCM_DISPATCH_DENIED: unknown Host capacity; runtime_snapshot is unset"
+      ]
+    },
+    {
+      "seq": 61,
+      "time": 1792995815874,
+      "type": "tool/ptc-dispatch-start",
+      "tool": "subagent",
+      "rootCallId": "call_00_CSd0gywRKxmdbM8iZkH10528",
+      "parentCallId": "call_00_CSd0gywRKxmdbM8iZkH10528",
+      "subCallId": "call_00_CSd0gywRKxmdbM8iZkH10528:ptc:1",
+      "arguments": {
+        "description": "synthetic guard check",
+        "agent_preset": "mcm-paper-lead",
+        "cwd": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\dsh-v020-guard-live",
+        "prompt_sha256": "7bfce2780e156f67253a6d749140d151c5b4e12faf2b066b998f4d4109ba9055",
+        "arguments_sha256": "efc13a6447912a9b77a20a52ae13cbd33f0f3c3a9062fb79b08f64ce828e6947"
+      }
+    },
+    {
+      "seq": 62,
+      "time": 1792995815875,
+      "type": "tool/ptc-dispatch",
+      "tool": "subagent",
+      "is_error": true,
+      "rootCallId": "call_00_CSd0gywRKxmdbM8iZkH10528",
+      "parentCallId": "call_00_CSd0gywRKxmdbM8iZkH10528",
+      "subCallId": "call_00_CSd0gywRKxmdbM8iZkH10528:ptc:1",
+      "denial_messages": [
+        "MCM_DISPATCH_DENIED: native subagent requires a current one-use mcm_dispatch_preflight permit"
+      ]
+    }
+  ],
+  "child_header_count": 0,
+  "draft_root_ids_excluded_from_child_count": [
+    "session-d04eb550-712e-4b94-bbde-1f39af6bf76b"
+  ]
+}

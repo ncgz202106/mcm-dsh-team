@@ -1,0 +1,72 @@
+{
+  "ok": true,
+  "errors": [],
+  "minimum_final_font_pt": 12.0,
+  "text_runs": [
+    {
+      "text": "0",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "1",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "2",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "3",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "4",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "Time (dimensionless)",
+      "final_size_pt": 13.0
+    },
+    {
+      "text": "0.00",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "0.25",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "0.50",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "0.75",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "1.00",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "Remaining amount (fraction)",
+      "final_size_pt": 13.0
+    },
+    {
+      "text": "Synthetic demonstration",
+      "final_size_pt": 14.0
+    },
+    {
+      "text": "Parameter envelope",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "Rate 1.0",
+      "final_size_pt": 12.0
+    }
+  ],
+  "visual_status": "pending",
+  "limitations": [
+    "Text-origin checks do not prove complete glyph/line/image containment.",
+    "No automated aesthetic or scientific correctness certification."
+  ]
+}

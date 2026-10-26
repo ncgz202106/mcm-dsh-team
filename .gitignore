@@ -1,0 +1,27 @@
+# Local dependencies and caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+node_modules/
+.DS_Store
+Thumbs.db
+
+# Private machine state, credentials, raw conversations and contest work
+.env
+.env.*
+!.env.example
+.dsh/
+.codex/
+.codex-runs/
+session.v4.jsonl*
+*.pem
+*.key
+work/
+backups/
+v020-install-backups/
+
+# Deliberately retain the reviewed demo PDF, page images and filtered audit logs.

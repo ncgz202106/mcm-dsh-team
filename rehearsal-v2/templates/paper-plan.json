@@ -1,0 +1,24 @@
+{
+  "format_version": 2,
+  "_template_only": true,
+  "result_generation": null,
+  "title": null,
+  "question_coverage": [],
+  "sections": [
+    {"id":"summary","content":"Title; Summary; Keywords","page_budget":1},
+    {"id":"restatement-analysis","content":"Restatement in own words; task analysis; 1 concise method overview","page_budget":2},
+    {"id":"assumptions-symbols","content":"Justified assumptions; symbols and units","page_budget":1},
+    {"id":"models-solutions","content":"Each task: rationale, formulation, solution, validation, results and interpretation","page_budget":12},
+    {"id":"sensitivity","content":"Parameter and structural sensitivity; uncertainty","page_budget":3},
+    {"id":"evaluation","content":"Strengths, limitations, improvements and conclusions","page_budget":2},
+    {"id":"references","content":"Only sources supporting actual claims; concise bibliography","page_budget":1},
+    {"id":"appendix","content":"Optional necessary material within applicable main-report page limit","page_budget":1},
+    {"id":"ai-use","content":"Separate applicable AI report; actual visible records only","outside_main_limit":true}
+  ],
+  "consumed_result_refs": [],
+  "verification_refs": [],
+  "figures": [],
+  "authors": [],
+  "content_review_ref": null,
+  "note":"Budgets are editable planning defaults, never official mandatory sections or counts. Result refs use artifact_id/version/sha256/path/generation. Each figures entry uses figure_id and contract_ref:{path,sha256}. Build records these exact inputs; H2 approval and independent review are separate."
+}

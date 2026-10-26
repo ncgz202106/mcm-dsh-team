@@ -1,0 +1,21 @@
+{
+  "name": "dsh-mcm-team",
+  "version": "0.2.0",
+  "description": "MCM A/B/C PTC team: 12 presets, optional code lead, task skill routing, visual evidence and checkpoint coordination for DSH 0.2.1-rc.2.",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.19.0" },
+  "exports": {
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json",
+    "./src/*": "./src/*"
+  },
+  "files": ["cordis.patch.yml", "src", "prompts", "provenance.json"],
+  "scripts": {
+    "build": "node src/build.mjs",
+    "check": "node src/build.mjs --check",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dsh": { "bundle": { "patch": "./cordis.patch.yml" } },
+  "peerDependencies": { "@deepseek-ai/dsh": "0.2.1-rc.2" }
+}

@@ -1,0 +1,64 @@
+\section{Purpose and data provenance}
+The rehearsal tests the integrity of an agent workflow rather than solving a
+competition problem. The input file is explicitly synthetic and versioned.
+The model, solver, independent verification report, figures and LaTeX numeric
+macros form a traceable dependency chain. The 2027 reporting constraints are
+configured separately from the rehearsal\cite{comap2027rules}.
+
+\section{Model and analytical solution}
+Let $T\geq0$ be demand, and let $x,y\geq0$ be allocations in common arbitrary
+units. The assumed dimensionless cost is
+\begin{equation}
+ \min_{x,y\geq0} C=x^2+2y^2,\qquad x+y=T.\label{eq:demo-model}
+\end{equation}
+Substitution gives $C(x)=x^2+2(T-x)^2$. Therefore
+$C'(x)=6x-4T$ and $C''(x)=6>0$, which establish
+\begin{equation}
+ x^*=\frac{2T}{3},\quad y^*=\frac{T}{3},\quad
+ C^*(T)=\frac{2T^2}{3}.\label{eq:demo-optimum}
+\end{equation}
+The equal-allocation baseline has cost $C_{\mathrm{base}}=3T^2/4$.
+The cost functions and units are assumptions of the synthetic experiment,
+not measured properties of a real system.
+
+\section{Results and sensitivity}
+At $T=\DemoDemand$, the optimal cost is \DemoCost\ compared with the baseline
+\DemoBaselineCost. Table~\ref{tab:demo-sweep} reports a demand sweep.
+Figure~\ref{fig:demo-tradeoff} is generated directly from the same result file.
+The quadratic scaling is an implication of the assumed homogeneous cost
+structure; it is not evidence of general validity outside this model.
+\begin{table}[htbp]
+ \centering
+ \caption{Synthetic demand sweep. Values are generated from the solver result.}
+ \label{tab:demo-sweep}
+ \input{generated/demo_table.tex}
+\end{table}
+
+\begin{figure}[htbp]
+ \centering
+ \includegraphics[width=\linewidth]{demo_tradeoff.pdf}
+ \caption{Synthetic allocation and cost comparisons generated from the registered
+ result file. Units are arbitrary and the cost model is assumed.}
+ \label{fig:demo-tradeoff}
+\end{figure}
+
+\section{Independent verification and limits}
+The independent checker does not import the solver implementation. It checks
+nonnegativity, conservation of demand, reported cost, baseline improvement,
+and consistency across the demand sweep, then compares against a grid search
+and a finite-difference derivative. The verification report and its digest
+are registered alongside the result. Reproduction is separate from approval:
+the rehearsal does not create any human gate confirmation.
+
+The example omits capacity bounds, fixed costs, interactions and uncertainty
+in cost coefficients. In an actual problem these are candidate structural
+changes to justify using evidence, compare against the baseline, and test
+before making recommendations. The demonstration's passing checks establish
+internal numerical consistency only.
+
+\section{Workflow conclusion}
+The demonstration links an explicit model to independently checked results,
+generated visual evidence and consistent paper values. Final competition
+readiness additionally requires the actual problem, credible sources,
+appropriate model validation, a verified AI-use report and the team's human
+decisions under the applicable COMAP rules\cite{comap2025ai}.

@@ -1,0 +1,22 @@
+{
+  "format_version": 1,
+  "_template_only": true,
+  "review_id": "REPLACE_REVIEW_ID",
+  "reviewer_agent_id": null,
+  "snapshot_ref": null,
+  "artifact_refs": [],
+  "internal_diagnostic_only": true,
+  "award_probability": null,
+  "dimensions": [
+    {"id": "coverage", "label": "题问覆盖与跨问主线", "maximum": 15, "score": null, "evidence": [], "confidence": null},
+    {"id": "model", "label": "模型数学质量与适配性", "maximum": 25, "score": null, "evidence": [], "confidence": null},
+    {"id": "computation_validation", "label": "计算、验证与数值可信度", "maximum": 20, "score": null, "evidence": [], "confidence": null},
+    {"id": "insight", "label": "结果洞察、敏感性与局限", "maximum": 15, "score": null, "evidence": [], "confidence": null},
+    {"id": "communication", "label": "摘要、英文表达与图表", "maximum": 15, "score": null, "evidence": [], "confidence": null},
+    {"id": "evidence_reproducibility", "label": "证据与复现完整性", "maximum": 10, "score": null, "evidence": [], "confidence": null}
+  ],
+  "blocker_issue_ids": [],
+  "unreviewed_scope": [],
+  "recommendation": null,
+  "note": "固定版本内部诊断；未评维度保持null；不得冒充COMAP官方评分或预测O奖"
+}

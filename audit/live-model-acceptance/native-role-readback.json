@@ -1,0 +1,25 @@
+{
+  "evidence_ref": "../live-session-metadata.json",
+  "evidence_sha256": "91f1e645148033158eda480fa3dd88e5d60b5d42410214e86bac60fa16d85703",
+  "method": "Read only whitelisted session header/role/tool-call fields in the new isolated project; no assistant reasoning, raw tool outputs, credentials or other project sessions exported.",
+  "root": {
+    "session_id": "session-5cb9f2f7-7399-4e8d-b3c6-b7db5d71316a",
+    "effective_preset": "mcm-paper-lead",
+    "actual_depth": 0,
+    "parent_session_id": null
+  },
+  "child": {
+    "session_id": "84c73a8b-23e1-4b59-a667-02273e066615",
+    "effective_preset": "mcm-figure",
+    "actual_depth": 1,
+    "parent_session_id": "session-5cb9f2f7-7399-4e8d-b3c6-b7db5d71316a"
+  },
+  "correction": "Original parent report claimed its own depth=1 and child depth=2. Native header records show root=0 and child=1, because paper-lead was opened as a root for this isolated test. The intended competition captain->paper-lead->figure tree was not exercised by this particular live test.",
+  "native_calls": {
+    "explicit_mcm_figure_spawn_seq": 187,
+    "skill_md_read_seq": 47,
+    "figure_demo_with_skill_root_seq": 109
+  },
+  "tool_surface_boundary": "The leaf has no native subagent binding, but the captured SDK still exposes globally installed subagent_codex/subagent_claude_code tools. This record does not prove leaf delegation was mechanically blocked in this tested installation.",
+  "scope_boundary": "Uses the parent-produced whitelist metadata snapshot; this verifier did not re-read raw native logs."
+}

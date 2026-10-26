@@ -1,0 +1,553 @@
+{
+  "format_version": 1,
+  "report_id": "LIVE-ACCEPTANCE-001-result",
+  "task_id": "LIVE-ACCEPTANCE-001",
+  "kind": "synthetic_installation_acceptance",
+  "synthetic": true,
+  "generated_at": "2026-10-25T23:03:51.927+08:00",
+  "generated_by": {
+    "agent_target": "lead",
+    "agent_role_claimed": "mcm-paper-lead",
+    "depth": 1,
+    "role_evidence": "只有注入的角色说明（“论文负责人 / 英文主稿整合”）与运行时上下文中的 Team Lead 名 'lead'；本会话没有任何工具能读回 Host 侧 effective preset，故为自证而非机读回读。",
+    "registry_write_scope": "本任务授予的报告范围仅 audit/LIVE-ACCEPTANCE-001-result.{json,md}；未写 .mcm 四登记、config、paper。"
+  },
+  "overall_status": "passed_with_documented_gaps",
+  "status_meaning": "四个状态中 installed/read/executed 与机械验收为 passed/verified；视觉与独立审阅未通过也不声称通过；Host 容量准入与 preset 机读回读两项过程证据不成立，单列 gaps 与 process_deviations，不用总分掩盖。",
+  "scope_and_isolation": {
+    "project_root": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\dsh-v020-live-smoke",
+    "cwd_verified_by": [
+      "working_directory tool returned this path",
+      "ops_bash ls shows .mcm-project, AGENTS.md, config/, protocols/, scripts/"
+    ],
+    "project_markers": [
+      ".mcm-project",
+      ".mcm/",
+      "AGENTS.md",
+      "config/contest-mcm-2027.json"
+    ],
+    "original_rehearsal_path_referenced": "E:\\meisai",
+    "original_rehearsal_resumed": false,
+    "original_rehearsal_note": "本会话未读取/未恢复/未派发该路径；未执行任何 restore/import 命令；.mcm 四登记保持 0 记录且字节未变。只能证明本会话未触达，不能证明子实例的绝对文件系统行为（其报告自称未触碰）。",
+    "no_plugin_or_security_changes": true,
+    "no_software_installed": true,
+    "no_credentials_or_other_sessions_exported": true
+  },
+  "human_gates": {
+    "human_gates_modified": false,
+    "gates_file": "config/gates.json",
+    "gates_file_sha256_before_and_after": "39cf9b04761d28a82c00ae6a2f8b3dd33042865a4b9c47a7a93aaa62be388d79",
+    "gate_statuses": [
+      {
+        "gate_id": "H0_TOPIC",
+        "status": "pending"
+      },
+      {
+        "gate_id": "H1_MODEL",
+        "status": "pending"
+      },
+      {
+        "gate_id": "H2_RESULTS",
+        "status": "pending"
+      },
+      {
+        "gate_id": "H3_RELEASE",
+        "status": "pending"
+      }
+    ],
+    "note": "四个人工关口全部 pending；本演练不授予、不代签、不放行任何关口。"
+  },
+  "session_and_role_evidence": {
+    "visible_public_info_only": true,
+    "parent_side": {
+      "team_lead_target": "lead",
+      "role_reported_by_list_agents": "lead",
+      "model_reported_by_list_agents": "deepseek-flash",
+      "list_agents_before_spawn": [
+        {
+          "target": "lead",
+          "role": "lead",
+          "status": "running"
+        }
+      ],
+      "list_agents_after_spawn": [
+        {
+          "target": "lead",
+          "role": "lead",
+          "status": "running"
+        }
+      ],
+      "observation": "原生 subagent 子实例不出现在 list_agents 中；本会话成员列表始终只有 lead 一项，故 Team 成员口径下没有新增成员。"
+    },
+    "child_side": {
+      "subagent_id": "84c73a8b-23e1-4b59-a667-02273e066615",
+      "spawn_call_return": {
+        "kind": "activation",
+        "subagentId": "84c73a8b-23e1-4b59-a667-02273e066615"
+      },
+      "declared_preset_in_spawn_args": "mcm-figure",
+      "preset_declared_by_tool_schema": [
+        "mcm-writer",
+        "mcm-figure",
+        "mcm-typesetter"
+      ],
+      "depth_claimed": 2,
+      "child_self_reported_parent_agent_id": "session-5cb9f2f7-7399-4e8d-b3c6-b7db5d71316a",
+      "parent_id_confirmed_by_parent": false,
+      "readback_level": "self_attested_plus_schema_accepted",
+      "readback_explanation": "真实可用证据只有三项：① 当前工具 schema 显式列出 agent_preset 可选 mcm-figure；② 携带该 preset 的 spawn 调用被 Host 接受并返回 subagentId；③ 子实例自述其预设/父级/深度。没有任何工具可读回子实例的 effective preset 字符串或父子图，故『回读实际角色』只做到 schema+自述，未做到 Host 元数据级回读。",
+      "further_contact_attempt": "父级在子实例结束后试图 send_message 该 subagentId 索取角色原文引用，被拒绝：active teammate '84c73a8b-…' not found。原生 subagent 为一次性激活，结束后无父→子补充回读通道。"
+    },
+    "tool_evidence_parent_side": [
+      "list_agents",
+      "subagent",
+      "send_message(失败)",
+      "working_directory",
+      "read",
+      "glob",
+      "grep",
+      "write",
+      "ops_bash",
+      "read_image",
+      "wait_agent(no-active-peer)"
+    ],
+    "tool_evidence_child_side_reported": {
+      "called": [
+        "working_directory",
+        "ops_bash",
+        "read",
+        "write",
+        "ops_inspect_local_file",
+        "read_image",
+        "send_message"
+      ],
+      "available_but_not_called": [
+        "grep",
+        "glob",
+        "skill 加载器",
+        "subagent_claude_code/subagent_codex",
+        "task_board_*/undo_*/present/web_*"
+      ],
+      "spawned_children": 0
+    }
+  },
+  "capacity_and_admission": {
+    "source": "config/runtime.json + `python scripts/mcm.py runtime`（无 runtime 快照）",
+    "configured_planning_defaults": {
+      "normal_slots": 7,
+      "reserve_slots": 1,
+      "root_counts_as_slot": false,
+      "max_nested_depth": 2
+    },
+    "cli_runtime_report": {
+      "capacity_known": false,
+      "host_capacity_verified": false,
+      "host_max_active_descendants": null,
+      "effective_total": null,
+      "snapshot_fresh": false,
+      "admit_one_task": false,
+      "user_paused": false,
+      "team_member_limit": null,
+      "team_limit_is_host_capacity": false
+    },
+    "live_observations": {
+      "active_descendants_before_spawn": 0,
+      "requested_descendants": 1,
+      "spawned_ok": 1,
+      "reserve_slot_consumed": false
+    },
+    "admission_gate_satisfied": false,
+    "statement": "Host 总名额与剩余名额无法核对（无快照、无 Host 查询接口），因此 protocols/01 与 runtime.json 要求的 host_capacity_verification_required 准入条件未被满足。未伪造任何 host_capacity 快照。",
+    "why_spawn_proceeded_anyway": "任务卡第 2 项要求的正是这唯一一次显式 preset 的 spawn；在 0 个既有后代、只申请 1 个孩子、保留应急槽的前提下，单次 spawn 本身不会超额（Host 超额时会拒绝而非超发），故把它当作一次有界容量探针，并把准入不成立如实记为过程偏差，不宣称容量已核实。",
+    "not_claimed": [
+      "host_total_capacity",
+      "team_member_limit",
+      "capacity_verified"
+    ]
+  },
+  "skill": {
+    "primary_skill": "nature-figure",
+    "routing_branch": "mcm-figure → quantitative-figure（config/skill-routing.json），backend=python 由 config/figure-style.json 固定",
+    "skill_root": "C:\\Users\\zy\\.dsh\\skills\\nature-figure",
+    "installed": {
+      "status": "verified",
+      "skill_md_sha256": "5aefe708a2531c5ddaa8ee74d5155d747e96c0f21a33143d38316b7c5c88ffc4",
+      "skill_md_bytes": 12367,
+      "manifest_version": "2.8.0",
+      "required_files_present": [
+        "SKILL.md",
+        "manifest.yaml",
+        "static/core/contract.md",
+        "static/core/stance.md",
+        "static/fragments/backend/python.md",
+        "references/qa-contract.md",
+        "scripts/validate_figure.py",
+        "scripts/audit_pdf_text.py",
+        "scripts/audit_figure_collisions.py"
+      ],
+      "verified_by": "父级独立核对文件存在性与 SKILL.md 哈希，与子报告一致"
+    },
+    "read": {
+      "status": "verified_partial",
+      "documents": [
+        {
+          "document": "SKILL.md",
+          "sha256": "5aefe708a2531c5ddaa8ee74d5155d747e96c0f21a33143d38316b7c5c88ffc4",
+          "bytes": 12367,
+          "coverage": "full"
+        },
+        {
+          "document": "manifest.yaml",
+          "sha256": "f6cf1e50f55c74e159134edb8ca5a57fd5097b72b37463c7b2612757e01c24be",
+          "bytes": 7782,
+          "coverage": "full"
+        },
+        {
+          "document": "static/core/contract.md",
+          "sha256": "a2b6523a48192cf1dff0d194264c5662c832f4d1da6e9e4763ccd98cc0664d4c",
+          "bytes": 6274,
+          "coverage": "full"
+        },
+        {
+          "document": "static/fragments/backend/python.md",
+          "sha256": "1d4809e4ec4ed2d40995d74828732012a6a72c941dfec341745a3118e9312865",
+          "bytes": 3535,
+          "coverage": "full"
+        },
+        {
+          "document": "static/core/stance.md",
+          "sha256": "c7e6860e955a2ee9c24a30dbe88e28741da4eef8290c019e849c6b220ea0f07a",
+          "bytes": 4595,
+          "coverage": "partial ~first 2600 bytes; tail NOT read"
+        },
+        {
+          "document": "references/qa-contract.md",
+          "sha256": "4f31375cdb614d74eddb8aa7691c0bdfc8a8f20defcca27ce4a36192308748a8",
+          "bytes": 24785,
+          "coverage": "headings/TOC only; body NOT read"
+        }
+      ],
+      "read_equals_executed": false,
+      "note": "读取 SKILL.md 不计为执行；技能的审计脚本是以 subprocess 真实运行并取回退出码后，才记为 executed。"
+    },
+    "executed": {
+      "status": "verified",
+      "primary_command": "python scripts/figure_demo.py --root \"<project_root>\" --skill-root \"C:\\Users\\zy\\.dsh\\skills\\nature-figure\"",
+      "exit_code": 0,
+      "wall_clock_seconds": 3.794,
+      "runtime_seen": {
+        "python": "3.14.7",
+        "matplotlib": "3.10.9",
+        "pymupdf": "1.27.2.3"
+      },
+      "skill_subprocess_audits": {
+        "tool_runs": 12,
+        "breakdown": "validate_figure.py ×4, audit_pdf_text.py --min-pt 12 ×4, audit_figure_collisions.py ×4",
+        "all_exit_zero": true
+      },
+      "contract_embedded_skill_read": "每份 contract 的 skill_read 记录 8 份文档哈希（figure-style.json, 05-paper-figures-latex.md, SKILL.md, manifest.yaml, contract.md, stance.md, python.md, qa-contract.md），由脚本自身读取写入",
+      "excluded_orchestrators_loaded": false,
+      "excluded_list_checked": [
+        "shumo2",
+        "shumo2-v2",
+        "shumo-core",
+        "askill",
+        "askill-v2",
+        "math-modeling",
+        "mathematical-modeling",
+        "paper-spine"
+      ]
+    }
+  },
+  "execution": {
+    "prompt_chars": 4715,
+    "prompt_sha256": "835d975b515daa598cd34da50b2f3e5b137e28ceb8b9612fb9b8048abddbdac6",
+    "explicit_preset_in_task_body": "mcm-figure",
+    "explicit_cwd_in_task_body": true,
+    "child_started": "2026-10-25T22:56:xx+08:00 (approx, parent-observed)",
+    "child_finished_reported": "2026-10-25T22:59:56+08:00",
+    "synthetic_flag_passed_to_child": true,
+    "gates_untouched_instruction_passed": true,
+    "write_scope_passed_to_child": [
+      "figures/figure-demo/**",
+      "results/figure-demo/**",
+      "audit/live-figure/**",
+      "script-default build/ chart-check files (none observed)"
+    ],
+    "forbidden_scope_passed_to_child": [
+      "scripts/**",
+      "config/**",
+      "paper/**",
+      ".mcm/**",
+      "templates/**",
+      "protocols/**",
+      "tests/**",
+      "models/**",
+      "data/**",
+      "AGENTS.md",
+      "audit/LIVE-ACCEPTANCE-001.md",
+      "audit/LIVE-ACCEPTANCE-001-result.{json,md}"
+    ]
+  },
+  "artifacts_verified_by_parent": {
+    "child_report": {
+      "path": "audit/live-figure/child-report.json",
+      "bytes": 28779,
+      "sha256": "5718e26f2459007d36013c13433343e423a7940e12e2323fcf05779d8314412d",
+      "declared_sha256": "5718e26f2459007d36013c13433343e423a7940e12e2323fcf05779d8314412d",
+      "match": true
+    },
+    "figure_outputs": {
+      "directory": "figures/figure-demo/",
+      "file_count": 40,
+      "verification": "父级对 40 个文件逐一重算 sha256 与 bytes，与子报告 artifacts 列表比对：40/40 完全一致，0 缺失，0 未申报多出文件。",
+      "figures": [
+        {
+          "figure_id": "SYNTHETIC-method",
+          "contract_sha256": "b7582e3f…(见 child-report)",
+          "pdf": "method.pdf",
+          "png": "method.png",
+          "kind": "schematic",
+          "visual_status": "pending"
+        },
+        {
+          "figure_id": "SYNTHETIC-comparison",
+          "contract": "figures/figure-demo/comparison.contract.json",
+          "contract_bytes": 6952,
+          "contract_sha256": "ad66e415cda3538fcfbbb85c2f4c75868328918f35ce085f4b7218410dcbf513",
+          "pdf_sha256": "545ee72a2af5b6bd3916f1cc3d985068a766777bf53347e7661ad18e952be5c9",
+          "png_sha256": "e01806e539cfaf2afc80f3b58c79e190e820ab1dfeef4b6c09a485edea59a77b",
+          "png_bytes": 133731,
+          "kind": "quantitative",
+          "visual_status": "pending"
+        },
+        {
+          "figure_id": "SYNTHETIC-sensitivity",
+          "contract_sha256": "c0a209c4…",
+          "kind": "quantitative",
+          "visual_status": "pending"
+        },
+        {
+          "figure_id": "SYNTHETIC-uncertainty",
+          "contract_sha256": "96f6cb92…",
+          "kind": "quantitative",
+          "visual_status": "pending"
+        }
+      ],
+      "shared_inputs": [
+        {
+          "path": "figures/figure-demo/decay-results.csv",
+          "sha256": "5003a1039915f350db292a266166ea06add1447183ea353d3aa5a177bf975627",
+          "role": "唯一数据输入（合成计算输出，非外部数据）"
+        },
+        {
+          "path": "figures/figure-demo/analytic-check.json",
+          "bytes": 330,
+          "sha256": "af497c2f014f284ea9fc722790035af7709fbb59293fc45f7505a8b5e1554aca"
+        },
+        {
+          "path": "figures/figure-demo/demo-manifest.json",
+          "bytes": 9392,
+          "sha256": "9e6e2698809690f24a3637fa662b5d0c7828e5c42f218b71df3a53bb60a10a31"
+        },
+        {
+          "path": "figures/figure-demo/numbers.tex",
+          "role": "宏定义，含 FigureDemoEulerError/RKError 等"
+        }
+      ]
+    },
+    "undeclared_child_files": [
+      {
+        "path": "audit/live-figure/summarize_check.py",
+        "bytes": 1203,
+        "sha256_verified": false,
+        "status": "存在但未列入 artifacts（子自述的写范围内辅助脚本）；父级已读，仅做只读打印，不参与验收结论"
+      }
+    ]
+  },
+  "independent_checks_performed_by_parent": [
+    {
+      "check": "child-report.json 可解析性",
+      "method": "json.loads 实测",
+      "result": "passed, 21 顶层键, 40 artifacts, 4 figures"
+    },
+    {
+      "check": "40 个产物哈希/字节",
+      "method": "父级重新 sha256 + stat 比对",
+      "result": "passed 40/40"
+    },
+    {
+      "check": "4 份 contract 内部哈希一致性",
+      "method": "重算 data_inputs / outputs / script_path / qa_readback / numeric_verification_ref / skill_executed.output_refs 全部哈希",
+      "result": "passed, 每份 issues=NONE"
+    },
+    {
+      "check": "contract 语义约束",
+      "method": "检查 synthetic=true、status=draft、无 approval_state、visual_status=pending、qa_readback.visual_reviewed=false、minimum_final_glyph_pt=12、size_mm=165.1×101.6",
+      "result": "passed（4/4）"
+    },
+    {
+      "check": "独立重跑机械验收",
+      "method": "python scripts/figure_check.py --root . figures/figure-demo/<n>.contract.json ×4",
+      "result": "passed, exit=0, ok=true, errors=[] (4/4)"
+    },
+    {
+      "check": "PDF 机械报告",
+      "method": "读 4 份 .mechanical.json",
+      "result": "ok=true, errors=[] (4/4)"
+    },
+    {
+      "check": "技能审计告警复核",
+      "method": "grep '\"level\": \"WARN|FAIL\"' 全部日志",
+      "result": "12 条 WARN（每个图 3 条：EXPORT-RASTER 无 TIFF / RASTER-DPI 300 未达技能默认 600 / FINAL-WIDTH 未检出静态最终宽度），0 条 FAIL；与子自述的 3 类告警一致"
+    },
+    {
+      "check": "数值一致性",
+      "method": "读 analytic-check.json",
+      "result": "Euler max|err|=0.01920100107144218, RK4=3.3324105608301124e-07；脚本守卫 rk4<1e-5 且 rk4<euler 成立"
+    },
+    {
+      "check": "父级看图抽查",
+      "method": "read_image 读 comparison.png（1950×1200）",
+      "result": "图像与契约声称一致：白底、Analytical 蓝实线 / Euler 橙虚线（略低于解析解）/ RK4 绿点线（贴合解析解）、坐标轴含单位说明、图例无遮挡、标题标注 synthetic。父级只做了一次抽查，不构成独立视觉审阅。"
+    },
+    {
+      "check": "受保护文件前/后对比",
+      "method": "20 个受保护文件 spawn 前后 sha256 逐项比对",
+      "result": "0 changed（含 config/gates.json、config/figure-style.json、scripts/figure_demo.py、paper/main.tex、.mcm 四登记、AGENTS.md、协议文件、本任务卡）"
+    },
+    {
+      "check": "写入越界检查",
+      "method": "全项目文件清单前/后差集",
+      "result": "新增 42 个文件：40 在 figures/figure-demo/，2 在 audit/live-figure/；允许范围外新增 = 0。移除 1 个文件：.acceptance-tmp/pre_state.py（父级自建临时哈希脚本，已删除，见 process_deviations DEV-02）"
+    },
+    {
+      "check": "四个 gate 状态",
+      "method": "读 config/gates.json",
+      "result": "全部 pending，字节未变"
+    }
+  ],
+  "acceptance_summary": {
+    "installed": {
+      "status": "verified",
+      "basis": "技能目录与关键文件存在 + SKILL.md 哈希（父级独立复核）"
+    },
+    "read": {
+      "status": "verified_partial",
+      "basis": "6 份文档真实读取并带哈希；qa-contract 正文与 stance 尾部未读"
+    },
+    "executed": {
+      "status": "verified",
+      "basis": "exit 0 + 12 次技能内 subprocess 审计全 0 + 父级独立重跑 figure_check 全通过"
+    },
+    "mechanical_acceptance": {
+      "status": "passed",
+      "basis": "4 图 audit_pdf 文本最小字号 12pt、碰撞 findings=[]、契约校验 ok"
+    },
+    "numeric_acceptance": {
+      "status": "passed",
+      "basis": "解析参照误差守卫成立，见 independent_checks"
+    },
+    "visual_acceptance": {
+      "status": "pending",
+      "independent_review": false,
+      "basis": "子自检 2/4 PNG；父级抽查 1 张；method/sensitivity 无人逐图核对；四份契约 visual_status 均为 pending"
+    },
+    "scientific_acceptance": {
+      "status": "not_applicable",
+      "basis": "合成演示数据（y'=-k*y 的 Euler/RK4 对照），不承载任何题目结论"
+    }
+  },
+  "gaps": [
+    {
+      "id": "GAP-01",
+      "severity": "major",
+      "what": "Host 容量准入无法核实",
+      "detail": "无运行时快照；mcm.py runtime 报 capacity_known=false / host_capacity_verified=false / admit_one_task=false；无任何工具可查 Host 总名额。",
+      "impact": "protocols/01 与 runtime.json 要求的 host_capacity_verification_required 未满足，本次 spawn 属有界探针而非核实容量后的常规派发。",
+      "next": "由队长在真实 Host 侧产出一份 ≤60s 的新鲜规范化 runtime 快照（含 evidence_ref），再重跑本验收以取得容量准入证据。"
+    },
+    {
+      "id": "GAP-02",
+      "severity": "major",
+      "what": "effective preset / 父子 / 深度只有自述",
+      "detail": "工具 schema 声明 agent_preset 可选 mcm-figure，spawn 被接受并返回 subagentId；但没有任何工具能读回子实例的实际 preset 字符串、父节点或深度。子实例结束后 send_message 其 subagentId 被拒（active teammate not found），补证通道消失。",
+      "impact": "『真实角色回读』只达到 schema 接受 + 自述两级，未达到 Host 元数据级。",
+      "next": "若需机读回读，需 Host 暴露子实例元数据查询或让子实例把系统提示中的角色原文落盘。"
+    },
+    {
+      "id": "GAP-03",
+      "severity": "minor",
+      "what": "视觉验收 pending",
+      "detail": "子实例只用 read_image 看了 comparison.png 与 uncertainty.png；method.png / sensitivity.png 无人逐图核对；无人核对 PDF 页面在最终尺寸的字形与遮挡。",
+      "impact": "四份 contract visual_status=pending，符合证据边界，但也意味着视觉维度未通过。",
+      "next": "由非作者逐图（含 PDF 页面）核对后才可改 visual_status。"
+    },
+    {
+      "id": "GAP-04",
+      "severity": "minor",
+      "what": "技能预检 3 类 WARN 未处理",
+      "detail": "EXPORT-RASTER（无 TIFF 提交栅格）、RASTER-DPI（300dpi 低于技能默认 600）、FINAL-WIDTH（未检出静态最终宽度），每图各 1 条共 12 条，均为 WARN 非 FAIL。",
+      "impact": "不影响本项目 MCM 用途（项目要求 300dpi PNG + PDF/SVG，600dpi 是技能默认而非竞赛规则），但按技能口径是未达默认。",
+      "next": "如后续要投任何要求 600dpi/TIFF 的场合，需改 scripts 或 config，属另立任务。"
+    },
+    {
+      "id": "GAP-05",
+      "severity": "minor",
+      "what": "qa-contract.md 正文与 stance.md 尾部未读",
+      "detail": "references/qa-contract.md 只读了标题与目录；static/core/stance.md 只读约前 2.6KB。",
+      "impact": "不影响本次机械验收（脚本自带审计已跑），但『读完技能契约』的主张不成立。",
+      "next": "若要把该技能用于正式图件，先补读 qa-contract 正文。"
+    },
+    {
+      "id": "GAP-06",
+      "severity": "minor",
+      "what": "collisions 审计未用 --strict",
+      "detail": "audit_figure_collisions.py 以默认模式运行，WARN 级碰撞不会阻断导出。",
+      "impact": "本次 findings 为空，实际无影响；方法学上偏弱。",
+      "next": "正式图件改用 --strict 并记录。"
+    }
+  ],
+  "process_deviations": [
+    {
+      "id": "DEV-01",
+      "what": "在 admit_one_task=false 的情况下仍执行了 1 次 spawn",
+      "why": "任务卡第 2 项要求本验收必须做这唯一一次显式 preset 的 spawn；0 个既有后代 + 仅申请 1 个孩子 + 未动用应急槽，单次 spawn 不可能超出任何 Host 上限（超额时 Host 会拒绝）。",
+      "disclosure": "未伪造 host_capacity 快照；未宣称容量已核实；已作为 GAP-01 major 记录。"
+    },
+    {
+      "id": "DEV-02",
+      "what": "父级在项目内临时创建 .acceptance-tmp/pre_state.py 用于记录前置哈希，随后删除",
+      "why": "需要前后对比证明受保护文件未被改动，而不把临时脚本塞进子实例的写范围。",
+      "disclosure": "该文件已删除，最终项目树中不存在；除本报告两个文件外父级未写任何其他项目文件。"
+    },
+    {
+      "id": "DEV-03",
+      "what": "子实例自述写过的 audit/live-figure/build_report.py 在项目内 find 不到",
+      "why": "无法确认（子实例已失联，不能再问）。",
+      "disclosure": "父级实测：全项目 find 无此文件；audit/live-figure/ 只有 child-report.json 与 summarize_check.py。结论：自述与实际磁盘不符，需按自述降级采信。制品与验收结论不受影响（该脚本不参与任何证据链）。"
+    },
+    {
+      "id": "DEV-04",
+      "what": "子实例自述曾向 /tmp 写 fig_summary.py",
+      "why": "自述为一次未执行的越范围尝试。",
+      "disclosure": "父级实测 /tmp/fig_summary.py 不存在（可能落在宿主其他 temp 目录后未保留或从未落盘）。项目文件未被该写入触及。"
+    }
+  ],
+  "self_report_reliability_note": "本次刻意做了『自述 vs 磁盘』交叉核对：40 份产物的哈希与字节全部对得上（自述可信），但 build_report.py 与 /tmp 写入两项对不上（自述不可全信）。这正是要求父级读回而不采信『工具返回成功/自报完成』的实证。",
+  "what_this_does_not_prove": [
+    "不证明 Host 总配额、Team 成员上限或并发容量。",
+    "不证明 mcm-figure 预设内容被正确注入（只证明 schema 接受 + 自述）。",
+    "不证明图表美观、可读性达标或在论文页面中的最终视觉合格（视觉仍 pending）。",
+    "不产生任何比赛科学结论：数据是合成的 y'=-k*y 演示，synthetic=true，不得进入论文结果。",
+    "不改变、不放行任何人工关口；H0-H3 全部 pending。"
+  ],
+  "next_actions": [
+    "队长（唯一调度与登记者）如需把本次结果纳入正式记录，再写 .mcm/tasks.json / artifacts.json；本报告不自登记。",
+    "若要把本演练升级为容量准入合格演练：先在真实 Host 产出 ≤60s 的新鲜 runtime 快照（含 evidence_ref），再重跑 spawn 步骤。",
+    "若要视觉通过：由非作者逐图核对 4 张图的 PDF 与 PNG（含最终尺寸字形、图例遮挡），再更新 contract 的 visual_status/visual_reviewed。",
+    "若后续把 figure_demo 产物用于论文：需在 paper 侧另立排版任务并复核插入尺寸，本报告不承担 H3 视觉回执。"
+  ],
+  "human_gates_modified": false,
+  "original_rehearsal_resumed": false
+}

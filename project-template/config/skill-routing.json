@@ -1,0 +1,179 @@
+{
+  "format_version": 1,
+  "bundle_version": "0.2.0",
+  "routing_is_behavioral": true,
+  "defaults": {
+    "max_primary_skills_per_task": 1,
+    "preload_all_skills": false,
+    "require_actual_discovery_and_read": true,
+    "require_dependency_preflight": true,
+    "project_backend_first": true,
+    "skill_may_spawn_without_parent_approval": false,
+    "skill_may_resume_paused_work": false,
+    "excluded_orchestrators_apply_to_indirect_routes": true
+  },
+  "excluded_orchestrators": [
+    "shumo2",
+    "shumo2-v2",
+    "shumo-core",
+    "askill",
+    "askill-v2",
+    "math-modeling",
+    "mathematical-modeling",
+    "paper-spine"
+  ],
+  "restricted_skills": {
+    "nature-citation": "Only when the user explicitly requests Nature/CNS-only source scope; never the default MCM literature search.",
+    "nature-data": "Only for explicitly assigned Data/Code Availability or repository planning, not data cleaning; publication requires its own authorization.",
+    "venue-templates": "Do not replace the established MCM template with a journal template."
+  },
+  "roles": {
+    "mcm-captain": [],
+    "mcm-model-lead": [
+      {
+        "task_type": "statistical-design-audit",
+        "primary_skill": "nature-statistics",
+        "optional_skills": [],
+        "branch": "relevant statistical design only",
+        "limits": "No new model or experiment without a scoped contract; ordinary modeling tasks need no forced skill."
+      }
+    ],
+    "mcm-modeler": [
+      {
+        "task_type": "statistical-assumption-audit",
+        "primary_skill": "nature-statistics",
+        "optional_skills": [],
+        "branch": "relevant statistical assumptions only",
+        "limits": "Preserve the blind phase and declared scope; do not import a full modeling orchestrator."
+      }
+    ],
+    "mcm-evidence": [
+      {
+        "task_type": "literature-gap-search",
+        "primary_skill": "nature-academic-search",
+        "optional_skills": [
+          "nature-downloader",
+          "nature-ref-verifier"
+        ],
+        "branch": "multi-source-search",
+        "limits": "Use unrestricted subject-appropriate sources; no automatic citation-impact or timed literature pipeline."
+      },
+      {
+        "task_type": "citation-field-verification",
+        "primary_skill": "nature-ref-verifier",
+        "optional_skills": [],
+        "branch": "verify supplied references",
+        "limits": "Correct DOI/metadata does not prove that the source supports the manuscript claim."
+      },
+      {
+        "task_type": "lawful-fulltext-retrieval",
+        "primary_skill": "nature-downloader",
+        "optional_skills": [],
+        "branch": "OA/publisher/user-authorized access",
+        "limits": "Report actual reading scope; never invent full-text access."
+      }
+    ],
+    "mcm-programmer": [
+      {
+        "task_type": "statistical-output-audit",
+        "primary_skill": "nature-statistics",
+        "optional_skills": [],
+        "branch": "only assigned statistics with data",
+        "limits": "Ordinary code solving uses the approved formula/code contract; independent verification remains outside the author branch."
+      }
+    ],
+    "mcm-code-lead": [],
+    "mcm-verifier": [
+      {
+        "task_type": "statistical-validity-review",
+        "primary_skill": "nature-statistics",
+        "optional_skills": [],
+        "branch": "units, independence, uncertainty and test validity",
+        "limits": "No new analysis without explicit data/task; distinguish reproduction from scientific validity."
+      },
+      {
+        "task_type": "citation-audit",
+        "primary_skill": "nature-ref-verifier",
+        "optional_skills": [],
+        "branch": "selected claim/reference checks",
+        "limits": "Review original support as well as bibliographic fields."
+      }
+    ],
+    "mcm-paper-lead": [
+      {
+        "task_type": "argument-and-section-integration",
+        "primary_skill": "nature-writing",
+        "optional_skills": [
+          "nature-polishing"
+        ],
+        "branch": "generic, English, assigned MCM sections",
+        "limits": "Keep the user seven-part framework and MCM rules; no Nature submission package or replacement outline."
+      },
+      {
+        "task_type": "language-compression",
+        "primary_skill": "nature-polishing",
+        "optional_skills": [],
+        "branch": "language and organization only",
+        "limits": "Preserve numbers, symbols, citations and conclusion strength; scientific changes return upstream."
+      }
+    ],
+    "mcm-writer": [
+      {
+        "task_type": "section-draft",
+        "primary_skill": "nature-writing",
+        "optional_skills": [
+          "nature-polishing"
+        ],
+        "branch": "generic, English, assigned subsection",
+        "limits": "Write only task-owned drafts under the user framework; do not edit the integrated manuscript."
+      },
+      {
+        "task_type": "language-edit",
+        "primary_skill": "nature-polishing",
+        "optional_skills": [],
+        "branch": "language-only editing",
+        "limits": "Do not strengthen evidence or change model/results."
+      }
+    ],
+    "mcm-figure": [
+      {
+        "task_type": "quantitative-figure",
+        "primary_skill": "nature-figure",
+        "optional_skills": [
+          "nature-statistics"
+        ],
+        "branch": "project-selected Python/R scientific figures",
+        "limits": "Fixed result inputs and figure contract; final-size 12pt core labels; new estimators/tests/filters return upstream."
+      },
+      {
+        "task_type": "method-or-geometry-diagram",
+        "primary_skill": "fireworks-tech-graph",
+        "optional_skills": [],
+        "branch": "editable SVG technical diagram",
+        "limits": "Default 1–2 framework/method schematics for the whole paper; no invented measurements or generative result plots."
+      }
+    ],
+    "mcm-typesetter": [
+      {
+        "task_type": "pdf-layout-review",
+        "primary_skill": "pdf",
+        "optional_skills": [],
+        "branch": "render and inspect pages",
+        "limits": "Compile through the verified project LaTeX entry; pdf is not a complete TeX compiler or a scientific validator."
+      }
+    ],
+    "mcm-reviewer": [
+      {
+        "task_type": "independent-manuscript-review",
+        "primary_skill": "nature-reviewer",
+        "optional_skills": [
+          "nature-statistics",
+          "nature-ref-verifier",
+          "pdf"
+        ],
+        "branch": "evidence-grounded critique only",
+        "limits": "Score by MCM problem/rules and internal rubric, not Nature novelty or editorial acceptance criteria."
+      }
+    ]
+  }
+}

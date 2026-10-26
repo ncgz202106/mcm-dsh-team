@@ -1,0 +1,57 @@
+{
+  "format_version": 1,
+  "_template_only": true,
+  "task_id": "REPLACE_TASK_ID",
+  "parent_task_id": null,
+  "title": "填写可验收的任务名称",
+  "objective": null,
+  "project_root": null,
+  "owner_role": null,
+  "owner_agent_id": null,
+  "stage": "G0",
+  "status": "queued",
+  "priority": "normal",
+  "inputs": [],
+  "depends_on": [],
+  "outputs": [
+    {
+      "artifact_id": null,
+      "kind": null,
+      "path": null,
+      "owner_role": null
+    }
+  ],
+  "allowed_write_paths": [],
+  "acceptance_criteria": [],
+  "deadline": null,
+  "budget": {
+    "wall_time_minutes": null,
+    "active_descendant_allocation": 1,
+    "max_child_agents": 0,
+    "tool_calls": null,
+    "notes": "Subtree allocation counts this worker and waiting supervisors; actual Host capacity must be independently verified."
+  },
+  "model_contract_id": null,
+  "human_gate": null,
+  "blind_phase": false,
+  "escalation_conditions": [],
+  "completion_handoff_path": null,
+  "synthetic": false,
+  "created_at": null,
+  "updated_at": null,
+  "specialty": null,
+  "dispatch_parent_role": null,
+  "required_skills": [],
+  "decision_refs": [],
+  "skill_readback": [],
+  "output_readback": [],
+  "handover": {
+    "from_agent_id": null,
+    "to_agent_id": null,
+    "source_refs": [],
+    "permission_granted": false,
+    "permission_expires_at": null,
+    "reclaimed_at": null
+  },
+  "pause_acknowledged": false
+}

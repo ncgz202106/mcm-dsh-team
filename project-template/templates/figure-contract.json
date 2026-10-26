@@ -1,0 +1,48 @@
+{
+  "format_version": 2,
+  "_template_only": true,
+  "figure_id": "REPLACE_FIGURE_ID",
+  "version": 1,
+  "task_id": null,
+  "owner_role": "mcm-figure",
+  "claim_id": null,
+  "argument_sentence": null,
+  "figure_type": null,
+  "data_inputs": [],
+  "columns_and_units": [],
+  "comparison_groups": [],
+  "transformation": null,
+  "uncertainty_definition": null,
+  "sample_or_scenario_count": null,
+  "axis_labels": {
+    "x": null,
+    "y": null
+  },
+  "size_mm": {
+    "width": null,
+    "height": null
+  },
+  "style_profile": "mcm-clear-science-v2",
+  "script_path": null,
+  "generation_command": null,
+  "outputs": [],
+  "caption_english": null,
+  "paper_label": null,
+  "requires_numeric_verification": true,
+  "numeric_verification_ref": null,
+  "visual_check_ref": null,
+  "status": "draft",
+  "approval_state": "draft",
+  "synthetic": false,
+  "backend": "python",
+  "result_generation": null,
+  "script_sha256": null,
+  "minimum_final_glyph_pt": 12,
+  "skill_read": [],
+  "skill_executed": [],
+  "qa_readback": {
+    "mechanical_report_sha256": null,
+    "visual_reviewed": false
+  },
+  "note": "Use fixed path/version/hash/generation input refs. Record only guidance actually read and tools actually run. Automated geometry checks never certify aesthetics or scientific claims."
+}

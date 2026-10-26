@@ -1,0 +1,11 @@
+{
+  "synthetic": true,
+  "equation": "y'=-k*y; y(0)=1",
+  "step": 0.1,
+  "points": 41,
+  "parameter_grid_count": 301,
+  "euler_max_abs_error": 0.01920100107144218,
+  "rk4_max_abs_error": 3.3324105608301124e-07,
+  "passed": true,
+  "scope": "Analytical comparison for this demo; not an independent agent attestation."
+}

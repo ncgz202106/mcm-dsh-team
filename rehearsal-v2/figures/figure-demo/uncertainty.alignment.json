@@ -1,0 +1,13 @@
+{
+  "status": "not_applicable",
+  "reason": "One plot area; no comparable multi-panel groups.",
+  "axes_bounds_points": [
+    [
+      79.56000000000002,
+      54.72000000000003,
+      369.71999999999997,
+      192.95999999999998
+    ]
+  ],
+  "tolerance_pt": 1.5
+}

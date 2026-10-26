@@ -1,0 +1,23 @@
+{
+  "format_version": 1,
+  "_template_only": true,
+  "decision_id": "REPLACE_DECISION_ID",
+  "decision_type": "proposal",
+  "task_id": null,
+  "title": null,
+  "status": "proposed",
+  "decision": null,
+  "recommendation": null,
+  "alternatives": [],
+  "rationale": null,
+  "evidence_refs": [],
+  "scope_refs": [],
+  "affected_task_ids": [],
+  "risks": [],
+  "tradeoffs": [],
+  "decided_by": null,
+  "decided_at": null,
+  "human_gate": null,
+  "user_message_ref": null,
+  "synthetic": false
+}

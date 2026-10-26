@@ -1,0 +1,103 @@
+{
+  "format_version": 1,
+  "normal_slots": 7,
+  "reserve_slots": 1,
+  "root_counts_as_slot": false,
+  "waiting_supervisors_count_as_slots": true,
+  "max_nested_depth": 2,
+  "registry_writer_role": "mcm-captain",
+  "runtime_source": "manual or imported DSH listRuntime snapshot; this CLI does not control DSH",
+  "runtime_snapshot": null,
+  "partition_ownership": {
+    "mcm-captain": [
+      ".mcm",
+      "config",
+      "tasks"
+    ],
+    "mcm-model-lead": [
+      "models",
+      "tasks"
+    ],
+    "mcm-modeler": [
+      "tasks"
+    ],
+    "mcm-evidence": [
+      "evidence",
+      "research",
+      "data/processed",
+      "tasks"
+    ],
+    "mcm-programmer": [
+      "src",
+      "results",
+      "example",
+      "paper/generated",
+      "tasks",
+      "experiments"
+    ],
+    "mcm-verifier": [
+      "audit/verification",
+      "reviews/verification",
+      "tasks"
+    ],
+    "mcm-paper-lead": [
+      "paper",
+      "tasks"
+    ],
+    "mcm-writer": [
+      "tasks"
+    ],
+    "mcm-figure": [
+      "figures",
+      "tasks"
+    ],
+    "mcm-typesetter": [
+      "paper/styles",
+      "paper/build-support",
+      "build",
+      "reviews/typesetting",
+      "tasks"
+    ],
+    "mcm-reviewer": [
+      "audit/review",
+      "reviews",
+      "tasks"
+    ],
+    "mcm-code-lead": [
+      "src",
+      "experiments",
+      "results",
+      "paper/generated",
+      "tasks"
+    ]
+  },
+  "read_only_paths": [
+    "data/raw"
+  ],
+  "notes": "Project planning defaults are 7 normal + 1 reserve, not verified Host capacity. Native spawn with actual preset/tool readback is preferred; Team member limit is separate. Two programmer instances receive disjoint task paths; optional code lead integrates only assigned files. These cooperative guards are not OS isolation.",
+  "competition_file": "config/contest-mcm-2027.json",
+  "run_mode": "preparation",
+  "freeze_hours_before_stop": {
+    "model": 18,
+    "results": 10,
+    "paper": 2
+  },
+  "default_programmer_instances": 2,
+  "programmer_specialties": [
+    "solver",
+    "pipeline_and_experiments"
+  ],
+  "optional_code_lead": true,
+  "code_lead_enabled_by_default": false,
+  "dispatch_route": "native_spawn_with_verified_preset",
+  "configured_capacity_is_host_fact": false,
+  "host_capacity_verification_required": true,
+  "capacity_snapshot_max_age_seconds": 60,
+  "context_pack_max_items": 40,
+  "pause_state": {
+    "paused": false,
+    "reason": null,
+    "user_message_ref": null,
+    "recorded_at": null
+  }
+}

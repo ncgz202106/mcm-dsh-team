@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data: blob:">
+  <title>02-runtime-communication</title>
+  <style>
+    :root { color-scheme: dark; --page:#0f0f1a; --panel:#0f172a; --border:#334155; --text:#e2e8f0; --muted:#94a3b8; --accent:#a855f7; }
+    html[data-theme="light"] { color-scheme:light; --page:#f8fafc; --panel:#fff; --border:#cbd5e1; --text:#0f172a; --muted:#475569; --accent:#7c3aed; }
+    * { box-sizing:border-box; }
+    html,body { width:100%; height:100%; margin:0; overflow:hidden; background:linear-gradient(135deg,var(--page),#1a1a2e); color:var(--text); font-family:'SF Mono','Fira Code',ui-monospace,monospace; }
+    body { display:grid; grid-template-rows:auto 1fr; }
+    .toolbar { display:flex; flex-wrap:wrap; align-items:center; gap:8px; padding:10px 14px; background:color-mix(in srgb,var(--panel) 92%,transparent); border-bottom:1px solid var(--border); z-index:2; }
+    .title { margin-right:auto; font-size:13px; font-weight:700; }
+    button,select { min-height:34px; padding:6px 10px; color:var(--text); background:var(--panel); border:1px solid var(--border); border-radius:8px; font:inherit; cursor:pointer; }
+    button:hover,button:focus-visible,select:focus-visible { border-color:var(--accent); outline:2px solid color-mix(in srgb,var(--accent) 35%,transparent); outline-offset:1px; }
+    #stage { position:relative; overflow:hidden; touch-action:none; cursor:grab; }
+    #stage.dragging { cursor:grabbing; }
+    #canvas { width:100%; height:100%; display:grid; place-items:center; transform-origin:0 0; will-change:transform; }
+    #canvas svg { max-width:calc(100vw - 40px); max-height:calc(100vh - 92px); width:auto; height:auto; filter:drop-shadow(0 22px 60px rgba(0,0,0,.28)); user-select:none; }
+    #status { min-width:76px; color:var(--muted); font-size:12px; text-align:center; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    @media (prefers-reduced-motion:reduce) { * { scroll-behavior:auto!important; transition:none!important; } }
+  </style>
+</head>
+<body>
+  <header class="toolbar" aria-label="Diagram controls">
+    <span class="title">02-runtime-communication</span>
+    <button type="button" data-action="zoom-out" aria-label="Zoom out">−</button>
+    <button type="button" data-action="reset" aria-label="Reset view">Reset</button>
+    <button type="button" data-action="zoom-in" aria-label="Zoom in">+</button>
+    <span id="status" aria-live="polite">100%</span>
+    <button type="button" data-action="theme" aria-label="Toggle theme">Theme</button>
+    <button type="button" data-action="copy" aria-label="Copy SVG source">Copy SVG</button>
+    <select id="scale" aria-label="Raster export scale"><option value="1">1×</option><option value="2" selected>2×</option><option value="3">3×</option><option value="4">4×</option></select>
+    <select id="format" aria-label="Export format"><option>SVG</option><option>PNG</option><option>JPEG</option><option>WebP</option></select>
+    <button type="button" data-action="download">Export</button>
+  </header>
+  <main id="stage" tabindex="0" aria-label="Interactive diagram. Drag to pan; use plus and minus to zoom.">
+    <div id="canvas"><svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1280" viewBox="0 0 1920 1280" data-generator="mcm-team-diagrams" data-quality-profile="showcase" role="img" focusable="false">
+<title>DSH 实际执行：消息路由与成果依赖</title>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif} .muted{fill:#475569}</style>
+<defs><marker id="a0" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#2563eb" /></marker><marker id="a1" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#0f766e" /></marker><marker id="a2" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#7c3aed" /></marker><marker id="a3" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#b45309" /></marker><marker id="a4" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#b91c1c" /></marker></defs>
+<rect width="1920" height="1280" fill="#ffffff" data-graph-role="background" />
+<text x="60" y="59" font-size="37" fill="#172554" font-weight="700">DSH 实际执行：消息路由与成果依赖</text>
+<text x="60" y="103" font-size="22" fill="#475569">默认原生 spawn 指定专业预设；跨分支经队长转发版本化成果</text>
+<text x="60" y="171" font-size="27" fill="#172554" font-weight="700">01  控制与通知：只传任务号、成果位置、版本、状态和问题摘要</text>
+<rect id="n-worker" data-graph-role="node" data-node-id="worker" data-graph-bounds="60 220 420 350" x="60" y="220" width="360" height="130" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<rect x="60" y="235" width="5" height="100" rx="2" fill="#2563eb" data-graph-role="decoration" />
+<text x="84" y="259" font-size="26" fill="#2563eb" font-weight="700">建模手</text>
+<text x="84" y="296" font-size="22" fill="#334155">子 Agent → 直接父级</text>
+<rect id="n-lead" data-graph-role="node" data-node-id="lead" data-graph-bounds="540 220 900 350" x="540" y="220" width="360" height="130" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<rect x="540" y="235" width="5" height="100" rx="2" fill="#2563eb" data-graph-role="decoration" />
+<text x="564" y="259" font-size="26" fill="#2563eb" font-weight="700">建模负责人</text>
+<text x="564" y="296" font-size="22" fill="#334155">父级汇总问题</text>
+<rect id="n-captain" data-graph-role="node" data-node-id="captain" data-graph-bounds="1020 220 1380 350" x="1020" y="220" width="360" height="130" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<rect x="1020" y="235" width="5" height="100" rx="2" fill="#2563eb" data-graph-role="decoration" />
+<text x="1044" y="259" font-size="26" fill="#2563eb" font-weight="700">队长 / 共同父级</text>
+<text x="1044" y="296" font-size="22" fill="#334155">跨分支路由</text>
+<rect id="n-programmer" data-graph-role="node" data-node-id="programmer" data-graph-bounds="1500 220 1860 350" x="1500" y="220" width="360" height="130" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<rect x="1500" y="235" width="5" height="100" rx="2" fill="#2563eb" data-graph-role="decoration" />
+<text x="1524" y="259" font-size="26" fill="#2563eb" font-weight="700">编程手</text>
+<text x="1524" y="296" font-size="22" fill="#334155">读取指定版本并响应</text>
+<path id="e-worker-lead" data-edge-id="worker-lead" data-graph-role="edge" data-source="worker" data-target="lead" d="M 420 285 L 540 285" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)" />
+<path id="e-lead-captain" data-edge-id="lead-captain" data-graph-role="edge" data-source="lead" data-target="captain" d="M 900 285 L 1020 285" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)" />
+<path id="e-captain-programmer" data-edge-id="captain-programmer" data-graph-role="edge" data-source="captain" data-target="programmer" d="M 1380 285 L 1500 285" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)" />
+<rect id="n-routingrule" data-graph-role="node" data-node-id="routingrule" data-graph-bounds="60 400 1860 505" x="60" y="400" width="1800" height="105" rx="14" fill="#fffbeb" stroke="#b45309" stroke-width="2" />
+<rect x="60" y="415" width="5" height="75" rx="2" fill="#b45309" data-graph-role="decoration" />
+<text x="84" y="439" font-size="26" fill="#b45309" font-weight="700">任务交接与检查点</text>
+<text x="84" y="476" font-size="22" fill="#334155">原生子树使用父子消息；Codex 交编号工作包给队长。收到、读取、执行、验收分别留证。</text>
+<text x="60" y="575" font-size="27" fill="#172554" font-weight="700">02  文件依赖：读取共享成果，每项成果由唯一负责人写入</text>
+<rect id="n-source" data-graph-role="node" data-node-id="source" data-graph-bounds="60 625 380 765" x="60" y="625" width="320" height="140" rx="14" fill="#f0fdfa" stroke="#0f766e" stroke-width="2" />
+<rect x="60" y="640" width="5" height="110" rx="2" fill="#0f766e" data-graph-role="decoration" />
+<text x="84" y="664" font-size="26" fill="#0f766e" font-weight="700">来源与数据</text>
+<text x="84" y="701" font-size="22" fill="#334155">出处、单位、清洗</text>
+<rect id="n-contract" data-graph-role="node" data-node-id="contract" data-graph-bounds="430 625 750 765" x="430" y="625" width="320" height="140" rx="14" fill="#f0fdfa" stroke="#0f766e" stroke-width="2" />
+<rect x="430" y="640" width="5" height="110" rx="2" fill="#0f766e" data-graph-role="decoration" />
+<text x="454" y="664" font-size="26" fill="#0f766e" font-weight="700">模型契约</text>
+<text x="454" y="701" font-size="22" fill="#334155">假设、公式、接口</text>
+<path id="e-source-contract" data-edge-id="source-contract" data-graph-role="edge" data-source="source" data-target="contract" d="M 380 695 L 430 695" stroke="#0f766e" stroke-width="2.5" fill="none" marker-end="url(#a1)" />
+<rect id="n-run" data-graph-role="node" data-node-id="run" data-graph-bounds="800 625 1120 765" x="800" y="625" width="320" height="140" rx="14" fill="#f0fdfa" stroke="#0f766e" stroke-width="2" />
+<rect x="800" y="640" width="5" height="110" rx="2" fill="#0f766e" data-graph-role="decoration" />
+<text x="824" y="664" font-size="26" fill="#0f766e" font-weight="700">运行与结果</text>
+<text x="824" y="701" font-size="22" fill="#334155">配置、种子、摘要</text>
+<path id="e-contract-run" data-edge-id="contract-run" data-graph-role="edge" data-source="contract" data-target="run" d="M 750 695 L 800 695" stroke="#0f766e" stroke-width="2.5" fill="none" marker-end="url(#a1)" />
+<rect id="n-figure" data-graph-role="node" data-node-id="figure" data-graph-bounds="1170 625 1490 765" x="1170" y="625" width="320" height="140" rx="14" fill="#f0fdfa" stroke="#0f766e" stroke-width="2" />
+<rect x="1170" y="640" width="5" height="110" rx="2" fill="#0f766e" data-graph-role="decoration" />
+<text x="1194" y="664" font-size="26" fill="#0f766e" font-weight="700">正式图表</text>
+<text x="1194" y="701" font-size="22" fill="#334155">数据核对、图注</text>
+<path id="e-run-figure" data-edge-id="run-figure" data-graph-role="edge" data-source="run" data-target="figure" d="M 1120 695 L 1170 695" stroke="#0f766e" stroke-width="2.5" fill="none" marker-end="url(#a1)" />
+<rect id="n-manuscript" data-graph-role="node" data-node-id="manuscript" data-graph-bounds="1540 625 1860 765" x="1540" y="625" width="320" height="140" rx="14" fill="#f0fdfa" stroke="#0f766e" stroke-width="2" />
+<rect x="1540" y="640" width="5" height="110" rx="2" fill="#0f766e" data-graph-role="decoration" />
+<text x="1564" y="664" font-size="26" fill="#0f766e" font-weight="700">英文论文</text>
+<text x="1564" y="701" font-size="22" fill="#334155">核心数字统一引用</text>
+<path id="e-figure-manuscript" data-edge-id="figure-manuscript" data-graph-role="edge" data-source="figure" data-target="manuscript" d="M 1490 695 L 1540 695" stroke="#0f766e" stroke-width="2.5" fill="none" marker-end="url(#a1)" />
+<rect id="n-invalidate" data-graph-role="node" data-node-id="invalidate" data-graph-bounds="60 820 1860 925" x="60" y="820" width="1800" height="105" rx="14" fill="#fef2f2" stroke="#b91c1c" stroke-width="2" />
+<rect x="60" y="835" width="5" height="75" rx="2" fill="#b91c1c" data-graph-role="decoration" />
+<text x="84" y="859" font-size="26" fill="#b91c1c" font-weight="700">上游变化 → 递归失效 → 重跑、复核、重新批准</text>
+<text x="84" y="896" font-size="22" fill="#334155">数据或公式变化后，旧结果、图表、摘要数字不能继续作为最终证据；主文件只由论文负责人整合。</text>
+<rect id="n-budget" data-graph-role="node" data-node-id="budget" data-graph-bounds="60 980 620 1140" x="60" y="980" width="560" height="160" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+<rect x="60" y="995" width="5" height="130" rx="2" fill="#2563eb" data-graph-role="decoration" />
+<text x="84" y="1019" font-size="26" fill="#2563eb" font-weight="700">容量与原生派发门禁</text>
+<text x="84" y="1056" font-size="22" fill="#334155">新鲜容量与任务证据 → 一次许可</text>
+<text x="84" y="1089" font-size="22" fill="#334155">原生 spawn 受检；暂停或未知即拒绝</text>
+<rect id="n-archive" data-graph-role="node" data-node-id="archive" data-graph-bounds="680 980 1240 1140" x="680" y="980" width="560" height="160" rx="14" fill="#faf5ff" stroke="#7c3aed" stroke-width="2" />
+<rect x="680" y="995" width="5" height="130" rx="2" fill="#7c3aed" data-graph-role="decoration" />
+<text x="704" y="1019" font-size="26" fill="#7c3aed" font-weight="700">AI 可见证据归档</text>
+<text x="704" y="1056" font-size="22" fill="#334155">根会话 + 全部本地子会话</text>
+<text x="704" y="1089" font-size="22" fill="#334155">模型、可见输入输出、用途与核验</text>
+<rect id="n-check" data-graph-role="node" data-node-id="check" data-graph-bounds="1300 980 1860 1140" x="1300" y="980" width="560" height="160" rx="14" fill="#fffbeb" stroke="#b45309" stroke-width="2" />
+<rect x="1300" y="995" width="5" height="130" rx="2" fill="#b45309" data-graph-role="decoration" />
+<text x="1324" y="1019" font-size="26" fill="#b45309" font-weight="700">固定版本审阅</text>
+<text x="1324" y="1056" font-size="22" fill="#334155">作者修复 → 原审阅者复验</text>
+<text x="1324" y="1089" font-size="22" fill="#334155">缺失记录和未核验内容显式保留</text>
+<text x="60" y="1200" font-size="21" fill="#475569">图例：蓝线 = 父子控制消息；绿线 = 版本化成果依赖。下排为执行约束。</text>
+<text x="60" y="1255" font-size="18" fill="#64748b">MCM A/B/C  |  PTC = Programmatic Tool Calling  |  v0.2.0  ·  2026-10-26</text>
+</svg></div>
+    <p class="sr-only">Keyboard shortcuts: plus and minus zoom, zero resets, T toggles theme, S exports.</p>
+  </main>
+  <script>
+  (() => {
+    'use strict';
+    const metadata = {"slug": "02-runtime-communication"};
+    const stage = document.getElementById('stage');
+    const canvas = document.getElementById('canvas');
+    const svg = canvas.querySelector('svg');
+    const status = document.getElementById('status');
+    const scaleSelect = document.getElementById('scale');
+    const formatSelect = document.getElementById('format');
+    let view = { x:0, y:0, scale:1 };
+    let drag = null;
+    const clamp = value => Math.max(.2, Math.min(8, value));
+    const render = () => {
+      canvas.style.transform = `translate(${view.x}px,${view.y}px) scale(${view.scale})`;
+      status.textContent = `${Math.round(view.scale * 100)}%`;
+    };
+    const zoom = (factor, originX=stage.clientWidth/2, originY=stage.clientHeight/2) => {
+      const next = clamp(view.scale * factor);
+      const ratio = next / view.scale;
+      view.x = originX - (originX - view.x) * ratio;
+      view.y = originY - (originY - view.y) * ratio;
+      view.scale = next; render();
+    };
+    const reset = () => { view = {x:0,y:0,scale:1}; render(); };
+    stage.addEventListener('wheel', event => { event.preventDefault(); const rect=stage.getBoundingClientRect(); zoom(event.deltaY < 0 ? 1.12 : .89, event.clientX-rect.left, event.clientY-rect.top); }, {passive:false});
+    stage.addEventListener('pointerdown', event => { drag={id:event.pointerId,x:event.clientX,y:event.clientY,vx:view.x,vy:view.y}; stage.setPointerCapture(event.pointerId); stage.classList.add('dragging'); });
+    stage.addEventListener('pointermove', event => { if(!drag||drag.id!==event.pointerId)return; view.x=drag.vx+event.clientX-drag.x; view.y=drag.vy+event.clientY-drag.y; render(); });
+    const endDrag = () => { drag=null; stage.classList.remove('dragging'); };
+    stage.addEventListener('pointerup', endDrag); stage.addEventListener('pointercancel', endDrag);
+    const source = () => new XMLSerializer().serializeToString(svg);
+    const saveBlob = (blob, extension) => { const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=`${(metadata.slug||'fireworks-tech-graph')}.${extension}`; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000); };
+    const copySource = async () => {
+      const value=source();
+      try { await navigator.clipboard.writeText(value); status.textContent='Copied'; return; } catch {}
+      const area=document.createElement('textarea'); area.value=value; area.setAttribute('readonly',''); area.style.position='fixed'; area.style.opacity='0'; document.body.appendChild(area); area.select();
+      status.textContent=document.execCommand('copy')?'Copied':'Copy failed'; area.remove();
+    };
+    const exportDiagram = async () => {
+      const format = formatSelect.value.toLowerCase();
+      if(format==='svg') { saveBlob(new Blob([source()],{type:'image/svg+xml;charset=utf-8'}),'svg'); return; }
+      const scale = Math.max(1,Math.min(4,Number(scaleSelect.value)||2));
+      const box = svg.viewBox.baseVal; const width=box.width||svg.clientWidth; const height=box.height||svg.clientHeight;
+      const image = new Image(); const url=URL.createObjectURL(new Blob([source()],{type:'image/svg+xml'}));
+      await new Promise((resolve,reject)=>{ image.onload=resolve; image.onerror=reject; image.src=url; });
+      const raster=document.createElement('canvas'); raster.width=Math.round(width*scale); raster.height=Math.round(height*scale);
+      const ctx=raster.getContext('2d'); if(format==='jpeg'){ctx.fillStyle='#ffffff';ctx.fillRect(0,0,raster.width,raster.height);} ctx.drawImage(image,0,0,raster.width,raster.height); URL.revokeObjectURL(url);
+      const mime=format==='jpeg'?'image/jpeg':format==='webp'?'image/webp':'image/png';
+      const blob=await new Promise(resolve=>raster.toBlob(resolve,mime,.94)); if(blob) saveBlob(blob,format==='jpeg'?'jpg':format);
+    };
+    document.querySelector('.toolbar').addEventListener('click', async event => {
+      const action=event.target.closest('[data-action]')?.dataset.action; if(!action)return;
+      if(action==='zoom-in')zoom(1.2); else if(action==='zoom-out')zoom(.83); else if(action==='reset')reset();
+      else if(action==='theme')document.documentElement.dataset.theme=document.documentElement.dataset.theme==='dark'?'light':'dark';
+      else if(action==='download')await exportDiagram();
+      else if(action==='copy') await copySource();
+    });
+    document.addEventListener('keydown', event => {
+      if(event.target.matches('select'))return;
+      if(event.key==='+'||event.key==='=')zoom(1.2); else if(event.key==='-')zoom(.83); else if(event.key==='0'||event.key.toLowerCase()==='r')reset();
+      else if(event.key.toLowerCase()==='t')document.querySelector('[data-action=theme]').click(); else if(event.key.toLowerCase()==='s'){event.preventDefault();exportDiagram();}
+    });
+    render();
+  })();
+  </script>
+</body>
+</html>

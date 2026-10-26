@@ -1,0 +1,98 @@
+% Demonstration layout: keep each evidence graphic with its interpretation.
+% A native minipage caption avoids float-only pages without shrinking the figure.
+\makeatletter
+\newenvironment{demofixedfigure}{%
+  \par\medskip\noindent\begin{minipage}{\linewidth}\def\@captype{figure}\centering
+}{\end{minipage}\par\medskip}
+\makeatother
+\section{Problem Restatement and Analysis}
+The demonstration asks three linked questions: how closely two numerical
+methods reproduce a known solution, how the solution changes with the decay
+rate, and how an assumed range of rates propagates into an output envelope.
+Every value is synthetic. Figure~\ref{fig:demo-method} connects the model,
+analytical reference and checks; it is a method diagram rather than evidence
+about a physical system.
+\begin{demofixedfigure}
+\centering\includegraphics[width=6.5in]{figure-demo/method.pdf}
+\caption{Synthetic method overview: an assumed decay equation, two numerical
+solvers, an analytical reference and numerical comparison.}
+\label{fig:demo-method}
+\end{demofixedfigure}
+
+\section{Assumptions and Symbols}
+The quantity is dimensionless, its initial value is one, and the rate is
+constant within each scenario. These are deliberate simplifying assumptions,
+not measurements. Time is denoted by $t$, the remaining fraction by $y(t)$, the
+positive rate by $k$, and the fixed numerical step by $h$.
+
+\clearpage
+\section{Model, Solution and Validation}
+The shared model and its exact comparison reference are
+\begin{equation}
+\begin{aligned}
+\frac{\mathrm{d}y}{\mathrm{d}t}&=-k y, & y(0)&=1,\\
+y(t)&=\exp(-k t), & k&>0.
+\end{aligned}\label{eq:demo-decay}
+\end{equation}
+Euler uses $y_{n+1}=y_n-hky_n$; Runge--Kutta combines four intermediate slopes.
+Both use $h=\FigureDemoStep$, $k=1$, and 41 shared time points in $[0,4]$.
+We compare both numerical solutions with Equation~\ref{eq:demo-decay}.
+
+\subsection{Results and interpretation}
+The largest absolute grid errors are \FigureDemoEulerError\ for Euler and
+\FigureDemoRKError\ for Runge--Kutta. Figure~\ref{fig:demo-comparison}
+puts both methods on the same comparison scale.
+\begin{demofixedfigure}
+\centering\includegraphics[width=6.5in]{figure-demo/comparison.pdf}
+\caption{Synthetic numerical comparison. All lines use the same 41 time
+points; Runge--Kutta markers are shown every fourth point for clarity.
+Blue: analytical reference; dashed orange: Euler; dotted green: Runge--Kutta.
+Values and units are dimensionless.}
+\label{fig:demo-comparison}
+\end{demofixedfigure}
+Euler decays too quickly on this grid, while Runge--Kutta follows the exact
+reference closely. This supports accuracy for this smooth test equation and
+step; it does not establish accuracy for another model or time scale.
+
+\clearpage
+\section{Sensitivity and Uncertainty Analysis}
+\subsection{Parameter sensitivity}
+Figure~\ref{fig:demo-sensitivity} compares rates of $0.7$, $1.0$ and $1.3$
+with identical initial conditions. Increasing the rate lowers the remaining
+fraction at every positive time. These are scenario responses rather than
+fits to observations.
+\begin{demofixedfigure}
+\centering\includegraphics[width=6.5in]{figure-demo/sensitivity.pdf}
+\caption{Synthetic sensitivity to the assumed constant decay rate.
+Line style supplements color so the three scenarios remain distinguishable.}
+\label{fig:demo-sensitivity}
+\end{demofixedfigure}
+The shared initial value isolates the effect of the rate. The curves separate
+over time, showing why a model-based decision should report its assumed rate
+rather than present a single decay curve without qualification.
+
+\clearpage
+\subsection{A parameter envelope}
+We evaluate \FigureDemoRateCount\ equally spaced rates in $[0.7,1.3]$ and
+retain all scenarios. Figure~\ref{fig:demo-uncertainty} shows the pointwise
+10th--90th percentile envelope of those specified rates. It describes this
+chosen parameter grid, not repeated observations, a fitted posterior or a
+sampling confidence interval.
+\begin{demofixedfigure}
+\centering\includegraphics[width=6.5in]{figure-demo/uncertainty.pdf}
+\caption{Synthetic propagation of a specified parameter range. Shading is
+the pointwise 10th--90th percentile across the 301 deterministic rate
+scenarios; the solid line uses $k=1$. The band is not a confidence interval.}
+\label{fig:demo-uncertainty}
+\end{demofixedfigure}
+
+\section{Model Evaluation and Conclusions}
+The analytical reference, shared grid and exported data make the numerical
+comparison easy to check. The four graphics have distinct roles: explain
+the method, compare solvers, assess sensitivity and display uncertainty.
+The limitations are equally important: there are no observations, no
+parameter estimation and no independent agent's scientific attestation.
+Nonconstant rates and noisy measurements would require a new model and
+appropriate validation. This example demonstrates the reporting pipeline,
+not the validity of a real-world prediction. Contest presentation and AI
+disclosure still follow the applicable rules~\cite{comap2027rules,comap2025ai}.

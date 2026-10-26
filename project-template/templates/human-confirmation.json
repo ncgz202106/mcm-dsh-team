@@ -1,0 +1,19 @@
+{
+  "format_version": 1,
+  "_template_only": true,
+  "decision_id": "REPLACE_HUMAN_DECISION_ID",
+  "decision_type": "human_gate",
+  "gate_id": "H0_TOPIC",
+  "status": "pending",
+  "decision": null,
+  "requested_at": null,
+  "approved_by": null,
+  "approved_at": null,
+  "scope_refs": [],
+  "user_message_ref": null,
+  "user_confirmation_text": null,
+  "limitations_or_conditions": [],
+  "invalidation_reason": null,
+  "synthetic": false,
+  "note": "仅真实用户确认后填写approve/reject及对应依据；同步gate与decision的scope_refs，不得预填示例批准"
+}

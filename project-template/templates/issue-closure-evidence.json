@@ -1,0 +1,14 @@
+{
+  "format_version": 1,
+  "_template_only": true,
+  "issue_id": "REPLACE_ISSUE_ID",
+  "verifier_agent_id": null,
+  "author_agent_id": null,
+  "status": "pending",
+  "fixed_artifact_refs": [],
+  "checks_performed": [],
+  "observations": [],
+  "acceptance_criteria_satisfied": false,
+  "created_at": null,
+  "synthetic": false
+}

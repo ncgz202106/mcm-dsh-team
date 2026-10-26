@@ -1,0 +1,39 @@
+{
+  "format_version": 1,
+  "_template_only": true,
+  "record_id": "REPLACE_AI_USAGE_ID",
+  "task_id": null,
+  "role": null,
+  "agent_id": null,
+  "tool_name": null,
+  "model_label": null,
+  "used_at": null,
+  "purpose": null,
+  "inputs_description": null,
+  "output_artifact_refs": [],
+  "adoption_status": "not_reviewed",
+  "adopted_material": null,
+  "human_check": {
+    "status": "pending",
+    "checked_by": null,
+    "evidence_path": null,
+    "source": null,
+    "checked_at": null,
+    "evidence_ref": {
+      "path": null,
+      "sha256": null
+    }
+  },
+  "paper_locations": [],
+  "disclosure_required": true,
+  "rule_source_ref": null,
+  "contains_sensitive_data": false,
+  "synthetic": false,
+  "note": "H2/H3批量核验实际用途。ai_report.py --final要求adoption_status=adopted或not_adopted；human_check.status=verified且source=human，evidence_ref指向实际人工记录；不得伪造。无来源依赖主张也需说明引用不适用的依据。",
+  "session_id": null,
+  "query_event_seq": null,
+  "assistant_event_seqs": [],
+  "citations_verified": false,
+  "citation_evidence": [],
+  "attachment_checks": []
+}

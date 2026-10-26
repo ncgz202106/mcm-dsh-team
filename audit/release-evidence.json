@@ -1,0 +1,319 @@
+{
+  "format_version": 1,
+  "bundle_version": "0.2.0",
+  "source_sha256": {
+    "project-template/scripts/ai_report.py": "470f4a87ee29029fbe1a9671a4bee8f2c96a3dc71886f9505a129bcebb47e183",
+    "project-template/scripts/figure_check.py": "ab17338b461f68b20289e098bc130563f01ca27337c627543a3a1d4f15ad70e7",
+    "project-template/scripts/figure_demo.py": "c38c6e919531b24dfc31b62a71c1265ff049c71230c9bdb34ffa9edafd94d674",
+    "project-template/scripts/mcm.py": "bf41be7d68319e274a302631e4017c6eb5ab7a9729cb635b9c61cdb6961ffd4f",
+    "project-template/scripts/paper.py": "a1788a66b970c9002ed8c13151b197d7df39e5ae7375642e01717cdc81a563a6",
+    "project-template/scripts/setup.ps1": "836e996875b48ab5ebba56cce164c8398d85d3f6914660c9467ed8e8d312b076",
+    "project-template/config/contest-mcm-2027.json": "54d05826c9d156a98226ef461be9bfd5308bf6bef160f2ba0ef12ad165737fcf",
+    "project-template/config/figure-style.json": "ae483be929dd0a46038a8abf8313d8ab3ff7b773cb14ad4641b6a204c5a167c7",
+    "project-template/config/gates.json": "39cf9b04761d28a82c00ae6a2f8b3dd33042865a4b9c47a7a93aaa62be388d79",
+    "project-template/config/runtime.json": "11feae383844d4fc9a553c4494e09b7b50384608ed2a5fb0149423f47371d3dc",
+    "project-template/config/skill-routing.json": "924b23c187b221b8564c47c17e7670f152f4f6b8b104590a8fedfa8deaac4622",
+    "project-template/paper/demo.tex": "a31fcba86c11788b7efc49acd1ef7cf844251a08d9d0a46843bc15d6718a81f3",
+    "project-template/paper/main.tex": "0d705cd412d6cbbbfdb6dad90636a1bb7601c6ed685535d41238af18bcfc137e",
+    "project-template/paper/paper-plan.json": "708999a0ba8c1354149c3a2107abf71a0557a347a32b8cb1caf853231cb9d5b5",
+    "project-template/paper/README.md": "408ca70a5a471aef2cc30b970a52186e073664afa50af13f1fef3a0c44cd90b9",
+    "project-template/paper/references.bib": "011c78c838755974e4227214fa22c13111ca5a2b5e6ae10b86666d098ee381a8",
+    "project-template/paper/team.tex": "b2574779dbe758ec5577a37554762e313dc01e592a5f686c079ffb695147c64d",
+    "project-template/paper/ai-use/report.tex": "5332632c8ba811d9b854069716c9594e8971309af5b3f682c20cf496be8b5dcf",
+    "project-template/paper/demo/ai-use.tex": "0f4fde101a2cf2045c89fc3dde6f9c2814bf9d7c2acdeb731d029176e191e7d6",
+    "project-template/paper/demo/body.tex": "30becfe1929974b2922a4dad2f5b7c0e1df1caf4f066b32e86426e7070f68b28",
+    "project-template/paper/demo/figure-body.tex": "c5a51ff66fdee81342747f4ff7bf659eedbd6237ba398c717f2b7e75d1a872a3",
+    "project-template/paper/demo/figure-summary.tex": "0273bdae6e6a5870cf3341c7fb8a315948e0be772339d38f08ca216960258415",
+    "project-template/paper/demo/summary.tex": "b134750ef50f167048ed24ede57e4512b1406d49c65ef51bc274b2f15122cc0b",
+    "project-template/paper/generated/README.md": "5c43e1b089a96103126056f36e112bd4ad113bfbf89db3dfefadbdae2a7a2b3b",
+    "project-template/paper/provenance/latex-project.json": "46251d83a736ce8add1d6b9b1547a98079197fd0a4919f3fc094956d3f4e8164",
+    "project-template/paper/provenance/MCM-ICM_Summary.tex": "ad98e51d59a8dbd4f582984276ba52783201321473e54572d53a999844b1bfa3",
+    "project-template/paper/sections/appendix.tex": "b81e5a29bf748f5a42b4f91a04c1b64d88c239e3118aac4147b8d456fcea365b",
+    "project-template/paper/sections/assumptions.tex": "67fcaca093b016e1b8fc5074c510f1e9e68eda9974ab28f2b9ff3abfbf027030",
+    "project-template/paper/sections/conclusion.tex": "d03ba8c1e232baa1072f80edb19c6e17f3cbc59eb8e92699ff54717e23ae9530",
+    "project-template/paper/sections/evaluation.tex": "df2292f68ccfc20c9bbf4cd5af6fcd95709922d9d4d86e958a64e5826f83a3d3",
+    "project-template/paper/sections/introduction.tex": "9c1fbfaf764dee31438cad4f8699ae367465584bac9f3812dace8571b2f6a769",
+    "project-template/paper/sections/model.tex": "4f2bf4ce872df397184a6ff8cb6e7b8ac035b38836cee18dfbcd2dcef6154d41",
+    "project-template/paper/sections/results.tex": "11c4d0cb5590da6f6ee7529ee35e429f40dc3feddd7ed6d862e86639f3875aa0",
+    "project-template/paper/sections/sensitivity.tex": "bcb7c8ccab8d8b03d62c56b7dd1449b3cab6ebd5152307aba7a08826416bca12",
+    "project-template/paper/sections/summary.tex": "6232b071b46e0c575e4a62036df08a445fc256d5be2a9e5cb1754d2ef3dd3c02",
+    "project-template/paper/sections/validation.tex": "944cb43ce62f899633c30909e99b41efb545d11298aed440fcdc0d01e1fa9f30",
+    "tools/dsh-install-common.ps1": "0dc91e1b85bde6c7e22547237fcfcf856e270378bddd80324d7103870d6f90c1",
+    "tools/install-dsh.ps1": "85d8479d097fb8510b036d690878642f6023cd677e5e9ec42b86841a44dc428a",
+    "tools/new-project.ps1": "5d33e81d07f96a86909e9d39da18d70a40b18c7ec28d0d333fe99a737081cf3e",
+    "tools/restore-dsh.ps1": "5e80a341512d5bb30dea6a8a5325124c2ed1d7d17cb95a395612cf68921af0aa",
+    "tools/test-install.ps1": "587a3819d8d35173180243cbecde786a52c7ffb2f2c629850a9923086ad7cd05",
+    "tools/update-dsh.ps1": "dfe37c4ed8f5c024377edeefdad23d5402be2ba43f04adae10d1823186114b10",
+    "tools/verify-package.py": "eddc81b6e7181ad608c5cb7a5c459a2705509c8da5046b9287377c64874c9dc5"
+  },
+  "native_report_sha256": "8664eb9a707b401e8c2ff79018ed8ce57cf891675688e6c826e10396f49d87e6",
+  "artifacts": [
+    {
+      "path": "diagrams/01-role-architecture.json",
+      "sha256": "96b93a5861c19c4e85dc60f4dec5f38325f84dfdc3e400347918028cc98bffac",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "diagrams/01-role-architecture.png",
+      "sha256": "3a4fa76a28bdc77d5f08156255c0426f59339a2a701f3c8c15345f2d07117ee8",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "diagrams/01-role-architecture.svg",
+      "sha256": "984937bf5fc70d2fcfb44bc1688b888795841eef4eeb888c2121d62282c2a06b",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "diagrams/02-runtime-communication.json",
+      "sha256": "c88899dd0e860870edfef848809e6b6af209c9a4b3935b2938661dabf71e9010",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "diagrams/02-runtime-communication.png",
+      "sha256": "f42d58d8d3774f37aa685e666bf6a84c89d250774f68a9effd64c55cf5a12c00",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "diagrams/02-runtime-communication.svg",
+      "sha256": "b1ea3e08d15c866b56c9ded9ce8f06efff00528eac5a4bb06eab11f254d7b761",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "diagrams/03-workflow-review.json",
+      "sha256": "b4ca93cbebe7d4409431cbca21bcbbb08b51f48ea21d7533da245766bfe61f80",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "diagrams/03-workflow-review.png",
+      "sha256": "8cf6c12ec27eba6c8d6e89491e0132e0ccde313bffe4fbabb898691bff37228c",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "diagrams/03-workflow-review.svg",
+      "sha256": "43b53fceb075b6c28f2b62b56b1e53865daa4a65d49c4fb032c398a8231d71fc",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "diagrams/generate.py",
+      "sha256": "35c32ec6bd823f35080526bd688e69e9b7a0b538ca09f77e1b68516344622457",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/analytic-check.json",
+      "sha256": "af497c2f014f284ea9fc722790035af7709fbb59293fc45f7505a8b5e1554aca",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/comparison.alignment.json",
+      "sha256": "d2382bb8eb05f7a9208e2815acb5eb369cd746e812daa394f8e37b178622890a",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/comparison.contract.json",
+      "sha256": "9fe46467c2037ec620c697de6005d29290f640f0d85d8c7e3d3bc5df3e098866",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/comparison.mechanical.json",
+      "sha256": "72820021b6d5b6f5854902bf206ee6d42a96e23db52f90df3c30af7bc0987d03",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/comparison.pdf",
+      "sha256": "b38776de6f1d86ba3e68388e52b6fec2cc69c9385418b6cf0dcba4234185c9c4",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/comparison.png",
+      "sha256": "e01806e539cfaf2afc80f3b58c79e190e820ab1dfeef4b6c09a485edea59a77b",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/comparison.svg",
+      "sha256": "7492b4238f5218b3de088fc9f202803996ee1cdb742f1169424552bcc323e318",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/decay-results.csv",
+      "sha256": "5003a1039915f350db292a266166ea06add1447183ea353d3aa5a177bf975627",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/demo-manifest.json",
+      "sha256": "508e9542129e783353babd8722dc7a6e2d1408735541d9a30864b38437f28997",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/method.alignment.json",
+      "sha256": "d2382bb8eb05f7a9208e2815acb5eb369cd746e812daa394f8e37b178622890a",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/method.contract.json",
+      "sha256": "fd0655de78bb9d11e69fbef4c98fcc99a5593cc49246147620d77c2c8a6a5048",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/method.mechanical.json",
+      "sha256": "4d2a96c9e941f073abe162a47253259e7892728ce0fe95cac8fe0a048f4ae83a",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/method.pdf",
+      "sha256": "5db6b446fa6836c0012b42ec2112ce748e9c19316c36bb30d1d231a0e02ba4b5",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/method.png",
+      "sha256": "2feea3ba2b16d52847c3fabbcfc46067ae6d68164639c8b7ad3d3a02be1211eb",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/method.svg",
+      "sha256": "63824037cc4be26ad4faf2eadfac78bbb620d297aaf406b09cc842bb6e875bff",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/numbers.tex",
+      "sha256": "a51789f337140c5650a5d22ccea37dff27ffeb7b8fa6e224c8282627387a450d",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/sensitivity.alignment.json",
+      "sha256": "d2382bb8eb05f7a9208e2815acb5eb369cd746e812daa394f8e37b178622890a",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/sensitivity.contract.json",
+      "sha256": "cc43d19b2196a5389aaf4ac5475928fa79ff59bec0dafce5506f9ed75101f442",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/sensitivity.mechanical.json",
+      "sha256": "c8de9b229092dfee4acec69adf13bb8fa0e844ce62cec4e8f9937ff2f2198678",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/sensitivity.pdf",
+      "sha256": "f6353e399e80a4636d17a673de0710acdad1a24a50753738172104d967659a94",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/sensitivity.png",
+      "sha256": "df51336574c570d0660e9352dd8fea48aadc34061a31ebe8b5849eeff8427825",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/sensitivity.svg",
+      "sha256": "aeee162e8490e2d4ae9e4dc3a42874dc4fba1833aadf75c343d9ccb237582860",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/uncertainty.alignment.json",
+      "sha256": "d2382bb8eb05f7a9208e2815acb5eb369cd746e812daa394f8e37b178622890a",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/uncertainty.contract.json",
+      "sha256": "91d4812f8d81e3a7c82dc5b2ab83db460e55fdd5ad894ab6ab02dc3cccaedaa5",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/uncertainty.mechanical.json",
+      "sha256": "b654791abf6d86125b2eccdb4f0099c9da57e012c884c0c6f715d6d67fd26dd5",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/uncertainty.pdf",
+      "sha256": "e59fda926587eb7203692f93330d3531f49f8b9461c2d29cc3f62986f9c1ab05",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/uncertainty.png",
+      "sha256": "c1b73e5740cd38c8f73acee693fb82defc4a152e62d188011add23d55a41f42b",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/figures/figure-demo/uncertainty.svg",
+      "sha256": "eccc96950e190d0b21054d8740affdd92ff50df4cadc74c9bed0ae2cf9feba29",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/build/paper/demo.build.json",
+      "sha256": "c3b4e2281e0935767bbd3c791c672c5b4779a8257f39f076df593ea1e1fe42e2",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/build/paper/demo.pdf",
+      "sha256": "2f8392a47bc5a18347774c84f1ff83e8b1f7aaacb21cacd881e1d9bbb90a13c0",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/build/paper/demo-pages/page-1.png",
+      "sha256": "87d862e5473a84153ffa95c826824045118b1c4e3dd772906fd756a004ae3ca0",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/build/paper/demo-pages/page-2.png",
+      "sha256": "f23688339f094be095bbadac206e3158d081ea53889e5f5311c3cc43a0df9020",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/build/paper/demo-pages/page-3.png",
+      "sha256": "47e142db10bd5aac11d17bf338f061b68a4b76caa4aa54069793570a0a665b42",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/build/paper/demo-pages/page-4.png",
+      "sha256": "59e6f9f441b0ac58286ee39bd3f7ee52c14bbd80565a57f425163357e49ed282",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/build/paper/demo-pages/page-5.png",
+      "sha256": "b8a656c639b61d958f4e0ad41dceff3a382b750c338460d81d2e7b6f3f743a43",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/build/paper/demo-pages/page-6.png",
+      "sha256": "c3fd0070362e43add67a385d90f19ea9dd5e12253f7a798d113e9d81662c65bc",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    },
+    {
+      "path": "rehearsal-v2/build/paper/demo-pages/page-7.png",
+      "sha256": "fbd2bab2829d05b2db1e244b86c6fc643d95820a34dc3cb4abfa842153628021",
+      "purpose": "当前版本架构/图表/论文/可复现证据"
+    }
+  ],
+  "figure_contracts": [
+    {
+      "project_root": "rehearsal-v2",
+      "path": "figures/figure-demo/method.contract.json",
+      "sha256": "fd0655de78bb9d11e69fbef4c98fcc99a5593cc49246147620d77c2c8a6a5048"
+    },
+    {
+      "project_root": "rehearsal-v2",
+      "path": "figures/figure-demo/comparison.contract.json",
+      "sha256": "9fe46467c2037ec620c697de6005d29290f640f0d85d8c7e3d3bc5df3e098866"
+    },
+    {
+      "project_root": "rehearsal-v2",
+      "path": "figures/figure-demo/sensitivity.contract.json",
+      "sha256": "cc43d19b2196a5389aaf4ac5475928fa79ff59bec0dafce5506f9ed75101f442"
+    },
+    {
+      "project_root": "rehearsal-v2",
+      "path": "figures/figure-demo/uncertainty.contract.json",
+      "sha256": "91d4812f8d81e3a7c82dc5b2ab83db460e55fdd5ad894ab6ab02dc3cccaedaa5"
+    }
+  ],
+  "paper_build": {
+    "project_root": "rehearsal-v2",
+    "pdf": "build/paper/demo.pdf",
+    "manifest_sha256": "c3b4e2281e0935767bbd3c791c672c5b4779a8257f39f076df593ea1e1fe42e2",
+    "pdf_sha256": "2f8392a47bc5a18347774c84f1ff83e8b1f7aaacb21cacd881e1d9bbb90a13c0"
+  },
+  "visual_review_ref": {
+    "path": "audit/visual-inspection.json",
+    "sha256": "28ebddc0e33c004706afbd38a18daff1221d58d922cc8308850b84855eb0f3a2"
+  }
+}

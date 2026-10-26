@@ -1,0 +1,77 @@
+{
+  "format_version": 2,
+  "verified_at": "2026-10-26T06:29:40.629947+00:00",
+  "status": "installed_verified",
+  "plugin_id": "dsh-mcm-team",
+  "from_version": "0.2.0",
+  "to_version": "0.2.0",
+  "installed_root": "C:\\Users\\zy\\.dsh\\plugins\\dsh-mcm-team",
+  "runtime_version": "0.2.1-rc.2",
+  "role_count": 12,
+  "programmers_default_instances": 2,
+  "code_lead_enabled_by_default": false,
+  "installed_files_verified": 29,
+  "unrelated_package_metadata_preserved": 44,
+  "profile_dependency_and_registration_preserved_at_inspection": true,
+  "backup_directory": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\v020-install-backups\\20261026-121456-625",
+  "original_v010_backup": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\v020-install-backups\\20261025-221327-045",
+  "backup_in_portable_delivery": false,
+  "receipt_sha256": "c7a4013ef2fcf29f079c97e6082bfdd4219e01e855ca960f7a3fd01e6cb1adcf",
+  "reports": {
+    "independent_installation": {
+      "path": "audit/installed-verification.json",
+      "sha256": "c5233e8c8e536e2e033f274e07088351202cf32315291e6e7a918613dc5dd1a0",
+      "checks_passed": 14
+    },
+    "native_runtime": {
+      "path": "audit/native-runtime-smoke.json",
+      "sha256": "8664eb9a707b401e8c2ff79018ed8ce57cf891675688e6c826e10396f49d87e6",
+      "checks_passed": 9,
+      "llm": "scripted adapter in real DSH engine"
+    },
+    "native_guard": {
+      "path": "audit/guard-native-runtime.json",
+      "sha256": "63e27bb84ee2ab93d295d918b97a4f51650bbf50b44e5abe1a10c75bbf323270",
+      "checks_passed": 10,
+      "llm": "scripted adapter through complete native PTC tool pipeline"
+    },
+    "package": {
+      "path": "audit/verification.json",
+      "sha256": "40976f803524035c4b2ff948d1155bd0320e4efeba2817c9e97606fc86dde6e7",
+      "python_tests": 107,
+      "node_tests": 37,
+      "installer_fault_tests": 10
+    },
+    "external_model_figures": {
+      "path": "audit/live-model-verification.json",
+      "sha256": "479de084419745bcd0825c1671c3fb5a8f41d720101196cf0b9b1e658b016108",
+      "status": "partial_acceptance_with_preserved_process_failure"
+    },
+    "external_model_negative": {
+      "path": "audit/guard-live-verification.json",
+      "sha256": "4cef5c414b6d75f36ccbaf32924278d0333a4f430fec926cb2020a1d451cccc0",
+      "status": "passed"
+    }
+  },
+  "rollback_chain": {
+    "latest_backup_restores": "pre-guard 0.2.0",
+    "original_backup_restores": "0.1.0",
+    "automatic_two_step_restore_guaranteed": false,
+    "reason": "Profile patch differs between the two installations; the second precheck may reject later user changes. Preserve and reconcile the current configuration before any original-version restoration."
+  },
+  "external_model_negative": {
+    "path": "audit/guard-live-verification.json",
+    "sha256": "4cef5c414b6d75f36ccbaf32924278d0333a4f430fec926cb2020a1d451cccc0",
+    "status": "passed"
+  },
+  "original_rehearsal_resumed": false,
+  "original_project_migrated": false,
+  "human_gates_modified": false,
+  "limitations": [
+    "Installed verification concerns the listed bytes/configuration at inspection, not OS isolation or all transitive execution.",
+    "Native scripted tests exercise real dispatch/tools, not autonomous external-model or competition scientific quality.",
+    "The first external-model figure smoke is explicitly partial: four real synthetic figures were delivered, but an unknown-capacity dispatch deviation was retained and motivated the guard.",
+    "Host configured limits and running lists do not prove remaining occupancy; unknown capacity stays queued.",
+    "Synthetic demonstration cannot be submitted as contest science; original rehearsal and human gates remain paused/pending."
+  ]
+}

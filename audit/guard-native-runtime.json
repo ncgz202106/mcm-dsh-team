@@ -1,0 +1,478 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "executed_at": "2026-10-26T04:15:38.763Z",
+  "runtime_version": "0.2.1-rc.2",
+  "bundle_source": "C:/Users/zy/.dsh/plugins/dsh-mcm-team",
+  "bundle_file_sha256": {
+    "package.json": "f5d69699b84906f38f8ec22eaf46476d53bb681e8ef7a254f56ff4293978ba37",
+    "cordis.patch.yml": "409201565b6b4a56b399df20c937263a057221ebc5b4630f50694d08671adecd",
+    "provenance.json": "fa6863dbfbfa5c321bfbe4c49a42dc2adbafd76a9d0e7969602ec02c14b09c74",
+    "src/archive-core.mjs": "efa29618cf67b8d59bcbb64fcb107417558db5886668f1e3e974656ce4a31730",
+    "src/archive-plugin.mjs": "8c905ad4a731284f379825de9e79290812142d18c7cb5571ba4a6eaa4d2b1598",
+    "src/archive-tool.mjs": "f7359fee9f246227f4155613a99c76553c30c4307b2edc725adc427f963b2d3b",
+    "src/build.mjs": "c0ffa005e0a5a89e393b7fed4b432dbba311a02357372b12ec8a0408c1588825",
+    "src/native-plan.mjs": "3560efde6e7f2de58d4c1e354eccc5877667b9c7b52e31c127071946bec105dc",
+    "src/presets.mjs": "37a53e671d95bca2ee35f902c692bd21874c714eaaac237f6df7acab99ae3812",
+    "src/runtime-guard-core.mjs": "4dda705af1bc15cb4bc1848a35e25428569589d8e3faa29d0ab0195ef035443b",
+    "src/runtime-guard-plugin.mjs": "86df82b9a0390d76f421ad3bb01838948bccba500c6845632c5bb273f33534e5",
+    "src/skill-routing.mjs": "3c0185beb8f2b6cd43f5692aa062062a8d79d1cd5217079fcaf4dcddbe538c61"
+  },
+  "fixture_sha256": "e01f30548aeb1840a23229864e5b0be08fe4dacfc53218a2902adac04dbd0563",
+  "launcher_sha256": "dfa2667a6a15de53cc2b0a17fa98823fbb1772424ae482c961db5e51ab80c3a8",
+  "checks": [
+    {
+      "name": "unknown_capacity_and_direct_native_spawn_blocked_through_ptc",
+      "passed": true,
+      "child_count": 0
+    },
+    {
+      "name": "expired_exhausted_and_paused_admission_blocked_through_ptc",
+      "passed": true
+    },
+    {
+      "name": "pause_after_permit_before_native_dispatch_blocks",
+      "passed": true
+    },
+    {
+      "name": "permit_natural_expiry_blocks_without_artificial_clock_override",
+      "passed": true,
+      "expires_at": "2026-10-26T04:15:32.944Z",
+      "waited_ms": 4634
+    },
+    {
+      "name": "fresh_evidence_permit_exact_arguments_native_dispatch",
+      "passed": true,
+      "lead_id": "ad62cecd-e53b-4302-b01a-19dde4f22517",
+      "actual_preset": "mcm-paper-lead",
+      "actual_depth": 1
+    },
+    {
+      "name": "single_permit_concurrent_consumption_at_most_once",
+      "passed": true,
+      "accepted": 1,
+      "rejected": 1,
+      "leaf_id": "2fa36549-1521-4602-8214-bb4f416a3ee2"
+    },
+    {
+      "name": "native_actual_role_parent_depth_and_direct_child_authorization",
+      "passed": true,
+      "self": {
+        "session_id": "ad62cecd-e53b-4302-b01a-19dde4f22517",
+        "parent_session_id": "guard-native-captain",
+        "delegation_depth": 1,
+        "effective_preset": "mcm-paper-lead",
+        "cwd": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\mcm-host-smoke\\2026-10-26T04-15-23-557Z\\project",
+        "observed_at": "2026-10-26T04:15:35.395Z",
+        "live_agent_present": true,
+        "preset_evidence": "agentPresets.composedPreset",
+        "sdk_tools": {
+          "source": "latest persisted system ToolArgsMap snapshot; not a fresh registry enumeration",
+          "recorded_seq": 8,
+          "names": [
+            "edit",
+            "glob",
+            "grep",
+            "interrupt_agent",
+            "job_kill",
+            "job_list",
+            "job_output",
+            "list_agents",
+            "mcm_dispatch_preflight",
+            "mcm_runtime_readback",
+            "present",
+            "pwsh",
+            "read",
+            "read_image",
+            "send_message",
+            "skill",
+            "spawn_teammate",
+            "subagent",
+            "subagent_claude_code",
+            "subagent_codex",
+            "subagent_fork",
+            "todo_write",
+            "web_fetch",
+            "web_search",
+            "write"
+          ]
+        },
+        "configured_max_active_descendants": 8,
+        "host_allocation_count_known": false,
+        "capacity_known": false,
+        "next_capacity_step": "Obtain independently verified current Host allocation evidence and normalize into config/runtime.json.runtime_snapshot. Configured limit or a durable child list does not prove occupied/reserved slots. Unknown/stale evidence stays queued.",
+        "native_child_limit_note": "Runtime configuration limit; residency/remaining allocation is not exposed by this readback. It does not certify a global Host pool, Team member count, or OS isolation.",
+        "human_gates_modified": false,
+        "loaded_or_resumed_session": false
+      },
+      "live_child": {
+        "session_id": "2fa36549-1521-4602-8214-bb4f416a3ee2",
+        "parent_session_id": "ad62cecd-e53b-4302-b01a-19dde4f22517",
+        "delegation_depth": 2,
+        "effective_preset": "mcm-figure",
+        "cwd": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\mcm-host-smoke\\2026-10-26T04-15-23-557Z\\project",
+        "observed_at": "2026-10-26T04:15:35.825Z",
+        "live_agent_present": true,
+        "preset_evidence": "agentPresets.composedPreset",
+        "sdk_tools": {
+          "source": "latest persisted system ToolArgsMap snapshot; not a fresh registry enumeration",
+          "recorded_seq": 8,
+          "names": [
+            "edit",
+            "glob",
+            "grep",
+            "interrupt_agent",
+            "job_kill",
+            "job_list",
+            "job_output",
+            "mcm_runtime_readback",
+            "present",
+            "pwsh",
+            "read",
+            "read_image",
+            "send_message",
+            "skill",
+            "spawn_teammate",
+            "subagent_claude_code",
+            "subagent_codex",
+            "subagent_fork",
+            "todo_write",
+            "web_fetch",
+            "web_search",
+            "write"
+          ]
+        },
+        "configured_max_active_descendants": 8,
+        "host_allocation_count_known": false,
+        "capacity_known": false,
+        "next_capacity_step": "Obtain independently verified current Host allocation evidence and normalize into config/runtime.json.runtime_snapshot. Configured limit or a durable child list does not prove occupied/reserved slots. Unknown/stale evidence stays queued.",
+        "native_child_limit_note": "Runtime configuration limit; residency/remaining allocation is not exposed by this readback. It does not certify a global Host pool, Team member count, or OS isolation.",
+        "human_gates_modified": false,
+        "loaded_or_resumed_session": false
+      }
+    },
+    {
+      "name": "global_alternative_delegation_tools_cannot_bypass_native_policy",
+      "passed": true,
+      "names": [
+        "subagent_codex",
+        "subagent_claude_code",
+        "spawn_teammate",
+        "subagent_fork"
+      ],
+      "dummy_tool_bodies_executed": 0,
+      "roles": [
+        "mcm-captain",
+        "mcm-figure"
+      ]
+    },
+    {
+      "name": "completed_child_readback_uses_history_without_resuming",
+      "passed": true,
+      "result": {
+        "session_id": "ad62cecd-e53b-4302-b01a-19dde4f22517",
+        "parent_session_id": "guard-native-captain",
+        "delegation_depth": 1,
+        "effective_preset": "mcm-paper-lead",
+        "cwd": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\mcm-host-smoke\\2026-10-26T04-15-23-557Z\\project",
+        "observed_at": "2026-10-26T04:15:38.700Z",
+        "live_agent_present": false,
+        "preset_evidence": "Session header plus selected-event projection",
+        "sdk_tools": {
+          "source": "latest persisted system ToolArgsMap snapshot; not a fresh registry enumeration",
+          "recorded_seq": 8,
+          "names": [
+            "edit",
+            "glob",
+            "grep",
+            "interrupt_agent",
+            "job_kill",
+            "job_list",
+            "job_output",
+            "list_agents",
+            "mcm_dispatch_preflight",
+            "mcm_runtime_readback",
+            "present",
+            "pwsh",
+            "read",
+            "read_image",
+            "send_message",
+            "skill",
+            "spawn_teammate",
+            "subagent",
+            "subagent_claude_code",
+            "subagent_codex",
+            "subagent_fork",
+            "todo_write",
+            "web_fetch",
+            "web_search",
+            "write"
+          ]
+        },
+        "configured_max_active_descendants": 8,
+        "host_allocation_count_known": false,
+        "capacity_known": false,
+        "next_capacity_step": "Obtain independently verified current Host allocation evidence and normalize into config/runtime.json.runtime_snapshot. Configured limit or a durable child list does not prove occupied/reserved slots. Unknown/stale evidence stays queued.",
+        "native_child_limit_note": "Runtime configuration limit; residency/remaining allocation is not exposed by this readback. It does not certify a global Host pool, Team member count, or OS isolation.",
+        "human_gates_modified": false,
+        "loaded_or_resumed_session": false
+      },
+      "child_live_after_readback": false
+    },
+    {
+      "name": "real_ptc_nested_dispatch_events_recorded",
+      "passed": true,
+      "event_count": 19,
+      "events": [
+        {
+          "seq": 18,
+          "name": "mcm_dispatch_preflight",
+          "time": 1792988125028
+        },
+        {
+          "seq": 33,
+          "name": "subagent",
+          "time": 1792988125421
+        },
+        {
+          "seq": 48,
+          "name": "mcm_dispatch_preflight",
+          "time": 1792988125799
+        },
+        {
+          "seq": 63,
+          "name": "mcm_dispatch_preflight",
+          "time": 1792988126213
+        },
+        {
+          "seq": 78,
+          "name": "mcm_dispatch_preflight",
+          "time": 1792988126610
+        },
+        {
+          "seq": 93,
+          "name": "mcm_dispatch_preflight",
+          "time": 1792988127018
+        },
+        {
+          "seq": 108,
+          "name": "mcm_dispatch_preflight",
+          "time": 1792988127418
+        },
+        {
+          "seq": 123,
+          "name": "subagent",
+          "time": 1792988127855
+        },
+        {
+          "seq": 138,
+          "name": "mcm_dispatch_preflight",
+          "time": 1792988128277
+        },
+        {
+          "seq": 153,
+          "name": "subagent",
+          "time": 1792988133353
+        },
+        {
+          "seq": 168,
+          "name": "mcm_dispatch_preflight",
+          "time": 1792988133747
+        },
+        {
+          "seq": 183,
+          "name": "subagent",
+          "time": 1792988134157
+        },
+        {
+          "seq": 198,
+          "name": "subagent",
+          "time": 1792988134552
+        },
+        {
+          "seq": 214,
+          "name": "mcm_runtime_readback",
+          "time": 1792988136225
+        },
+        {
+          "seq": 229,
+          "name": "subagent_codex",
+          "time": 1792988136609
+        },
+        {
+          "seq": 244,
+          "name": "subagent_claude_code",
+          "time": 1792988137031
+        },
+        {
+          "seq": 259,
+          "name": "spawn_teammate",
+          "time": 1792988137457
+        },
+        {
+          "seq": 274,
+          "name": "subagent_fork",
+          "time": 1792988137846
+        },
+        {
+          "seq": 297,
+          "name": "mcm_runtime_readback",
+          "time": 1792988138694
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "label": "unknown-preflight",
+      "agent_id": "guard-native-captain",
+      "ok": false,
+      "error": "MCM_DISPATCH_DENIED: unknown Host capacity; runtime_snapshot is unset"
+    },
+    {
+      "label": "unpermitted-native-spawn",
+      "agent_id": "guard-native-captain",
+      "ok": false,
+      "error": "MCM_DISPATCH_DENIED: native subagent requires a current one-use mcm_dispatch_preflight permit"
+    },
+    {
+      "label": "expired-snapshot",
+      "agent_id": "guard-native-captain",
+      "ok": false,
+      "error": "MCM_DISPATCH_DENIED: stale or invalid Host capacity snapshot"
+    },
+    {
+      "label": "normal_capacity_exhausted",
+      "agent_id": "guard-native-captain",
+      "ok": false,
+      "error": "MCM_DISPATCH_DENIED: admit_one_task=false; queue until actual release and fresh evidence"
+    },
+    {
+      "label": "snapshot_explicit_admit_false",
+      "agent_id": "guard-native-captain",
+      "ok": false,
+      "error": "MCM_DISPATCH_DENIED: snapshot explicitly denies admission"
+    },
+    {
+      "label": "paused-preflight",
+      "agent_id": "guard-native-captain",
+      "ok": false,
+      "error": "MCM_DISPATCH_DENIED: user pause is active"
+    },
+    {
+      "label": "issue-before-pause",
+      "agent_id": "guard-native-captain",
+      "ok": true
+    },
+    {
+      "label": "pause-after-preflight",
+      "agent_id": "guard-native-captain",
+      "ok": false,
+      "error": "MCM_DISPATCH_DENIED: user pause is active"
+    },
+    {
+      "label": "expiring-permit-issued",
+      "agent_id": "guard-native-captain",
+      "ok": true
+    },
+    {
+      "label": "naturally-expired-permit",
+      "agent_id": "guard-native-captain",
+      "ok": false,
+      "error": "MCM_DISPATCH_DENIED: native subagent requires a current one-use mcm_dispatch_preflight permit"
+    },
+    {
+      "label": "paper-preflight",
+      "agent_id": "guard-native-captain",
+      "ok": true
+    },
+    {
+      "label": "bound-prompt-mutation",
+      "agent_id": "guard-native-captain",
+      "ok": false,
+      "error": "MCM_DISPATCH_DENIED: native subagent requires a current one-use mcm_dispatch_preflight permit"
+    },
+    {
+      "label": "paper-native-spawn",
+      "agent_id": "guard-native-captain",
+      "ok": true
+    },
+    {
+      "label": "one-permit-concurrent-spawn",
+      "agent_id": "ad62cecd-e53b-4302-b01a-19dde4f22517",
+      "ok": true
+    },
+    {
+      "label": "role-self-readback",
+      "agent_id": "ad62cecd-e53b-4302-b01a-19dde4f22517",
+      "ok": true
+    },
+    {
+      "label": "role-live-child-readback",
+      "agent_id": "ad62cecd-e53b-4302-b01a-19dde4f22517",
+      "ok": true
+    },
+    {
+      "label": "non-direct-child-readback",
+      "agent_id": "guard-native-captain",
+      "ok": false,
+      "error": "MCM_READBACK_DENIED: only this Session or a cataloged direct child may be read"
+    },
+    {
+      "label": "captain-subagent_codex",
+      "agent_id": "guard-native-captain",
+      "ok": false,
+      "error": "MCM_DISPATCH_DENIED: alternate delegation is forbidden; leaves cannot delegate"
+    },
+    {
+      "label": "captain-subagent_claude_code",
+      "agent_id": "guard-native-captain",
+      "ok": false,
+      "error": "MCM_DISPATCH_DENIED: alternate delegation is forbidden; leaves cannot delegate"
+    },
+    {
+      "label": "captain-spawn_teammate",
+      "agent_id": "guard-native-captain",
+      "ok": false,
+      "error": "MCM_DISPATCH_DENIED: alternate delegation is forbidden; leaves cannot delegate"
+    },
+    {
+      "label": "captain-subagent_fork",
+      "agent_id": "guard-native-captain",
+      "ok": false,
+      "error": "MCM_DISPATCH_DENIED: alternate delegation is forbidden; leaves cannot delegate"
+    },
+    {
+      "label": "leaf-global-alternatives",
+      "agent_id": "2fa36549-1521-4602-8214-bb4f416a3ee2",
+      "ok": true
+    },
+    {
+      "label": "historical-child-readback",
+      "agent_id": "guard-native-captain",
+      "ok": true
+    }
+  ],
+  "isolation": {
+    "work": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\mcm-host-smoke\\2026-10-26T04-15-23-557Z",
+    "project": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\mcm-host-smoke\\2026-10-26T04-15-23-557Z\\project",
+    "external_model_calls": false,
+    "user_profile_modified": false,
+    "live_desktop_modified": false,
+    "credentials_read": false
+  },
+  "real_components": [
+    "real model-stream -> agent loop -> run_code -> tools/pre-execute -> monotonic guard -> native dispatch",
+    "real run_code PTC runtime and nested SDK dispatch",
+    "actual native spawn/role mount/session persistence",
+    "actual read-only role/runtime service"
+  ],
+  "simulated_components": [
+    "Only LLM output uses a deterministic adapter. Capacity input variations are explicitly synthetic negative-test fixtures in an isolated Host. Global alternative delegation tools are spy definitions whose bodies must never run."
+  ],
+  "limits": [
+    "Not an OS isolation proof; arbitrary shell commands remain outside normal tool dispatch policy.",
+    "Not an autonomous external-model or scientific-quality evaluation.",
+    "The harness exclusively owns isolated activation roots and verifies the native default limit; it does not claim the user live Host has this capacity."
+  ]
+}

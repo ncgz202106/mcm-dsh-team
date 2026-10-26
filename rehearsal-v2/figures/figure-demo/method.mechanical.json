@@ -1,0 +1,48 @@
+{
+  "ok": true,
+  "errors": [],
+  "minimum_final_font_pt": 12.0,
+  "text_runs": [
+    {
+      "text": "Assumed equation",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "Decay at rate k",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "Numerical solvers",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "Euler and RK4",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "Analytical reference",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "Exponential decay",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "Compare and check",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "Errors and sensitivity",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "Synthetic demonstration",
+      "final_size_pt": 14.0
+    }
+  ],
+  "visual_status": "pending",
+  "limitations": [
+    "Text-origin checks do not prove complete glyph/line/image containment.",
+    "No automated aesthetic or scientific correctness certification."
+  ]
+}

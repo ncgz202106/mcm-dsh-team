@@ -1,0 +1,18 @@
+{
+  "format_version": 2,
+  "profile": "mcm-clear-science-v2",
+  "backend": "python",
+  "background": "white",
+  "font_family": "DejaVu Sans",
+  "minimum_final_glyph_pt": 12,
+  "body_font_pt": 13,
+  "axis_font_pt": 13,
+  "tick_font_pt": 12,
+  "title_font_pt": 14,
+  "final_width_mm": 165.1,
+  "raster_dpi": 300,
+  "palette": {"blue":"#2463A6","teal":"#1B9AAA","green":"#2E8B57","orange":"#E58B2B","neutral":"#667085"},
+  "redundant_encoding": "Use line style or marker as well as color; label units explicitly.",
+  "schematic_budget": "Usually 1-2 useful diagrams; quantitative figures follow evidence and question coverage, not a quota.",
+  "note": "12pt is this project user's final-size figure requirement; it is not a Nature or universal COMAP rule. Do not shrink a full-size export on insertion."
+}

@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1880" viewBox="0 0 1920 1880" data-generator="mcm-team-diagrams" data-quality-profile="showcase">
+<title>MCM 多 Agent：12 类角色与检查点协作</title>
+<style>text{font-family:"Microsoft YaHei","Noto Sans CJK SC",Arial,sans-serif} .muted{fill:#475569}</style>
+<defs><marker id="a0" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#2563eb"/></marker><marker id="a1" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#0f766e"/></marker><marker id="a2" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#7c3aed"/></marker><marker id="a3" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#b45309"/></marker><marker id="a4" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto"><path d="M0 0 L9 3.5 L0 7 Z" fill="#b91c1c"/></marker></defs>
+<rect width="1920" height="1880" fill="#ffffff" data-graph-role="background"/>
+<text x="60" y="59" font-size="37" fill="#172554" font-weight="700">MCM 多 Agent：12 类角色与检查点协作</text>
+<text x="60" y="103" font-size="22" fill="#475569">独立建模 · 两名编程默认分工 · 早期图表规划 · 专项 Skill 按需路由</text>
+<rect id="n-codex" data-graph-role="node" data-node-id="codex" data-graph-bounds="60 150 410 260" x="60" y="150" width="350" height="110" rx="14" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<rect x="60" y="165" width="5" height="80" rx="2" fill="#b45309" data-graph-role="decoration"/>
+<text x="84" y="189" font-size="26" fill="#b45309" font-weight="700">Codex 技术总监</text>
+<text x="84" y="226" font-size="22" fill="#334155">模型 / 结果 / 论文检查点</text>
+<rect id="n-user" data-graph-role="node" data-node-id="user" data-graph-bounds="510 150 1020 260" x="510" y="150" width="510" height="110" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<rect x="510" y="165" width="5" height="80" rx="2" fill="#2563eb" data-graph-role="decoration"/>
+<text x="534" y="189" font-size="26" fill="#2563eb" font-weight="700">参赛队：H0–H3 决策</text>
+<text x="534" y="226" font-size="22" fill="#334155">确认科学路线、结论与最终稿</text>
+<rect id="n-external" data-graph-role="node" data-node-id="external" data-graph-bounds="1140 150 1800 260" x="1140" y="150" width="660" height="110" rx="14" fill="#f0fdfa" stroke="#0f766e" stroke-width="2"/>
+<rect x="1140" y="165" width="5" height="80" rx="2" fill="#0f766e" data-graph-role="decoration"/>
+<text x="1164" y="189" font-size="26" fill="#0f766e" font-weight="700">联合模式为可选增强</text>
+<text x="1164" y="226" font-size="22" fill="#334155">编号工作包与真实回执；作者回避自审</text>
+<path id="e-user-codex" data-edge-id="user-codex" data-graph-role="edge" data-source="user" data-target="codex" d="M 510 205 L 410 205" stroke="#b45309" stroke-width="2.5" fill="none" marker-end="url(#a3)"/>
+<rect id="n-captain" data-graph-role="node" data-node-id="captain" data-graph-bounds="60 330 410 1590" x="60" y="330" width="350" height="1260" rx="14" fill="#2563eb" stroke="#2563eb" stroke-width="2"/>
+<rect x="60" y="345" width="5" height="1230" rx="2" fill="#2563eb" data-graph-role="decoration"/>
+<text x="84" y="369" font-size="26" fill="#ffffff" font-weight="700">DSH 执行队长</text>
+<text x="84" y="406" font-size="22" fill="#ffffff">mcm-captain · 深度 0</text>
+<text x="84" y="439" font-size="22" fill="#ffffff"></text>
+<text x="84" y="472" font-size="22" fill="#ffffff">唯一内部派发与全局登记</text>
+<text x="84" y="505" font-size="22" fill="#ffffff">分配子树配额与写入范围</text>
+<text x="84" y="538" font-size="22" fill="#ffffff">跨分支转发短任务通知</text>
+<text x="84" y="571" font-size="22" fill="#ffffff">组织修复与非作者复验</text>
+<text x="84" y="604" font-size="22" fill="#ffffff">维护固定版本和上下文包</text>
+<text x="84" y="637" font-size="22" fill="#ffffff"></text>
+<text x="84" y="670" font-size="22" fill="#ffffff">启动后核实真实角色</text>
+<text x="84" y="703" font-size="22" fill="#ffffff">原生 spawn 指定 preset</text>
+<text x="84" y="736" font-size="22" fill="#ffffff">不能用成员名代替绑定</text>
+<text x="84" y="769" font-size="22" fill="#ffffff"></text>
+<text x="84" y="802" font-size="22" fill="#ffffff">容量 = 配置与 Host 核实</text>
+<text x="84" y="835" font-size="22" fill="#ffffff">预留 1 个应急名额</text>
+<text x="84" y="868" font-size="22" fill="#ffffff">等待主管仍占名额</text>
+<text x="84" y="901" font-size="22" fill="#ffffff"></text>
+<text x="84" y="934" font-size="22" fill="#ffffff">H0 题目与交付要求</text>
+<text x="84" y="967" font-size="22" fill="#ffffff">H1 主模型与关键假设</text>
+<text x="84" y="1000" font-size="22" fill="#ffffff">H2 结果、模型与验证代次</text>
+<text x="84" y="1033" font-size="22" fill="#ffffff">H3 固定最终 PDF</text>
+<text x="84" y="1066" font-size="22" fill="#ffffff"></text>
+<text x="84" y="1099" font-size="22" fill="#ffffff">用户暂停优先</text>
+<text x="84" y="1132" font-size="22" fill="#ffffff">旧会话不自动获得新预设</text>
+<path id="e-codex-captain" data-edge-id="codex-captain" data-graph-role="edge" data-source="codex" data-target="captain" d="M 235 260 L 235 330" stroke="#b45309" stroke-width="2.5" fill="none" marker-end="url(#a3)"/>
+<rect id="n-model" data-graph-role="node" data-node-id="model" data-graph-bounds="510 330 1020 450" x="510" y="330" width="510" height="120" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<rect x="510" y="345" width="5" height="90" rx="2" fill="#2563eb" data-graph-role="decoration"/>
+<text x="534" y="369" font-size="26" fill="#2563eb" font-weight="700">建模总负责人</text>
+<text x="534" y="406" font-size="22" fill="#334155">统一假设、符号、公式与接口</text>
+<path id="e-captain-model" data-edge-id="captain-model" data-graph-role="edge" data-source="captain" data-target="model" d="M 410 390 L 510 390" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)"/>
+<rect id="n-evidence" data-graph-role="node" data-node-id="evidence" data-graph-bounds="510 510 1020 630" x="510" y="510" width="510" height="120" rx="14" fill="#f0fdfa" stroke="#0f766e" stroke-width="2"/>
+<rect x="510" y="525" width="5" height="90" rx="2" fill="#0f766e" data-graph-role="decoration"/>
+<text x="534" y="549" font-size="26" fill="#0f766e" font-weight="700">证据与数据负责人</text>
+<text x="534" y="586" font-size="22" fill="#334155">检索、全文、参数依据与引用核验</text>
+<path id="e-captain-evidence" data-edge-id="captain-evidence" data-graph-role="edge" data-source="captain" data-target="evidence" d="M 410 570 L 510 570" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)"/>
+<rect id="n-code" data-graph-role="node" data-node-id="code" data-graph-bounds="510 690 1020 830" x="510" y="690" width="510" height="140" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<rect x="510" y="705" width="5" height="110" rx="2" fill="#2563eb" data-graph-role="decoration"/>
+<text x="534" y="729" font-size="26" fill="#2563eb" font-weight="700">编程分支 / 可选主管</text>
+<text x="534" y="766" font-size="22" fill="#334155">无主管时队长直接派两个编程实例</text>
+<text x="534" y="799" font-size="22" fill="#334155">主管仅在持续集成任务需要时启用</text>
+<path id="e-captain-code" data-edge-id="captain-code" data-graph-role="edge" data-source="captain" data-target="code" d="M 410 750 L 510 750" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)"/>
+<rect id="n-verify" data-graph-role="node" data-node-id="verify" data-graph-bounds="510 900 1020 1020" x="510" y="900" width="510" height="120" rx="14" fill="#f0fdfa" stroke="#0f766e" stroke-width="2"/>
+<rect x="510" y="915" width="5" height="90" rx="2" fill="#0f766e" data-graph-role="decoration"/>
+<text x="534" y="939" font-size="26" fill="#0f766e" font-weight="700">独立验证与复现</text>
+<text x="534" y="976" font-size="22" fill="#334155">边界、收敛、复跑与同代证据</text>
+<path id="e-captain-verify" data-edge-id="captain-verify" data-graph-role="edge" data-source="captain" data-target="verify" d="M 410 960 L 510 960" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)"/>
+<rect id="n-paper" data-graph-role="node" data-node-id="paper" data-graph-bounds="510 1130 1020 1250" x="510" y="1130" width="510" height="120" rx="14" fill="#faf5ff" stroke="#7c3aed" stroke-width="2"/>
+<rect x="510" y="1145" width="5" height="90" rx="2" fill="#7c3aed" data-graph-role="decoration"/>
+<text x="534" y="1169" font-size="26" fill="#7c3aed" font-weight="700">论文负责人</text>
+<text x="534" y="1206" font-size="22" fill="#334155">用户指定框架；题问—主张—图表</text>
+<path id="e-captain-paper" data-edge-id="captain-paper" data-graph-role="edge" data-source="captain" data-target="paper" d="M 410 1190 L 510 1190" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)"/>
+<rect id="n-review" data-graph-role="node" data-node-id="review" data-graph-bounds="510 1410 1020 1530" x="510" y="1410" width="510" height="120" rx="14" fill="#fffbeb" stroke="#b45309" stroke-width="2"/>
+<rect x="510" y="1425" width="5" height="90" rx="2" fill="#b45309" data-graph-role="decoration"/>
+<text x="534" y="1449" font-size="26" fill="#b45309" font-weight="700">AI 审阅老师</text>
+<text x="534" y="1486" font-size="22" fill="#334155">科学、表达与实际 PDF 独立审查</text>
+<path id="e-captain-review" data-edge-id="captain-review" data-graph-role="edge" data-source="captain" data-target="review" d="M 410 1470 L 510 1470" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)"/>
+<rect id="n-model-child-1" data-graph-role="node" data-node-id="model-child-1" data-graph-bounds="1140 330 1800 420" x="1140" y="330" width="660" height="90" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<rect x="1140" y="345" width="5" height="60" rx="2" fill="#2563eb" data-graph-role="decoration"/>
+<text x="1164" y="369" font-size="26" fill="#2563eb" font-weight="700">建模手 1：基线方案</text>
+<text x="1164" y="406" font-size="22" fill="#334155">先独立思考，尽快覆盖主要题问</text>
+<path id="e-model-model-child-1" data-edge-id="model-model-child-1" data-graph-role="edge" data-source="model" data-target="model-child-1" d="M 1020 360 L 1140 375" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)"/>
+<rect id="n-model-child-2" data-graph-role="node" data-node-id="model-child-2" data-graph-bounds="1140 460 1800 550" x="1140" y="460" width="660" height="90" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<rect x="1140" y="475" width="5" height="60" rx="2" fill="#2563eb" data-graph-role="decoration"/>
+<text x="1164" y="499" font-size="26" fill="#2563eb" font-weight="700">建模手 2：替代方案</text>
+<text x="1164" y="536" font-size="22" fill="#334155">比较模型机制、可解性和适用范围</text>
+<path id="e-model-model-child-2" data-edge-id="model-model-child-2" data-graph-role="edge" data-source="model" data-target="model-child-2" d="M 1020 390 L 1140 505" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)"/>
+<rect id="n-model-child-3" data-graph-role="node" data-node-id="model-child-3" data-graph-bounds="1140 590 1800 680" x="1140" y="590" width="660" height="90" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<rect x="1140" y="605" width="5" height="60" rx="2" fill="#2563eb" data-graph-role="decoration"/>
+<text x="1164" y="629" font-size="26" fill="#2563eb" font-weight="700">建模手 3：反证与假设</text>
+<text x="1164" y="666" font-size="22" fill="#334155">检验边界、结构与解释是否成立</text>
+<path id="e-model-model-child-3" data-edge-id="model-model-child-3" data-graph-role="edge" data-source="model" data-target="model-child-3" d="M 1020 420 L 1140 635" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)"/>
+<rect id="n-code-child-1" data-graph-role="node" data-node-id="code-child-1" data-graph-bounds="1140 740 1800 830" x="1140" y="740" width="660" height="90" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<rect x="1140" y="755" width="5" height="60" rx="2" fill="#2563eb" data-graph-role="decoration"/>
+<text x="1164" y="779" font-size="26" fill="#2563eb" font-weight="700">P1：核心求解</text>
+<text x="1164" y="816" font-size="22" fill="#334155">模型接口、算法实现、基线与数值结果</text>
+<path id="e-code-code-child-1" data-edge-id="code-code-child-1" data-graph-role="edge" data-source="code" data-target="code-child-1" d="M 1020 720 L 1140 785" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)"/>
+<rect id="n-code-child-2" data-graph-role="node" data-node-id="code-child-2" data-graph-bounds="1140 870 1800 960" x="1140" y="870" width="660" height="90" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<rect x="1140" y="885" width="5" height="60" rx="2" fill="#2563eb" data-graph-role="decoration"/>
+<text x="1164" y="909" font-size="26" fill="#2563eb" font-weight="700">P2：实验与结果导出</text>
+<text x="1164" y="946" font-size="22" fill="#334155">对照、灵敏性、批量运行及机器可读结果</text>
+<path id="e-code-code-child-2" data-edge-id="code-code-child-2" data-graph-role="edge" data-source="code" data-target="code-child-2" d="M 1020 750 L 1140 915" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)"/>
+<rect id="n-code-child-3" data-graph-role="node" data-node-id="code-child-3" data-graph-bounds="1140 1000 1800 1090" x="1140" y="1000" width="660" height="90" rx="14" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+<rect x="1140" y="1015" width="5" height="60" rx="2" fill="#2563eb" data-graph-role="decoration"/>
+<text x="1164" y="1039" font-size="26" fill="#2563eb" font-weight="700">P3：工程支持（按需）</text>
+<text x="1164" y="1076" font-size="22" fill="#334155">复现、构建与隔离设施；单一文件负责人</text>
+<path id="e-code-code-child-3" data-edge-id="code-code-child-3" data-graph-role="edge" data-source="code" data-target="code-child-3" d="M 1020 780 L 1140 1045" stroke="#2563eb" stroke-width="2.5" fill="none" marker-end="url(#a0)"/>
+<rect id="n-paper-child-1" data-graph-role="node" data-node-id="paper-child-1" data-graph-bounds="1140 1160 1800 1250" x="1140" y="1160" width="660" height="90" rx="14" fill="#faf5ff" stroke="#7c3aed" stroke-width="2"/>
+<rect x="1140" y="1175" width="5" height="60" rx="2" fill="#7c3aed" data-graph-role="decoration"/>
+<text x="1164" y="1199" font-size="26" fill="#7c3aed" font-weight="700">论文写作子 Agent</text>
+<text x="1164" y="1236" font-size="22" fill="#334155">按分配章节交稿，正式结果绑定有效版本</text>
+<path id="e-paper-paper-child-1" data-edge-id="paper-paper-child-1" data-graph-role="edge" data-source="paper" data-target="paper-child-1" d="M 1020 1160 L 1140 1205" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#a2)"/>
+<rect id="n-paper-child-2" data-graph-role="node" data-node-id="paper-child-2" data-graph-bounds="1140 1290 1800 1380" x="1140" y="1290" width="660" height="90" rx="14" fill="#faf5ff" stroke="#7c3aed" stroke-width="2"/>
+<rect x="1140" y="1305" width="5" height="60" rx="2" fill="#7c3aed" data-graph-role="decoration"/>
+<text x="1164" y="1329" font-size="26" fill="#7c3aed" font-weight="700">科研图表子 Agent</text>
+<text x="1164" y="1366" font-size="22" fill="#334155">nature-figure / 矢量示意；数据与视觉双检</text>
+<path id="e-paper-paper-child-2" data-edge-id="paper-paper-child-2" data-graph-role="edge" data-source="paper" data-target="paper-child-2" d="M 1020 1190 L 1140 1335" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#a2)"/>
+<rect id="n-paper-child-3" data-graph-role="node" data-node-id="paper-child-3" data-graph-bounds="1140 1420 1800 1510" x="1140" y="1420" width="660" height="90" rx="14" fill="#faf5ff" stroke="#7c3aed" stroke-width="2"/>
+<rect x="1140" y="1435" width="5" height="60" rx="2" fill="#7c3aed" data-graph-role="decoration"/>
+<text x="1164" y="1459" font-size="26" fill="#7c3aed" font-weight="700">LaTeX 与 PDF 排版</text>
+<text x="1164" y="1496" font-size="22" fill="#334155">原生公式、统一图注、实际尺寸逐页检查</text>
+<path id="e-paper-paper-child-3" data-edge-id="paper-paper-child-3" data-graph-role="edge" data-source="paper" data-target="paper-child-3" d="M 1020 1220 L 1140 1465" stroke="#7c3aed" stroke-width="2.5" fill="none" marker-end="url(#a2)"/>
+<rect id="n-rulemodule" data-graph-role="node" data-node-id="rulemodule" data-graph-bounds="60 1640 1860 1740" x="60" y="1640" width="1800" height="100" rx="14" fill="#f0fdfa" stroke="#0f766e" stroke-width="2"/>
+<rect x="60" y="1655" width="5" height="70" rx="2" fill="#0f766e" data-graph-role="decoration"/>
+<text x="84" y="1679" font-size="26" fill="#0f766e" font-weight="700">专项技能与论文视觉约定</text>
+<text x="84" y="1716" font-size="22" fill="#334155">排除全流程总控自动接管；示意图默认 1–2 张；定量图按证据配置；最终文字 12pt。</text>
+<text x="60" y="1795" font-size="21" fill="#475569">蓝 / 紫 = DSH 内部分支；橙 = Codex 检查点。叶子不再派生，最大本地深度为 2。</text>
+<text x="60" y="1855" font-size="18" fill="#64748b">MCM A/B/C  |  PTC = Programmatic Tool Calling  |  v0.2.0  ·  2026-10-26</text>
+</svg>

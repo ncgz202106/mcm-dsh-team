@@ -1,0 +1,254 @@
+{
+  "format_version": 1,
+  "bundle_version": "0.2.0",
+  "verified_at": "2026-10-26T04:19:46.554810+00:00",
+  "reviewer_agent_id": "/root/live_evidence_finalize",
+  "independent_of_installation_executor": true,
+  "status": "passed",
+  "checks": [
+    {
+      "name": "complete_latest_saved_plugin_and_profile_backup_hashes",
+      "passed": true,
+      "detail": {
+        "plugin_files": 26,
+        "profile_files": 5,
+        "saved_plugin_version": "0.2.0"
+      }
+    },
+    {
+      "name": "original_v010_backup_still_complete",
+      "passed": true,
+      "detail": {
+        "plugin_files": 23,
+        "profile_files": 5,
+        "saved_plugin_version": "0.1.0"
+      }
+    },
+    {
+      "name": "installed_complete_tree_equals_current_candidate_and_install_snapshot",
+      "passed": true,
+      "detail": {
+        "installed_file_count": 29
+      }
+    },
+    {
+      "name": "known_profile_files_still_match_post_install_hashes",
+      "passed": true,
+      "detail": {
+        "files": 5
+      }
+    },
+    {
+      "name": "other_dependency_sections_and_bundle_registrations_unchanged",
+      "passed": true
+    },
+    {
+      "name": "unrelated_installed_package_metadata_unchanged",
+      "passed": true,
+      "detail": {
+        "package_count": 44
+      }
+    },
+    {
+      "name": "profile_resolves_exact_installed_package_patch_and_reproducible_generated_config",
+      "passed": true,
+      "detail": {
+        "read_only_build_check": true
+      }
+    },
+    {
+      "name": "receipt_and_installed_version_identity",
+      "passed": true
+    },
+    {
+      "name": "twelve_role_ids_and_optional_code_lead_off_by_default",
+      "passed": true
+    },
+    {
+      "name": "native_role_config_mounts_guard_for_all_twelve_with_current_source_fingerprints",
+      "passed": true,
+      "detail": {
+        "role_count": 12,
+        "source_fingerprints": {
+          "src/runtime-guard-core.mjs": "4dda705af1bc15cb4bc1848a35e25428569589d8e3faa29d0ab0195ef035443b",
+          "src/runtime-guard-plugin.mjs": "86df82b9a0390d76f421ad3bb01838948bccba500c6845632c5bb273f33534e5"
+        }
+      }
+    },
+    {
+      "name": "both_actual_installed_runtime_reports_bind_current_sources_fixtures_launcher_and_each_other",
+      "passed": true,
+      "detail": {
+        "native_checks": 9,
+        "guard_checks": 10,
+        "source_fingerprints_per_report": 12
+      }
+    },
+    {
+      "name": "thirteen_current_prompt_fingerprints_and_embedded_guard_report_prompt_coverage",
+      "passed": true,
+      "detail": {
+        "main_explicit_prompt_fingerprints": 13,
+        "guard_explicit_prompt_fingerprint_field_present": false,
+        "guard_coverage": "The guard report has no independent prompt_sha256 field. It binds current cordis.patch.yml/provenance.json bytes; a read-only reproducible build check and the main report explicit 13 prompt hashes establish the same embedded prompts. No field was fabricated."
+      }
+    },
+    {
+      "name": "real_native_mounts_bind_readback_to_twelve_and_preflight_only_to_four_managers",
+      "passed": true,
+      "detail": [
+        {
+          "role": "mcm-captain",
+          "readback_bound": true,
+          "preflight_bound": true,
+          "wire_tools": [
+            "run_code"
+          ]
+        },
+        {
+          "role": "mcm-model-lead",
+          "readback_bound": true,
+          "preflight_bound": true,
+          "wire_tools": [
+            "run_code"
+          ]
+        },
+        {
+          "role": "mcm-modeler",
+          "readback_bound": true,
+          "preflight_bound": false,
+          "wire_tools": [
+            "run_code"
+          ]
+        },
+        {
+          "role": "mcm-evidence",
+          "readback_bound": true,
+          "preflight_bound": false,
+          "wire_tools": [
+            "run_code"
+          ]
+        },
+        {
+          "role": "mcm-programmer",
+          "readback_bound": true,
+          "preflight_bound": false,
+          "wire_tools": [
+            "run_code"
+          ]
+        },
+        {
+          "role": "mcm-code-lead",
+          "readback_bound": true,
+          "preflight_bound": true,
+          "wire_tools": [
+            "run_code"
+          ]
+        },
+        {
+          "role": "mcm-verifier",
+          "readback_bound": true,
+          "preflight_bound": false,
+          "wire_tools": [
+            "run_code"
+          ]
+        },
+        {
+          "role": "mcm-paper-lead",
+          "readback_bound": true,
+          "preflight_bound": true,
+          "wire_tools": [
+            "run_code"
+          ]
+        },
+        {
+          "role": "mcm-writer",
+          "readback_bound": true,
+          "preflight_bound": false,
+          "wire_tools": [
+            "run_code"
+          ]
+        },
+        {
+          "role": "mcm-figure",
+          "readback_bound": true,
+          "preflight_bound": false,
+          "wire_tools": [
+            "run_code"
+          ]
+        },
+        {
+          "role": "mcm-typesetter",
+          "readback_bound": true,
+          "preflight_bound": false,
+          "wire_tools": [
+            "run_code"
+          ]
+        },
+        {
+          "role": "mcm-reviewer",
+          "readback_bound": true,
+          "preflight_bound": false,
+          "wire_tools": [
+            "run_code"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "actual_guard_pipeline_negative_positive_concurrent_and_historical_readback_evidence_current",
+      "passed": true,
+      "detail": {
+        "checks": 10,
+        "model": "deterministic adapter; no external model call"
+      }
+    }
+  ],
+  "installed_plugin": "C:\\Users\\zy\\.dsh\\plugins\\dsh-mcm-team",
+  "candidate_bundle": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\outputs\\mcm-dsh-team-v0.2.0\\bundle",
+  "backup": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\v020-install-backups\\20261026-121456-625",
+  "original_v010_backup": "C:\\Users\\zy\\Documents\\Codex\\2026-10-24\\agent-dsh-ptc-agent-agent-o\\work\\v020-install-backups\\20261025-221327-045",
+  "receipt_status_at_inspection": "installed_pending_runtime_verification",
+  "receipt_sha256_before_verification_status_update": "c406d997a5dee24b8c8dcbbf0a41190c602819806e9d02ff27195294309c086c",
+  "installed_file_count": 29,
+  "unrelated_installed_package_metadata_count": 44,
+  "runtime_guard_source_sha256": {
+    "src/runtime-guard-core.mjs": "4dda705af1bc15cb4bc1848a35e25428569589d8e3faa29d0ab0195ef035443b",
+    "src/runtime-guard-plugin.mjs": "86df82b9a0390d76f421ad3bb01838948bccba500c6845632c5bb273f33534e5"
+  },
+  "native_report": {
+    "path": "audit/native-runtime-smoke.json",
+    "sha256": "8664eb9a707b401e8c2ff79018ed8ce57cf891675688e6c826e10396f49d87e6",
+    "executed_at": "2026-10-26T04:16:30.292Z",
+    "runtime_version": "0.2.1-rc.2",
+    "check_count": 9,
+    "bundle_source": "C:/Users/zy/.dsh/plugins/dsh-mcm-team",
+    "source_fingerprints": 12,
+    "prompt_fingerprints": 13,
+    "fixture_sha256": "0afc30f1ac289125f436e684ec8dda2082478111b0c0063ba7b204f7b6936254",
+    "launcher_sha256": "dfa2667a6a15de53cc2b0a17fa98823fbb1772424ae482c961db5e51ab80c3a8"
+  },
+  "guard_report": {
+    "path": "audit/guard-native-runtime.json",
+    "sha256": "63e27bb84ee2ab93d295d918b97a4f51650bbf50b44e5abe1a10c75bbf323270",
+    "executed_at": "2026-10-26T04:15:38.763Z",
+    "runtime_version": "0.2.1-rc.2",
+    "check_count": 10,
+    "bundle_source": "C:/Users/zy/.dsh/plugins/dsh-mcm-team",
+    "source_fingerprints": 12,
+    "independent_prompt_fingerprint_field_present": false,
+    "prompt_coverage": "same current cordis.patch.yml/provenance.json plus linked main-report 13 normalized prompt hashes and reproducible build check",
+    "fixture_sha256": "e01f30548aeb1840a23229864e5b0be08fe4dacfc53218a2902adac04dbd0563",
+    "launcher_sha256": "dfa2667a6a15de53cc2b0a17fa98823fbb1772424ae482c961db5e51ab80c3a8"
+  },
+  "human_gates_modified": false,
+  "original_rehearsal_resumed": false,
+  "user_sessions_or_credentials_read": false,
+  "limitations": [
+    "Read-only byte/configuration and reported-evidence verification; this reviewer did not execute a model, install/update, alter permissions, or operate the UI.",
+    "Both runtime reports use actual DSH code with deterministic model output in isolated Hosts. They do not establish autonomous external-model or scientific quality.",
+    "The guard report intentionally lacks a separate prompt_sha256 field; its current generated patch/provenance fingerprints and the main report explicit hashes provide documented indirect prompt coverage.",
+    "Recorded runtime guard tests do not certify the user live Host remaining capacity, OS isolation, arbitrary shell behavior, or every transitive package execution.",
+    "The root may subsequently add this report SHA/status to the receipt; the pre-update receipt hash is explicitly recorded."
+  ]
+}
