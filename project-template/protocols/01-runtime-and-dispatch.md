@@ -18,4 +18,6 @@ config/runtime.json的7常态+1应急是新项目规划默认值，不是Host事
 
 派发前生成 `python scripts/mcm.py context-pack TASK_ID`，父层读该包的ok、ready_to_start、pause和omitted_counts；错误、暂停、过期输入不能放行。收到交接后实际读回产物及SHA，不能因“工具返回成功”直接登记通过。长任务按输入/验收拆分，阶段交接后可新建短上下文实例，不在长会话里持续累积所有日志。
 
+普通执行依赖必须 approved；独立复验用协议02的显式 review 关系核作者已交付的固定 refs 和交接 SHA。preflight、原生执行前及工具体阶段都会重核作者状态、交付、上游字节和记录指纹；中途变化须重新检查。相对任务 project_root 从已知原始项目根解析，原生 subagent.cwd 仍须是该根的绝对路径。review 就绪不替代容量核验：无真实新鲜 Host 快照仍 queued，禁止以合成测试快照、配置限额或一次 spawn 充当探针。
+
 用户暂停优先：停止新派发和主动整改，保留已有成果与真实状态；仅做仍被授权的只读核查。用户真实恢复后重新核容量、所有权和输入，旧grant不能延续至已回收窗口。

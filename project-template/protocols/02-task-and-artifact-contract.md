@@ -6,6 +6,12 @@
 
 任务状态为 `queued → running → in_review → approved`；可转 `rework|blocked|cancelled`。approved 表示任务验收通过，不能自动把其中所有成果或人工关口批准。普通局部修改用局部任务，不为改一句话重跑整套流程。
 
+`depends_on` 的字符串、旧 `{task_id}` 和显式 `{task_id,relation:"execution"}` 都是执行依赖，前项必须 `approved`。非作者复验应显式用 `{task_id,relation:"review",output_refs:[完整成果refs],handoff_ref:{path,sha256}}`：前项须 `in_review` 或 `approved`，而非要求先通过复验。仅 verifier/reviewer 角色可消费此关系；未知 relation、空范围、不完整版本/SHA、缺任务或自依赖均拒绝。旧任务缺 `depends_on` 仍可读取，不按角色名自动改成 review。
+
+review 的 `output_refs` 每项含 `artifact_id/path/version/sha256`，版本为正整数；这些固定 refs 须同时属于复验任务 inputs、作者声明 outputs、作者 output_readback 和当前制品登记。登记的 task_id/author_agent_id 必须对应作者任务及其真实 owner_agent_id；旧 output_readback 可缺 version，版本仍由完整 ref 与登记绑定。作者的 completion_handoff_path 必须与 handoff_ref.path 相同，实际交接文件 SHA 必须匹配。交接正文可沿用现有格式，不能从“自检通过”等文字推断独立批准。只审列出的范围，未列成果不算已审。
+
+准入逐项核实际文件与传递上游 refs；源稿、上游证据和交接文件均不得落在复验者写范围内。草稿或曾失败候选仍可送独立复验，stale/retracted/invalidated 或变动的字节不能消费。作者身份不可为 pending；孩子 owner_agent_id 在派发前可为 pending 计划身份，但这不证明独立性，派发成功后队长必须绑定、读回真实孩子 ID，并在接受报告时核对非作者身份。此关系不改变任务、制品、issue 或人工关口状态，也不提供 Host 名额。
+
 交接必须列实际输出、实际检查和未完成项；不要只给长篇推理。父层检查产物和证据后，队长写全局任务状态。子角色提交 handoff，不直接并发修改全局登记。
 
 ## 全局登记与单写入者
@@ -53,6 +59,10 @@ restore 默认恢复到 `.mcm/restored/<snapshot>/` 新目录，先检查，再�
 任务可选specialty、dispatch_parent_role、required_skills、decision_refs、skill_readback、output_readback，旧任务缺字段仍可读取。required_skills列名称、SKILL.md来源和用途；skill_readback记录实际读到的版本/摘要、使用点和时间，不推断为已读。handoff output_readback列每份交付path/SHA/size/读取者/检查结果；父层收到后再次读回，再由队长合并登记。
 
 context-pack TASK_ID只输出目标任务与输入依赖闭包、相关决定摘要、open issues、技能、验收、写范围和暂停状态，绝不输出全部会话/推理。正文通过路径按需读取。过期成套引用、缺依赖、无效写范围或item预算截断会使ready_to_start=false，先修任务或拆分。generated_at与导入的registry_recorded_at由工具UTC时钟生成，作者自报时间保留但不作真实事件排序依据。
+
+context pack 的 task_dependencies 保留显式执行/复验关系，并检查对应批准或固定交付证据；ready_to_start 仅表示本地任务上下文就绪，不代表 mcm_dispatch_preflight 已准入、Host 有余量或人工批准。
+
+复验写范围保护检查规范化路径及符号链接／junction，不是文件系统写隔离，也不检测硬链接的物理文件别名。完全访问下仍须遵守单写入者与原稿只读约定；不得把工具准入写成 OS 不可写保证。
 
 历史stale/retracted成果保留，若不在当前候选依赖闭包只记warning；当前链引用它仍阻断。验证按当前依赖闭包，不要求退役旧报告为了形式重新通过。显式选择某历史成果验收时，它本身成为当前检查对象，必须失败。
 

@@ -32,6 +32,23 @@ async function projectPath(root, value, {missing=false, protectRaw=false}={}) {
 }
 const json = async path => { const bytes=await readFile(path); if(bytes.length>8*1024*1024) throw new Error('MCM_DISPATCH_DENIED: project state exceeds bounded read limit'); return JSON.parse(bytes.toString('utf8').replace(/^\uFEFF/,'')); };
 function envelope(value,name) { if(value?.format_version!==1 || !Array.isArray(value.records)) throw new Error(`MCM_DISPATCH_DENIED: invalid ${name} registry`); return value.records; }
+const nonempty = value => typeof value==='string' && Boolean(value.trim());
+const digest = value => typeof value==='string' && /^[a-f0-9]{64}$/.test(value);
+const completeRef = ref => ref && nonempty(ref.artifact_id) && nonempty(ref.path) && Number.isInteger(ref.version) && ref.version>0 && digest(ref.sha256);
+const sameRef = (a,b) => ['artifact_id','path','version','sha256'].every(key=>a?.[key]===b?.[key]);
+async function checkTaskRoot(root, task) {
+  if(task.project_root===undefined || task.project_root===null) return;
+  const value=task.project_root;
+  if(!nonempty(value) || value.split(/[\\/]/).includes('..') || await realpath(resolve(root,value))!==root) throw new Error('MCM_DISPATCH_DENIED: task belongs to another project');
+}
+function dependencyOf(value) {
+  const object=value && typeof value==='object' && !Array.isArray(value);
+  const task_id=typeof value==='string'?value:object?value.task_id:undefined;
+  const relation=object?(value.relation??'execution'):'execution';
+  if(!nonempty(task_id) || !['execution','review'].includes(relation) || (object && value.relation===null)) throw new Error('MCM_DISPATCH_DENIED: invalid task dependency relation');
+  if(relation==='review' && (!Array.isArray(value.output_refs)||!value.output_refs.length||!value.output_refs.every(completeRef)||!nonempty(value.handoff_ref?.path)||!digest(value.handoff_ref?.sha256))) throw new Error('MCM_DISPATCH_DENIED: review dependency requires complete output refs and handoff SHA256');
+  return {task_id,relation,...(relation==='review'?{output_refs:value.output_refs,handoff_ref:value.handoff_ref}:{})};
+}
 export function capacityOf(config,snapshot,now=Date.now()) {
   if(!Number.isInteger(config.normal_slots)||config.normal_slots<0||!Number.isInteger(config.reserve_slots)||config.reserve_slots<0) throw new Error('MCM_DISPATCH_DENIED: invalid project capacity');
   if(!snapshot || !Array.isArray(snapshot.records)) throw new Error('MCM_DISPATCH_DENIED: unknown Host capacity; obtain an actual fresh Host allocation snapshot, do not guess');
@@ -64,36 +81,78 @@ export async function validateDispatch({root,role,depth,args,taskId,snapshotPath
   const tasks=envelope(await json(await projectPath(root,'.mcm/tasks.json')),'tasks');
   const task=tasks.find(row=>row.task_id===taskId);
   if(!task || task._template_only===true || !['queued','running','rework'].includes(task.status)) throw new Error('MCM_DISPATCH_DENIED: unknown or non-dispatchable task_id');
+  if(new Set(tasks.map(row=>row.task_id)).size!==tasks.length) throw new Error('MCM_DISPATCH_DENIED: duplicate task identity');
   if(canonicalRole(task.owner_role)!==args.agent_preset) throw new Error('MCM_DISPATCH_DENIED: task owner_role differs from native preset');
   if(typeof task.owner_agent_id!=='string'||!task.owner_agent_id.trim() || !Array.isArray(task.acceptance_criteria)||!task.acceptance_criteria.length) throw new Error('MCM_DISPATCH_DENIED: task needs owner identity and acceptance criteria');
   if(task.dispatch_parent_role && canonicalRole(task.dispatch_parent_role)!==role) throw new Error('MCM_DISPATCH_DENIED: task parent role mismatch');
-  if(task.project_root && await realpath(task.project_root)!==root) throw new Error('MCM_DISPATCH_DENIED: task belongs to another project');
+  await checkTaskRoot(root,task);
   if(!Array.isArray(task.allowed_write_paths)||(!task.allowed_write_paths.length&&task.read_only!==true)) throw new Error('MCM_DISPATCH_DENIED: task needs explicit write scope or read_only');
   for(const path of task.allowed_write_paths) await projectPath(root,path,{missing:true,protectRaw:true});
-  for(const dependency of task.depends_on??[]) { const record=tasks.find(row=>row.task_id===(typeof dependency==='string'?dependency:dependency?.task_id)); if(!record||record.status!=='approved') throw new Error('MCM_DISPATCH_DENIED: task dependency is not approved'); }
+  const dependencies=task.depends_on===undefined?[]:task.depends_on;
+  if(!Array.isArray(dependencies)) throw new Error('MCM_DISPATCH_DENIED: task dependencies must be a list');
+  const relations=dependencies.map(dependencyOf), dependencyRecords=[];
+  if(new Set(relations.map(row=>row.task_id)).size!==relations.length) throw new Error('MCM_DISPATCH_DENIED: duplicate task dependency');
+  for(const dependency of relations) {
+    const record=tasks.find(row=>row.task_id===dependency.task_id);
+    if(!record || record._template_only===true || record.task_id===taskId) throw new Error('MCM_DISPATCH_DENIED: missing, template or self task dependency');
+    if(dependency.relation==='execution' && record.status!=='approved') throw new Error('MCM_DISPATCH_DENIED: task dependency is not approved');
+    dependencyRecords.push(record);
+  }
   const handover=task.handover??{};
   if(handover.from_agent_id || handover.source_refs?.length) {
     if(handover.permission_granted!==true || handover.reclaimed_at || !Number.isFinite(Date.parse(handover.permission_expires_at)) || Date.parse(handover.permission_expires_at)<=now) throw new Error('MCM_DISPATCH_DENIED: ownership handover missing, expired or reclaimed');
   }
   const inputs=task.inputs??[];
   if(!Array.isArray(inputs)) throw new Error('MCM_DISPATCH_DENIED: task inputs must be references');
-  if(inputs.length) {
+  const checkedArtifacts=new Map();
+  if(inputs.length || relations.some(row=>row.relation==='review')) {
     const artifacts=envelope(await json(await projectPath(root,'.mcm/artifacts.json')),'artifacts'), seen=new Set();
     const check=async ref=>{
-      const artifact=artifacts.find(row=>row.artifact_id===ref?.artifact_id);
+      const matches=artifacts.filter(row=>row.artifact_id===ref?.artifact_id), artifact=matches[0];
+      if(matches.length>1) throw new Error('MCM_DISPATCH_DENIED: duplicate task input artifact');
       if(!artifact || artifact.version!==ref.version || artifact.sha256!==ref.sha256 || (ref.path!==undefined && ref.path!==artifact.path) || ['stale','retracted'].includes(artifact.status)||artifact.approval_state==='invalidated') throw new Error('MCM_DISPATCH_DENIED: invalid or stale task input reference');
       if(hash(await readFile(await projectPath(root,artifact.path)))!==ref.sha256) throw new Error('MCM_DISPATCH_DENIED: task input bytes changed');
+      checkedArtifacts.set(artifact.artifact_id,artifact);
       if(seen.has(artifact.artifact_id)) return; seen.add(artifact.artifact_id);
+      if(!Array.isArray(artifact.inputs??[])) throw new Error('MCM_DISPATCH_DENIED: invalid upstream task input references');
       for(const input of artifact.inputs??[]) await check(input);
     };
     for(const input of inputs) await check(input);
+    for(const dependency of relations.filter(row=>row.relation==='review')) {
+      const producer=tasks.find(row=>row.task_id===dependency.task_id);
+      if(!['mcm-verifier','mcm-reviewer'].includes(canonicalRole(task.owner_role))) throw new Error('MCM_DISPATCH_DENIED: review dependency requires a review role');
+      if(!['in_review','approved'].includes(producer.status)) throw new Error('MCM_DISPATCH_DENIED: review producer has not delivered a candidate');
+      if(!nonempty(producer.owner_agent_id)||producer.owner_agent_id.startsWith('pending:')||producer.owner_agent_id===task.owner_agent_id) throw new Error('MCM_DISPATCH_DENIED: review requires an actual non-self author identity');
+      await checkTaskRoot(root,producer);
+      const handoff=dependency.handoff_ref;
+      if(handoff.path!==producer.completion_handoff_path) throw new Error('MCM_DISPATCH_DENIED: review handoff path differs from producer delivery');
+      const handoffPath=await projectPath(root,handoff.path);
+      if((await stat(handoffPath)).size>8*1024*1024 || hash(await readFile(handoffPath))!==handoff.sha256) throw new Error('MCM_DISPATCH_DENIED: review handoff SHA256 changed');
+      const scope=new Set();
+      for(const ref of dependency.output_refs) {
+        if(scope.has(ref.artifact_id)) throw new Error('MCM_DISPATCH_DENIED: duplicate review output reference');
+        scope.add(ref.artifact_id);
+        if(!inputs.some(input=>sameRef(input,ref))) throw new Error('MCM_DISPATCH_DENIED: review output is not a scoped task input');
+        const artifact=checkedArtifacts.get(ref.artifact_id);
+        if(artifact?.task_id!==producer.task_id || artifact.author_agent_id!==producer.owner_agent_id || artifact._template_only===true) throw new Error('MCM_DISPATCH_DENIED: review output author or producer mismatch');
+        if(!Array.isArray(producer.outputs)||!producer.outputs.some(output=>output?.artifact_id===ref.artifact_id&&output.path===ref.path&&(output.version===undefined||output.version===ref.version)&&(output.sha256===undefined||output.sha256===ref.sha256))) throw new Error('MCM_DISPATCH_DENIED: review output was not declared by producer');
+        if(!Array.isArray(producer.output_readback)||!producer.output_readback.some(output=>output?.artifact_id===ref.artifact_id&&output.path===ref.path&&output.sha256===ref.sha256&&(output.version===undefined||output.version===ref.version))) throw new Error('MCM_DISPATCH_DENIED: review output lacks producer delivery readback');
+      }
+      // Keep all input evidence and the delivery receipt outside the reviewer's write scope.
+      const protectedPaths=[handoffPath,...await Promise.all([...checkedArtifacts.values()].map(row=>projectPath(root,row.path)))];
+      for(const prefix of task.allowed_write_paths) {
+        const writable=await projectPath(root,prefix,{missing:true,protectRaw:true});
+        if(protectedPaths.some(path=>inside(writable,path))) throw new Error('MCM_DISPATCH_DENIED: review write scope overlaps source evidence');
+      }
+    }
   }
   const chosen=snapshotPath??config.runtime_snapshot;
   if(typeof chosen!=='string'||!chosen) throw new Error('MCM_DISPATCH_DENIED: unknown Host capacity; runtime_snapshot is unset');
   const snapshot=await json(await projectPath(root,chosen));
   const capacity={...capacityOf(config,snapshot,now),snapshot_sha256:hash(snapshot)};
   if(!capacity.admit_one_task) throw new Error('MCM_DISPATCH_DENIED: admit_one_task=false; queue until actual release and fresh evidence');
-  return {root,task_id:taskId,task_sha256:hash(task),args_sha256:hash(args),snapshot_path:chosen,capacity};
+  const evidence_sha256=hash({dependencies:dependencyRecords,artifacts:[...checkedArtifacts.values()].sort((a,b)=>a.artifact_id.localeCompare(b.artifact_id))});
+  return {root,task_id:taskId,task_sha256:hash(task),evidence_sha256,args_sha256:hash(args),snapshot_path:chosen,capacity};
 }
 
 /** One process-local admission ledger. It is not a scheduler or a Host allocation oracle. */

@@ -1,0 +1,112 @@
+{
+  "review_id": "dispatch-review-independent",
+  "non_author": true,
+  "scope": "11 changed candidate source files from git diff; local software review only",
+  "base_commit": "c4cf5886164ebdbc05705e5b8eb3cfb7b003fdcc",
+  "source_file_hashes_sha256": {
+    "bundle/cordis.patch.yml": "49cea5cb66c3f7ea1e9ba151e038ac169b6642c0349be89a657271f4742d2404",
+    "bundle/prompts/shared.md": "1d7c637f09a922d9fa361e1c05af57d06d1bedea32131d61b83c1aa2dc03ec99",
+    "bundle/provenance.json": "55dbb00f53ddfaea09e03684d5e61e19dc3b38244dbe9894977648c63fb7dd8f",
+    "bundle/src/runtime-guard-core.mjs": "e6db328bf197c305b9b6571dcfe0116d418d3d5c684d6b414d15e70559c33509",
+    "bundle/src/runtime-guard-plugin.mjs": "d802909fc90415f9113048e68d25fffaa2cafce0fcc3a8298e74ad16e301187d",
+    "bundle/tests/runtime-guard.test.mjs": "3b5d08cc03ce50f898dfc83f42a8602c70294695bf33e58ad9ccfb66303ea868",
+    "project-template/protocols/01-runtime-and-dispatch.md": "4416221bbfa74562819d9cf6ec53e15e5ea42afd3b8e4961feb7733f72ed286e",
+    "project-template/protocols/02-task-and-artifact-contract.md": "0e8b6fd2a14078530fdd2ed53fd6206fe2147647eebb173e494e8c1046cdbfa2",
+    "project-template/protocols/04-review-and-human-gates.md": "49219b98a15f48973cb93b7319d539460bf4a4c848dbd24c38164109d3c40657",
+    "project-template/scripts/mcm.py": "863fa9fd797a8110191d9ff7ce0f92751c4b7557d0f31808da6a0d8d3d4993c7",
+    "project-template/tests/test_context_skills.py": "6215c6d27532fc2937d7b23f694c6896c23535fd8eee541dcc7ba8d4f5ea692e"
+  },
+  "verdict": {
+    "status": "PASS after correction, within declared source-review limits",
+    "blocking_defects_remaining": 0,
+    "open_defects": [],
+    "resolved_findings": 1,
+    "approval_scope": "Suitable to continue source maintenance/merge review; does not authorize installation, native dispatch, a live Host capacity claim, or scientific/human gate acceptance."
+  },
+  "findings": [
+    {
+      "id": "DISPATCH-REVIEW-01",
+      "severity": "P2",
+      "status": "resolved and independently rechecked",
+      "file": "project-template/scripts/mcm.py",
+      "lines": [
+        204,
+        206,
+        282,
+        285
+      ],
+      "problem": "Python optional producer outputs/output_readback version equality accepted JSON true against a complete version=1 ref, while Node strict equality rejected it. Context could incorrectly report local readiness.",
+      "initial_reproduction": "Reviewer-owned initial Python probe returned ready_to_start=true for output_readback.version=true with actual candidate version=1. Initial execution evidence is preserved in dispatch-edge-execution.json.",
+      "repair_author": "Root applied _optional_version_matches excluding bool to both optional version comparisons, and added a regression using actual artifact version 1; independent reviewer made no source edits.",
+      "final_evidence": "Python 41/41 targeted suite plus reviewer-owned probes independently reject boolean versions in both fields; Node independently rejects both. Legacy omitted versions still accept."
+    }
+  ],
+  "checks": [
+    {
+      "area": "Explicit review eligibility",
+      "conclusion": "PASS",
+      "evidence": "Only explicit relation=review permits delivered in_review/approved producer work for canonical verifier/reviewer roles; missing/template/self/duplicate dependencies, unknown relation and incomplete pinned refs deny. No dependency role inference or task approval is added."
+    },
+    {
+      "area": "Delivery/path/version/SHA binding",
+      "conclusion": "PASS",
+      "evidence": "Review refs must exactly match scoped task inputs, registered artifact identity/path/version/SHA and real bytes, producer task/author, declared outputs, delivery readback and completion handoff path plus actual handoff SHA. Legacy missing optional producer versions remain supported; conflicting optional pins deny."
+    },
+    {
+      "area": "Non-author identity and protected evidence",
+      "conclusion": "PASS within declared workflow boundary",
+      "evidence": "Producer owner must be non-pending and differ from task owner; template output rejected. Direct/transitive source and handoff normalized paths cannot lie in reviewer write scope; junction aliases resolve before comparison. Pending child plan identity remains subject to actual post-spawn binding/readback at report acceptance, explicitly documented."
+    },
+    {
+      "area": "Legacy execution and diagnostics",
+      "conclusion": "PASS after resolved P2",
+      "evidence": "Strings, old {task_id}, and explicit execution still require approved work; mixed unapproved execution dependency denies even beside review. context-pack preserves task_dependencies, remains read-only, distinguishes local readiness from Host admission, and rejects fixed optional bool pins."
+    },
+    {
+      "area": "Three-stage race validation",
+      "conclusion": "PASS for tested state changes",
+      "evidence": "Preflight hashes task/args and dependency/artifact records; pre-execute and body-stage revalidation compare evidence fingerprints. Independent nested upstream metadata changes retain task SHA but change evidence SHA and deny at both later stages with zero mocked native-body invocations."
+    },
+    {
+      "area": "Capacity and pause fail-closed",
+      "conclusion": "PASS; unchanged implementation",
+      "evidence": "capacityOf and createPermitLedger raw byte regions are compared with HEAD; targeted suite covers missing/unverified/stale/timezone-free evidence, explicit deny, user pause, occupied/waiting allocation and permit reservation/one-use behavior. Independent valid review with unset runtime_snapshot still denies."
+    },
+    {
+      "area": "Shared prompts, protocols, generated config",
+      "conclusion": "PASS",
+      "evidence": "build --check verifies 12 generated role presets. Runtime source hashes match raw bytes; shared prompt provenance intentionally hashes LF-normalized trimmed text. Protocol02 line65 explicitly disclaims filesystem write isolation and hardlink identity detection. No model/runtime/permission setting is claimed installed by this source review."
+    }
+  ],
+  "test_summary": {
+    "node_runtime_guard": "24/24 pass",
+    "python_context": "41/41 pass",
+    "generated_roles": "12 verified by build --check",
+    "independent_node_probes": "11/11 pass plus 1 declared-limit observation",
+    "independent_python_probes": "9/9 pass",
+    "whitespace_check": "git -c core.whitespace=cr-at-eol diff --check exit 0"
+  },
+  "limits": [
+    "This is non-author software/source review only, not DSH native-runtime execution, scientific acceptance, H1/H2/H3 approval, installation or a deployment acceptance.",
+    "All capacity JSON and callback executions used temporary offline fixtures explicitly labeled SYNTHETIC-OFFLINE-UNIT-TEST-ONLY-NOT-LIVE. No real Host capacity was inferred, fabricated for a live project, or tested by spawning.",
+    "Normalized-path/junction eligibility checks do not enforce operating-system write isolation or detect hardlink physical-file aliases. The independent hardlink fixture was admitted as expected for this declared limit, and no source bytes were modified through it.",
+    "Pending reviewer plan IDs are allowed for dispatch planning. Actual child identity/readback and non-author acceptance remain required after dispatch; the gate itself does not certify scientific independence.",
+    "No source, protocol, generated config, install, commit, remote, live project, DSH session or Host was modified by this reviewer. Reviewer-owned probes/reports and temporary fixtures were the only writes.",
+    "The reviewer reran targeted suites and independent edge probes; no claim is made to have independently run the author/root full verify-v022 suite in this review.",
+    "Default git diff --check reports CRLF as trailing whitespace for added protocol lines. The repository preserves original bytes; git -c core.whitespace=cr-at-eol diff --check passes."
+  ],
+  "published_at_utc": "2026-10-27T16:11:14.430088+00:00",
+  "private_report_sha256": "c047695847717e4ec42d02c9ff32a79c3e027c518e2b1d4f1bdc3a8ae26bb809",
+  "export": "Source-only filtered report; removed local paths, raw command chunks and unrelated private evidence.",
+  "reproduce_commands": [
+    "node --test bundle/tests/runtime-guard.test.mjs",
+    "python -B -m unittest discover -s project-template/tests -p test_context_skills.py -q",
+    "node bundle/src/build.mjs --check",
+    "node audit/v0.2.2/dispatch-edge-probes.mjs .",
+    "python -B audit/v0.2.2/dispatch-edge-probes.py ."
+  ],
+  "probe_sha256": {
+    "dispatch-edge-probes.mjs": "fa37fcf618cf5bdb0888b118f39cee5f898378de7d07ad55dc3c73e7490b2215",
+    "dispatch-edge-probes.py": "27e30447c5a7c5550e9bf7e67c05d5a9bbdf2218b6c9241f1881e1c10a61e0ce"
+  }
+}

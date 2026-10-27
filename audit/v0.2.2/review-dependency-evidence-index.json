@@ -1,0 +1,28 @@
+{
+  "version": "0.2.2-candidate",
+  "created_at_utc": "2026-10-27T16:11:14.430791+00:00",
+  "base_commit": "c4cf5886164ebdbc05705e5b8eb3cfb7b003fdcc",
+  "artifacts": {
+    "review-dependency-source-verification.json": "403bc24b222f349a551e1f26286bb25977bab562b89ba387c1849c6e4dff92ac",
+    "review-dependency-independent.json": "a9df710b70eb6a0a26bfc7e3e935976e14bf1e3a905c97abe2d8d68258fa5ff6",
+    "dispatch-edge-probes.mjs": "fa37fcf618cf5bdb0888b118f39cee5f898378de7d07ad55dc3c73e7490b2215",
+    "dispatch-edge-probes.py": "27e30447c5a7c5550e9bf7e67c05d5a9bbdf2218b6c9241f1881e1c10a61e0ce"
+  },
+  "source_tests": {
+    "root_python": 44,
+    "project_python": 115,
+    "node": 48,
+    "installer_fault": 10,
+    "total": 217
+  },
+  "installed_version_unchanged": "0.2.1",
+  "native_runtime_for_this_patch": "not_performed",
+  "real_Host_capacity": "not_verified_by_this_patch",
+  "scientific_acceptance": "not_created",
+  "release_ready": false,
+  "limits": [
+    "Older frozen native-runtime/source audits keep their original byte bindings and were not rewritten.",
+    "This supplement does not replace the earlier evidence-index or claim its old capture time.",
+    "The private scientific exercise, conversations, source papers, account material and machine backups are excluded."
+  ]
+}

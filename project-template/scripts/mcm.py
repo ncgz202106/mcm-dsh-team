@@ -191,6 +191,110 @@ def reference_errors(project, ref, artifacts):
     return errors
 
 
+def _nonempty_text(value):
+    return isinstance(value, str) and bool(value.strip())
+
+
+def _complete_review_ref(ref):
+    return (isinstance(ref, dict) and all(_nonempty_text(ref.get(k)) for k in ("artifact_id", "path"))
+            and isinstance(ref.get("version"), int) and not isinstance(ref["version"], bool) and ref["version"] > 0
+            and isinstance(ref.get("sha256"), str) and re.fullmatch(r"[a-f0-9]{64}", ref["sha256"]) is not None)
+
+
+def _optional_version_matches(row, version):
+    # JSON booleans are not artifact versions, even though True == 1 in Python.
+    return "version" not in row or (not isinstance(row["version"], bool) and row["version"] == version)
+
+
+def task_dependency_shape_errors(task):
+    """Old strings and {task_id} remain execution dependencies; review must be explicit."""
+    dependencies = task.get("depends_on", [])
+    if not isinstance(dependencies, list):
+        return ["Task dependencies must be a list"]
+    errors, seen = [], set()
+    for entry in dependencies:
+        identity = entry if isinstance(entry, str) else entry.get("task_id") if isinstance(entry, dict) else None
+        relation = entry.get("relation", "execution") if isinstance(entry, dict) else "execution"
+        if not _nonempty_text(identity) or relation not in ("execution", "review"):
+            errors.append("Invalid task dependency relation")
+            continue
+        if identity in seen or identity == task.get("task_id"):
+            errors.append("Duplicate or self task dependency")
+        seen.add(identity)
+        if relation == "review":
+            refs, handoff = entry.get("output_refs"), entry.get("handoff_ref")
+            if (not isinstance(refs, list) or not refs or not all(_complete_review_ref(ref) for ref in refs)
+                    or not isinstance(handoff, dict) or not _nonempty_text(handoff.get("path"))
+                    or not isinstance(handoff.get("sha256"), str) or not re.fullmatch(r"[a-f0-9]{64}", handoff["sha256"])):
+                errors.append("Review dependency requires complete output refs and handoff SHA256")
+            elif len({ref["artifact_id"] for ref in refs}) != len(refs):
+                errors.append("Duplicate review output reference")
+    return errors
+
+
+def task_dependency_errors(project, task, tasks, artifacts):
+    """Read-only delivery readiness. Context-pack separately checks the full input closure; this grants no Host admission."""
+    errors = task_dependency_shape_errors(task)
+    if errors:
+        return errors
+    if len({row.get("task_id") for row in tasks}) != len(tasks):
+        return ["Duplicate task identity"]
+    for entry in task.get("depends_on", []):
+        identity = entry if isinstance(entry, str) else entry["task_id"]
+        relation = entry.get("relation", "execution") if isinstance(entry, dict) else "execution"
+        producer = next((row for row in tasks if row.get("task_id") == identity), None)
+        if producer is None or producer.get("_template_only") is True:
+            errors.append("Missing or template task dependency: " + identity)
+            continue
+        if relation == "execution":
+            if producer.get("status") != "approved":
+                errors.append("Task dependency is not approved: " + identity)
+            continue
+        if canonical_role(task.get("owner_role")) not in {"mcm-verifier", "mcm-reviewer"}:
+            errors.append("Review dependency requires a review role")
+        if producer.get("status") not in {"in_review", "approved"}:
+            errors.append("Review producer has not delivered a candidate")
+        author = producer.get("owner_agent_id")
+        if not _nonempty_text(author) or author.startswith("pending:") or author == task.get("owner_agent_id"):
+            errors.append("Review requires an actual non-self author identity")
+        try:
+            for row in (task, producer):
+                value = row.get("project_root")
+                if value is not None and (not _nonempty_text(value) or ".." in Path(value).parts
+                                          or (Path(project) / value).resolve(strict=True) != Path(project).resolve()):
+                    errors.append("Task belongs to another project")
+            handoff = entry["handoff_ref"]
+            if handoff["path"] != producer.get("completion_handoff_path"):
+                errors.append("Review handoff path differs from producer delivery")
+            handoff_path = resolve_inside(project, handoff["path"])
+            if handoff_path.stat().st_size > 8 * 1024 * 1024 or file_hash(handoff_path) != handoff["sha256"]:
+                errors.append("Review handoff SHA256 changed")
+            protected = [handoff_path]
+            inputs = task.get("inputs", [])
+            for ref in entry["output_refs"]:
+                if not any(isinstance(i, dict) and all(i.get(k) == ref[k] for k in ("artifact_id", "path", "version", "sha256")) for i in inputs):
+                    errors.append("Review output is not a scoped task input")
+                artifact = artifacts.get(ref["artifact_id"], {})
+                errors.extend(reference_errors(project, ref, artifacts))
+                if artifact.get("task_id") != identity or artifact.get("author_agent_id") != author or artifact.get("_template_only") is True:
+                    errors.append("Review output author or producer mismatch")
+                outputs = producer.get("outputs", [])
+                if not isinstance(outputs, list) or not any(isinstance(i, dict) and i.get("artifact_id") == ref["artifact_id"] and i.get("path") == ref["path"] and _optional_version_matches(i, ref["version"]) and ("sha256" not in i or i["sha256"] == ref["sha256"]) for i in outputs):
+                    errors.append("Review output was not declared by producer")
+                readback = producer.get("output_readback", [])
+                if not isinstance(readback, list) or not any(isinstance(i, dict) and all(i.get(k) == ref[k] for k in ("artifact_id", "path", "sha256")) and _optional_version_matches(i, ref["version"]) for i in readback):
+                    errors.append("Review output lacks producer delivery readback")
+            selected = dependency_closure(artifacts, {ref.get("artifact_id") for ref in inputs if isinstance(ref, dict)})
+            protected.extend(resolve_inside(project, artifacts[i]["path"]) for i in selected if i in artifacts)
+            for prefix in task.get("allowed_write_paths", []):
+                writable = resolve_inside(project, prefix, protect_raw=True)
+                if any(path.is_relative_to(writable) for path in protected):
+                    errors.append("Review write scope overlaps source evidence")
+        except (OSError, ValueError, TypeError, KeyError) as exc:
+            errors.append(f"Invalid review delivery: {exc}")
+    return errors
+
+
 def pause_state(project):
     config = read_json(Path(project) / "config/runtime.json")
     state = config.get("pause_state", {})
@@ -263,6 +367,7 @@ def _record_errors(name, rows):
         if name == "tasks" and row.get("status") not in TASK_STATES:
             errors.append(f"{identity}: invalid task status")
         if name == "tasks":
+            errors.extend(f"{identity}: {message}" for message in task_dependency_shape_errors(row))
             for field in ("required_skills", "skill_readback", "output_readback"):
                 if field in row and not isinstance(row[field], list):
                     errors.append(f"{identity}: {field} must be a list when present")
@@ -710,19 +815,23 @@ def runtime_capacity(project, snapshot=None, reserve_task=False):
 
 def context_pack(project, task_id):
     """Return bounded task context, not a copy of session history or all registries."""
-    task = next((r for r in records(project, "tasks") if r.get("task_id") == task_id), None)
+    tasks = records(project, "tasks")
+    task = next((r for r in tasks if r.get("task_id") == task_id), None)
     if task is None:
         raise ValueError(f"Unknown task {task_id}")
     config = read_json(Path(project) / "config/runtime.json")
     limit = config.get("context_pack_max_items", 40)
     if not isinstance(limit, int) or isinstance(limit, bool) or limit < 1:
         raise ValueError("context_pack_max_items must be a positive integer")
-    artifacts = {r["artifact_id"]: r for r in records(project, "artifacts")}
+    artifact_rows = records(project, "artifacts")
+    artifacts = {r["artifact_id"]: r for r in artifact_rows}
     inputs = task.get("inputs", [])
     if not isinstance(inputs, list):
         raise ValueError("Task inputs must be artifact references")
     selected = dependency_closure(artifacts, {ref.get("artifact_id") for ref in inputs if isinstance(ref, dict)})
-    errors, warnings = [], []
+    errors, warnings = task_dependency_errors(project, task, tasks, artifacts), []
+    if len(artifacts) != len(artifact_rows):
+        errors.append("Duplicate task input artifact")
     if canonical_role(task.get("owner_role")) not in config.get("partition_ownership", {}):
         errors.append("Task requires a configured owner_role")
     if not task.get("owner_agent_id"):
@@ -780,6 +889,7 @@ def context_pack(project, task_id):
             return {k: trim(v) for k, v in value.items()}
         return value
     sections = {"inputs": inputs, "dependency_refs": metadata, "related_decisions": related_decisions,
+                "task_dependencies": task.get("depends_on", []) if isinstance(task.get("depends_on", []), list) else [],
                 "open_issues": issues, "required_skills": skills,
                 "acceptance_criteria": task.get("acceptance_criteria", [])}
     omitted = {name: max(0, len(items) - limit) for name, items in sections.items()}

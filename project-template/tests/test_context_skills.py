@@ -275,6 +275,119 @@ class CurrentContext(unittest.TestCase):
         self.assertTrue(mcm.context_pack(self.root, "P1")["ok"])
         self.assertEqual(mcm.context_pack(self.root, "P1")["required_skills"], [])
 
+    def review_task(self):
+        source = self.artifact("SOURCE")
+        candidate = self.artifact("CANDIDATE", task_id="AUTHOR", author_agent_id="actual-author",
+                                  status="draft", approval_state="draft", verification_status="failed", inputs=[self.ref(source)])
+        handoff_path = self.root / "tasks/author/handoff.json"
+        mcm.atomic_json(handoff_path, {"delivered": True, "accepted": False})
+        handoff = {"path": "tasks/author/handoff.json", "sha256": mcm.file_hash(handoff_path)}
+        producer = {"task_id": "AUTHOR", "owner_agent_id": "actual-author", "status": "in_review", "project_root": ".",
+                    "outputs": [self.ref(candidate)], "output_readback": [self.ref(candidate)], "completion_handoff_path": handoff["path"]}
+        task = self.task(owner_role="mcm-verifier", owner_agent_id="pending:reviewer", allowed_write_paths=["reviews/task"],
+                         inputs=[self.ref(candidate)], depends_on=[{"task_id": "AUTHOR", "relation": "review",
+                         "output_refs": [self.ref(candidate)], "handoff_ref": handoff}])
+        mcm.save_records(self.root, "tasks", [task, producer])
+        mcm.save_records(self.root, "artifacts", [candidate, source])
+        return task, producer, candidate, source
+
+    def test_explicit_review_context_binds_delivery_without_granting_approval_or_host_admission(self):
+        task, producer, candidate, _ = self.review_task()
+        before = {p: p.read_bytes() for p in self.root.rglob("*.json")}
+        pack = mcm.context_pack(self.root, "P1")
+        self.assertTrue(pack["ready_to_start"], pack)
+        self.assertEqual(pack["task_dependencies"], task["depends_on"])
+        self.assertEqual(before, {p: p.read_bytes() for p in self.root.rglob("*.json")})
+        self.assertEqual(producer["status"], "in_review")
+        self.assertEqual(candidate["approval_state"], "draft")
+        self.assertFalse(mcm.runtime_capacity(self.root)["admit_one_task"])
+        self.assertTrue(mcm.validate_project(self.root)["ok"])
+        producer["output_readback"] = [{k: candidate[k] for k in ("artifact_id", "path", "sha256")}]
+        mcm.save_records(self.root, "tasks", [task, producer])
+        self.assertTrue(mcm.context_pack(self.root, "P1")["ready_to_start"])
+
+    def test_optional_delivery_versions_reject_booleans_for_version_one(self):
+        task, producer, candidate, _ = self.review_task()
+        self.assertEqual(candidate["version"], 1)
+        for field in ("outputs", "output_readback"):
+            for version in (True, False, "1", None):
+                with self.subTest(field=field, version=version):
+                    producer[field] = [dict(self.ref(candidate), version=version)]
+                    mcm.save_records(self.root, "tasks", [task, producer])
+                    self.assertFalse(mcm.context_pack(self.root, "P1")["ready_to_start"])
+            producer[field] = [self.ref(candidate)]
+            mcm.save_records(self.root, "tasks", [task, producer])
+            self.assertTrue(mcm.context_pack(self.root, "P1")["ready_to_start"])
+
+    def test_legacy_execution_dependencies_still_require_approved_work(self):
+        task, producer, _, _ = self.review_task()
+        for entry in ("AUTHOR", {"task_id": "AUTHOR"}, {"task_id": "AUTHOR", "relation": "execution"}):
+            with self.subTest(entry=entry):
+                task["depends_on"] = [entry]
+                producer["status"] = "in_review"
+                mcm.save_records(self.root, "tasks", [task, producer])
+                self.assertIn("not approved", " ".join(mcm.context_pack(self.root, "P1")["errors"]))
+                producer["status"] = "approved"
+                mcm.save_records(self.root, "tasks", [task, producer])
+                self.assertTrue(mcm.context_pack(self.root, "P1")["ready_to_start"])
+
+    def test_dependency_shapes_reject_typos_missing_pins_duplicates_and_self_reference(self):
+        task, producer, _, _ = self.review_task()
+        good = json.loads(json.dumps(task["depends_on"][0]))
+        for dependencies in (None, {}, [None], [{}], [{"task_id": "AUTHOR", "relation": "reveiw"}],
+                             [dict(good, output_refs=[])], [dict(good, handoff_ref={"path": "tasks/author/handoff.json"})],
+                             [good, good], ["P1"]):
+            with self.subTest(dependencies=dependencies):
+                task["depends_on"] = dependencies
+                mcm.save_records(self.root, "tasks", [task, producer])
+                self.assertFalse(mcm.context_pack(self.root, "P1")["ready_to_start"])
+                self.assertTrue(mcm._record_errors("tasks", [task]))
+
+    def test_review_context_rejects_undelivered_misattributed_unread_or_writable_source(self):
+        task, producer, candidate, source = self.review_task()
+        originals = json.loads(json.dumps([task, producer, candidate, source]))
+        changes = [lambda: producer.update(status="running"), lambda: producer.update(status="rework"),
+                   lambda: producer.update(output_readback=[]), lambda: producer.update(outputs=[]),
+                   lambda: producer.update(outputs=[dict(self.ref(candidate), version=99)]),
+                   lambda: producer.update(outputs=[dict(self.ref(candidate), sha256="0" * 64)]),
+                   lambda: candidate.update(_template_only=True),
+                   lambda: producer.update(owner_agent_id="pending:author"),
+                   lambda: task.update(owner_agent_id=producer["owner_agent_id"]),
+                   lambda: candidate.update(author_agent_id="someone-else"), lambda: candidate.update(task_id="OTHER"),
+                   lambda: task.update(owner_role="mcm-programmer"), lambda: task.update(allowed_write_paths=["."]),
+                   lambda: task.update(allowed_write_paths=[source["path"]]), lambda: task.update(inputs=[]),
+                   lambda: task["depends_on"][0]["output_refs"][0].update(version=99),
+                   lambda: producer.update(completion_handoff_path="tasks/wrong.json")]
+        for index, change in enumerate(changes):
+            with self.subTest(case=index):
+                task, producer, candidate, source = json.loads(json.dumps(originals))
+                change()
+                mcm.save_records(self.root, "tasks", [task, producer])
+                mcm.save_records(self.root, "artifacts", [candidate, source])
+                self.assertFalse(mcm.context_pack(self.root, "P1")["ready_to_start"])
+
+    def test_review_context_does_not_hide_duplicate_registry_evidence(self):
+        task, producer, candidate, source = self.review_task()
+        mcm.save_records(self.root, "artifacts", [candidate, candidate, source])
+        self.assertFalse(mcm.context_pack(self.root, "P1")["ready_to_start"])
+        mcm.save_records(self.root, "artifacts", [candidate, source])
+        mcm.save_records(self.root, "tasks", [task, producer, producer])
+        self.assertFalse(mcm.context_pack(self.root, "P1")["ready_to_start"])
+
+    def test_review_context_checks_actual_handoff_and_transitive_bytes(self):
+        for target in ("handoff", "upstream", "candidate"):
+            with self.subTest(target=target):
+                task, producer, candidate, source = self.review_task()
+                relative = producer["completion_handoff_path"] if target == "handoff" else source["path"] if target == "upstream" else candidate["path"]
+                (self.root / relative).write_text("changed", encoding="utf-8")
+                self.assertFalse(mcm.context_pack(self.root, "P1")["ready_to_start"])
+
+    def test_review_does_not_override_an_unapproved_execution_dependency(self):
+        task, producer, _, _ = self.review_task()
+        task["depends_on"].append("EXECUTE")
+        mcm.save_records(self.root, "tasks", [task, producer, {"task_id": "EXECUTE", "status": "in_review"}])
+        self.assertIn("not approved", " ".join(mcm.context_pack(self.root, "P1")["errors"]))
+
     def test_pause_overrides_context_writes_registry_and_capacity(self):
         self.task()
         self.config(pause_state={"paused": True, "reason": "actual user stop", "user_message_ref": "USER-PAUSE"})

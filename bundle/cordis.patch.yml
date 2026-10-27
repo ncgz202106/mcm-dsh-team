@@ -66,6 +66,8 @@
 
                 管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
 
+                普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
+
                 先调用 `mcm_dispatch_preflight({task_id,subagent_arguments:{description,prompt,agent_preset,cwd,...},snapshot_path?})`。只有返回 `admitted=true`，才在不超过60秒内以**完全相同参数**调用原生 `subagent`；不要向原生schema添加permit字段。许可绑定父会话、任务版本、参数哈希和目录，单次消费；改参数、任务变化、证据过期、并发复用和直接绕过均被工具管线拒绝。拒绝后先处理具体缺口，不能换Team成员、外部Codex/Claude入口继续派发。此为工具工作流约束，不认证OS隔离。
 
                 结束孩子也可用 `mcm_runtime_readback({child_session_id:真实直属孩子ID})` 读实际Session元数据，区分活跃挂载和历史记录。按真实返回记录深度：单独把论文统筹作为根打开时是0→1；完整队长树通常是0→1→2，角色名称不决定深度。记录SDK来源和时间，不把历史系统快照冒充新的权限枚举。叶子不持有派发许可；即使全局SDK暴露替代委派名，MCM门禁仍拒绝该调用。
@@ -299,6 +301,8 @@
 
                 管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
 
+                普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
+
                 先调用 `mcm_dispatch_preflight({task_id,subagent_arguments:{description,prompt,agent_preset,cwd,...},snapshot_path?})`。只有返回 `admitted=true`，才在不超过60秒内以**完全相同参数**调用原生 `subagent`；不要向原生schema添加permit字段。许可绑定父会话、任务版本、参数哈希和目录，单次消费；改参数、任务变化、证据过期、并发复用和直接绕过均被工具管线拒绝。拒绝后先处理具体缺口，不能换Team成员、外部Codex/Claude入口继续派发。此为工具工作流约束，不认证OS隔离。
 
                 结束孩子也可用 `mcm_runtime_readback({child_session_id:真实直属孩子ID})` 读实际Session元数据，区分活跃挂载和历史记录。按真实返回记录深度：单独把论文统筹作为根打开时是0→1；完整队长树通常是0→1→2，角色名称不决定深度。记录SDK来源和时间，不把历史系统快照冒充新的权限枚举。叶子不持有派发许可；即使全局SDK暴露替代委派名，MCM门禁仍拒绝该调用。
@@ -492,6 +496,8 @@
 
                 管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
 
+                普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
+
                 先调用 `mcm_dispatch_preflight({task_id,subagent_arguments:{description,prompt,agent_preset,cwd,...},snapshot_path?})`。只有返回 `admitted=true`，才在不超过60秒内以**完全相同参数**调用原生 `subagent`；不要向原生schema添加permit字段。许可绑定父会话、任务版本、参数哈希和目录，单次消费；改参数、任务变化、证据过期、并发复用和直接绕过均被工具管线拒绝。拒绝后先处理具体缺口，不能换Team成员、外部Codex/Claude入口继续派发。此为工具工作流约束，不认证OS隔离。
 
                 结束孩子也可用 `mcm_runtime_readback({child_session_id:真实直属孩子ID})` 读实际Session元数据，区分活跃挂载和历史记录。按真实返回记录深度：单独把论文统筹作为根打开时是0→1；完整队长树通常是0→1→2，角色名称不决定深度。记录SDK来源和时间，不把历史系统快照冒充新的权限枚举。叶子不持有派发许可；即使全局SDK暴露替代委派名，MCM门禁仍拒绝该调用。
@@ -661,6 +667,8 @@
                 派发前尚未取得孩子原生 ID 时，`owner_agent_id` 可写明确的计划身份（如 `pending:FIG-01`）；这不是原生Session身份。创建成功后由队长通过readback写入真实ID，禁止声称计划身份已获Host核验。
 
                 管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
+
+                普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
 
                 先调用 `mcm_dispatch_preflight({task_id,subagent_arguments:{description,prompt,agent_preset,cwd,...},snapshot_path?})`。只有返回 `admitted=true`，才在不超过60秒内以**完全相同参数**调用原生 `subagent`；不要向原生schema添加permit字段。许可绑定父会话、任务版本、参数哈希和目录，单次消费；改参数、任务变化、证据过期、并发复用和直接绕过均被工具管线拒绝。拒绝后先处理具体缺口，不能换Team成员、外部Codex/Claude入口继续派发。此为工具工作流约束，不认证OS隔离。
 
@@ -833,6 +841,8 @@
                 派发前尚未取得孩子原生 ID 时，`owner_agent_id` 可写明确的计划身份（如 `pending:FIG-01`）；这不是原生Session身份。创建成功后由队长通过readback写入真实ID，禁止声称计划身份已获Host核验。
 
                 管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
+
+                普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
 
                 先调用 `mcm_dispatch_preflight({task_id,subagent_arguments:{description,prompt,agent_preset,cwd,...},snapshot_path?})`。只有返回 `admitted=true`，才在不超过60秒内以**完全相同参数**调用原生 `subagent`；不要向原生schema添加permit字段。许可绑定父会话、任务版本、参数哈希和目录，单次消费；改参数、任务变化、证据过期、并发复用和直接绕过均被工具管线拒绝。拒绝后先处理具体缺口，不能换Team成员、外部Codex/Claude入口继续派发。此为工具工作流约束，不认证OS隔离。
 
@@ -1009,6 +1019,8 @@
                 派发前尚未取得孩子原生 ID 时，`owner_agent_id` 可写明确的计划身份（如 `pending:FIG-01`）；这不是原生Session身份。创建成功后由队长通过readback写入真实ID，禁止声称计划身份已获Host核验。
 
                 管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
+
+                普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
 
                 先调用 `mcm_dispatch_preflight({task_id,subagent_arguments:{description,prompt,agent_preset,cwd,...},snapshot_path?})`。只有返回 `admitted=true`，才在不超过60秒内以**完全相同参数**调用原生 `subagent`；不要向原生schema添加permit字段。许可绑定父会话、任务版本、参数哈希和目录，单次消费；改参数、任务变化、证据过期、并发复用和直接绕过均被工具管线拒绝。拒绝后先处理具体缺口，不能换Team成员、外部Codex/Claude入口继续派发。此为工具工作流约束，不认证OS隔离。
 
@@ -1191,6 +1203,8 @@
 
                 管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
 
+                普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
+
                 先调用 `mcm_dispatch_preflight({task_id,subagent_arguments:{description,prompt,agent_preset,cwd,...},snapshot_path?})`。只有返回 `admitted=true`，才在不超过60秒内以**完全相同参数**调用原生 `subagent`；不要向原生schema添加permit字段。许可绑定父会话、任务版本、参数哈希和目录，单次消费；改参数、任务变化、证据过期、并发复用和直接绕过均被工具管线拒绝。拒绝后先处理具体缺口，不能换Team成员、外部Codex/Claude入口继续派发。此为工具工作流约束，不认证OS隔离。
 
                 结束孩子也可用 `mcm_runtime_readback({child_session_id:真实直属孩子ID})` 读实际Session元数据，区分活跃挂载和历史记录。按真实返回记录深度：单独把论文统筹作为根打开时是0→1；完整队长树通常是0→1→2，角色名称不决定深度。记录SDK来源和时间，不把历史系统快照冒充新的权限枚举。叶子不持有派发许可；即使全局SDK暴露替代委派名，MCM门禁仍拒绝该调用。
@@ -1361,6 +1375,8 @@
                 派发前尚未取得孩子原生 ID 时，`owner_agent_id` 可写明确的计划身份（如 `pending:FIG-01`）；这不是原生Session身份。创建成功后由队长通过readback写入真实ID，禁止声称计划身份已获Host核验。
 
                 管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
+
+                普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
 
                 先调用 `mcm_dispatch_preflight({task_id,subagent_arguments:{description,prompt,agent_preset,cwd,...},snapshot_path?})`。只有返回 `admitted=true`，才在不超过60秒内以**完全相同参数**调用原生 `subagent`；不要向原生schema添加permit字段。许可绑定父会话、任务版本、参数哈希和目录，单次消费；改参数、任务变化、证据过期、并发复用和直接绕过均被工具管线拒绝。拒绝后先处理具体缺口，不能换Team成员、外部Codex/Claude入口继续派发。此为工具工作流约束，不认证OS隔离。
 
@@ -1576,6 +1592,8 @@
 
                 管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
 
+                普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
+
                 先调用 `mcm_dispatch_preflight({task_id,subagent_arguments:{description,prompt,agent_preset,cwd,...},snapshot_path?})`。只有返回 `admitted=true`，才在不超过60秒内以**完全相同参数**调用原生 `subagent`；不要向原生schema添加permit字段。许可绑定父会话、任务版本、参数哈希和目录，单次消费；改参数、任务变化、证据过期、并发复用和直接绕过均被工具管线拒绝。拒绝后先处理具体缺口，不能换Team成员、外部Codex/Claude入口继续派发。此为工具工作流约束，不认证OS隔离。
 
                 结束孩子也可用 `mcm_runtime_readback({child_session_id:真实直属孩子ID})` 读实际Session元数据，区分活跃挂载和历史记录。按真实返回记录深度：单独把论文统筹作为根打开时是0→1；完整队长树通常是0→1→2，角色名称不决定深度。记录SDK来源和时间，不把历史系统快照冒充新的权限枚举。叶子不持有派发许可；即使全局SDK暴露替代委派名，MCM门禁仍拒绝该调用。
@@ -1754,6 +1772,8 @@
                 派发前尚未取得孩子原生 ID 时，`owner_agent_id` 可写明确的计划身份（如 `pending:FIG-01`）；这不是原生Session身份。创建成功后由队长通过readback写入真实ID，禁止声称计划身份已获Host核验。
 
                 管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
+
+                普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
 
                 先调用 `mcm_dispatch_preflight({task_id,subagent_arguments:{description,prompt,agent_preset,cwd,...},snapshot_path?})`。只有返回 `admitted=true`，才在不超过60秒内以**完全相同参数**调用原生 `subagent`；不要向原生schema添加permit字段。许可绑定父会话、任务版本、参数哈希和目录，单次消费；改参数、任务变化、证据过期、并发复用和直接绕过均被工具管线拒绝。拒绝后先处理具体缺口，不能换Team成员、外部Codex/Claude入口继续派发。此为工具工作流约束，不认证OS隔离。
 
@@ -1946,6 +1966,8 @@
 
                 管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
 
+                普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
+
                 先调用 `mcm_dispatch_preflight({task_id,subagent_arguments:{description,prompt,agent_preset,cwd,...},snapshot_path?})`。只有返回 `admitted=true`，才在不超过60秒内以**完全相同参数**调用原生 `subagent`；不要向原生schema添加permit字段。许可绑定父会话、任务版本、参数哈希和目录，单次消费；改参数、任务变化、证据过期、并发复用和直接绕过均被工具管线拒绝。拒绝后先处理具体缺口，不能换Team成员、外部Codex/Claude入口继续派发。此为工具工作流约束，不认证OS隔离。
 
                 结束孩子也可用 `mcm_runtime_readback({child_session_id:真实直属孩子ID})` 读实际Session元数据，区分活跃挂载和历史记录。按真实返回记录深度：单独把论文统筹作为根打开时是0→1；完整队长树通常是0→1→2，角色名称不决定深度。记录SDK来源和时间，不把历史系统快照冒充新的权限枚举。叶子不持有派发许可；即使全局SDK暴露替代委派名，MCM门禁仍拒绝该调用。
@@ -2131,6 +2153,8 @@
                 派发前尚未取得孩子原生 ID 时，`owner_agent_id` 可写明确的计划身份（如 `pending:FIG-01`）；这不是原生Session身份。创建成功后由队长通过readback写入真实ID，禁止声称计划身份已获Host核验。
 
                 管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
+
+                普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
 
                 先调用 `mcm_dispatch_preflight({task_id,subagent_arguments:{description,prompt,agent_preset,cwd,...},snapshot_path?})`。只有返回 `admitted=true`，才在不超过60秒内以**完全相同参数**调用原生 `subagent`；不要向原生schema添加permit字段。许可绑定父会话、任务版本、参数哈希和目录，单次消费；改参数、任务变化、证据过期、并发复用和直接绕过均被工具管线拒绝。拒绝后先处理具体缺口，不能换Team成员、外部Codex/Claude入口继续派发。此为工具工作流约束，不认证OS隔离。
 

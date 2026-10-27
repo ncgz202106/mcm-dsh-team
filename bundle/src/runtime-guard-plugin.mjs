@@ -52,7 +52,7 @@ export function apply(ctx,config) {
     if(!permit) throw new Error('MCM_DISPATCH_DENIED: native subagent requires a current one-use mcm_dispatch_preflight permit');
     const checked=await validateDispatch({root:rootOf(exec.agent),role,depth:exec.agent.session.header.delegationDepth??0,args:exec.arguments,taskId:permit.task_id,snapshotPath:permit.snapshot_path});
     checkCurrentLimit(ctx,checked);
-    if(checked.root!==permit.root || checked.task_sha256!==permit.task_sha256 || checked.args_sha256!==permit.args_sha256) throw new Error('MCM_DISPATCH_DENIED: task or arguments changed after preflight');
+    if(checked.root!==permit.root || checked.task_sha256!==permit.task_sha256 || checked.evidence_sha256!==permit.evidence_sha256 || checked.args_sha256!==permit.args_sha256) throw new Error('MCM_DISPATCH_DENIED: task, source evidence or arguments changed after preflight');
     prepared.set(exec,permit);
     return next();
   });
@@ -77,7 +77,7 @@ export function apply(ctx,config) {
     if(accepted.expires_ms<=Date.now()) throw new Error('MCM_DISPATCH_DENIED: dispatch permit expired before native body');
     const checked=await validateDispatch({root:rootOf(exec.agent),role,depth:exec.agent.session.header.delegationDepth??0,args:exec.arguments,taskId:accepted.task_id,snapshotPath:accepted.snapshot_path});
     checkCurrentLimit(ctx,checked);
-    if(checked.task_sha256!==accepted.task_sha256 || checked.args_sha256!==accepted.args_sha256) throw new Error('MCM_DISPATCH_DENIED: dispatch state changed before native body');
+    if(checked.task_sha256!==accepted.task_sha256 || checked.evidence_sha256!==accepted.evidence_sha256 || checked.args_sha256!==accepted.args_sha256) throw new Error('MCM_DISPATCH_DENIED: dispatch state changed before native body');
     if(accepted.expires_ms<=Date.now()) throw new Error('MCM_DISPATCH_DENIED: dispatch permit expired during final revalidation');
     return next();
   });
