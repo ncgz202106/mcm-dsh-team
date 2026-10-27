@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "collisions": {
+      "details": [],
+      "ok": true
+    },
+    "composition": {
+      "details": [],
+      "ok": true
+    },
+    "geometry": {
+      "details": [],
+      "ok": true
+    },
+    "markers": {
+      "details": [],
+      "ok": true
+    },
+    "xml": {
+      "details": [],
+      "ok": true
+    }
+  },
+  "ok": true
+}

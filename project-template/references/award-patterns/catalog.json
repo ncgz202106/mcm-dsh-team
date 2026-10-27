@@ -1,0 +1,269 @@
+{
+  "format_version": 1,
+  "patterns": [
+    {
+      "id": "controlled-increment",
+      "category": "model-progression",
+      "roles": [
+        "mcm-model-lead",
+        "mcm-modeler",
+        "mcm-programmer",
+        "mcm-verifier"
+      ],
+      "keywords": [
+        "baseline",
+        "机制",
+        "对照",
+        "increment",
+        "基线"
+      ],
+      "file": "patterns/controlled-increment.md",
+      "source_case_ids": [
+        "mcm-2024-a-2405424",
+        "mcm-2024-a-2400996"
+      ],
+      "validation_status": "observed_pattern_not_causal_award_rule"
+    },
+    {
+      "id": "assumption-consequences",
+      "category": "model-progression",
+      "roles": [
+        "mcm-model-lead",
+        "mcm-modeler",
+        "mcm-verifier"
+      ],
+      "keywords": [
+        "assumption",
+        "假设",
+        "物理",
+        "辨识",
+        "单位"
+      ],
+      "file": "patterns/assumption-consequences.md",
+      "source_case_ids": [
+        "mcm-2024-a-2400996",
+        "mcm-2025-a-2501567",
+        "mcm-2024-b-2411570"
+      ],
+      "validation_status": "observed_pattern_not_causal_award_rule"
+    },
+    {
+      "id": "semantic-transfer",
+      "category": "cross-question",
+      "roles": [
+        "mcm-model-lead",
+        "mcm-programmer",
+        "mcm-verifier",
+        "mcm-paper-lead"
+      ],
+      "keywords": [
+        "接口",
+        "cross-question",
+        "状态",
+        "distribution",
+        "uncertainty"
+      ],
+      "file": "patterns/semantic-transfer.md",
+      "source_case_ids": [
+        "mcm-2024-b-2407038",
+        "mcm-2024-b-2411570",
+        "mcm-2025-a-2501567"
+      ],
+      "validation_status": "observed_pattern_not_causal_award_rule"
+    },
+    {
+      "id": "baseline-and-error",
+      "category": "result-evidence",
+      "roles": [
+        "mcm-model-lead",
+        "mcm-programmer",
+        "mcm-verifier",
+        "mcm-reviewer"
+      ],
+      "keywords": [
+        "error",
+        "验证",
+        "prediction",
+        "误差",
+        "指标"
+      ],
+      "file": "patterns/baseline-and-error.md",
+      "source_case_ids": [
+        "mcm-2024-a-2400996",
+        "mcm-2024-c-2401298",
+        "mcm-2024-c-2401919"
+      ],
+      "validation_status": "observed_pattern_not_causal_award_rule"
+    },
+    {
+      "id": "failure-regimes",
+      "category": "result-evidence",
+      "roles": [
+        "mcm-verifier",
+        "mcm-reviewer",
+        "mcm-writer",
+        "mcm-paper-lead"
+      ],
+      "keywords": [
+        "失败",
+        "residual",
+        "边界",
+        "generalization",
+        "局限"
+      ],
+      "file": "patterns/failure-regimes.md",
+      "source_case_ids": [
+        "mcm-2024-c-2401298",
+        "mcm-2024-c-2401919",
+        "mcm-2025-b-2502617"
+      ],
+      "validation_status": "observed_pattern_not_causal_award_rule"
+    },
+    {
+      "id": "optimization-feasibility",
+      "category": "result-evidence",
+      "roles": [
+        "mcm-model-lead",
+        "mcm-programmer",
+        "mcm-verifier",
+        "mcm-reviewer"
+      ],
+      "keywords": [
+        "optimization",
+        "优化",
+        "Pareto",
+        "SLSQP",
+        "约束"
+      ],
+      "file": "patterns/optimization-feasibility.md",
+      "source_case_ids": [
+        "mcm-2025-b-2502617"
+      ],
+      "validation_status": "observed_pattern_not_causal_award_rule"
+    },
+    {
+      "id": "uncertainty-to-action",
+      "category": "decision",
+      "roles": [
+        "mcm-model-lead",
+        "mcm-verifier",
+        "mcm-writer",
+        "mcm-paper-lead"
+      ],
+      "keywords": [
+        "决策",
+        "tradeoff",
+        "policy",
+        "阈值",
+        "recommendation"
+      ],
+      "file": "patterns/uncertainty-to-action.md",
+      "source_case_ids": [
+        "mcm-2024-a-2400996",
+        "mcm-2024-b-2407038",
+        "mcm-2025-b-2502617",
+        "mcm-2025-c-2510006"
+      ],
+      "validation_status": "observed_pattern_not_causal_award_rule"
+    },
+    {
+      "id": "complementary-panels",
+      "category": "figure",
+      "roles": [
+        "mcm-figure",
+        "mcm-paper-lead",
+        "mcm-typesetter",
+        "mcm-verifier"
+      ],
+      "keywords": [
+        "panel",
+        "面板",
+        "对照图",
+        "sensitivity",
+        "误差图"
+      ],
+      "file": "patterns/complementary-panels.md",
+      "source_case_ids": [
+        "mcm-2024-b-2407038",
+        "mcm-2024-b-2411570",
+        "mcm-2024-c-2401919"
+      ],
+      "validation_status": "observed_pattern_not_causal_award_rule"
+    },
+    {
+      "id": "scale-and-semantic-color",
+      "category": "figure",
+      "roles": [
+        "mcm-figure",
+        "mcm-typesetter",
+        "mcm-paper-lead"
+      ],
+      "keywords": [
+        "color",
+        "配色",
+        "字号",
+        "scale",
+        "legend",
+        "图例"
+      ],
+      "file": "patterns/scale-and-semantic-color.md",
+      "source_case_ids": [
+        "mcm-2024-a-2405424",
+        "mcm-2024-a-2400996",
+        "mcm-2025-b-2502617",
+        "mcm-2025-c-2510006"
+      ],
+      "validation_status": "observed_pattern_not_causal_award_rule"
+    },
+    {
+      "id": "conditional-results",
+      "category": "summary-layout",
+      "roles": [
+        "mcm-writer",
+        "mcm-paper-lead",
+        "mcm-reviewer",
+        "mcm-verifier"
+      ],
+      "keywords": [
+        "summary",
+        "摘要",
+        "结论",
+        "result",
+        "数字"
+      ],
+      "file": "patterns/conditional-results.md",
+      "source_case_ids": [
+        "mcm-2024-a-2400996",
+        "mcm-2025-a-2501567",
+        "mcm-2025-b-2502617"
+      ],
+      "validation_status": "observed_pattern_not_causal_award_rule"
+    },
+    {
+      "id": "evidence-proximity",
+      "category": "summary-layout",
+      "roles": [
+        "mcm-typesetter",
+        "mcm-paper-lead",
+        "mcm-writer",
+        "mcm-reviewer"
+      ],
+      "keywords": [
+        "layout",
+        "排版",
+        "公式",
+        "page",
+        "caption",
+        "叙事"
+      ],
+      "file": "patterns/evidence-proximity.md",
+      "source_case_ids": [
+        "mcm-2024-a-2405424",
+        "mcm-2024-a-2400996",
+        "mcm-2025-a-2501567",
+        "mcm-2025-b-2502617"
+      ],
+      "validation_status": "observed_pattern_not_causal_award_rule"
+    }
+  ]
+}

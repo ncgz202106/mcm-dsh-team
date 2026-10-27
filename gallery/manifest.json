@@ -1,0 +1,104 @@
+{
+  "version": "0.2.2",
+  "synthetic": true,
+  "status": "mechanical_passed_visual_pending",
+  "style_source": {
+    "path": "bundle/src/figure-style.json",
+    "sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff"
+  },
+  "style_snapshot": {
+    "path": "config/figure-style.json",
+    "version": 1,
+    "sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff"
+  },
+  "source_script": {
+    "path": "source/figure-gallery.py",
+    "version": 1,
+    "sha256": "a84411e2a90b161bf28871f917d5422016158d6371191db76701a652d8290270"
+  },
+  "figures": [
+    {
+      "id": "01-method-interface",
+      "contract": {
+        "path": "contracts/01-method-interface.json",
+        "version": 1,
+        "sha256": "efaaf2944d4a64cc2d3a2817a6bf8154eab853cbf67171940904dfdd0aec83cb"
+      },
+      "passed_mechanical": true,
+      "visual_status": "pending"
+    },
+    {
+      "id": "02-baseline-difference",
+      "contract": {
+        "path": "contracts/02-baseline-difference.json",
+        "version": 1,
+        "sha256": "7ff1e43e58bdd5c940c29e1b80978a166ff32094de65cc39ca6d83fef70df86f"
+      },
+      "passed_mechanical": true,
+      "visual_status": "pending"
+    },
+    {
+      "id": "03-reference-failure",
+      "contract": {
+        "path": "contracts/03-reference-failure.json",
+        "version": 1,
+        "sha256": "b9acc5c8304889fcc27abcae9e01b9cd39064a20f6962a63631115ebb99a0ced"
+      },
+      "passed_mechanical": true,
+      "visual_status": "pending"
+    },
+    {
+      "id": "04-sensitivity-decision",
+      "contract": {
+        "path": "contracts/04-sensitivity-decision.json",
+        "version": 1,
+        "sha256": "92542a94f34f325de1cf1d55cf39713f572aa843c4db06d38908fbf1c8371cbb"
+      },
+      "passed_mechanical": true,
+      "visual_status": "pending"
+    },
+    {
+      "id": "05-uncertainty-semantics",
+      "contract": {
+        "path": "contracts/05-uncertainty-semantics.json",
+        "version": 1,
+        "sha256": "a218e060232f76a944c3426c4bf9a540bf4efac4f00afeae09ff9ce5b27657b3"
+      },
+      "passed_mechanical": true,
+      "visual_status": "pending"
+    },
+    {
+      "id": "06-cost-effect",
+      "contract": {
+        "path": "contracts/06-cost-effect.json",
+        "version": 1,
+        "sha256": "487803fad1bea2dfa284b17a43d0810282d5d8e3e7a2f891d005a65fcb63585b"
+      },
+      "passed_mechanical": true,
+      "visual_status": "pending"
+    }
+  ],
+  "visual_status": "pending",
+  "human_approval": false,
+  "uses_heldout_answers": false,
+  "pages": {
+    "pdf": {
+      "path": "pages/page-examples.pdf",
+      "version": 1,
+      "sha256": "abcf1779b432593a29df27f565f5813cea607cee369107f6bd06818810b8e0ed"
+    },
+    "build_report": {
+      "path": "pages/build-report.json",
+      "version": 1,
+      "sha256": "ebff77efd43e79c7c6ac7cbbc8332dfb5891083b5d2fc58578bfc8bc519049e3"
+    },
+    "page_count": 6,
+    "status": "compiled_visual_pending",
+    "visual_status": "pending"
+  },
+  "source_preflight": {
+    "tool": "validate_figure.py",
+    "status": "passed",
+    "exit_code": 0
+  }
+}

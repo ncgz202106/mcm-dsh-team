@@ -1,0 +1,68 @@
+{
+  "format_version": 1,
+  "id": "mcm-2024-c-2401919",
+  "year": 2024,
+  "problem": "C",
+  "team": "2401919",
+  "pdf_sha256": "405f96485bb0d5c86597b8c92e612449ca5441c6edbc383ef9583751f31982fd",
+  "physical_page_count": 27,
+  "public_source": {
+    "url": "https://raw.githubusercontent.com/yangchunwanwusheng/MCM-ICM--2024-/ffea7fd98c1fbf7d25edcba4dbc834631e9adbf2/2024/C/student%20paper/2401919.pdf",
+    "public_copy_byte_match_checked": true,
+    "acquisition_note": "Publicly readable pinned mirror; the studied bytes were checked against this copy."
+  },
+  "award_evidence": {
+    "url": "https://www.contest.comap.org/undergraduate/contests/mcm/contests/2024/results/2024_MCM_Problem_C_Results.pdf",
+    "source_sha256": "560513389f8da1ffc1548741e728d702b56194b7788a997136556021e29d70b9",
+    "physical_page": 2,
+    "status": "official_result_row_checked",
+    "designation": "Outstanding Winner",
+    "verification": "Exact control number, problem and Outstanding Winner designation were checked together in the official result table."
+  },
+  "observed_pages": {
+    "page_numbering": "physical PDF pages, counting Summary as page 1",
+    "rendered_and_viewed": [
+      10,
+      13,
+      19
+    ],
+    "text_context_reviewed": [
+      1,
+      2,
+      7,
+      10,
+      11,
+      13,
+      14,
+      16,
+      18,
+      19,
+      21
+    ]
+  },
+  "answer_chain": [
+    "定义多维表现指标并形成逐分评分",
+    "检查该评分序列的相关结构",
+    "预测转折时刻并与其他比赛比较",
+    "把差异、延迟及遗漏因素连接至建议和适用边界"
+  ],
+  "good_practices": [
+    "p13把ACF、PACF和检验假设放在一起，明确诊断对象。",
+    "p19承认另一场比赛误差增加及转折预测延迟，并列出需要补充的因素。"
+  ],
+  "risks": [
+    "拒绝白噪声假设并不自动证明因果动量；若评分含累计胜局等结构，序列相关可能由构造产生。",
+    "p10密集特征矩阵和p19稀疏转折折线在小尺寸下难读，宜按读者任务重选表现形式。",
+    "p21单权重小范围扰动不能单独证明跨赛事泛化；预测精度还需真实留出与转折事件合适指标。"
+  ],
+  "validation": {
+    "level": "source_observation_with_selected_page_visual_review",
+    "official_award_identity_verified": true,
+    "official_submission_bytes_authenticated": false,
+    "full_numeric_reproduction": false,
+    "exhaustive_page_visual_review": false,
+    "font_measurement_performed": false,
+    "case_author_is_observer": true,
+    "model_claims_independently_accepted": false
+  }
+}

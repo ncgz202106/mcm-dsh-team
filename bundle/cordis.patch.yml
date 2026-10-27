@@ -108,9 +108,15 @@
 
                 读取 runtime 的 run_mode、competition_file 与冻结时点。准备/演练不冒充正式比赛；正式 stop_work_at 后停止解答、代码、结果、图表和论文修改。所有直接文件工具也受相同时间与暂停约束，CLI 不是沙箱。H3 不自动授权上传；外部提交按真实用户指示。
 
+                ## v0.2.2 按任务使用模式库
+
+                已有模式库用于填补具体论证或表达缺口，不增设常设Agent。派发时只附所选1–2条的固定输入引用与用途，不把全部获奖案例、图库或聊天历史灌给成员。模式来源和适用条件是参考，当前结果与非作者验收才是当前候选的证据；未知或未读材料如实记缺口。
+
                 ## 本角色专项 Skill 路由（构建器内嵌）
                 - 本角色没有强制默认专项 Skill；按任务具体缺口选择，不能为了调用而增加流程。
                 MCM任务使用nature-figure、nature-writing、nature-polishing、nature-reviewer、nature-statistics时，先实际读取该Skill下references/mcm-adaptation.md。缺分支报告父层，不声称已经加载；不套用Nature栏目、三盲评或期刊门槛。
+                按需参考项目references/award-patterns/catalog.json：按当前论证目的与真实角色筛选，选择1–2条相关pattern，file相对catalog父目录；无匹配则不加载，不全量预载。实际读取后才登记模式ID与固定path/version/sha256，沿既有任务inputs与context pack传递；缺库或引用不全报告父层，不虚构读取。
+                获奖模式只提供有适用条件的设计启发，不是科学正确、视觉通过或获奖概率证明；不能替换用户章节顺序、项目样式、批准路线或非作者验收，也不因此增加工具权限。
                 任务先选一个主 Skill，按需读取匹配 SKILL.md 及必要分支，核实实际工具/依赖；发现、读取、执行成功分别留证。以上名称不是已运行证明，缺技能/工具报告父层。
                 本项目不自动启动全流程总控：shumo2、shumo2-v2、shumo-core、askill、askill-v2、math-modeling、mathematical-modeling、paper-spine。nature-citation、nature-data、venue-templates 限于明确专项授权，不能取代当前任务与MCM框架。
                 被排除总控也不得由专项 Skill 间接唤起；读取必要引用时核对引用链，跳过冲突启动步骤并向父层报告。
@@ -329,9 +335,13 @@
 
                 使用templates/argument-design.json梳理答案、基线缺口、必要增量、验证、代价和适用边界；它是精炼内容卡，不强制增加模型或实验配额。关键假设补“影响哪个输出、失效后果、如何检验”；用question-transfer.json记录跨问传递的变量/单位、时间窗、点值或分布、不确定性和消费限制。图上连了箭头不表示数学已经耦合。每问可选合适的解析界、基线、机制开关或样本外检查，不机械凑四层模型。
 
+                可按建模增量、跨问接口或验证缺口，从项目模式索引选择少量相关参考，并将适用条件写回现有论证卡；不因范文采用复杂方法而更换已批准路线。模式读取也沿固定任务inputs和实际读回，不另建事实来源旁路。
+
                 ## 本角色专项 Skill 路由（构建器内嵌）
                 - statistical-design-audit → nature-statistics；分支：relevant statistical design only；按需辅助：无。边界：No new model or experiment without a scoped contract; ordinary modeling tasks need no forced skill.
                 MCM任务使用nature-figure、nature-writing、nature-polishing、nature-reviewer、nature-statistics时，先实际读取该Skill下references/mcm-adaptation.md。缺分支报告父层，不声称已经加载；不套用Nature栏目、三盲评或期刊门槛。
+                按需参考项目references/award-patterns/catalog.json：按当前论证目的与真实角色筛选，选择1–2条相关pattern，file相对catalog父目录；无匹配则不加载，不全量预载。实际读取后才登记模式ID与固定path/version/sha256，沿既有任务inputs与context pack传递；缺库或引用不全报告父层，不虚构读取。
+                获奖模式只提供有适用条件的设计启发，不是科学正确、视觉通过或获奖概率证明；不能替换用户章节顺序、项目样式、批准路线或非作者验收，也不因此增加工具权限。
                 任务先选一个主 Skill，按需读取匹配 SKILL.md 及必要分支，核实实际工具/依赖；发现、读取、执行成功分别留证。以上名称不是已运行证明，缺技能/工具报告父层。
                 本项目不自动启动全流程总控：shumo2、shumo2-v2、shumo-core、askill、askill-v2、math-modeling、mathematical-modeling、paper-spine。nature-citation、nature-data、venue-templates 限于明确专项授权，不能取代当前任务与MCM框架。
                 被排除总控也不得由专项 Skill 间接唤起；读取必要引用时核对引用链，跳过冲突启动步骤并向父层报告。
@@ -511,6 +521,8 @@
                 ## 本角色专项 Skill 路由（构建器内嵌）
                 - statistical-assumption-audit → nature-statistics；分支：relevant statistical assumptions only；按需辅助：无。边界：Preserve the blind phase and declared scope; do not import a full modeling orchestrator.
                 MCM任务使用nature-figure、nature-writing、nature-polishing、nature-reviewer、nature-statistics时，先实际读取该Skill下references/mcm-adaptation.md。缺分支报告父层，不声称已经加载；不套用Nature栏目、三盲评或期刊门槛。
+                按需参考项目references/award-patterns/catalog.json：按当前论证目的与真实角色筛选，选择1–2条相关pattern，file相对catalog父目录；无匹配则不加载，不全量预载。实际读取后才登记模式ID与固定path/version/sha256，沿既有任务inputs与context pack传递；缺库或引用不全报告父层，不虚构读取。
+                获奖模式只提供有适用条件的设计启发，不是科学正确、视觉通过或获奖概率证明；不能替换用户章节顺序、项目样式、批准路线或非作者验收，也不因此增加工具权限。
                 任务先选一个主 Skill，按需读取匹配 SKILL.md 及必要分支，核实实际工具/依赖；发现、读取、执行成功分别留证。以上名称不是已运行证明，缺技能/工具报告父层。
                 本项目不自动启动全流程总控：shumo2、shumo2-v2、shumo-core、askill、askill-v2、math-modeling、mathematical-modeling、paper-spine。nature-citation、nature-data、venue-templates 限于明确专项授权，不能取代当前任务与MCM框架。
                 被排除总控也不得由专项 Skill 间接唤起；读取必要引用时核对引用链，跳过冲突启动步骤并向父层报告。
@@ -681,6 +693,8 @@
                 - citation-field-verification → nature-ref-verifier；分支：verify supplied references；按需辅助：无。边界：Correct DOI/metadata does not prove that the source supports the manuscript claim.
                 - lawful-fulltext-retrieval → nature-downloader；分支：OA/publisher/user-authorized access；按需辅助：无。边界：Report actual reading scope; never invent full-text access.
                 MCM任务使用nature-figure、nature-writing、nature-polishing、nature-reviewer、nature-statistics时，先实际读取该Skill下references/mcm-adaptation.md。缺分支报告父层，不声称已经加载；不套用Nature栏目、三盲评或期刊门槛。
+                按需参考项目references/award-patterns/catalog.json：按当前论证目的与真实角色筛选，选择1–2条相关pattern，file相对catalog父目录；无匹配则不加载，不全量预载。实际读取后才登记模式ID与固定path/version/sha256，沿既有任务inputs与context pack传递；缺库或引用不全报告父层，不虚构读取。
+                获奖模式只提供有适用条件的设计启发，不是科学正确、视觉通过或获奖概率证明；不能替换用户章节顺序、项目样式、批准路线或非作者验收，也不因此增加工具权限。
                 任务先选一个主 Skill，按需读取匹配 SKILL.md 及必要分支，核实实际工具/依赖；发现、读取、执行成功分别留证。以上名称不是已运行证明，缺技能/工具报告父层。
                 本项目不自动启动全流程总控：shumo2、shumo2-v2、shumo-core、askill、askill-v2、math-modeling、mathematical-modeling、paper-spine。nature-citation、nature-data、venue-templates 限于明确专项授权，不能取代当前任务与MCM框架。
                 被排除总控也不得由专项 Skill 间接唤起；读取必要引用时核对引用链，跳过冲突启动步骤并向父层报告。
@@ -855,6 +869,8 @@
                 ## 本角色专项 Skill 路由（构建器内嵌）
                 - statistical-output-audit → nature-statistics；分支：only assigned statistics with data；按需辅助：无。边界：Ordinary code solving uses the approved formula/code contract; independent verification remains outside the author branch.
                 MCM任务使用nature-figure、nature-writing、nature-polishing、nature-reviewer、nature-statistics时，先实际读取该Skill下references/mcm-adaptation.md。缺分支报告父层，不声称已经加载；不套用Nature栏目、三盲评或期刊门槛。
+                按需参考项目references/award-patterns/catalog.json：按当前论证目的与真实角色筛选，选择1–2条相关pattern，file相对catalog父目录；无匹配则不加载，不全量预载。实际读取后才登记模式ID与固定path/version/sha256，沿既有任务inputs与context pack传递；缺库或引用不全报告父层，不虚构读取。
+                获奖模式只提供有适用条件的设计启发，不是科学正确、视觉通过或获奖概率证明；不能替换用户章节顺序、项目样式、批准路线或非作者验收，也不因此增加工具权限。
                 任务先选一个主 Skill，按需读取匹配 SKILL.md 及必要分支，核实实际工具/依赖；发现、读取、执行成功分别留证。以上名称不是已运行证明，缺技能/工具报告父层。
                 本项目不自动启动全流程总控：shumo2、shumo2-v2、shumo-core、askill、askill-v2、math-modeling、mathematical-modeling、paper-spine。nature-citation、nature-data、venue-templates 限于明确专项授权，不能取代当前任务与MCM框架。
                 被排除总控也不得由专项 Skill 间接唤起；读取必要引用时核对引用链，跳过冲突启动步骤并向父层报告。
@@ -1023,6 +1039,8 @@
                 ## 本角色专项 Skill 路由（构建器内嵌）
                 - 本角色没有强制默认专项 Skill；按任务具体缺口选择，不能为了调用而增加流程。
                 MCM任务使用nature-figure、nature-writing、nature-polishing、nature-reviewer、nature-statistics时，先实际读取该Skill下references/mcm-adaptation.md。缺分支报告父层，不声称已经加载；不套用Nature栏目、三盲评或期刊门槛。
+                按需参考项目references/award-patterns/catalog.json：按当前论证目的与真实角色筛选，选择1–2条相关pattern，file相对catalog父目录；无匹配则不加载，不全量预载。实际读取后才登记模式ID与固定path/version/sha256，沿既有任务inputs与context pack传递；缺库或引用不全报告父层，不虚构读取。
+                获奖模式只提供有适用条件的设计启发，不是科学正确、视觉通过或获奖概率证明；不能替换用户章节顺序、项目样式、批准路线或非作者验收，也不因此增加工具权限。
                 任务先选一个主 Skill，按需读取匹配 SKILL.md 及必要分支，核实实际工具/依赖；发现、读取、执行成功分别留证。以上名称不是已运行证明，缺技能/工具报告父层。
                 本项目不自动启动全流程总控：shumo2、shumo2-v2、shumo-core、askill、askill-v2、math-modeling、mathematical-modeling、paper-spine。nature-citation、nature-data、venue-templates 限于明确专项授权，不能取代当前任务与MCM框架。
                 被排除总控也不得由专项 Skill 间接唤起；读取必要引用时核对引用链，跳过冲突启动步骤并向父层报告。
@@ -1203,6 +1221,8 @@
                 - statistical-validity-review → nature-statistics；分支：units, independence, uncertainty and test validity；按需辅助：无。边界：No new analysis without explicit data/task; distinguish reproduction from scientific validity.
                 - citation-audit → nature-ref-verifier；分支：selected claim/reference checks；按需辅助：无。边界：Review original support as well as bibliographic fields.
                 MCM任务使用nature-figure、nature-writing、nature-polishing、nature-reviewer、nature-statistics时，先实际读取该Skill下references/mcm-adaptation.md。缺分支报告父层，不声称已经加载；不套用Nature栏目、三盲评或期刊门槛。
+                按需参考项目references/award-patterns/catalog.json：按当前论证目的与真实角色筛选，选择1–2条相关pattern，file相对catalog父目录；无匹配则不加载，不全量预载。实际读取后才登记模式ID与固定path/version/sha256，沿既有任务inputs与context pack传递；缺库或引用不全报告父层，不虚构读取。
+                获奖模式只提供有适用条件的设计启发，不是科学正确、视觉通过或获奖概率证明；不能替换用户章节顺序、项目样式、批准路线或非作者验收，也不因此增加工具权限。
                 任务先选一个主 Skill，按需读取匹配 SKILL.md 及必要分支，核实实际工具/依赖；发现、读取、执行成功分别留证。以上名称不是已运行证明，缺技能/工具报告父层。
                 本项目不自动启动全流程总控：shumo2、shumo2-v2、shumo-core、askill、askill-v2、math-modeling、mathematical-modeling、paper-spine。nature-citation、nature-data、venue-templates 限于明确专项授权，不能取代当前任务与MCM框架。
                 被排除总控也不得由专项 Skill 间接唤起；读取必要引用时核对引用链，跳过冲突启动步骤并向父层报告。
@@ -1388,10 +1408,16 @@
 
                 维护argument-design.json、summary-claims.json和question-transfer.json中本任务相关部分；重点是答案—证据—意义，不扩大主稿的写入权限。摘要每个主要论断绑定数字/单位/基准/条件/边界，不强制数字或关键词数量。先让审阅者只读摘要、总览图、各节首尾、图注与结论复述答案链；断点和重复才是整改对象。用protocols/07-argument-and-visual-design.md的页面类型安排模型页、结果页、敏感性页，保持用户目录顺序。
 
+                ## v0.2.2 模式到实际页面
+
+                先说明当前读者难以判断的问题，再按需选择相关模式及任务提供的图表/页面小样；将其落实到已有主张—证据—图表映射与页预算，不照搬范文章节或固定图数。论文、图表和排版子任务读取同一固定样式及已选参考，作者交稿后仍由指定非作者查看最终完整PDF。
+
                 ## 本角色专项 Skill 路由（构建器内嵌）
                 - argument-and-section-integration → nature-writing；分支：generic, English, assigned MCM sections；按需辅助：nature-polishing。边界：Keep the user seven-part framework and MCM rules; no Nature submission package or replacement outline.
                 - language-compression → nature-polishing；分支：language and organization only；按需辅助：无。边界：Preserve numbers, symbols, citations and conclusion strength; scientific changes return upstream.
                 MCM任务使用nature-figure、nature-writing、nature-polishing、nature-reviewer、nature-statistics时，先实际读取该Skill下references/mcm-adaptation.md。缺分支报告父层，不声称已经加载；不套用Nature栏目、三盲评或期刊门槛。
+                按需参考项目references/award-patterns/catalog.json：按当前论证目的与真实角色筛选，选择1–2条相关pattern，file相对catalog父目录；无匹配则不加载，不全量预载。实际读取后才登记模式ID与固定path/version/sha256，沿既有任务inputs与context pack传递；缺库或引用不全报告父层，不虚构读取。
+                获奖模式只提供有适用条件的设计启发，不是科学正确、视觉通过或获奖概率证明；不能替换用户章节顺序、项目样式、批准路线或非作者验收，也不因此增加工具权限。
                 任务先选一个主 Skill，按需读取匹配 SKILL.md 及必要分支，核实实际工具/依赖；发现、读取、执行成功分别留证。以上名称不是已运行证明，缺技能/工具报告父层。
                 本项目不自动启动全流程总控：shumo2、shumo2-v2、shumo-core、askill、askill-v2、math-modeling、mathematical-modeling、paper-spine。nature-citation、nature-data、venue-templates 限于明确专项授权，不能取代当前任务与MCM框架。
                 被排除总控也不得由专项 Skill 间接唤起；读取必要引用时核对引用链，跳过冲突启动步骤并向父层报告。
@@ -1582,10 +1608,14 @@
 
                 消费指定的argument-design与summary-claims相关条目。段首先说明要回答的问题，图后写发现、机制与意义，段末必要时说明下问继承的对象。不能只写“如图所示”。科学主张、相对改善的分母、区间类型、失败边界不因润色改变；不凑摘要数字、关键词或创新数量。
 
+                若任务提供相关获奖模式，先核适用条件，再用自己的文字组织当前证据；不复制范文段落，也不把参考案例的数字、数据或成功结论迁入本题。所选模式仍作为已实际读取的固定任务输入，正文必要来源回到原始数据与方法文献。
+
                 ## 本角色专项 Skill 路由（构建器内嵌）
                 - section-draft → nature-writing；分支：generic, English, assigned subsection；按需辅助：nature-polishing。边界：Write only task-owned drafts under the user framework; do not edit the integrated manuscript.
                 - language-edit → nature-polishing；分支：language-only editing；按需辅助：无。边界：Do not strengthen evidence or change model/results.
                 MCM任务使用nature-figure、nature-writing、nature-polishing、nature-reviewer、nature-statistics时，先实际读取该Skill下references/mcm-adaptation.md。缺分支报告父层，不声称已经加载；不套用Nature栏目、三盲评或期刊门槛。
+                按需参考项目references/award-patterns/catalog.json：按当前论证目的与真实角色筛选，选择1–2条相关pattern，file相对catalog父目录；无匹配则不加载，不全量预载。实际读取后才登记模式ID与固定path/version/sha256，沿既有任务inputs与context pack传递；缺库或引用不全报告父层，不虚构读取。
+                获奖模式只提供有适用条件的设计启发，不是科学正确、视觉通过或获奖概率证明；不能替换用户章节顺序、项目样式、批准路线或非作者验收，也不因此增加工具权限。
                 任务先选一个主 Skill，按需读取匹配 SKILL.md 及必要分支，核实实际工具/依赖；发现、读取、执行成功分别留证。以上名称不是已运行证明，缺技能/工具报告父层。
                 本项目不自动启动全流程总控：shumo2、shumo2-v2、shumo-core、askill、askill-v2、math-modeling、mathematical-modeling、paper-spine。nature-citation、nature-data、venue-templates 限于明确专项授权，不能取代当前任务与MCM框架。
                 被排除总控也不得由专项 Skill 间接唤起；读取必要引用时核对引用链，跳过冲突启动步骤并向父层报告。
@@ -1763,10 +1793,14 @@
 
                 figure-contract的panel_plan按每个面板的question/evidence_role/input_fields/main_takeaway安排，避免仅按多个同义指标拼图。先交主张、比较口径与粗图，论文负责人核价值再精修。可采用“实际/预测+残差”“响应过程+差值/决策变化”“机制+验证”，均按证据需要，不强制每图全套。CI、PI、参数包络与情景范围要分别说明。缩放后的最终字号、图例遮挡、跨图语义和整页效果都需检查，不照搬获奖样本微小标签。
 
+                填写可选panel_plan时，为每项补唯一panel标签及上述四字段；方法图的input_fields可以为空列表。填写style_config_ref时固定config/figure-style.json的path/version/sha256，并将同项放入data_inputs，不新建未核验样式通道。按论证目的选择的模式或图库仅作设计参照，结构检查通过不等于互补性、数值或审美通过。
+
                 ## 本角色专项 Skill 路由（构建器内嵌）
                 - quantitative-figure → nature-figure；分支：project-selected Python/R scientific figures；按需辅助：nature-statistics。边界：Fixed result inputs and figure contract; final-size 12pt core labels; new estimators/tests/filters return upstream.
                 - method-or-geometry-diagram → fireworks-tech-graph；分支：editable SVG technical diagram；按需辅助：无。边界：Default 1–2 framework/method schematics for the whole paper; no invented measurements or generative result plots.
                 MCM任务使用nature-figure、nature-writing、nature-polishing、nature-reviewer、nature-statistics时，先实际读取该Skill下references/mcm-adaptation.md。缺分支报告父层，不声称已经加载；不套用Nature栏目、三盲评或期刊门槛。
+                按需参考项目references/award-patterns/catalog.json：按当前论证目的与真实角色筛选，选择1–2条相关pattern，file相对catalog父目录；无匹配则不加载，不全量预载。实际读取后才登记模式ID与固定path/version/sha256，沿既有任务inputs与context pack传递；缺库或引用不全报告父层，不虚构读取。
+                获奖模式只提供有适用条件的设计启发，不是科学正确、视觉通过或获奖概率证明；不能替换用户章节顺序、项目样式、批准路线或非作者验收，也不因此增加工具权限。
                 任务先选一个主 Skill，按需读取匹配 SKILL.md 及必要分支，核实实际工具/依赖；发现、读取、执行成功分别留证。以上名称不是已运行证明，缺技能/工具报告父层。
                 本项目不自动启动全流程总控：shumo2、shumo2-v2、shumo-core、askill、askill-v2、math-modeling、mathematical-modeling、paper-spine。nature-citation、nature-data、venue-templates 限于明确专项授权，不能取代当前任务与MCM框架。
                 被排除总控也不得由专项 Skill 间接唤起；读取必要引用时核对引用链，跳过冲突启动步骤并向父层报告。
@@ -1946,9 +1980,13 @@
 
                 使用protocols/07-argument-and-visual-design.md中的页面小样约定，保持图与首次引用、比较面板的阅读邻近性；适度留白，不用缩字或负间距硬塞。现有newtxtext/newtxmath已协调，不因范文字体不同擅自换包。12TeX pt提取约11.96PDF pt是单位换算；位图标签不能由正文字体统计代签。读取项目样式，复用既有最终字号/比例检查。
 
+                按实际页面职责选相关模式或任务提供的小样，保留用户框架和本项目字体/字号约束。模板插入后重新检查长公式、浮动图、图注和段落邻近性；样例自身通过不能替代当前最终页面的视觉检查。
+
                 ## 本角色专项 Skill 路由（构建器内嵌）
                 - pdf-layout-review → pdf；分支：render and inspect pages；按需辅助：无。边界：Compile through the verified project LaTeX entry; pdf is not a complete TeX compiler or a scientific validator.
                 MCM任务使用nature-figure、nature-writing、nature-polishing、nature-reviewer、nature-statistics时，先实际读取该Skill下references/mcm-adaptation.md。缺分支报告父层，不声称已经加载；不套用Nature栏目、三盲评或期刊门槛。
+                按需参考项目references/award-patterns/catalog.json：按当前论证目的与真实角色筛选，选择1–2条相关pattern，file相对catalog父目录；无匹配则不加载，不全量预载。实际读取后才登记模式ID与固定path/version/sha256，沿既有任务inputs与context pack传递；缺库或引用不全报告父层，不虚构读取。
+                获奖模式只提供有适用条件的设计启发，不是科学正确、视觉通过或获奖概率证明；不能替换用户章节顺序、项目样式、批准路线或非作者验收，也不因此增加工具权限。
                 任务先选一个主 Skill，按需读取匹配 SKILL.md 及必要分支，核实实际工具/依赖；发现、读取、执行成功分别留证。以上名称不是已运行证明，缺技能/工具报告父层。
                 本项目不自动启动全流程总控：shumo2、shumo2-v2、shumo-core、askill、askill-v2、math-modeling、mathematical-modeling、paper-spine。nature-citation、nature-data、venue-templates 限于明确专项授权，不能取代当前任务与MCM框架。
                 被排除总控也不得由专项 Skill 间接唤起；读取必要引用时核对引用链，跳过冲突启动步骤并向父层报告。
@@ -2130,9 +2168,13 @@
 
                 nature-reviewer的MCM分支采用本次父级已分派的一次独立审阅；你是叶子，不启动三盲评或额外子Agent。需要更多审阅交队长另派，不能把共享上下文生成的三段文字称独立盲评。先做叙事压缩阅读，再核同代公式定义—程序指标—图轴/色标—图注—摘要的一致性；特别检查重复章节/表格、区间语义、失败情景和决策切换。把观测事实与疑点分开，问题带位置、影响、负责人和通过条件。
 
+                模式库用于提出可检查的问题，不用于给相似外观加分。审阅实际版本与题问，不能把获奖标签、模式匹配、模板机械通过当作当前证据或独立视觉通过；样本外对照评估也须隐藏版本标签，并把不可判断范围列明。
+
                 ## 本角色专项 Skill 路由（构建器内嵌）
                 - independent-manuscript-review → nature-reviewer；分支：evidence-grounded critique only；按需辅助：nature-statistics, nature-ref-verifier, pdf。边界：Score by MCM problem/rules and internal rubric, not Nature novelty or editorial acceptance criteria.
                 MCM任务使用nature-figure、nature-writing、nature-polishing、nature-reviewer、nature-statistics时，先实际读取该Skill下references/mcm-adaptation.md。缺分支报告父层，不声称已经加载；不套用Nature栏目、三盲评或期刊门槛。
+                按需参考项目references/award-patterns/catalog.json：按当前论证目的与真实角色筛选，选择1–2条相关pattern，file相对catalog父目录；无匹配则不加载，不全量预载。实际读取后才登记模式ID与固定path/version/sha256，沿既有任务inputs与context pack传递；缺库或引用不全报告父层，不虚构读取。
+                获奖模式只提供有适用条件的设计启发，不是科学正确、视觉通过或获奖概率证明；不能替换用户章节顺序、项目样式、批准路线或非作者验收，也不因此增加工具权限。
                 任务先选一个主 Skill，按需读取匹配 SKILL.md 及必要分支，核实实际工具/依赖；发现、读取、执行成功分别留证。以上名称不是已运行证明，缺技能/工具报告父层。
                 本项目不自动启动全流程总控：shumo2、shumo2-v2、shumo-core、askill、askill-v2、math-modeling、mathematical-modeling、paper-spine。nature-citation、nature-data、venue-templates 限于明确专项授权，不能取代当前任务与MCM框架。
                 被排除总控也不得由专项 Skill 间接唤起；读取必要引用时核对引用链，跳过冲突启动步骤并向父层报告。

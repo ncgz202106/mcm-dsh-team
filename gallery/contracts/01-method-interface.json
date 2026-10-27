@@ -1,0 +1,172 @@
+{
+  "format_version": 2,
+  "_template_only": false,
+  "figure_id": "01-method-interface",
+  "version": 1,
+  "owner_role": "mcm-figure",
+  "claim_id": "SYNTHETIC-01-method-interface",
+  "argument_sentence": "Each downstream model consumes an explicit state, time grid, units and parameter range.",
+  "figure_type": "schematic",
+  "figure_level_question": "What crosses each modeling interface?",
+  "data_inputs": [
+    {
+      "path": "data/interfaces.json",
+      "version": 1,
+      "sha256": "68ccea9a50865e268811184cec68b06bb3eb0ac7dcc16e4a7d8b8fe0561ed6d3"
+    },
+    {
+      "path": "config/figure-style.json",
+      "version": 1,
+      "sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff"
+    }
+  ],
+  "columns_and_units": [],
+  "comparison_groups": [],
+  "transformation": "All generated rows retained; the paired gain is baseline minus improved; other constructions are explicitly defined in source.",
+  "uncertainty_definition": "Parameter range is an interface input; no probability is assigned.",
+  "sample_or_scenario_count": {},
+  "size_mm": {
+    "width": 165.1,
+    "height": 95.25
+  },
+  "style_profile": "mcm-clear-science-v2",
+  "style_config_ref": {
+    "path": "config/figure-style.json",
+    "version": 1,
+    "sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff"
+  },
+  "script_path": "source/figure-gallery.py",
+  "script_sha256": "a84411e2a90b161bf28871f917d5422016158d6371191db76701a652d8290270",
+  "generation_command": "python tools/figure-gallery.py --output gallery --skill-root <nature-figure> --diagram-skill-root <fireworks-tech-graph> --compile-pages",
+  "caption_english": "Original synthetic workflow. The mechanism supplies stock on the same hourly grid used by the policy model. The interface carries units and a parameter range; comparison precedes the budget-constrained action. Arrows represent data dependencies, not a claim of numerical validation.",
+  "synthetic": true,
+  "backend": "python",
+  "minimum_final_glyph_pt": 12,
+  "panel_plan": [
+    {
+      "panel": "a",
+      "question": "How are subproblems connected?",
+      "evidence_role": "state-and-unit interface",
+      "input_fields": [],
+      "main_takeaway": "The same state definition reaches the decision model."
+    }
+  ],
+  "skill_read": [
+    {
+      "skill": "nature-figure",
+      "document": "SKILL.md",
+      "sha256": "1ac00452bef2e097def116beb1fafacb5f03f0108b87b27e667d281a3cf61226"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "manifest.yaml",
+      "sha256": "1ed568f70f6564216c7ca4b5e9f70e3aeba1ae29add8ffd6c8cb7c2694d43693"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "references/mcm-adaptation.md",
+      "sha256": "cbbe734a8fb6f48ad680c9c8ae4b86fcdb77153986d55f4a328d6028e8fdd8c0"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "static/core/contract.md",
+      "sha256": "a2b6523a48192cf1dff0d194264c5662c832f4d1da6e9e4763ccd98cc0664d4c"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "static/core/stance.md",
+      "sha256": "8db765b1123d48d6655b612b14620b111e7e584ece1130750b17f237b68391b3"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "static/fragments/backend/python.md",
+      "sha256": "1d4809e4ec4ed2d40995d74828732012a6a72c941dfec341745a3118e9312865"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "references/multipanel-evidence-architecture.md",
+      "sha256": "79ca617cc05088d6fcfb065140d0ee036eb849738bb79306964eb9aa3a4ed274"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "references/qa-contract.md",
+      "sha256": "ba97e18a44235bb00bb176a3ebe2774ba5bd779e65f9b89827b942b5cd97e5d7"
+    },
+    {
+      "skill": "fireworks-tech-graph",
+      "document": "SKILL.md",
+      "sha256": "e499af84ccb5e1e7a7bf4cc9d7bfa1d58cd10e63533236874543b36159064653"
+    },
+    {
+      "skill": "fireworks-tech-graph",
+      "document": "references/style-1-flat-icon.md",
+      "sha256": "5f4d176706c45416713ea04fd791179edd1934c1d6cdc4de01a0fb30648745af"
+    },
+    {
+      "skill": "fireworks-tech-graph",
+      "document": "references/composition-quality-contract.md",
+      "sha256": "fdbac84d6207e57c769e72e2baae1d32868d833aa2aac17fd9727602700485cd"
+    }
+  ],
+  "skill_executed": [
+    {
+      "tool": "fireworks.py",
+      "status": "passed",
+      "exit_code": 0,
+      "output_refs": [
+        {
+          "path": "checks/01-method-interface/diagram-check.json",
+          "version": 1,
+          "sha256": "0792e9f80228e684e8a629735eb6d565f4706068bb8cdb146fe9b974b6ce1584"
+        }
+      ]
+    },
+    {
+      "tool": "audit_pdf_text.py",
+      "status": "passed",
+      "exit_code": 0,
+      "output_refs": [
+        {
+          "path": "checks/01-method-interface/pdf-text.json",
+          "version": 1,
+          "sha256": "ea6de0c30e7ef9e45be1f52faa0ba6b771ad33dab1f8f37eee2cc8edf6bb088d"
+        }
+      ]
+    },
+    {
+      "tool": "audit_figure_collisions.py",
+      "status": "passed",
+      "exit_code": 0,
+      "output_refs": [
+        {
+          "path": "checks/01-method-interface/collisions.json",
+          "version": 1,
+          "sha256": "7dc44ac7d004599db19c7bcba9ad3747d637d39a76f2568c2edecfc018b4ae50"
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "path": "figures/01-method-interface.pdf",
+      "version": 1,
+      "sha256": "baacc2241f41bc713831a1d663b39184f45d976915592acd7b83e0cc3c9f4c68"
+    },
+    {
+      "path": "figures/01-method-interface.svg",
+      "version": 1,
+      "sha256": "295108f74f9888c0cdd92bf85a5301e3e12ddd5b4f617c70ff13fcde1301f6a0"
+    },
+    {
+      "path": "figures/01-method-interface.png",
+      "version": 1,
+      "sha256": "8e89d742e448b34cb193dec38dcb980303fb137d339d8ed63342288d14e95588"
+    }
+  ],
+  "status": "mechanical_passed_visual_pending",
+  "approval_state": "draft",
+  "qa_readback": {
+    "visual_reviewed": false,
+    "mechanical_report_sha256": "72770ec7d430e80a69ea219d2908ea79b09b0f997c7a5015bd56260e9c04fb6d"
+  }
+}

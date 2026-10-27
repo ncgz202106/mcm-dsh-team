@@ -1,3 +1,15 @@
+# MCM A/B/C · DSH PTC 多 Agent v0.2.2 候选
+
+本分支在冻结的0.2.1上增加优秀论文模式库、可运行图表与页面小样，并进行真实模型对照。当前尚未正式安装或宣称完整A题通过；已安装稳定版仍为0.2.1。
+
+- [本轮改动、验收安排与边界](docs/v0.2.2研究与验收.md)
+- [9篇案例与11条按需模式](project-template/references/award-patterns/catalog.json)
+- [六类合成图与四类页面的可运行入口](gallery/README.md)
+- [六页合成页面PDF](gallery/pages/page-examples.pdf)（不是完整A题论文）
+- [本版源码与软件检查](audit/v0.2.2/source-verification.json)；真实模型、视觉和人工批准分别留证，不能由该检查器代签。
+
+以下保留稳定版0.2.1的安装与历史说明；本候选通过全部发布条件后再更新部署记录。
+
 # MCM A/B/C · DSH PTC 多 Agent v0.2.1
 
 当前维护版本为 **0.2.1**。历史工作目录名保留不变，实际版本以 bundle/package.json 为准。

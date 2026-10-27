@@ -1,0 +1,14 @@
+{
+  "mean_delay_saved_min": 3.4000000000000004,
+  "switch_parameter": 1.5555555555555556,
+  "selected_policy": "D",
+  "selected_cost": 23,
+  "selected_effect": 70,
+  "parameter_envelope_has_probability": false,
+  "model_PI_assumptions": {
+    "distribution": "Normal",
+    "mu": 6.0,
+    "sigma": 1.2,
+    "central_probability": 0.9
+  }
+}

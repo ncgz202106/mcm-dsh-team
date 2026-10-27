@@ -1,0 +1,172 @@
+{
+  "ok": true,
+  "errors": [],
+  "minimum_final_font_pt": 12.0,
+  "text_runs": [
+    {
+      "text": "10",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "15",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "20",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "25",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "30",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "35",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "40",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "Cost (units)",
+      "final_size_pt": 13.0
+    },
+    {
+      "text": "50",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "60",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "70",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "80",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "Effect (units)",
+      "final_size_pt": 13.0
+    },
+    {
+      "text": "A",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "B",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "C",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "D",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "E",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "F",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "G",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "(a) Discrete cost-effect choices",
+      "final_size_pt": 14.0
+    },
+    {
+      "text": "0",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "5",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "10",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "15",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "20",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "25",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "30",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "35",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "40",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "Cost (units)",
+      "final_size_pt": 13.0
+    },
+    {
+      "text": "A",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "B",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "C",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "D",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "E",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "F",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "G",
+      "final_size_pt": 12.0
+    },
+    {
+      "text": "Policy",
+      "final_size_pt": 13.0
+    },
+    {
+      "text": "(b) Feasibility under budget 25",
+      "final_size_pt": 14.0
+    }
+  ],
+  "visual_status": "pending",
+  "limitations": [
+    "Text-origin checks do not prove complete glyph/line/image containment.",
+    "No automated aesthetic or scientific correctness certification."
+  ]
+}

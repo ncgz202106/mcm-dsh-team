@@ -1,0 +1,60 @@
+{
+  "format_version": 1,
+  "id": "mcm-2025-c-2510006",
+  "year": 2025,
+  "problem": "C",
+  "team": "2510006",
+  "pdf_sha256": "e3e400df06406ecf01345732bb21b562e82c07dc8c94846ff1d0c0bf7b7ecd10",
+  "physical_page_count": 25,
+  "public_source": {
+    "url": "https://github.com/kaivisRed/2025-MCM-ICM-Problem-C",
+    "public_copy_byte_match_checked": false,
+    "acquisition_note": "User-provided study copy associated with the public source; exact public and official-submission byte identity has not been authenticated."
+  },
+  "award_evidence": {
+    "url": "https://www.contest.comap.org/undergraduate/contests/mcm/contests/2025/results/2025_MCM_Problem_C_Results.pdf",
+    "source_sha256": "1f3664699e54c602ea5709fe85ae43439762ec38e2d393457231aca3efcbacb2",
+    "physical_page": 2,
+    "status": "official_result_row_checked",
+    "designation": "Outstanding Winner",
+    "verification": "Exact control number, problem and Outstanding Winner designation were checked together in the official result table."
+  },
+  "observed_pages": {
+    "page_numbering": "physical PDF pages, counting Summary as page 1",
+    "rendered_and_viewed": [
+      14,
+      17,
+      23
+    ],
+    "text_context_reviewed": [
+      14,
+      17,
+      23
+    ]
+  },
+  "answer_chain": [
+    "区分国家与事件机制进行预测",
+    "把观测、预测及区间放在同一阅读路径",
+    "比较不同规模对象的相对不确定性",
+    "改变判断阈值并观察国家预测及结论变化"
+  ],
+  "good_practices": [
+    "p14尝试区分训练、测试和未来预测，并显示区间。",
+    "p23把阈值改变与不同对象的预测变化直接对应，比只说模型稳定更有信息。"
+  ],
+  "risks": [
+    "p17用相对波动解释不同规模对象，但必须定义区间或不确定性的确切量，不能混用CI与PI。",
+    "p23调整置信水平使区间变宽，不等于模型结构稳健；阈值变化和置信水平变化应分开解释。",
+    "公开文档后部存在重复结构/表格迹象，不应将其作为模板复制；计数预测的非整数区间与概率转换仍需专门核验。"
+  ],
+  "validation": {
+    "level": "source_observation_with_selected_page_visual_review",
+    "official_award_identity_verified": true,
+    "official_submission_bytes_authenticated": false,
+    "full_numeric_reproduction": false,
+    "exhaustive_page_visual_review": false,
+    "font_measurement_performed": false,
+    "case_author_is_observer": true,
+    "model_claims_independently_accepted": false
+  }
+}

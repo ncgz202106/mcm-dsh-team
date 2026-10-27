@@ -1,0 +1,103 @@
+{
+  "ok": true,
+  "errors": [],
+  "pdf_checks": [
+    {
+      "ok": true,
+      "errors": [],
+      "minimum_final_font_pt": 12.0,
+      "text_runs": [
+        {
+          "text": "1 Inputs",
+          "final_size_pt": 13.5
+        },
+        {
+          "text": "stock (units)",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "hourly grid",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "2 Dynamics",
+          "final_size_pt": 13.5
+        },
+        {
+          "text": "rate k (1/h)",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "step dt (h)",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "3 Interface",
+          "final_size_pt": 13.5
+        },
+        {
+          "text": "stock at time t",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "k in [0.15, 0.25]",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "4 Policy",
+          "final_size_pt": 13.5
+        },
+        {
+          "text": "cost and effect",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "same hourly grid",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "5 Compare",
+          "final_size_pt": 13.5
+        },
+        {
+          "text": "baseline and gain",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "budget 25",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "6 Action",
+          "final_size_pt": 13.5
+        },
+        {
+          "text": "discrete policy",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "validity conditions",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "Interfaces retain the same time grid.",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "States, units and parameter ranges remain explicit.",
+          "final_size_pt": 12.0
+        }
+      ],
+      "visual_status": "pending",
+      "limitations": [
+        "Text-origin checks do not prove complete glyph/line/image containment.",
+        "No automated aesthetic or scientific correctness certification."
+      ]
+    }
+  ],
+  "figure_id": "01-method-interface",
+  "visual_status": "pending",
+  "design_metadata_status": "valid",
+  "design_metadata_scope": "Structure and fixed references only; panel complementarity and aesthetics remain unassessed.",
+  "synthetic": true
+}

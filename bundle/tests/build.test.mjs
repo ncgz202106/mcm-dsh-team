@@ -66,14 +66,14 @@ test('build embeds source prompt bytes reproducibly and check detects prompt dri
     for (const role of ROLES) await writeFile(join(root, 'prompts', `${role.id}.md`), `# ${role.id}\nUse evidence, cite results.`);
     const first = await buildBundle(root);
     assert.equal(first.role_count, 12);
-    assert.equal(first.bundle_version, '0.2.1');
+    assert.equal(first.bundle_version, '0.2.2');
     const text = await readFile(join(root, 'cordis.patch.yml'), 'utf8');
     assert.ok(text.includes('name: "@deepseek-ai/dsh-agent-preset"'));
     assert.ok(text.includes('prefix: |-'));
     assert.ok(text.includes('Task rules.'));
     assert.ok(text.includes('quantitative-figure → nature-figure'));
     const provenance = JSON.parse(await readFile(join(root, 'provenance.json'), 'utf8'));
-    assert.equal(provenance.bundle_version, '0.2.1');
+    assert.equal(provenance.bundle_version, '0.2.2');
     assert.equal(provenance.role_count, 12);
     assert.equal(provenance.optional_roles['mcm-code-lead'].enabled_by_default, false);
     assert.match(provenance.skill_routing_sha256, /^[a-f0-9]{64}$/);

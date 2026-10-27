@@ -86,3 +86,23 @@ test('package version and generated metadata are tied to the routing source', as
   const expected = createHash('sha256').update(JSON.stringify(SKILL_ROUTING)).digest('hex');
   assert.match(expected, /^[a-f0-9]{64}$/);
 });
+
+test('award reference routing is selective, versioned and not an SDK permission', () => {
+  const library = SKILL_ROUTING.reference_library;
+  assert.equal(library.catalog, 'references/award-patterns/catalog.json');
+  assert.equal(library.minimum_patterns_per_task, 0);
+  assert.equal(library.maximum_patterns_per_task, 2);
+  assert.equal(library.fixed_task_inputs_required, true);
+  assert.equal(library.actual_readback_required, true);
+  assert.equal(library.retrieval_is_behavioral_not_a_permission, true);
+  for (const role of ROLES) {
+    const prompt = renderSkillRouting(role.id);
+    assert.match(prompt, /真实角色/);
+    assert.match(prompt, /无匹配则不加载/);
+    assert.match(prompt, /实际读取后才登记/);
+    assert.match(prompt, /path\/version\/sha256/);
+    assert.match(prompt, /不是科学正确、视觉通过或获奖概率证明/);
+  }
+  const declared = JSON.stringify(presetDeclarations(Object.fromEntries(ROLES.map((role) => [role.id, renderSkillRouting(role.id)]))));
+  assert.ok(!declared.includes('"reference_library":'), 'Behavioral reference policy must not leak into SDK fields');
+});

@@ -1,0 +1,10 @@
+{
+  "pdf": "<CANDIDATE>\\gallery\\figures\\03-reference-failure.pdf",
+  "auditable": true,
+  "minimum_required_pt": 12.0,
+  "minimum_found_pt": 12.0,
+  "text_run_count": 29,
+  "below_minimum_count": 0,
+  "below_minimum": [],
+  "warnings": []
+}

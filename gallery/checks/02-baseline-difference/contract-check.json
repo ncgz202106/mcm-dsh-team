@@ -1,0 +1,167 @@
+{
+  "ok": true,
+  "errors": [],
+  "pdf_checks": [
+    {
+      "ok": true,
+      "errors": [],
+      "minimum_final_font_pt": 12.0,
+      "text_runs": [
+        {
+          "text": "60",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "65",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "70",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "75",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "80",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "85",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "90",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "95",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "100",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "Load (arrivals/h)",
+          "final_size_pt": 13.0
+        },
+        {
+          "text": "4",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "6",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "8",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "10",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "12",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "Delay (min)",
+          "final_size_pt": 13.0
+        },
+        {
+          "text": "(a) Shared-load comparison",
+          "final_size_pt": 14.0
+        },
+        {
+          "text": "Baseline",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "Improved",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "60",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "65",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "70",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "75",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "80",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "85",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "90",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "95",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "100",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "Load (arrivals/h)",
+          "final_size_pt": 13.0
+        },
+        {
+          "text": "0",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "1",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "2",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "3",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "4",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "Delay saved (min)",
+          "final_size_pt": 13.0
+        },
+        {
+          "text": "(b) Paired gain over baseline",
+          "final_size_pt": 14.0
+        }
+      ],
+      "visual_status": "pending",
+      "limitations": [
+        "Text-origin checks do not prove complete glyph/line/image containment.",
+        "No automated aesthetic or scientific correctness certification."
+      ]
+    }
+  ],
+  "figure_id": "02-baseline-difference",
+  "visual_status": "pending",
+  "design_metadata_status": "valid",
+  "design_metadata_scope": "Structure and fixed references only; panel complementarity and aesthetics remain unassessed.",
+  "synthetic": true
+}

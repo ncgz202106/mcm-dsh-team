@@ -19,7 +19,7 @@ const route = (task_type, primary_skill, optional_skills, branch, limits) =>
 
 export const SKILL_ROUTING = {
   format_version: 1,
-  bundle_version: '0.2.1',
+  bundle_version: '0.2.2',
   routing_is_behavioral: true,
   defaults: {
     max_primary_skills_per_task: 1,
@@ -30,6 +30,15 @@ export const SKILL_ROUTING = {
     skill_may_spawn_without_parent_approval: false,
     skill_may_resume_paused_work: false,
     excluded_orchestrators_apply_to_indirect_routes: true
+  },
+  reference_library: {
+    catalog: 'references/award-patterns/catalog.json',
+    selection: 'Match the assigned argument purpose and actual role; read one or two relevant pattern files only when useful.',
+    minimum_patterns_per_task: 0,
+    maximum_patterns_per_task: 2,
+    fixed_task_inputs_required: true,
+    actual_readback_required: true,
+    retrieval_is_behavioral_not_a_permission: true
   },
   excluded_orchestrators: EXCLUDED_ORCHESTRATORS,
   restricted_skills: {
@@ -97,6 +106,8 @@ export function renderSkillRouting(roleId) {
     '## 本角色专项 Skill 路由（构建器内嵌）',
     ...lines,
     'MCM任务使用nature-figure、nature-writing、nature-polishing、nature-reviewer、nature-statistics时，先实际读取该Skill下references/mcm-adaptation.md。缺分支报告父层，不声称已经加载；不套用Nature栏目、三盲评或期刊门槛。',
+    '按需参考项目references/award-patterns/catalog.json：按当前论证目的与真实角色筛选，选择1–2条相关pattern，file相对catalog父目录；无匹配则不加载，不全量预载。实际读取后才登记模式ID与固定path/version/sha256，沿既有任务inputs与context pack传递；缺库或引用不全报告父层，不虚构读取。',
+    '获奖模式只提供有适用条件的设计启发，不是科学正确、视觉通过或获奖概率证明；不能替换用户章节顺序、项目样式、批准路线或非作者验收，也不因此增加工具权限。',
     '任务先选一个主 Skill，按需读取匹配 SKILL.md 及必要分支，核实实际工具/依赖；发现、读取、执行成功分别留证。以上名称不是已运行证明，缺技能/工具报告父层。',
     `本项目不自动启动全流程总控：${EXCLUDED_ORCHESTRATORS.join('、')}。nature-citation、nature-data、venue-templates 限于明确专项授权，不能取代当前任务与MCM框架。`,
     '被排除总控也不得由专项 Skill 间接唤起；读取必要引用时核对引用链，跳过冲突启动步骤并向父层报告。',

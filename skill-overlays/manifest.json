@@ -1,6 +1,6 @@
 {
   "format_version": 1,
-  "overlay_version": "0.2.1",
+  "overlay_version": "0.2.2",
   "scope": "MCM A/B/C task adaptation only; retain upstream journal and general workflows",
   "skills": ["nature-figure", "nature-writing", "nature-polishing", "nature-reviewer", "nature-statistics"],
   "reference": "references/mcm-adaptation.md",

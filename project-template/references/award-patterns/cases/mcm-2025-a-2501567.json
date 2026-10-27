@@ -1,0 +1,71 @@
+{
+  "format_version": 1,
+  "id": "mcm-2025-a-2501567",
+  "year": 2025,
+  "problem": "A",
+  "team": "2501567",
+  "pdf_sha256": "99f75a4412d9608cf56aa9689b93cb6408505ad0d86a6b24e0654ca3738d1811",
+  "physical_page_count": 25,
+  "public_source": {
+    "url": "https://raw.githubusercontent.com/Jackksonns/MCM-ICM-Outstanding-Papers/d29267cb9e993419749e6111981b30a44183fdf8/2025/A/2501567.pdf",
+    "public_copy_byte_match_checked": true,
+    "acquisition_note": "Publicly readable pinned mirror; the studied bytes were checked against this copy."
+  },
+  "award_evidence": {
+    "url": "https://www.contest.comap.org/undergraduate/contests/mcm/contests/2025/results/2025_MCM_Problem_A_Results.pdf",
+    "source_sha256": "168b323563cbf88963e837a4ed2b267f85017de3b0f8f93daee4f3855a29bb82",
+    "physical_page": 2,
+    "status": "official_result_row_checked",
+    "designation": "Outstanding Winner",
+    "verification": "Exact control number, problem and Outstanding Winner designation were checked together in the official result table."
+  },
+  "observed_pages": {
+    "page_numbering": "physical PDF pages, counting Summary as page 1",
+    "rendered_and_viewed": [
+      1,
+      2,
+      7,
+      13,
+      17,
+      22
+    ],
+    "text_context_reviewed": []
+  },
+  "answer_chain": [
+    "由磨损几何与材料参数建立正向物理模型",
+    "用方向与步点分布解释表面磨损",
+    "通过混合分布复杂度选择推断并行使用模式",
+    "把模拟与耐久、修补和材料解释连接起来"
+  ],
+  "good_practices": [
+    "p7将经典磨损公式、场景中的物理意义、扩展关系和参数表放在一起。",
+    "p13给出随机踩踏假设及与磨损量的接口，p17再展示拟合形状，方法与可观察对象相连。"
+  ],
+  "risks": [
+    "公开副本为图像型PDF，文字提取为空；不能据此声称已做PDF文本字号/字体测量。",
+    "p22列出的应力与弹性模量涉及kPa/GPa/MPa混算：按所列数值计算σ²/(2E)约为1.9608e-8 MPa，与页面1.96e-3 MPa不符。此为单位与算术点检，不是全文复现。",
+    "反演人数、时间和材料系数可能存在辨识混淆；拟合一个磨损表面不能单独证实历史使用解释。"
+  ],
+  "validation": {
+    "level": "source_observation_with_selected_page_visual_review",
+    "official_award_identity_verified": true,
+    "official_submission_bytes_authenticated": false,
+    "full_numeric_reproduction": false,
+    "exhaustive_page_visual_review": false,
+    "font_measurement_performed": false,
+    "case_author_is_observer": true,
+    "model_claims_independently_accepted": false,
+    "arithmetic_spotcheck": {
+      "kind": "unit_and_arithmetic_check",
+      "physical_page": 22,
+      "formula": "sigma^2/(2E)",
+      "inputs": {
+        "sigma_Pa": 34300,
+        "E_Pa": 30000000000
+      },
+      "recomputed_MPa": 1.9608166666666667e-08,
+      "page_reported_MPa": 0.00196,
+      "full_model_reproduced": false
+    }
+  }
+}

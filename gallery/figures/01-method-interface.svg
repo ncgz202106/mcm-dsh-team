@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="165.1mm" height="95.25mm" viewBox="0 0 624 360" data-generator="mcm-gallery-original-python" data-style-id="1" data-quality-profile="standard">
+<style>text{font-family:DejaVu Sans;fill:#667085}</style>
+<rect width="624" height="360" fill="white" data-graph-role="decoration"/>
+<rect id="n1" data-node-id="n1" data-graph-role="node" x="16" y="25" width="160" height="78" rx="7" fill="white" stroke="#2463A6" stroke-width="1.5"/>
+<text x="28" y="49" font-size="18" font-weight="bold">1  Inputs</text>
+<text x="28" y="71" font-size="16">stock (units)</text>
+<text x="28" y="91" font-size="16">hourly grid</text>
+<rect id="n2" data-node-id="n2" data-graph-role="node" x="232" y="25" width="160" height="78" rx="7" fill="white" stroke="#2463A6" stroke-width="1.5"/>
+<text x="244" y="49" font-size="18" font-weight="bold">2  Dynamics</text>
+<text x="244" y="71" font-size="16">rate k (1/h)</text>
+<text x="244" y="91" font-size="16">step dt (h)</text>
+<rect id="n3" data-node-id="n3" data-graph-role="node" x="448" y="25" width="160" height="78" rx="7" fill="white" stroke="#2463A6" stroke-width="1.5"/>
+<text x="460" y="49" font-size="18" font-weight="bold">3  Interface</text>
+<text x="460" y="71" font-size="16">stock at time t</text>
+<text x="460" y="91" font-size="16">k in [0.15, 0.25]</text>
+<rect id="n4" data-node-id="n4" data-graph-role="node" x="448" y="205" width="160" height="78" rx="7" fill="white" stroke="#2463A6" stroke-width="1.5"/>
+<text x="460" y="229" font-size="18" font-weight="bold">4  Policy</text>
+<text x="460" y="251" font-size="16">cost and effect</text>
+<text x="460" y="271" font-size="16">same hourly grid</text>
+<rect id="n5" data-node-id="n5" data-graph-role="node" x="232" y="205" width="160" height="78" rx="7" fill="white" stroke="#2463A6" stroke-width="1.5"/>
+<text x="244" y="229" font-size="18" font-weight="bold">5  Compare</text>
+<text x="244" y="251" font-size="16">baseline and gain</text>
+<text x="244" y="271" font-size="16">budget 25</text>
+<rect id="n6" data-node-id="n6" data-graph-role="node" x="16" y="205" width="160" height="78" rx="7" fill="white" stroke="#2463A6" stroke-width="1.5"/>
+<text x="28" y="229" font-size="18" font-weight="bold">6  Action</text>
+<text x="28" y="251" font-size="16">discrete policy</text>
+<text x="28" y="271" font-size="16">validity conditions</text>
+<path id="e1" data-graph-role="edge" data-source="n1" data-target="n2" d="M176 64 H224" fill="none" stroke="#2463A6" stroke-width="2"/>
+<polygon id="e1-head" data-graph-role="decoration" data-owner="e1" points="224,64 215,59 215,69" fill="#2463A6"/>
+<path id="e2" data-graph-role="edge" data-source="n2" data-target="n3" d="M392 64 H440" fill="none" stroke="#2463A6" stroke-width="2"/>
+<polygon id="e2-head" data-graph-role="decoration" data-owner="e2" points="440,64 431,59 431,69" fill="#2463A6"/>
+<path id="e3" data-graph-role="edge" data-source="n3" data-target="n4" d="M528 103 V197" fill="none" stroke="#2463A6" stroke-width="2"/>
+<polygon id="e3-head" data-graph-role="decoration" data-owner="e3" points="528,197 523,188 533,188" fill="#2463A6"/>
+<path id="e4" data-graph-role="edge" data-source="n4" data-target="n5" d="M448 244 H400" fill="none" stroke="#2463A6" stroke-width="2"/>
+<polygon id="e4-head" data-graph-role="decoration" data-owner="e4" points="400,244 409,239 409,249" fill="#2463A6"/>
+<path id="e5" data-graph-role="edge" data-source="n5" data-target="n6" d="M232 244 H184" fill="none" stroke="#2463A6" stroke-width="2"/>
+<polygon id="e5-head" data-graph-role="decoration" data-owner="e5" points="184,244 193,239 193,249" fill="#2463A6"/>
+<text x="16" y="324" font-size="16">Interfaces retain the same time grid.</text>
+<text x="16" y="346" font-size="16">States, units and parameter ranges remain explicit.</text>
+</svg>

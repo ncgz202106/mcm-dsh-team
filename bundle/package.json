@@ -1,6 +1,6 @@
 {
   "name": "dsh-mcm-team",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "MCM A/B/C PTC team: 12 presets, optional code lead, task skill routing, visual evidence and checkpoint coordination for DSH 0.2.1-rc.2.",
   "private": true,
   "type": "module",

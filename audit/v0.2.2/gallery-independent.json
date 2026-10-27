@@ -1,0 +1,452 @@
+{
+  "format_version": 1,
+  "review_id": "GALLERY-VIS-001",
+  "reviewer_agent_id": "/root/plan_baseline",
+  "reviewed_at_utc": "2026-10-26 16:45:38 UTC",
+  "reviewer_is_gallery_author": false,
+  "author_false": true,
+  "reviewer_authored_related_tooling": [
+    "project-template/scripts/figure_check.py optional metadata validation",
+    "tools/verify-v022.py",
+    "bundle and Skill routing; no gallery source/data/figures/page composition authored"
+  ],
+  "scope": "Non-author visual inspection of six synthetic figure PNGs, all six corresponding independently rendered PDFs, and six final rendered page PNGs; recheck of repaired PDF output and the complete new page PDF.",
+  "status": "passed",
+  "verdict": "independent_visual_pass_for_current_synthetic_gallery",
+  "current_manifest_ref": {
+    "path": "gallery/manifest.json",
+    "sha256": "6011e8d07678e8026abae788927ad4e9888b08ccef3e014984a7a0d90b23226c"
+  },
+  "current_page_pdf_ref": {
+    "path": "gallery/pages/page-examples.pdf",
+    "sha256": "abcf1779b432593a29df27f565f5813cea607cee369107f6bd06818810b8e0ed"
+  },
+  "all_six_figure_pngs_actually_opened": true,
+  "all_six_figure_pdfs_independently_rendered_and_viewed_in_initial_round": true,
+  "all_six_final_page_pngs_actually_opened": true,
+  "repaired_method_png_pdf_and_final_page_actually_reopened": true,
+  "pdf_recheck_method": "PyMuPDF independent in-memory rasterization: each current page at matrix 1.4 was pixel-identical to the opened current page PNG; current figure PDFs 2–6 at matrix 2 were pixel-identical to their initially opened PDF renders. The changed method PDF was freshly rendered and actually viewed again.",
+  "blocking_issues_open": [],
+  "issues": [
+    {
+      "issue_id": "GALLERY-VIS-001-01",
+      "severity": "major",
+      "blocking": true,
+      "status": "closed_after_non_author_recheck",
+      "initial_manifest_sha256": "79557d0ccb6b2837b97cce5e83ae2733cbcf6e02f3b44a2d39a6a7470a276620",
+      "initial_page_pdf_sha256": "e625e1fe3300834ca80072f0c94acda95b843e8c156ab54412f57328042bba03",
+      "location": [
+        "gallery/figures/01-method-interface.pdf",
+        "gallery/pages/page-01.png"
+      ],
+      "observed": "The initial PNG contained five arrowheads, but independent actual PDF rendering and final page 1 lost all five arrowheads, leaving undirected line segments while the caption still described arrows.",
+      "impact": "Cross-format diagram direction semantics were inconsistent; successful mechanical checks did not detect it.",
+      "owner_role": "mcm-figure / gallery author",
+      "acceptance": "All five correctly oriented arrowheads must be present in the vector PDF, PNG and final PDF page without clipping or overlap; rebuild exact artifact/contract/page bindings and independently recheck.",
+      "fix_recheck": "Freshly opened current method PNG, independently rerendered method PDF and final page 1 show all five correctly oriented heads. Complete current page PDF was independently rerendered; pages 2–6 and other figure content show no pixel drift.",
+      "verified_closed": true
+    }
+  ],
+  "figures": [
+    {
+      "id": "01-method-interface",
+      "contract_ref": {
+        "path": "gallery/contracts/01-method-interface.json",
+        "sha256": "efaaf2944d4a64cc2d3a2817a6bf8154eab853cbf67171940904dfdd0aec83cb"
+      },
+      "old_contract_sha256": "02b76532e9e3e6ae5285bed101343cfbe9b35fbb5c4cac8109aa06b1e2081153",
+      "png_ref": {
+        "path": "gallery/figures/01-method-interface.png",
+        "sha256": "8e89d742e448b34cb193dec38dcb980303fb137d339d8ed63342288d14e95588"
+      },
+      "old_png_sha256": "48834f07aa764e4e116071391b5f60e2bdf901167129b23193cc9622565cc253",
+      "pdf_ref": {
+        "path": "gallery/figures/01-method-interface.pdf",
+        "sha256": "baacc2241f41bc713831a1d663b39184f45d976915592acd7b83e0cc3c9f4c68"
+      },
+      "old_pdf_sha256": "60f14fdb4edded9b139a11fb748518861e4ea0ac0a02fbfafc0db4f4011b2f4d",
+      "pdf_render_pixel_identical_to_initial": false,
+      "minimum_native_pdf_span_pt": 12,
+      "final_size_mm": {
+        "width": 165.1,
+        "height": 95.25
+      },
+      "native_pdf_size_pt": [
+        468,
+        270
+      ],
+      "png_actually_viewed": true,
+      "contract_read": true,
+      "initial_pdf_render_actually_viewed": true,
+      "current_png_same_bytes_as_initial": false,
+      "changed_current_pdf_freshly_rendered_and_viewed": true,
+      "checks": {
+        "no_clipping": true,
+        "no_overlap": true,
+        "readable_labels": true,
+        "units_and_comparison_clear": true,
+        "caption_matches_visible_evidence": true,
+        "cross_format_graphic_semantics_consistent": true
+      },
+      "visual_status": "passed",
+      "observations": "修复后五个箭头头部在PNG、独立新PDF渲染及入稿页1均可见；1→2→3→4→5→6方向明确，文字、盒子与箭头互不遮挡。状态、小时网格与参数范围和正文/单位表一致。"
+    },
+    {
+      "id": "02-baseline-difference",
+      "contract_ref": {
+        "path": "gallery/contracts/02-baseline-difference.json",
+        "sha256": "7ff1e43e58bdd5c940c29e1b80978a166ff32094de65cc39ca6d83fef70df86f"
+      },
+      "old_contract_sha256": "2d34a342358ce093b3f48929aa585fd29ad44e63750b170a53353fc11cc4e57f",
+      "png_ref": {
+        "path": "gallery/figures/02-baseline-difference.png",
+        "sha256": "b2ebd9732ebd551d9156d3343af0f54b0a2c844b0dbbfa6d79d659487f9d3d8e"
+      },
+      "old_png_sha256": "b2ebd9732ebd551d9156d3343af0f54b0a2c844b0dbbfa6d79d659487f9d3d8e",
+      "pdf_ref": {
+        "path": "gallery/figures/02-baseline-difference.pdf",
+        "sha256": "dd0e857a3ba83d4e3e3094edecb208e56a47c041d878955506500290092e9141"
+      },
+      "old_pdf_sha256": "ec80c040179e5e70020a25e29a16556e59aab8fc6cb029bf2345efea9b6bfa23",
+      "pdf_render_pixel_identical_to_initial": true,
+      "minimum_native_pdf_span_pt": 12,
+      "final_size_mm": {
+        "width": 165.1,
+        "height": 165.1
+      },
+      "native_pdf_size_pt": [
+        468,
+        468
+      ],
+      "png_actually_viewed": true,
+      "contract_read": true,
+      "initial_pdf_render_actually_viewed": true,
+      "current_png_same_bytes_as_initial": true,
+      "changed_current_pdf_freshly_rendered_and_viewed": false,
+      "checks": {
+        "no_clipping": true,
+        "no_overlap": true,
+        "readable_labels": true,
+        "units_and_comparison_clear": true,
+        "caption_matches_visible_evidence": true,
+        "cross_format_graphic_semantics_consistent": true
+      },
+      "visual_status": "passed",
+      "observations": "九个共同负载下两策略对照与绝对差值分面职责互补；坐标和单位清楚，差值图含零基线，图例不遮挡曲线，入稿图注明确是确定性合成场景。"
+    },
+    {
+      "id": "03-reference-failure",
+      "contract_ref": {
+        "path": "gallery/contracts/03-reference-failure.json",
+        "sha256": "b9acc5c8304889fcc27abcae9e01b9cd39064a20f6962a63631115ebb99a0ced"
+      },
+      "old_contract_sha256": "1c42b27c6cd24c401a5f63c3de278ee925ad26493d434999eed5644e21377943",
+      "png_ref": {
+        "path": "gallery/figures/03-reference-failure.png",
+        "sha256": "327b24a7271db98795c8136424eeb1c0032f3718712cc4a32b037b38e1f57ddf"
+      },
+      "old_png_sha256": "327b24a7271db98795c8136424eeb1c0032f3718712cc4a32b037b38e1f57ddf",
+      "pdf_ref": {
+        "path": "gallery/figures/03-reference-failure.pdf",
+        "sha256": "97b67af7a8eac8aaa47608f63fd12ed3b4feee98c35b523d0fdcf3e5b911c5f4"
+      },
+      "old_pdf_sha256": "5ddd467da9ab2d33979bcfa0c032891f657fb5fd8090deafae2fe07686921477",
+      "pdf_render_pixel_identical_to_initial": true,
+      "minimum_native_pdf_span_pt": 12,
+      "final_size_mm": {
+        "width": 165.1,
+        "height": 165.1
+      },
+      "native_pdf_size_pt": [
+        468,
+        468
+      ],
+      "png_actually_viewed": true,
+      "contract_read": true,
+      "initial_pdf_render_actually_viewed": true,
+      "current_png_same_bytes_as_initial": true,
+      "changed_current_pdf_freshly_rendered_and_viewed": false,
+      "checks": {
+        "no_clipping": true,
+        "no_overlap": true,
+        "readable_labels": true,
+        "units_and_comparison_clear": true,
+        "caption_matches_visible_evidence": true,
+        "cross_format_graphic_semantics_consistent": true
+      },
+      "visual_status": "passed",
+      "observations": "轨迹、负向有符号误差、±5容差和18小时后的浅色失败窗口可辨；图注明确它不是置信区间，正文没有把已构造失败案例写成现实泛化证据。"
+    },
+    {
+      "id": "04-sensitivity-decision",
+      "contract_ref": {
+        "path": "gallery/contracts/04-sensitivity-decision.json",
+        "sha256": "92542a94f34f325de1cf1d55cf39713f572aa843c4db06d38908fbf1c8371cbb"
+      },
+      "old_contract_sha256": "d803306506c7909147d91919c69d39d48fc02b1435bd900290822bd1da98ff44",
+      "png_ref": {
+        "path": "gallery/figures/04-sensitivity-decision.png",
+        "sha256": "d4652096210e2160e912ffc1e78303b88ffc2c304960f8a1ba74800d8b70d186"
+      },
+      "old_png_sha256": "d4652096210e2160e912ffc1e78303b88ffc2c304960f8a1ba74800d8b70d186",
+      "pdf_ref": {
+        "path": "gallery/figures/04-sensitivity-decision.pdf",
+        "sha256": "8f4da805e2f10acf202ef64c6de8fcd076eb52cd788330840c1ef3db0d49b7e2"
+      },
+      "old_pdf_sha256": "76410c61671daf1a3949d9704305c590a6d7cde2d1afee7b98833767329fb01d",
+      "pdf_render_pixel_identical_to_initial": true,
+      "minimum_native_pdf_span_pt": 12,
+      "final_size_mm": {
+        "width": 165.1,
+        "height": 165.1
+      },
+      "native_pdf_size_pt": [
+        468,
+        468
+      ],
+      "png_actually_viewed": true,
+      "contract_read": true,
+      "initial_pdf_render_actually_viewed": true,
+      "current_png_same_bytes_as_initial": true,
+      "changed_current_pdf_freshly_rendered_and_viewed": false,
+      "checks": {
+        "no_clipping": true,
+        "no_overlap": true,
+        "readable_labels": true,
+        "units_and_comparison_clear": true,
+        "caption_matches_visible_evidence": true,
+        "cross_format_graphic_semantics_consistent": true
+      },
+      "visual_status": "passed",
+      "observations": "平滑成本与A/B分类动作分面保持相同参数轴；14/9解析虚线与81点扫参阶梯的细小偏移可辨，标题使用near且图注声明网格与解析交点，不把该采样显示偏移判为数值失败。"
+    },
+    {
+      "id": "05-uncertainty-semantics",
+      "contract_ref": {
+        "path": "gallery/contracts/05-uncertainty-semantics.json",
+        "sha256": "a218e060232f76a944c3426c4bf9a540bf4efac4f00afeae09ff9ce5b27657b3"
+      },
+      "old_contract_sha256": "195177ecfbfe78b2b5884b815f7cc6d2201e7c4516556b3b08711a818f229c7c",
+      "png_ref": {
+        "path": "gallery/figures/05-uncertainty-semantics.png",
+        "sha256": "0dd471de1e97103c181ed1574907b0f51a4beb5a0349f8c42944cbfdb5c2ccc9"
+      },
+      "old_png_sha256": "0dd471de1e97103c181ed1574907b0f51a4beb5a0349f8c42944cbfdb5c2ccc9",
+      "pdf_ref": {
+        "path": "gallery/figures/05-uncertainty-semantics.pdf",
+        "sha256": "349cb0b5e313b5ddc5daf323fe3bacc61565b5def9930079fb70bdc017680776"
+      },
+      "old_pdf_sha256": "db41a4819864b46c57d81e007f497cefcfc57f7ee18d65643e4f89d6fefed4ca",
+      "pdf_render_pixel_identical_to_initial": true,
+      "minimum_native_pdf_span_pt": 12,
+      "final_size_mm": {
+        "width": 165.1,
+        "height": 165.1
+      },
+      "native_pdf_size_pt": [
+        468,
+        468
+      ],
+      "png_actually_viewed": true,
+      "contract_read": true,
+      "initial_pdf_render_actually_viewed": true,
+      "current_png_same_bytes_as_initial": true,
+      "changed_current_pdf_freshly_rendered_and_viewed": false,
+      "checks": {
+        "no_clipping": true,
+        "no_overlap": true,
+        "readable_labels": true,
+        "units_and_comparison_clear": true,
+        "caption_matches_visible_evidence": true,
+        "cross_format_graphic_semantics_consistent": true
+      },
+      "visual_status": "passed",
+      "observations": "确定性参数包络与假定Normal响应的条件90%预测区间分开命名；单位和图例清楚，正文/图注声明不等于均值置信区间或经验覆盖验证。"
+    },
+    {
+      "id": "06-cost-effect",
+      "contract_ref": {
+        "path": "gallery/contracts/06-cost-effect.json",
+        "sha256": "487803fad1bea2dfa284b17a43d0810282d5d8e3e7a2f891d005a65fcb63585b"
+      },
+      "old_contract_sha256": "0e1ce501411eca03e0b992b288fe13891da41b60fb7dc928b9e65e7a0e135a30",
+      "png_ref": {
+        "path": "gallery/figures/06-cost-effect.png",
+        "sha256": "7de053013c0a5724842d7f602dc2e1c02e45e7038c11f1913f100513651c8f3c"
+      },
+      "old_png_sha256": "7de053013c0a5724842d7f602dc2e1c02e45e7038c11f1913f100513651c8f3c",
+      "pdf_ref": {
+        "path": "gallery/figures/06-cost-effect.pdf",
+        "sha256": "47a3f9d030302d784a474740f2d49548b166e8f4fdd8ee2717038fd6828c0892"
+      },
+      "old_pdf_sha256": "5f6476c3d216ffc6db453a74aa944ed358f2406e37840cdd408ea71c57df4b72",
+      "pdf_render_pixel_identical_to_initial": true,
+      "minimum_native_pdf_span_pt": 12,
+      "final_size_mm": {
+        "width": 165.1,
+        "height": 165.1
+      },
+      "native_pdf_size_pt": [
+        468,
+        468
+      ],
+      "png_actually_viewed": true,
+      "contract_read": true,
+      "initial_pdf_render_actually_viewed": true,
+      "current_png_same_bytes_as_initial": true,
+      "changed_current_pdf_freshly_rendered_and_viewed": false,
+      "checks": {
+        "no_clipping": true,
+        "no_overlap": true,
+        "readable_labels": true,
+        "units_and_comparison_clear": true,
+        "caption_matches_visible_evidence": true,
+        "cross_format_graphic_semantics_consistent": true
+      },
+      "visual_status": "passed",
+      "observations": "离散点、受支配G、橙色星标D及预算25的条形比较相互支持；不连线暗示插值行动，正文把D建议限定于有限候选、目标和预算。"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "path": "gallery/pages/page-01.png",
+      "sha256": "e8a9bf03a372eb0cd168abba3ba6dab58b8eade06b28bd466f42399157645a1e",
+      "old_png_sha256": "6349446bc381928edfeb80ddca786edb81f80329f055d5aac73ab330d4217828",
+      "independent_current_pdf_render_matches_opened_png": true,
+      "current_pdf_render_pixel_identical_to_initial": false,
+      "actually_viewed": true,
+      "reopened_after_repair": true,
+      "checks": {
+        "no_clipping": true,
+        "no_overlap": true,
+        "readable_text": true,
+        "readable_figures": true,
+        "consistent_headers": true,
+        "readable_equations": true,
+        "figure_font_at_final_size": true
+      },
+      "status": "passed",
+      "notes": "Equation (1), restored directed diagram, caption and three-line units table are readable and adjacent."
+    },
+    {
+      "page": 2,
+      "path": "gallery/pages/page-02.png",
+      "sha256": "61ef524cdec07d241336c88ab09c7e6a23fc76cd0dfabf415fc1d7396a7b973a",
+      "old_png_sha256": "61ef524cdec07d241336c88ab09c7e6a23fc76cd0dfabf415fc1d7396a7b973a",
+      "independent_current_pdf_render_matches_opened_png": true,
+      "current_pdf_render_pixel_identical_to_initial": true,
+      "actually_viewed": true,
+      "reopened_after_repair": false,
+      "checks": {
+        "no_clipping": true,
+        "no_overlap": true,
+        "readable_text": true,
+        "readable_figures": true,
+        "consistent_headers": true,
+        "readable_equations": true,
+        "figure_font_at_final_size": true
+      },
+      "status": "passed",
+      "notes": "Current complete PDF rasterization matches the actually viewed PNG; unchanged from initially inspected page."
+    },
+    {
+      "page": 3,
+      "path": "gallery/pages/page-03.png",
+      "sha256": "6069cc3260ac1d9051c02a3ec38a2240a86e85d04989574d14451cc5b9334ce2",
+      "old_png_sha256": "6069cc3260ac1d9051c02a3ec38a2240a86e85d04989574d14451cc5b9334ce2",
+      "independent_current_pdf_render_matches_opened_png": true,
+      "current_pdf_render_pixel_identical_to_initial": true,
+      "actually_viewed": true,
+      "reopened_after_repair": false,
+      "checks": {
+        "no_clipping": true,
+        "no_overlap": true,
+        "readable_text": true,
+        "readable_figures": true,
+        "consistent_headers": true,
+        "readable_equations": true,
+        "figure_font_at_final_size": true
+      },
+      "status": "passed",
+      "notes": "Current complete PDF rasterization matches the actually viewed PNG; unchanged from initially inspected page."
+    },
+    {
+      "page": 4,
+      "path": "gallery/pages/page-04.png",
+      "sha256": "2670882d77fc528f21b5c30aaf250d3a1578bc5cf6c9c5867a6d2d876e1b27e9",
+      "old_png_sha256": "2670882d77fc528f21b5c30aaf250d3a1578bc5cf6c9c5867a6d2d876e1b27e9",
+      "independent_current_pdf_render_matches_opened_png": true,
+      "current_pdf_render_pixel_identical_to_initial": true,
+      "actually_viewed": true,
+      "reopened_after_repair": false,
+      "checks": {
+        "no_clipping": true,
+        "no_overlap": true,
+        "readable_text": true,
+        "readable_figures": true,
+        "consistent_headers": true,
+        "readable_equations": true,
+        "figure_font_at_final_size": true
+      },
+      "status": "passed",
+      "notes": "Current complete PDF rasterization matches the actually viewed PNG; unchanged from initially inspected page."
+    },
+    {
+      "page": 5,
+      "path": "gallery/pages/page-05.png",
+      "sha256": "95f108b9c15b035cb8dada83ab2df83e107cd18ca44befc20afe0c69ab75fb7b",
+      "old_png_sha256": "95f108b9c15b035cb8dada83ab2df83e107cd18ca44befc20afe0c69ab75fb7b",
+      "independent_current_pdf_render_matches_opened_png": true,
+      "current_pdf_render_pixel_identical_to_initial": true,
+      "actually_viewed": true,
+      "reopened_after_repair": false,
+      "checks": {
+        "no_clipping": true,
+        "no_overlap": true,
+        "readable_text": true,
+        "readable_figures": true,
+        "consistent_headers": true,
+        "readable_equations": true,
+        "figure_font_at_final_size": true
+      },
+      "status": "passed",
+      "notes": "Current complete PDF rasterization matches the actually viewed PNG; unchanged from initially inspected page."
+    },
+    {
+      "page": 6,
+      "path": "gallery/pages/page-06.png",
+      "sha256": "ad564929096d9cd111c59d1194285ec23290c83e705164c2c1c85c488328b52b",
+      "old_png_sha256": "ad564929096d9cd111c59d1194285ec23290c83e705164c2c1c85c488328b52b",
+      "independent_current_pdf_render_matches_opened_png": true,
+      "current_pdf_render_pixel_identical_to_initial": true,
+      "actually_viewed": true,
+      "reopened_after_repair": false,
+      "checks": {
+        "no_clipping": true,
+        "no_overlap": true,
+        "readable_text": true,
+        "readable_figures": true,
+        "consistent_headers": true,
+        "readable_equations": true,
+        "figure_font_at_final_size": true
+      },
+      "status": "passed",
+      "notes": "Current complete PDF rasterization matches the actually viewed PNG; unchanged from initially inspected page."
+    }
+  ],
+  "overall_layout_observation": "统一白底、少量语义色、线型/标记冗余编码与对齐面板；段落引出问题，图后图注说明比较和边界。页眉、编号、正文/数学字体、留白节奏一致，未见裁切、遮挡、黑块、空白漏页或不可读的关键文字。六页是四类页面职责的小样，并非要求真实论文每图独占一页。",
+  "sampling_caution_04": "The 81-point sweep has 0.025 parameter spacing; its post-step display changes at the next sampled value, whereas the dotted 14/9 line is analytical. This review accepts the stated near-threshold/finite-grid presentation and does not certify it as an independently estimated threshold.",
+  "human_approval_created": false,
+  "scientific_acceptance_created": false,
+  "full_numeric_reproduction": false,
+  "external_model_behavior_reviewed": false,
+  "limits": [
+    "This is a synthetic gallery and six page examples, not a full current competition paper or an O-award prediction.",
+    "Visual judgment follows actual opened images and independent PDF render identity checks; native span sizes were independently read as 12pt minimum in the authored-width figure PDFs, not inferred from body-text statistics.",
+    "Data and model equations were not independently reproduced in full; only visible comparison definitions, units, interval names and claim strength were reviewed.",
+    "Only this review JSON was written. Gallery source, outputs, contracts and approval records were not changed by the reviewer."
+  ],
+  "local_source_sha256": "fe462b63a3afefbc6df5c4ac112decdbfb0d46077b48722310170de77ebc5110",
+  "portable_derivation": "Personal paths and isolated session identifiers anonymized; original local record unchanged."
+}

@@ -1,0 +1,166 @@
+{
+  "format_version": 2,
+  "_template_only": false,
+  "figure_id": "02-baseline-difference",
+  "version": 1,
+  "owner_role": "mcm-figure",
+  "claim_id": "SYNTHETIC-02-baseline-difference",
+  "argument_sentence": "The synthetic improved policy reduces delay at every shared load, with gains increasing with load.",
+  "figure_type": "quantitative",
+  "figure_level_question": "How much delay is saved relative to the baseline?",
+  "data_inputs": [
+    {
+      "path": "data/comparison.csv",
+      "version": 1,
+      "sha256": "f3d4007d239c4510562679f25d5a5c4a3d920cd859c2e61efd81a438b66300dd"
+    },
+    {
+      "path": "config/figure-style.json",
+      "version": 1,
+      "sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff"
+    }
+  ],
+  "columns_and_units": [
+    "load_per_hour",
+    "baseline_delay_min",
+    "improved_delay_min",
+    "delay_saved_min"
+  ],
+  "comparison_groups": [],
+  "transformation": "All generated rows retained; the paired gain is baseline minus improved; other constructions are explicitly defined in source.",
+  "uncertainty_definition": "None: deterministic scenario comparison.",
+  "sample_or_scenario_count": {
+    "comparison.csv": 9
+  },
+  "size_mm": {
+    "width": 165.1,
+    "height": 165.1
+  },
+  "style_profile": "mcm-clear-science-v2",
+  "style_config_ref": {
+    "path": "config/figure-style.json",
+    "version": 1,
+    "sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff"
+  },
+  "script_path": "source/figure-gallery.py",
+  "script_sha256": "a84411e2a90b161bf28871f917d5422016158d6371191db76701a652d8290270",
+  "generation_command": "python tools/figure-gallery.py --output gallery --skill-root <nature-figure> --diagram-skill-root <fireworks-tech-graph> --compile-pages",
+  "caption_english": "Synthetic paired comparison at nine identical hourly loads. Panel a shows delay for both policies; panel b shows baseline minus improved delay at each load. Every generated scenario is retained. The curves are deterministic illustrative formulas, not estimates from observed service data.",
+  "synthetic": true,
+  "backend": "python",
+  "minimum_final_glyph_pt": 12,
+  "panel_plan": [
+    {
+      "panel": "a",
+      "question": "Do both policies use the same loads?",
+      "evidence_role": "paired baseline comparison",
+      "input_fields": [
+        "load_per_hour",
+        "baseline_delay_min",
+        "improved_delay_min"
+      ],
+      "main_takeaway": "The improved curve has lower delay."
+    },
+    {
+      "panel": "b",
+      "question": "How large is the paired gain?",
+      "evidence_role": "absolute difference",
+      "input_fields": [
+        "load_per_hour",
+        "delay_saved_min"
+      ],
+      "main_takeaway": "The delay gain grows with load."
+    }
+  ],
+  "skill_read": [
+    {
+      "skill": "nature-figure",
+      "document": "SKILL.md",
+      "sha256": "1ac00452bef2e097def116beb1fafacb5f03f0108b87b27e667d281a3cf61226"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "manifest.yaml",
+      "sha256": "1ed568f70f6564216c7ca4b5e9f70e3aeba1ae29add8ffd6c8cb7c2694d43693"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "references/mcm-adaptation.md",
+      "sha256": "cbbe734a8fb6f48ad680c9c8ae4b86fcdb77153986d55f4a328d6028e8fdd8c0"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "static/core/contract.md",
+      "sha256": "a2b6523a48192cf1dff0d194264c5662c832f4d1da6e9e4763ccd98cc0664d4c"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "static/core/stance.md",
+      "sha256": "8db765b1123d48d6655b612b14620b111e7e584ece1130750b17f237b68391b3"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "static/fragments/backend/python.md",
+      "sha256": "1d4809e4ec4ed2d40995d74828732012a6a72c941dfec341745a3118e9312865"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "references/multipanel-evidence-architecture.md",
+      "sha256": "79ca617cc05088d6fcfb065140d0ee036eb849738bb79306964eb9aa3a4ed274"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "references/qa-contract.md",
+      "sha256": "ba97e18a44235bb00bb176a3ebe2774ba5bd779e65f9b89827b942b5cd97e5d7"
+    }
+  ],
+  "skill_executed": [
+    {
+      "tool": "audit_pdf_text.py",
+      "status": "passed",
+      "exit_code": 0,
+      "output_refs": [
+        {
+          "path": "checks/02-baseline-difference/pdf-text.json",
+          "version": 1,
+          "sha256": "1d70ba7478326b2895ff8e8674c814172a299626ed1f895c06e1a4c199b583ba"
+        }
+      ]
+    },
+    {
+      "tool": "audit_figure_collisions.py",
+      "status": "passed",
+      "exit_code": 0,
+      "output_refs": [
+        {
+          "path": "checks/02-baseline-difference/collisions.json",
+          "version": 1,
+          "sha256": "0c1e8974b5d55d1e4d310e0a15a6cb53e331eb8badedce16a35138dd036e88ec"
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "path": "figures/02-baseline-difference.pdf",
+      "version": 1,
+      "sha256": "dd0e857a3ba83d4e3e3094edecb208e56a47c041d878955506500290092e9141"
+    },
+    {
+      "path": "figures/02-baseline-difference.svg",
+      "version": 1,
+      "sha256": "e79ddaf6d5d6219072222f1bdee9b1ee8eb360b9bf1086f990259cde746c7880"
+    },
+    {
+      "path": "figures/02-baseline-difference.png",
+      "version": 1,
+      "sha256": "b2ebd9732ebd551d9156d3343af0f54b0a2c844b0dbbfa6d79d659487f9d3d8e"
+    }
+  ],
+  "status": "mechanical_passed_visual_pending",
+  "approval_state": "draft",
+  "qa_readback": {
+    "visual_reviewed": false,
+    "mechanical_report_sha256": "d7cbf912fbd738021afa2cba7a1c1b56c4100f2141f584a734a10d521dbadfc3"
+  }
+}

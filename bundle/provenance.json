@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "bundle_version": "0.2.1",
+  "bundle_version": "0.2.2",
   "target_runtime": "0.2.1-rc.2",
   "ptc": "Programmatic Tool Calling",
   "role_count": 12,
@@ -31,11 +31,12 @@
     "captain-only audit tool",
     "task-specific skill routing without invented SDK permission fields",
     "lightweight context packs, dynamic capacity, visual evidence and user paper framework",
+    "purpose-matched award-pattern references with actual readback and fixed task inputs",
     "skill-filesystem watch=false; external skill changes require verified session refresh, not assumed hot reload"
   ],
   "assurance": "Role/tool declarations are not an OS sandbox; inherited or global tools require runtime inspection. Optional role activation and skill routing are task policies, not Host-enforced permissions.",
-  "skill_routing_sha256": "3c82b65257d01fdb33adf5a2f2a9bb4f1b9c02b2209f8d619bac0f3a759cf3ef",
-  "routing_source_sha256": "97ce6eced9a5336359986ed4e68a7695d7b94888a5ba2e4f44c34bdc31091134",
+  "skill_routing_sha256": "da9e63d41ea0b00be7af1aa5286c19f3a0e4db03b4b8485b7a0a4bc4a25655e0",
+  "routing_source_sha256": "2a97d3746cd4ca88dca7b59a7295b4aa652206f32d8dde8b7b581233118faede",
   "runtime_guard_source_sha256": {
     "src/runtime-guard-core.mjs": "4dda705af1bc15cb4bc1848a35e25428569589d8e3faa29d0ab0195ef035443b",
     "src/runtime-guard-plugin.mjs": "86df82b9a0390d76f421ad3bb01838948bccba500c6845632c5bb273f33534e5"
@@ -43,17 +44,17 @@
   "figure_style_source_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
   "prompt_sha256": {
     "prompts/shared.md": "62a04dd78324dd61a66cd784114399adbf9d390d31d99602697170db592e81c2",
-    "prompts/mcm-captain.md": "be0abcbaa347a743e0b4fb9d80e0c733f0e3a41acd65d886bda6c5a0852a5a4e",
-    "prompts/mcm-model-lead.md": "a1cd4c6f6aeb43971e42c10e9ddc0d6c7fdaf9aa070e182c0cd5236ed676c64d",
+    "prompts/mcm-captain.md": "bce04fa3d6eff1a7e320f7c69a1c202da7d5b98abdbb02ca00bcd9352b85d919",
+    "prompts/mcm-model-lead.md": "b2e937c2b0177b03da2b8da70cc30c3c4a477162a964ce12ee1f22ab5836b9b0",
     "prompts/mcm-modeler.md": "b415575b8ca7aac9e9ce8078b010605439679f4299091dd1815d073ad1d49ad3",
     "prompts/mcm-evidence.md": "1c35df16f89af6aab452c14686693f40385655dbca5765d3b90f6fbdfed85c4b",
     "prompts/mcm-programmer.md": "3cedc36029994ee546c29da2e37c89d6c4914098c1fa056de55f0e8ae6a51933",
     "prompts/mcm-code-lead.md": "f6be118dde9cfb264dc3700313c9017bff3684a796c95c800ed2a02b84dcebb1",
     "prompts/mcm-verifier.md": "1d7d5d1489c490fae2c2f1093fadfa520f29d914cb984fbd4357067be42a10f8",
-    "prompts/mcm-paper-lead.md": "ce3232d761d1ef837e97a0e9a794672bbd00cba8c7fc3fe76fd371e9a3dd9423",
-    "prompts/mcm-writer.md": "507b6ba8135cda9439e0128b1cf90db2a1d2e7699f518ba99655b0d07c5acd69",
-    "prompts/mcm-figure.md": "8eafe0a2ebc57cbffa364e4993d11e39f67a76b4244f1c53fa3e5d78424004ce",
-    "prompts/mcm-typesetter.md": "c7ac4b00b524b564068cdab656087eb216ec9b307c4ed3fb7cc04c9763cf6dc1",
-    "prompts/mcm-reviewer.md": "c7030e8461bb8c5681a0ece792015f322103a0c502e7a68569c2984569cab98c"
+    "prompts/mcm-paper-lead.md": "8b0b1fa86d29f66d125d78339aa22b14c109f7a94d7738e155b35013c41b5377",
+    "prompts/mcm-writer.md": "ecf0532a7c79713ea1cc5bb0b977706075382622679fe02daa0117349bdb9b4e",
+    "prompts/mcm-figure.md": "05b2967f8e88081b8169d1d6dd484f77a6db8d934c05ad914d52ea1ee918a88b",
+    "prompts/mcm-typesetter.md": "67b94c95399aeb90bb233ecf8cefbf7319f27b068a1f8cddded6e191c679d739",
+    "prompts/mcm-reviewer.md": "40846a59d4948e56ffc41bdbafde0cbe8590e4fc0553e7efaedff534c63a36ca"
   }
 }

@@ -1,0 +1,59 @@
+{
+  "format_version": 1,
+  "id": "mcm-2024-c-2401298",
+  "year": 2024,
+  "problem": "C",
+  "team": "2401298",
+  "pdf_sha256": "1fecca82369d425dbf34e49e0e03ba8e15de5ebdfe04de146919ce71e908da2e",
+  "physical_page_count": 25,
+  "public_source": {
+    "url": "https://github.com/Team-of-2401298-for-MCM2024/Dual-Temporal-Bayesian-Network",
+    "public_copy_byte_match_checked": false,
+    "acquisition_note": "User-provided study copy associated with the public source; exact public and official-submission byte identity has not been authenticated."
+  },
+  "award_evidence": {
+    "url": "https://www.contest.comap.org/undergraduate/contests/mcm/contests/2024/results/2024_MCM_Problem_C_Results.pdf",
+    "source_sha256": "560513389f8da1ffc1548741e728d702b56194b7788a997136556021e29d70b9",
+    "physical_page": 2,
+    "status": "official_result_row_checked",
+    "designation": "Outstanding Winner",
+    "verification": "Exact control number, problem and Outstanding Winner designation were checked together in the official result table."
+  },
+  "observed_pages": {
+    "page_numbering": "physical PDF pages, counting Summary as page 1",
+    "rendered_and_viewed": [
+      14,
+      17,
+      20
+    ],
+    "text_context_reviewed": [
+      14,
+      17,
+      20
+    ]
+  },
+  "answer_chain": [
+    "先控制实力及发球等因素建立基准",
+    "把未解释部分操作化为残差效应",
+    "用长短时间窗和变量关系建模",
+    "展示不同比赛的预测，并讨论明确的失败阶段"
+  ],
+  "good_practices": [
+    "p17分别说明历史输入窗口与未来预测目标，避免把同一时段的观察和目标混写。",
+    "p20指出特定区段预测失败并联系遗漏因素，承认失败让适用边界更清楚。"
+  ],
+  "risks": [
+    "残差含遗漏变量、噪声和测量问题，不等于被单独识别的心理动量。",
+    "p14关系图和p20小面板需降低拥挤；模型训练/评估是否真正按比赛或时间留出仍须独立验证，叙述本身不是防泄漏证据。"
+  ],
+  "validation": {
+    "level": "source_observation_with_selected_page_visual_review",
+    "official_award_identity_verified": true,
+    "official_submission_bytes_authenticated": false,
+    "full_numeric_reproduction": false,
+    "exhaustive_page_visual_review": false,
+    "font_measurement_performed": false,
+    "case_author_is_observer": true,
+    "model_claims_independently_accepted": false
+  }
+}

@@ -1,6 +1,6 @@
 {
   "format_version": 1,
-  "bundle_version": "0.2.1",
+  "bundle_version": "0.2.2",
   "routing_is_behavioral": true,
   "defaults": {
     "max_primary_skills_per_task": 1,
@@ -11,6 +11,15 @@
     "skill_may_spawn_without_parent_approval": false,
     "skill_may_resume_paused_work": false,
     "excluded_orchestrators_apply_to_indirect_routes": true
+  },
+  "reference_library": {
+    "catalog": "references/award-patterns/catalog.json",
+    "selection": "Match the assigned argument purpose and actual role; read one or two relevant pattern files only when useful.",
+    "minimum_patterns_per_task": 0,
+    "maximum_patterns_per_task": 2,
+    "fixed_task_inputs_required": true,
+    "actual_readback_required": true,
+    "retrieval_is_behavioral_not_a_permission": true
   },
   "excluded_orchestrators": [
     "shumo2",

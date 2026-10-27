@@ -1,0 +1,166 @@
+{
+  "format_version": 2,
+  "_template_only": false,
+  "figure_id": "04-sensitivity-decision",
+  "version": 1,
+  "owner_role": "mcm-figure",
+  "claim_id": "SYNTHETIC-04-sensitivity-decision",
+  "argument_sentence": "The lower-cost action switches from A to B at parameter 14/9.",
+  "figure_type": "quantitative",
+  "figure_level_question": "Does a parameter change alter the recommended action?",
+  "data_inputs": [
+    {
+      "path": "data/sensitivity.csv",
+      "version": 1,
+      "sha256": "e90d26acf9612baecac0e2ead19522d842c67cce90da585d8949362c97d106b3"
+    },
+    {
+      "path": "config/figure-style.json",
+      "version": 1,
+      "sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff"
+    }
+  ],
+  "columns_and_units": [
+    "parameter",
+    "cost_A",
+    "cost_B",
+    "chosen_policy"
+  ],
+  "comparison_groups": [],
+  "transformation": "All generated rows retained; the paired gain is baseline minus improved; other constructions are explicitly defined in source.",
+  "uncertainty_definition": "Specified deterministic parameter sweep, not a sampling distribution.",
+  "sample_or_scenario_count": {
+    "sensitivity.csv": 81
+  },
+  "size_mm": {
+    "width": 165.1,
+    "height": 165.1
+  },
+  "style_profile": "mcm-clear-science-v2",
+  "style_config_ref": {
+    "path": "config/figure-style.json",
+    "version": 1,
+    "sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff"
+  },
+  "script_path": "source/figure-gallery.py",
+  "script_sha256": "a84411e2a90b161bf28871f917d5422016158d6371191db76701a652d8290270",
+  "generation_command": "python tools/figure-gallery.py --output gallery --skill-root <nature-figure> --diagram-skill-root <fireworks-tech-graph> --compile-pages",
+  "caption_english": "Synthetic cost sensitivity for two policies across 81 parameter values. Panel a shows both cost functions; panel b maps each value to its lower-cost policy. The analytical crossing is 14/9. The example distinguishes a smooth numerical response from a discrete change in the recommended action.",
+  "synthetic": true,
+  "backend": "python",
+  "minimum_final_glyph_pt": 12,
+  "panel_plan": [
+    {
+      "panel": "a",
+      "question": "How do policy costs respond?",
+      "evidence_role": "parameter response",
+      "input_fields": [
+        "parameter",
+        "cost_A",
+        "cost_B"
+      ],
+      "main_takeaway": "The cost curves cross once."
+    },
+    {
+      "panel": "b",
+      "question": "What changes for the decision maker?",
+      "evidence_role": "decision boundary",
+      "input_fields": [
+        "parameter",
+        "chosen_policy"
+      ],
+      "main_takeaway": "The preferred action changes at the crossing."
+    }
+  ],
+  "skill_read": [
+    {
+      "skill": "nature-figure",
+      "document": "SKILL.md",
+      "sha256": "1ac00452bef2e097def116beb1fafacb5f03f0108b87b27e667d281a3cf61226"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "manifest.yaml",
+      "sha256": "1ed568f70f6564216c7ca4b5e9f70e3aeba1ae29add8ffd6c8cb7c2694d43693"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "references/mcm-adaptation.md",
+      "sha256": "cbbe734a8fb6f48ad680c9c8ae4b86fcdb77153986d55f4a328d6028e8fdd8c0"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "static/core/contract.md",
+      "sha256": "a2b6523a48192cf1dff0d194264c5662c832f4d1da6e9e4763ccd98cc0664d4c"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "static/core/stance.md",
+      "sha256": "8db765b1123d48d6655b612b14620b111e7e584ece1130750b17f237b68391b3"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "static/fragments/backend/python.md",
+      "sha256": "1d4809e4ec4ed2d40995d74828732012a6a72c941dfec341745a3118e9312865"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "references/multipanel-evidence-architecture.md",
+      "sha256": "79ca617cc05088d6fcfb065140d0ee036eb849738bb79306964eb9aa3a4ed274"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "references/qa-contract.md",
+      "sha256": "ba97e18a44235bb00bb176a3ebe2774ba5bd779e65f9b89827b942b5cd97e5d7"
+    }
+  ],
+  "skill_executed": [
+    {
+      "tool": "audit_pdf_text.py",
+      "status": "passed",
+      "exit_code": 0,
+      "output_refs": [
+        {
+          "path": "checks/04-sensitivity-decision/pdf-text.json",
+          "version": 1,
+          "sha256": "0e1bedff3cce62ddb8eb6d2ce6ed5004efd34acf4606f2a557d6ae56a2ba60cf"
+        }
+      ]
+    },
+    {
+      "tool": "audit_figure_collisions.py",
+      "status": "passed",
+      "exit_code": 0,
+      "output_refs": [
+        {
+          "path": "checks/04-sensitivity-decision/collisions.json",
+          "version": 1,
+          "sha256": "f9960a7c3c82e99752550d281df61ec5bdd9d156928240ba7ef7f3447bbdcae3"
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "path": "figures/04-sensitivity-decision.pdf",
+      "version": 1,
+      "sha256": "8f4da805e2f10acf202ef64c6de8fcd076eb52cd788330840c1ef3db0d49b7e2"
+    },
+    {
+      "path": "figures/04-sensitivity-decision.svg",
+      "version": 1,
+      "sha256": "d73898ece86fc9ce4f652130134b9005bdd793b0429840c267e2246a0814597e"
+    },
+    {
+      "path": "figures/04-sensitivity-decision.png",
+      "version": 1,
+      "sha256": "d4652096210e2160e912ffc1e78303b88ffc2c304960f8a1ba74800d8b70d186"
+    }
+  ],
+  "status": "mechanical_passed_visual_pending",
+  "approval_state": "draft",
+  "qa_readback": {
+    "visual_reviewed": false,
+    "mechanical_report_sha256": "efb0eaadd06e49ebad44b661e93128f144bcd8dc678fe03ad9c868396295d17d"
+  }
+}

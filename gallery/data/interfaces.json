@@ -1,0 +1,28 @@
+{
+  "synthetic": true,
+  "clock": "hourly",
+  "state": {
+    "name": "stock",
+    "unit": "units"
+  },
+  "rate": {
+    "unit": "1/h",
+    "range": [
+      0.15,
+      0.25
+    ]
+  },
+  "objective": "maximize effect among discrete feasible policies",
+  "budget": 25,
+  "interfaces": [
+    {
+      "from": "dynamics",
+      "to": "policy",
+      "values": [
+        "stock",
+        "time_h",
+        "rate_range"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "format_version": 1,
+  "id": "mcm-2024-b-2411570",
+  "year": 2024,
+  "problem": "B",
+  "team": "2411570",
+  "pdf_sha256": "3ff6f31ad8c3943790e18e33b803c7afb40b88cec6e336f33ecb430e25d9ff33",
+  "physical_page_count": 25,
+  "public_source": {
+    "url": "https://raw.githubusercontent.com/yangchunwanwusheng/MCM-ICM--2024-/ffea7fd98c1fbf7d25edcba4dbc834631e9adbf2/2024/B/student%20paper/2411570.pdf",
+    "public_copy_byte_match_checked": true,
+    "acquisition_note": "Publicly readable pinned mirror; the studied bytes were checked against this copy."
+  },
+  "award_evidence": {
+    "url": "https://www.contest.comap.org/undergraduate/contests/mcm/contests/2024/results/2024_MCM_Problem_B_Results.pdf",
+    "source_sha256": "08881007d3164c53b360c8b447049345a546bf726428be89a816d6100e208275",
+    "physical_page": 2,
+    "status": "official_result_row_checked",
+    "designation": "Outstanding Winner",
+    "verification": "Exact control number, problem and Outstanding Winner designation were checked together in the official result table."
+  },
+  "observed_pages": {
+    "page_numbering": "physical PDF pages, counting Summary as page 1",
+    "rendered_and_viewed": [
+      11,
+      17,
+      20
+    ],
+    "text_context_reviewed": [
+      1,
+      2,
+      5,
+      9,
+      11,
+      13,
+      14,
+      16,
+      17,
+      19,
+      20
+    ]
+  },
+  "answer_chain": [
+    "定义坐标、环境扰动及水阻建立运动方程",
+    "由任务条件组织设备评价",
+    "通过扰动采样获得可能位置集合",
+    "将位置不确定性连接至部署中心与圆形搜索覆盖"
+  ],
+  "good_practices": [
+    "p11在力学公式附近放坐标与环境示意，帮助说明向量和几何含义。",
+    "p17明确从随机扰动传播到位置集合，再讨论搜索部署，传递对象清晰。"
+  ],
+  "risks": [
+    "p17三个透视角度主要重复同一云图，未充分增加独立证据；p20三维柱图的遮挡和小字不利精确比较。",
+    "由搜索面积比计算发现概率需要适当的空间分布条件；位置非均匀时应考虑概率质量而不是默认均匀覆盖。",
+    "给风/流扰动选均匀分布属于建模假设，应说明范围来源与替代分布影响。"
+  ],
+  "validation": {
+    "level": "source_observation_with_selected_page_visual_review",
+    "official_award_identity_verified": true,
+    "official_submission_bytes_authenticated": false,
+    "full_numeric_reproduction": false,
+    "exhaustive_page_visual_review": false,
+    "font_measurement_performed": false,
+    "case_author_is_observer": true,
+    "model_claims_independently_accepted": false
+  }
+}

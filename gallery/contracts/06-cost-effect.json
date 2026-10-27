@@ -1,0 +1,172 @@
+{
+  "format_version": 2,
+  "_template_only": false,
+  "figure_id": "06-cost-effect",
+  "version": 1,
+  "owner_role": "mcm-figure",
+  "claim_id": "SYNTHETIC-06-cost-effect",
+  "argument_sentence": "Policy D maximizes synthetic effect under budget 25; higher-effect policies exceed that budget.",
+  "figure_type": "quantitative",
+  "figure_level_question": "Which discrete feasible policy maximizes effect under the stated budget?",
+  "data_inputs": [
+    {
+      "path": "data/decisions.csv",
+      "version": 1,
+      "sha256": "1c8a70480f9a327db0c0b938defdbf8ec87409a468498d2935960920774d7c8f"
+    },
+    {
+      "path": "config/figure-style.json",
+      "version": 1,
+      "sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff"
+    }
+  ],
+  "columns_and_units": [
+    "policy",
+    "cost_units",
+    "effect_units",
+    "frontier",
+    "budget_feasible",
+    "selected"
+  ],
+  "comparison_groups": [],
+  "transformation": "All generated rows retained; the paired gain is baseline minus improved; other constructions are explicitly defined in source.",
+  "uncertainty_definition": "No sampling uncertainty. Recommendation is conditional on this finite candidate set, budget and maximize-effect rule.",
+  "sample_or_scenario_count": {
+    "decisions.csv": 7
+  },
+  "size_mm": {
+    "width": 165.1,
+    "height": 165.1
+  },
+  "style_profile": "mcm-clear-science-v2",
+  "style_config_ref": {
+    "path": "config/figure-style.json",
+    "version": 1,
+    "sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff"
+  },
+  "script_path": "source/figure-gallery.py",
+  "script_sha256": "a84411e2a90b161bf28871f917d5422016158d6371191db76701a652d8290270",
+  "generation_command": "python tools/figure-gallery.py --output gallery --skill-root <nature-figure> --diagram-skill-root <fireworks-tech-graph> --compile-pages",
+  "caption_english": "Seven synthetic discrete policies. Panel a shows cost and effect: circles are frontier policies, the cross is dominated G, and the orange star is D. No interpolated actions are implied. Panel b shows costs against budget 25. D is preferred only for this budget and objective.",
+  "synthetic": true,
+  "backend": "python",
+  "minimum_final_glyph_pt": 12,
+  "panel_plan": [
+    {
+      "panel": "a",
+      "question": "Which trade-offs are available?",
+      "evidence_role": "discrete cost-effect frontier",
+      "input_fields": [
+        "policy",
+        "cost_units",
+        "effect_units",
+        "frontier",
+        "selected"
+      ],
+      "main_takeaway": "D is a feasible frontier action, while G is dominated."
+    },
+    {
+      "panel": "b",
+      "question": "Why are higher effects not selected?",
+      "evidence_role": "budget feasibility",
+      "input_fields": [
+        "policy",
+        "cost_units",
+        "budget_feasible",
+        "selected"
+      ],
+      "main_takeaway": "Policies E and F exceed the specified budget."
+    }
+  ],
+  "skill_read": [
+    {
+      "skill": "nature-figure",
+      "document": "SKILL.md",
+      "sha256": "1ac00452bef2e097def116beb1fafacb5f03f0108b87b27e667d281a3cf61226"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "manifest.yaml",
+      "sha256": "1ed568f70f6564216c7ca4b5e9f70e3aeba1ae29add8ffd6c8cb7c2694d43693"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "references/mcm-adaptation.md",
+      "sha256": "cbbe734a8fb6f48ad680c9c8ae4b86fcdb77153986d55f4a328d6028e8fdd8c0"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "static/core/contract.md",
+      "sha256": "a2b6523a48192cf1dff0d194264c5662c832f4d1da6e9e4763ccd98cc0664d4c"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "static/core/stance.md",
+      "sha256": "8db765b1123d48d6655b612b14620b111e7e584ece1130750b17f237b68391b3"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "static/fragments/backend/python.md",
+      "sha256": "1d4809e4ec4ed2d40995d74828732012a6a72c941dfec341745a3118e9312865"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "references/multipanel-evidence-architecture.md",
+      "sha256": "79ca617cc05088d6fcfb065140d0ee036eb849738bb79306964eb9aa3a4ed274"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "references/qa-contract.md",
+      "sha256": "ba97e18a44235bb00bb176a3ebe2774ba5bd779e65f9b89827b942b5cd97e5d7"
+    }
+  ],
+  "skill_executed": [
+    {
+      "tool": "audit_pdf_text.py",
+      "status": "passed",
+      "exit_code": 0,
+      "output_refs": [
+        {
+          "path": "checks/06-cost-effect/pdf-text.json",
+          "version": 1,
+          "sha256": "d000086f581075d7ddb90778b2b12847871b30cfdb1a428415701f1f08f374d3"
+        }
+      ]
+    },
+    {
+      "tool": "audit_figure_collisions.py",
+      "status": "passed",
+      "exit_code": 0,
+      "output_refs": [
+        {
+          "path": "checks/06-cost-effect/collisions.json",
+          "version": 1,
+          "sha256": "f797021f413d75e7045771c68030487ca24beb9fa38d03ea7512a1eeb12795cd"
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "path": "figures/06-cost-effect.pdf",
+      "version": 1,
+      "sha256": "47a3f9d030302d784a474740f2d49548b166e8f4fdd8ee2717038fd6828c0892"
+    },
+    {
+      "path": "figures/06-cost-effect.svg",
+      "version": 1,
+      "sha256": "17177a0a18dfd9e0a4446fcb0825c9c0f48944b4e98642da9be885096743f9e3"
+    },
+    {
+      "path": "figures/06-cost-effect.png",
+      "version": 1,
+      "sha256": "7de053013c0a5724842d7f602dc2e1c02e45e7038c11f1913f100513651c8f3c"
+    }
+  ],
+  "status": "mechanical_passed_visual_pending",
+  "approval_state": "draft",
+  "qa_readback": {
+    "visual_reviewed": false,
+    "mechanical_report_sha256": "f71a73bae5f758f93447387b28c3854aa4d8e9eecfa9cae296d8343dc02f4657"
+  }
+}

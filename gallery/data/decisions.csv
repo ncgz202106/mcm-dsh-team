@@ -1,0 +1,8 @@
+policy,cost_units,effect_units,frontier,budget_feasible,selected
+A,10,52,True,True,False
+B,14,61,True,True,False
+C,18,67,True,True,False
+D,23,70,True,True,True
+E,30,76,True,False,False
+F,40,78,True,False,False
+G,28,65,False,False,False

@@ -1,0 +1,24 @@
+{
+  "version": "0.2.2-candidate",
+  "captured_at": "2026-10-27T05:07:37.879172+00:00",
+  "artifacts": {
+    "gallery-independent.json": "24f2766b01a320b92380f084eb8a342340de7105e733e431ac2e2d5ba5ed7c57",
+    "guard-native-runtime.json": "31d256e54a772ad4dd5ad122ab1fecb539e260d103b82cb7f90bc4c08f2c1596",
+    "native-runtime-smoke.json": "92003deed5cfb44a0735c90ba6cea5732836f20e3a1be01f34f2c9ccc48e524c",
+    "source-verification.json": "259622b4c4d7efd43fd160b9fc92a5af8a9c5b5d5df5cf333902b0cbc3513d7d"
+  },
+  "release_ready": false,
+  "actual_installation": "unchanged 0.2.1",
+  "full_A_scientific_completion": "pending",
+  "human_gate_status": {
+    "H0": "actual user approved for new 2023-A exercise",
+    "H1": "pending",
+    "H2": "pending",
+    "H3": "pending"
+  },
+  "limits": [
+    "Deterministic native fixtures establish mechanism checks, not autonomous model quality.",
+    "Independent synthetic gallery review is not a complete contest-paper review.",
+    "Private source PDFs, credentials, conversations, heldout-answer material and independent input-review answers are excluded."
+  ]
+}

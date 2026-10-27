@@ -1,0 +1,60 @@
+{
+  "format_version": 1,
+  "id": "mcm-2025-b-2502617",
+  "year": 2025,
+  "problem": "B",
+  "team": "2502617",
+  "pdf_sha256": "347af0cbb2aad4e795d4a48e51e27b38893c923e5e0cc92ad1ce3f3b2d14b7b0",
+  "physical_page_count": 26,
+  "public_source": {
+    "url": "https://raw.githubusercontent.com/Jackksonns/MCM-ICM-Outstanding-Papers/d29267cb9e993419749e6111981b30a44183fdf8/2025/B/2502617.pdf",
+    "public_copy_byte_match_checked": true,
+    "acquisition_note": "Publicly readable pinned mirror; the studied bytes were checked against this copy."
+  },
+  "award_evidence": {
+    "url": "https://www.contest.comap.org/undergraduate/contests/mcm/contests/2025/results/2025_MCM_Problem_B_Results.pdf",
+    "source_sha256": "694b84b11281fd017bbf52423153fb6f870a1ed3f2378bb03f01c0946538a9e3",
+    "physical_page": 2,
+    "status": "official_result_row_checked",
+    "designation": "Outstanding Winner",
+    "verification": "Exact control number, problem and Outstanding Winner designation were checked together in the official result table."
+  },
+  "observed_pages": {
+    "page_numbering": "physical PDF pages, counting Summary as page 1",
+    "rendered_and_viewed": [
+      1,
+      2,
+      9,
+      16,
+      20,
+      21
+    ],
+    "text_context_reviewed": []
+  },
+  "answer_chain": [
+    "分别定义经济、社会和环境目标及其可行域",
+    "给出目标货币化与权重口径",
+    "数值求解在约束下的折中候选",
+    "通过参数变化、收入用途及目的地差异形成政策建议"
+  ],
+  "good_practices": [
+    "p9通过收益、成本、净收益同图标出经济可行区和候选最佳点。",
+    "p16先讨论各约束，再给旅游规模及目标解释；p21写出静态与时空限制的具体后果。"
+  ],
+  "risks": [
+    "公开副本为图像型PDF，不能凭空声明文字字体已测量；全页水印也不是模板应模仿的设计。",
+    "摘要给出的加权收益约1000万美元与p16约800万美元需要核对定义及候选；无同口径绑定时不能直接继承数字。",
+    "使用SLSQP或给出单个加权最优点不足以单独证明全局Pareto前沿；需可行性、求解状态、对照或界限等证据。",
+    "p20多个微型曲线与雷达图阅读成本高，精简、统一尺度或拆图优先于缩字号。"
+  ],
+  "validation": {
+    "level": "source_observation_with_selected_page_visual_review",
+    "official_award_identity_verified": true,
+    "official_submission_bytes_authenticated": false,
+    "full_numeric_reproduction": false,
+    "exhaustive_page_visual_review": false,
+    "font_measurement_performed": false,
+    "case_author_is_observer": true,
+    "model_claims_independently_accepted": false
+  }
+}

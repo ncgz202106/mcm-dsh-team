@@ -18,6 +18,54 @@ def inside(root, relative):
         raise ValueError('Figure reference escapes project: '+str(relative))
     return result
 
+def check_optional_design(root, contract):
+    """Check declared design metadata without judging the evidence or aesthetics."""
+    errors=[]
+    panels=contract.get('panel_plan')
+    if panels is not None:
+        if not isinstance(panels,list):
+            errors.append('panel_plan must be a list when supplied')
+        else:
+            identifiers=set()
+            for index,panel in enumerate(panels,1):
+                location=f'panel_plan item {index}'
+                if not isinstance(panel,dict):
+                    errors.append(location+' must be an object');continue
+                for field in ('panel','question','evidence_role','main_takeaway'):
+                    if not isinstance(panel.get(field),str) or not panel[field].strip():
+                        errors.append(location+' has missing/invalid '+field)
+                identifier=panel.get('panel')
+                if isinstance(identifier,str) and identifier.strip():
+                    if identifier.strip() in identifiers:errors.append(location+' duplicates panel identifier')
+                    identifiers.add(identifier.strip())
+                fields=panel.get('input_fields')
+                if not isinstance(fields,list) or any(not isinstance(field,str) or not field.strip() for field in fields):
+                    errors.append(location+' input_fields must be a list of non-empty strings')
+    style_ref=contract.get('style_config_ref')
+    if style_ref is not None:
+        if not isinstance(style_ref,dict):
+            errors.append('style_config_ref must be a fixed reference object')
+        else:
+            path=style_ref.get('path');version=style_ref.get('version');sha=style_ref.get('sha256')
+            if not isinstance(path,str) or not path.strip():
+                errors.append('style_config_ref has missing/invalid path')
+            else:
+                try:
+                    pinned=inside(root,path)
+                    if pinned!=(Path(root)/'config/figure-style.json').resolve():
+                        errors.append('style_config_ref must pin the project config/figure-style.json')
+                    if not pinned.is_file() or digest(pinned)!=sha:
+                        errors.append('style_config_ref is missing or changed')
+                except (OSError,ValueError) as exc:errors.append(str(exc))
+            if not isinstance(version,int) or isinstance(version,bool) or version<1:
+                errors.append('style_config_ref version must be a positive artifact version')
+            if not isinstance(sha,str) or len(sha)!=64 or any(c not in '0123456789abcdef' for c in sha):
+                errors.append('style_config_ref sha256 must be a lowercase SHA256 digest')
+            inputs=contract.get('data_inputs',[])
+            if not isinstance(inputs,list) or not any(isinstance(ref,dict) and all(ref.get(key)==style_ref.get(key) for key in ('path','version','sha256')) for ref in inputs):
+                errors.append('style_config_ref must also be the same fixed path/version/sha256 task input in data_inputs')
+    return errors
+
 def audit_pdf(pdf, size_mm=None, min_font_pt=12):
     from pypdf import PdfReader
     reader=PdfReader(pdf); errors=[]; runs=[]
@@ -56,7 +104,7 @@ def audit_pdf(pdf, size_mm=None, min_font_pt=12):
 def check_contract(root,contract,release=False):
     root=Path(root).resolve()
     if not isinstance(contract,dict):contract=json.loads(inside(root,contract).read_text(encoding='utf-8'))
-    errors=[];checks=[]
+    design_errors=check_optional_design(root,contract);errors=list(design_errors);checks=[]
     if contract.get('_template_only'):errors.append('Figure contract is still a template')
     for key in ('figure_id','argument_sentence','figure_type','transformation','caption_english','script_path','size_mm'):
         if not contract.get(key):errors.append('Missing figure contract field: '+key)
@@ -102,7 +150,9 @@ def check_contract(root,contract,release=False):
     # Declaring a path is different from actually observing a review. This tool
     # leaves visual status pending; paper release validates an independent file.
     return {'ok':not errors,'errors':errors,'pdf_checks':checks,'figure_id':contract.get('figure_id'),
-            'visual_status':'pending','synthetic':contract.get('synthetic',False)}
+            'visual_status':'pending','design_metadata_status':'valid' if not design_errors else 'invalid',
+            'design_metadata_scope':'Structure and fixed references only; panel complementarity and aesthetics remain unassessed.',
+            'synthetic':contract.get('synthetic',False)}
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--root',type=Path,default=Path(__file__).resolve().parents[1]);p.add_argument('contract');p.add_argument('--release',action='store_true');a=p.parse_args()

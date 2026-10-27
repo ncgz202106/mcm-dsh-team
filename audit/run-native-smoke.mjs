@@ -13,6 +13,7 @@ const work = join(workspace, 'work', 'mcm-host-smoke', stamp);
 const home = join(work, 'home');
 const project = join(work, 'project');
 const reportPath = process.argv.find(arg=>arg.startsWith('--report='))?.slice('--report='.length) ?? join(auditDir, 'native-runtime-smoke.json');
+await mkdir(dirname(reportPath), { recursive: true });
 const bundlePath = process.argv.find(arg=>arg.startsWith('--bundle-root='))?.slice('--bundle-root='.length) ?? join(teamDir, 'bundle');
 const fingerprintFiles = ['package.json', 'cordis.patch.yml', 'provenance.json', ...(await readdir(join(bundlePath,'src'))).filter(name=>/\.(mjs|json)$/.test(name)).sort().map(name=>`src/${name}`)];
 const guardReportPath = process.argv.find(arg=>arg.startsWith('--guard-report='))?.slice('--guard-report='.length) ?? join(dirname(reportPath),'guard-native-runtime.json');

@@ -1,0 +1,151 @@
+{
+  "ok": true,
+  "errors": [],
+  "pdf_checks": [
+    {
+      "ok": true,
+      "errors": [],
+      "minimum_final_font_pt": 12.0,
+      "text_runs": [
+        {
+          "text": "0.50",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "0.75",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "1.00",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "1.25",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "1.50",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "1.75",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "2.00",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "2.25",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "2.50",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "Parameter p (dimensionless)",
+          "final_size_pt": 13.0
+        },
+        {
+          "text": "20",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "30",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "40",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "50",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "Cost (units)",
+          "final_size_pt": 13.0
+        },
+        {
+          "text": "(a) Parameter response",
+          "final_size_pt": 14.0
+        },
+        {
+          "text": "Policy A",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "Policy B",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "0.50",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "0.75",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "1.00",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "1.25",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "1.50",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "1.75",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "2.00",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "2.25",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "2.50",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "Parameter p (dimensionless)",
+          "final_size_pt": 13.0
+        },
+        {
+          "text": "A",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "B",
+          "final_size_pt": 12.0
+        },
+        {
+          "text": "Lower-cost policy",
+          "final_size_pt": 13.0
+        },
+        {
+          "text": "(b) Action changes near p = 1.556",
+          "final_size_pt": 14.0
+        }
+      ],
+      "visual_status": "pending",
+      "limitations": [
+        "Text-origin checks do not prove complete glyph/line/image containment.",
+        "No automated aesthetic or scientific correctness certification."
+      ]
+    }
+  ],
+  "figure_id": "04-sensitivity-decision",
+  "visual_status": "pending",
+  "design_metadata_status": "valid",
+  "design_metadata_scope": "Structure and fixed references only; panel complementarity and aesthetics remain unassessed.",
+  "synthetic": true
+}

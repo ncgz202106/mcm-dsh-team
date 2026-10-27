@@ -63,14 +63,14 @@ try {
     & (Join-Path $PSScriptRoot 'update-dsh.ps1') -DshCli $f.cli -BackupRoot $f.backups | Out-Null
     $r=Get-TestReceipt $f
     Assert-Test ($r.data.status -eq 'installed_pending_runtime_verification') 'Upgrade did not produce its pending runtime state.'
-    Assert-Test ((Read-DshJson (Join-Path $f.plugin 'package.json')).version -eq '0.2.1') 'Fixture version not upgraded.'
+    Assert-Test ((Read-DshJson (Join-Path $f.plugin 'package.json')).version -eq '0.2.2') 'Fixture version not upgraded.'
     $checks+='isolated_successful_upgrade_and_hashed_backup'
     & (Join-Path $PSScriptRoot 'restore-dsh.ps1') -BackupDirectory $r.directory -CheckOnly | Out-Null
     $checks+='restore_check_only_has_no_mutation'
     $p=Join-Path $r.directory 'profile/package.json';$bytes=[IO.File]::ReadAllBytes($p)
     [IO.File]::AppendAllText($p,' ')
     Expect-TestFailure { & (Join-Path $PSScriptRoot 'restore-dsh.ps1') -BackupDirectory $r.directory -CheckOnly } 'Profile file changed'
-    Assert-Test ((Read-DshJson (Join-Path $f.plugin 'package.json')).version -eq '0.2.1') 'Tampered backup changed live fixture.'
+    Assert-Test ((Read-DshJson (Join-Path $f.plugin 'package.json')).version -eq '0.2.2') 'Tampered backup changed live fixture.'
     [IO.File]::WriteAllBytes($p,$bytes);$checks+='tampered_backup_rejected_before_switch'
     $p=Join-Path $f.profile 'cordis.yml';$bytes=[IO.File]::ReadAllBytes($p);[IO.File]::AppendAllText($p,' user-change')
     Expect-TestFailure { & (Join-Path $PSScriptRoot 'restore-dsh.ps1') -BackupDirectory $r.directory -CheckOnly } 'Profile file changed'

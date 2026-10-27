@@ -1,0 +1,68 @@
+{
+  "status": "compiled_visual_pending",
+  "page_count": 6,
+  "commands": [
+    {
+      "engine": "xelatex",
+      "iteration": 1,
+      "exit_code": 0
+    },
+    {
+      "engine": "xelatex",
+      "iteration": 2,
+      "exit_code": 0
+    }
+  ],
+  "warnings": [],
+  "pages": [
+    {
+      "page": 1,
+      "text_spans": 100,
+      "minimum_text_span_pt": 11.9552001953125,
+      "text_outside_page": [],
+      "render": "pages/page-01.png"
+    },
+    {
+      "page": 2,
+      "text_spans": 64,
+      "minimum_text_span_pt": 11.9552001953125,
+      "text_outside_page": [],
+      "render": "pages/page-02.png"
+    },
+    {
+      "page": 3,
+      "text_spans": 46,
+      "minimum_text_span_pt": 11.9552001953125,
+      "text_outside_page": [],
+      "render": "pages/page-03.png"
+    },
+    {
+      "page": 4,
+      "text_spans": 90,
+      "minimum_text_span_pt": 11.9552001953125,
+      "text_outside_page": [],
+      "render": "pages/page-04.png"
+    },
+    {
+      "page": 5,
+      "text_spans": 46,
+      "minimum_text_span_pt": 11.9552001953125,
+      "text_outside_page": [],
+      "render": "pages/page-05.png"
+    },
+    {
+      "page": 6,
+      "text_spans": 84,
+      "minimum_text_span_pt": 11.9552001953125,
+      "text_outside_page": [],
+      "render": "pages/page-06.png"
+    }
+  ],
+  "pdf_sha256": "abcf1779b432593a29df27f565f5813cea607cee369107f6bd06818810b8e0ed",
+  "source_sha256": "63caa0e36573e64b5a80db7aff6acf17a5e72ca46163aab2975fbb5825726ea7",
+  "formula_policy": "Native LaTeX equations at 12 TeX pt, no resizebox/scalebox; 12 TeX pt is approximately 11.955 PDF pt. Figures are inserted at their authored 165.1 mm width.",
+  "visual_status": "pending",
+  "human_approval": false,
+  "latexmk_status": "Not used: the installed wrapper cannot find its Perl engine. No external bibliography is needed; XeLaTeX was run twice.",
+  "full_competition_paper": false
+}

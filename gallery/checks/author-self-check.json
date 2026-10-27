@@ -1,0 +1,35 @@
+{
+  "author_self_check": true,
+  "independent": false,
+  "visual_status": "pending",
+  "human_approval": false,
+  "scope": "Author checked actual PDF render and page 1 after explicit-arrow repair; unchanged figures 05/06 retain author-only inspection. Independent full-figure and all-page review is still required.",
+  "actually_viewed": [
+    {
+      "path": "checks/01-method-interface/actual-pdf-render.png",
+      "sha256": "582c380cfed03c32408ee17383b17cf7faefb9ccf873cfbc94c41f66d8665503"
+    },
+    {
+      "path": "pages/page-01.png",
+      "sha256": "e8a9bf03a372eb0cd168abba3ba6dab58b8eade06b28bd466f42399157645a1e"
+    },
+    {
+      "path": "figures/05-uncertainty-semantics.png",
+      "sha256": "0dd471de1e97103c181ed1574907b0f51a4beb5a0349f8c42944cbfdb5c2ccc9"
+    },
+    {
+      "path": "figures/06-cost-effect.png",
+      "sha256": "7de053013c0a5724842d7f602dc2e1c02e45e7038c11f1913f100513651c8f3c"
+    }
+  ],
+  "observed_no_new_blocker_in_viewed_renders": true,
+  "tests": {
+    "command": "python -m unittest discover -s tests -p test_gallery.py -v",
+    "executed": true,
+    "tests": 8,
+    "failures": 0,
+    "errors": 0
+  },
+  "source_script_sha256": "a84411e2a90b161bf28871f917d5422016158d6371191db76701a652d8290270",
+  "cross_format_arrow_test": "Actual PDF vector geometry contains all five source SVG arrowheads."
+}

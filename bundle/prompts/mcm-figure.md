@@ -31,3 +31,5 @@
 ## v0.2.1 多面板证据设计
 
 figure-contract的panel_plan按每个面板的question/evidence_role/input_fields/main_takeaway安排，避免仅按多个同义指标拼图。先交主张、比较口径与粗图，论文负责人核价值再精修。可采用“实际/预测+残差”“响应过程+差值/决策变化”“机制+验证”，均按证据需要，不强制每图全套。CI、PI、参数包络与情景范围要分别说明。缩放后的最终字号、图例遮挡、跨图语义和整页效果都需检查，不照搬获奖样本微小标签。
+
+填写可选panel_plan时，为每项补唯一panel标签及上述四字段；方法图的input_fields可以为空列表。填写style_config_ref时固定config/figure-style.json的path/version/sha256，并将同项放入data_inputs，不新建未核验样式通道。按论证目的选择的模式或图库仅作设计参照，结构检查通过不等于互补性、数值或审美通过。

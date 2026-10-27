@@ -1,0 +1,177 @@
+{
+  "format_version": 2,
+  "_template_only": false,
+  "figure_id": "05-uncertainty-semantics",
+  "version": 1,
+  "owner_role": "mcm-figure",
+  "claim_id": "SYNTHETIC-05-uncertainty-semantics",
+  "argument_sentence": "A deterministic parameter envelope and a model-defined predictive interval describe different uncertainty objects.",
+  "figure_type": "quantitative",
+  "figure_level_question": "Which uncertainty statements are justified by each construction?",
+  "data_inputs": [
+    {
+      "path": "data/envelope.csv",
+      "version": 1,
+      "sha256": "4ffbde83b2d6d5835787ad72e114d968ee7a42f37fdebd7e7fea88d5a7f44066"
+    },
+    {
+      "path": "data/density.csv",
+      "version": 1,
+      "sha256": "2aa1cf96b54a741414417118bbf27738d0c81ab50b83c85bac4481e4dfaf6b5c"
+    },
+    {
+      "path": "config/figure-style.json",
+      "version": 1,
+      "sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff"
+    }
+  ],
+  "columns_and_units": [
+    "time_h",
+    "lower_units",
+    "center_units",
+    "upper_units",
+    "response_units",
+    "density_per_unit",
+    "inside_model_90pct_PI"
+  ],
+  "comparison_groups": [],
+  "transformation": "All generated rows retained; the paired gain is baseline minus improved; other constructions are explicitly defined in source.",
+  "uncertainty_definition": "Panel a: deterministic parameter envelope. Panel b: known-parameter Normal central predictive interval mu +/- 1.6448536269514722 sigma; its 90% probability is conditional on that assumed distribution.",
+  "sample_or_scenario_count": {
+    "envelope.csv": 101,
+    "density.csv": 321
+  },
+  "size_mm": {
+    "width": 165.1,
+    "height": 165.1
+  },
+  "style_profile": "mcm-clear-science-v2",
+  "style_config_ref": {
+    "path": "config/figure-style.json",
+    "version": 1,
+    "sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff"
+  },
+  "script_path": "source/figure-gallery.py",
+  "script_sha256": "a84411e2a90b161bf28871f917d5422016158d6371191db76701a652d8290270",
+  "generation_command": "python tools/figure-gallery.py --output gallery --skill-root <nature-figure> --diagram-skill-root <fireworks-tech-graph> --compile-pages",
+  "caption_english": "Two synthetic uncertainty constructions. Panel a spans decay rates from 0.15 to 0.25 per hour, without a probability interpretation. Panel b shades the central 90% interval of an assumed Normal response with mean 6 and standard deviation 1.2. This model-defined interval is not empirical coverage validation or a confidence interval for the mean.",
+  "synthetic": true,
+  "backend": "python",
+  "minimum_final_glyph_pt": 12,
+  "panel_plan": [
+    {
+      "panel": "a",
+      "question": "What range follows from bounded parameters?",
+      "evidence_role": "deterministic parameter envelope",
+      "input_fields": [
+        "time_h",
+        "lower_units",
+        "center_units",
+        "upper_units"
+      ],
+      "main_takeaway": "The envelope has no assigned coverage probability."
+    },
+    {
+      "panel": "b",
+      "question": "What does a model-defined 90% interval mean?",
+      "evidence_role": "distribution-defined predictive interval",
+      "input_fields": [
+        "response_units",
+        "density_per_unit",
+        "inside_model_90pct_PI"
+      ],
+      "main_takeaway": "The probability statement depends on the assumed Normal response."
+    }
+  ],
+  "skill_read": [
+    {
+      "skill": "nature-figure",
+      "document": "SKILL.md",
+      "sha256": "1ac00452bef2e097def116beb1fafacb5f03f0108b87b27e667d281a3cf61226"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "manifest.yaml",
+      "sha256": "1ed568f70f6564216c7ca4b5e9f70e3aeba1ae29add8ffd6c8cb7c2694d43693"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "references/mcm-adaptation.md",
+      "sha256": "cbbe734a8fb6f48ad680c9c8ae4b86fcdb77153986d55f4a328d6028e8fdd8c0"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "static/core/contract.md",
+      "sha256": "a2b6523a48192cf1dff0d194264c5662c832f4d1da6e9e4763ccd98cc0664d4c"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "static/core/stance.md",
+      "sha256": "8db765b1123d48d6655b612b14620b111e7e584ece1130750b17f237b68391b3"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "static/fragments/backend/python.md",
+      "sha256": "1d4809e4ec4ed2d40995d74828732012a6a72c941dfec341745a3118e9312865"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "references/multipanel-evidence-architecture.md",
+      "sha256": "79ca617cc05088d6fcfb065140d0ee036eb849738bb79306964eb9aa3a4ed274"
+    },
+    {
+      "skill": "nature-figure",
+      "document": "references/qa-contract.md",
+      "sha256": "ba97e18a44235bb00bb176a3ebe2774ba5bd779e65f9b89827b942b5cd97e5d7"
+    }
+  ],
+  "skill_executed": [
+    {
+      "tool": "audit_pdf_text.py",
+      "status": "passed",
+      "exit_code": 0,
+      "output_refs": [
+        {
+          "path": "checks/05-uncertainty-semantics/pdf-text.json",
+          "version": 1,
+          "sha256": "c210ce5d4c9846fd3e99827fcafb44c303078e74e5af451f8db7f59ecd69d53b"
+        }
+      ]
+    },
+    {
+      "tool": "audit_figure_collisions.py",
+      "status": "passed",
+      "exit_code": 0,
+      "output_refs": [
+        {
+          "path": "checks/05-uncertainty-semantics/collisions.json",
+          "version": 1,
+          "sha256": "d3ab845e0f7427ce2484051291af6c9611cc05bc4b14596ec2d4690d433cfb81"
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "path": "figures/05-uncertainty-semantics.pdf",
+      "version": 1,
+      "sha256": "349cb0b5e313b5ddc5daf323fe3bacc61565b5def9930079fb70bdc017680776"
+    },
+    {
+      "path": "figures/05-uncertainty-semantics.svg",
+      "version": 1,
+      "sha256": "51dbc4b238ba619c9d5adcd2c3edb8af3dd0c25218fd5663e52cabd289b5b9c3"
+    },
+    {
+      "path": "figures/05-uncertainty-semantics.png",
+      "version": 1,
+      "sha256": "0dd471de1e97103c181ed1574907b0f51a4beb5a0349f8c42944cbfdb5c2ccc9"
+    }
+  ],
+  "status": "mechanical_passed_visual_pending",
+  "approval_state": "draft",
+  "qa_readback": {
+    "visual_reviewed": false,
+    "mechanical_report_sha256": "7b63167d67c2345040d2202c99bffb494ca7959789a501d776cccb814e6a77c3"
+  }
+}

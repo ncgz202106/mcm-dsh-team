@@ -1,0 +1,59 @@
+{
+  "format_version": 1,
+  "id": "mcm-2024-b-2407038",
+  "year": 2024,
+  "problem": "B",
+  "team": "2407038",
+  "pdf_sha256": "3532e6cb77e04f698b6b54ca76045961bfce18ff9dc4539e2a2af195c43eaa84",
+  "physical_page_count": 25,
+  "public_source": {
+    "url": "https://raw.githubusercontent.com/yangchunwanwusheng/MCM-ICM--2024-/ffea7fd98c1fbf7d25edcba4dbc834631e9adbf2/2024/B/student%20paper/2407038.pdf",
+    "public_copy_byte_match_checked": true,
+    "acquisition_note": "Publicly readable pinned mirror; the studied bytes were checked against this copy."
+  },
+  "award_evidence": {
+    "url": "https://www.contest.comap.org/undergraduate/contests/mcm/contests/2024/results/2024_MCM_Problem_B_Results.pdf",
+    "source_sha256": "08881007d3164c53b360c8b447049345a546bf726428be89a816d6100e208275",
+    "physical_page": 2,
+    "status": "official_result_row_checked",
+    "designation": "Outstanding Winner",
+    "verification": "Exact control number, problem and Outstanding Winner designation were checked together in the official result table."
+  },
+  "observed_pages": {
+    "page_numbering": "physical PDF pages, counting Summary as page 1",
+    "rendered_and_viewed": [
+      4,
+      20,
+      22
+    ],
+    "text_context_reviewed": [
+      4,
+      20,
+      22
+    ]
+  },
+  "answer_chain": [
+    "环境与动力学用于轨迹预测",
+    "设备性能和代价进入选择",
+    "将空间可能位置转为搜索区域与累计发现概率",
+    "通过时间窗、参数扰动与海域变化转为行动建议"
+  ],
+  "good_practices": [
+    "p4总览明确展示了预测、设备、搜索及扩展的任务链。",
+    "p20区分短期与长期累计发现概率并解释早期行动价值；p22把响应过程与偏差量化放在互补面板。"
+  ],
+  "risks": [
+    "p4总览塞入大量微型图和小字，不宜整幅缩入模板照搬。",
+    "累计概率受分布及搜寻假设约束；时间窗、准备时间和搜索单位必须真实进入同一接口，不能仅在总览上连接。"
+  ],
+  "validation": {
+    "level": "source_observation_with_selected_page_visual_review",
+    "official_award_identity_verified": true,
+    "official_submission_bytes_authenticated": false,
+    "full_numeric_reproduction": false,
+    "exhaustive_page_visual_review": false,
+    "font_measurement_performed": false,
+    "case_author_is_observer": true,
+    "model_claims_independently_accepted": false
+  }
+}

@@ -1,0 +1,48 @@
+% Original synthetic teaching pages; not a competition submission.
+\documentclass[12pt]{article}
+\usepackage[a4paper,textwidth=165.1mm,top=18mm,bottom=18mm,centering]{geometry}
+\usepackage{newtxtext}
+\usepackage{amsmath,amssymb}
+\usepackage{newtxmath}
+\usepackage{graphicx,booktabs,fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{Synthetic page examples}\fancyhead[R]{\thepage}\setlength{\headheight}{15pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\input{numbers.tex}
+\newcommand{\GalleryFigure}[3]{\begin{figure}[!ht]\centering\includegraphics[width=165.1mm]{../figures/#1.pdf}\caption{#2}\label{#3}\end{figure}}
+\begin{document}
+\section*{Model page: explicit interfaces}
+This synthetic page explains what is passed between questions before presenting an algorithm. Figure~\ref{fig:method} distinguishes a physical state from a policy decision; the hourly grid and units remain unchanged at the interface.
+\begin{equation}\label{eq:decay}
+\operatorname{stock}(t)=100\exp(-kt),\qquad 0.15\leq k\leq0.25.
+\end{equation}
+The rate has units of inverse hours. The parameter range expresses a scenario assumption, without assigning probabilities. Equation~\eqref{eq:decay} supplies the state, not the optimization objective.
+\GalleryFigure{01-method-interface}{Original synthetic workflow. The mechanism supplies stock on the same hourly grid used by the policy model. The interface carries units and a parameter range; comparison precedes the budget-constrained action. Arrows represent data dependencies, not a claim of numerical validation.}{fig:method}
+\begin{center}\begin{tabular}{lll}\toprule
+Quantity & Unit & Interface meaning\\\midrule
+Stock & units & State at the shared hour\\
+Rate & inverse hours & Bounded model parameter\\
+Cost & cost units & Policy objective\\\bottomrule
+\end{tabular}\end{center}
+\clearpage
+\section*{Result page: comparison and magnitude}
+Both policies use the same nine loads. The mean delay saved is \MeanDelaySaved\ minutes across these deterministic scenarios. Figure~\ref{fig:comparison} separates the performance comparison from the magnitude of the paired gain; it does not establish performance on an external population.
+\GalleryFigure{02-baseline-difference}{Synthetic paired comparison at nine identical hourly loads. Panel a shows delay for both policies; panel b shows baseline minus improved delay at each load. Every generated scenario is retained. The curves are deterministic illustrative formulas, not estimates from observed service data.}{fig:comparison}
+\clearpage
+\section*{Result page: show the failure window}
+A fixed synthetic prediction follows the reference until an imposed shift at hour 18. Figure~\ref{fig:failure} makes the missed regime visible in both the trajectories and signed error. The failure exceeds the stated five-unit tolerance, so an unconditional reliability claim would be unsupported.
+\GalleryFigure{03-reference-failure}{Synthetic reference and fixed prediction over 24 hours. A twelve-unit shift is deliberately introduced at hour 18. Panel a shows trajectories; panel b shows prediction minus reference, with a five-unit tolerance. The shaded interval is a known failure scenario, not a fitted confidence interval or evidence of real-world generalization.}{fig:failure}
+\clearpage
+\section*{Sensitivity page: numerical and action changes}
+Two cost functions cross at \(p=14/9\), approximately \SwitchValue. Figure~\ref{fig:sensitivity} connects the continuous responses to a discrete action change. A small cost variation near the crossing can change the recommendation even when both response curves remain smooth.
+\GalleryFigure{04-sensitivity-decision}{Synthetic cost sensitivity for two policies across 81 parameter values. Panel a shows both cost functions; panel b maps each value to its lower-cost policy. The analytical crossing is 14/9. The example distinguishes a smooth numerical response from a discrete change in the recommended action.}{fig:sensitivity}
+\clearpage
+\section*{Sensitivity page: identify the uncertainty object}
+Figure~\ref{fig:uncertainty} gives two deliberately different constructions. A range over assumed rates is not a confidence interval. The central predictive interval has a probability interpretation only conditional on the stated Normal response model; no empirical coverage claim is made.
+\GalleryFigure{05-uncertainty-semantics}{Two synthetic uncertainty constructions. Panel a spans decay rates from 0.15 to 0.25 per hour, without a probability interpretation. Panel b shades the central 90\% interval of an assumed Normal response with mean 6 and standard deviation 1.2. This model-defined interval is not empirical coverage validation or a confidence interval for the mean.}{fig:uncertainty}
+\clearpage
+\section*{Decision page: a conditional recommendation}
+Among the seven discrete policies, D maximizes effect subject to budget 25. Its cost is \SelectedCost\ and effect is \SelectedEffect. Figure~\ref{fig:decision} displays both the trade-off and the feasibility reason. The choice is conditional on this candidate set, objective and budget.
+\GalleryFigure{06-cost-effect}{Seven synthetic discrete policies. Panel a shows cost and effect: circles are frontier policies, the cross is dominated G, and the orange star is D. No interpolated actions are implied. Panel b shows costs against budget 25. D is preferred only for this budget and objective.}{fig:decision}
+
+\end{document}

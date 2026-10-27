@@ -1,0 +1,8 @@
+numpy
+matplotlib
+Pillow
+pypdf
+PyMuPDF
+CairoSVG
+svglib
+reportlab

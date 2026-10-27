@@ -1,0 +1,68 @@
+{
+  "format_version": 1,
+  "id": "mcm-2024-a-2400996",
+  "year": 2024,
+  "problem": "A",
+  "team": "2400996",
+  "pdf_sha256": "310382aa894d6207a77b2931929eaf39b562dcf5f121410d2db61580382e5bd5",
+  "physical_page_count": 24,
+  "public_source": {
+    "url": "https://raw.githubusercontent.com/yangchunwanwusheng/MCM-ICM--2024-/ffea7fd98c1fbf7d25edcba4dbc834631e9adbf2/2024/A/student%20paper/2400996.pdf",
+    "public_copy_byte_match_checked": true,
+    "acquisition_note": "Publicly readable pinned mirror; the studied bytes were checked against this copy."
+  },
+  "award_evidence": {
+    "url": "https://www.contest.comap.org/undergraduate/contests/mcm/contests/2024/results/2024_MCM_Problem_A_Results.pdf",
+    "source_sha256": "2917f28adcb8fdd52eda13f379f4047d6e35c0663aff705a66856db763ee2d63",
+    "physical_page": 2,
+    "status": "official_result_row_checked",
+    "designation": "Outstanding Winner",
+    "verification": "Exact control number, problem and Outstanding Winner designation were checked together in the official result table."
+  },
+  "observed_pages": {
+    "page_numbering": "physical PDF pages, counting Summary as page 1",
+    "rendered_and_viewed": [
+      11,
+      16,
+      21
+    ],
+    "text_context_reviewed": [
+      1,
+      2,
+      4,
+      8,
+      11,
+      13,
+      15,
+      16,
+      17,
+      19,
+      21,
+      22
+    ]
+  },
+  "answer_chain": [
+    "按幼体和成体生命史建立状态结构",
+    "将资源、生长、性比及繁殖连接成反馈",
+    "保持其他参数不变，开关性比调节并施加同一环境扰动",
+    "分别解释恢复速度、抵抗能力以及生态指标变化"
+  ],
+  "good_practices": [
+    "p15–16交代相同扰动与控制条件，并在同图标出环境切换和恢复时间。",
+    "p17同时讨论更快适应与更弱抵抗，避免把一个指标改善等同全面优势。"
+  ],
+  "risks": [
+    "p11从生物量正态描述直接转向时间正态且沿用方差，缺少变换分布论证；概率与密度也需区分。",
+    "p16所谓优化率使用前后比值，不能未经说明改称通常的百分比减少；参数校准及p21灵敏性范围不证明全局稳健。"
+  ],
+  "validation": {
+    "level": "source_observation_with_selected_page_visual_review",
+    "official_award_identity_verified": true,
+    "official_submission_bytes_authenticated": false,
+    "full_numeric_reproduction": false,
+    "exhaustive_page_visual_review": false,
+    "font_measurement_performed": false,
+    "case_author_is_observer": true,
+    "model_claims_independently_accepted": false
+  }
+}

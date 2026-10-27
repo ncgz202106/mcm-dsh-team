@@ -21,7 +21,7 @@ if (-not (Test-Path -LiteralPath (Join-Path $profileRoot 'package.json'))) { thr
 if (-not (Test-Path -LiteralPath (Join-Path $pluginAbsolute 'package.json'))) { throw 'Installed MCM plugin is missing.' }
 $package=Read-DshJson (Join-Path $sourceRoot 'package.json')
 $installedBefore=Read-DshJson (Join-Path $pluginAbsolute 'package.json')
-if ($package.name -ne 'dsh-mcm-team' -or $package.version -ne '0.2.1' -or $installedBefore.name -ne 'dsh-mcm-team') { throw 'Unexpected source/installed package identity.' }
+if ($package.name -ne 'dsh-mcm-team' -or $package.version -ne '0.2.2' -or $installedBefore.name -ne 'dsh-mcm-team') { throw 'Unexpected source/installed package identity.' }
 & node (Join-Path $sourceRoot 'src/build.mjs') --check
 if ($LASTEXITCODE) { throw 'Generated preset configuration is not current.' }
 $before=Read-DshJson (Join-Path $profileRoot 'package.json')
