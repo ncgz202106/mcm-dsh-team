@@ -52,8 +52,10 @@ function dependencyOf(value) {
 export function capacityOf(config,snapshot,now=Date.now()) {
   if(!Number.isInteger(config.normal_slots)||config.normal_slots<0||!Number.isInteger(config.reserve_slots)||config.reserve_slots<0) throw new Error('MCM_DISPATCH_DENIED: invalid project capacity');
   if(!snapshot || !Array.isArray(snapshot.records)) throw new Error('MCM_DISPATCH_DENIED: unknown Host capacity; obtain an actual fresh Host allocation snapshot, do not guess');
-  const host=snapshot.host_capacity, limit=host?.max_active_descendants;
-  if(host?.verified!==true || !Number.isInteger(limit)||limit<=0||typeof host.evidence_ref!=='string'||!host.evidence_ref.trim()||snapshot.allocation_scope!=='host') throw new Error('MCM_DISPATCH_DENIED: unknown or unverified Host allocation capacity');
+  const scoped=snapshot.allocation_scope==='root-activation-pool';
+  const host=scoped?snapshot.pool_capacity:snapshot.host_capacity, limit=host?.max_active_descendants;
+  if(host?.verified!==true || !Number.isInteger(limit)||limit<=0||(!scoped&&(typeof host.evidence_ref!=='string'||!host.evidence_ref.trim()||snapshot.allocation_scope!=='host'))) throw new Error('MCM_DISPATCH_DENIED: unknown or unverified allocation capacity');
+  if(scoped&&(!nonempty(snapshot.root_agent_id)||!nonempty(snapshot.caller_agent_id)||!nonempty(snapshot.allocation_domain_id)||!nonempty(snapshot.capture_id)||!Array.isArray(snapshot.coverage_gaps)||snapshot.coverage_gaps.length||host.pending_materializations!==0||!Number.isInteger(host.reserved_slots)||host.reserved_slots<0)) throw new Error('MCM_DISPATCH_DENIED: root pool coverage is incomplete');
   const timestamp=snapshot.captured_at;
   if(typeof timestamp!=='string'|| !/(?:Z|[+-]\d\d:\d\d)$/.test(timestamp)) throw new Error('MCM_DISPATCH_DENIED: capacity timestamp requires timezone');
   const captured=Date.parse(timestamp), age=(now-captured)/1000, maximum=config.capacity_snapshot_max_age_seconds??60;
@@ -61,15 +63,22 @@ export function capacityOf(config,snapshot,now=Date.now()) {
   const states=new Set(['running','waiting','starting','paused','completed','cancelled','failed']);
   const allocated=[];
   for(const row of snapshot.records) {
+    if(scoped) {
+      if(!nonempty(row?.agent_id)||!['local','external'].includes(row.kind)||typeof row.closing!=='boolean') throw new Error('MCM_DISPATCH_DENIED: invalid root pool allocation record');
+      allocated.push(row.agent_id);continue;
+    }
     if(typeof row?.agent_id!=='string'||!row.agent_id.trim()||!states.has(row.state)||(row.is_root!==undefined&&typeof row.is_root!=='boolean')) throw new Error('MCM_DISPATCH_DENIED: invalid Host allocation record');
     if(!row.is_root&&['running','waiting','starting','paused'].includes(row.state)) allocated.push(row.agent_id);
   }
+  if(scoped&&(new Set(allocated).size!==allocated.length||allocated.length!==host.reserved_slots)) throw new Error('MCM_DISPATCH_DENIED: root pool reservations are not completely reconciled');
   const total=Math.min(config.normal_slots+config.reserve_slots,limit), normal=Math.min(config.normal_slots,Math.max(0,total-config.reserve_slots));
   if(config.pause_state?.paused===true) throw new Error('MCM_DISPATCH_DENIED: user pause is active');
   if(snapshot.admit_one_task===false) throw new Error('MCM_DISPATCH_DENIED: snapshot explicitly denies admission');
-  return {allocated:allocated.length,effective_total:total,effective_normal_slots:normal,admit_one_task:allocated.length<normal,captured_at:timestamp,captured_ms:captured,snapshot_fresh:true,host_capacity_verified:true,host_max_active_descendants:limit,host_evidence_ref:host.evidence_ref,allocated_agents:allocated};
+  return {allocated:allocated.length,effective_total:total,effective_normal_slots:normal,admit_one_task:allocated.length<normal,captured_at:timestamp,captured_ms:captured,snapshot_fresh:true,
+    allocation_scope:snapshot.allocation_scope,allocation_domain_id:scoped?snapshot.allocation_domain_id:'legacy-host',
+    ...(scoped?{pool_capacity_verified:true,pool_max_active_descendants:limit,root_agent_id:snapshot.root_agent_id,caller_agent_id:snapshot.caller_agent_id}:{host_capacity_verified:true,host_max_active_descendants:limit,host_evidence_ref:host.evidence_ref}),allocated_agents:allocated};
 }
-export async function validateDispatch({root,role,depth,args,taskId,snapshotPath,now=Date.now()}) {
+export async function validateDispatch({root,role,depth,args,taskId,snapshotPath,verifySnapshot,now=Date.now()}) {
   if(!ROLE_CHILDREN[role]?.includes(args?.agent_preset)) throw new Error('MCM_DISPATCH_DENIED: actual parent role cannot delegate this preset');
   if(!Number.isInteger(depth)||depth<0||depth+1>2) throw new Error('MCM_DISPATCH_DENIED: actual delegation depth exceeds 2');
   root=await realpath(root);
@@ -149,15 +158,19 @@ export async function validateDispatch({root,role,depth,args,taskId,snapshotPath
   const chosen=snapshotPath??config.runtime_snapshot;
   if(typeof chosen!=='string'||!chosen) throw new Error('MCM_DISPATCH_DENIED: unknown Host capacity; runtime_snapshot is unset');
   const snapshot=await json(await projectPath(root,chosen));
-  const capacity={...capacityOf(config,snapshot,now),snapshot_sha256:hash(snapshot)};
+  // Native callers supply a process-local verifier. JSON verified=true alone is
+  // retained only as legacy core/offline compatibility, never native admission.
+  const nativeProof=verifySnapshot?await verifySnapshot(snapshot):{};
+  const capacity={...capacityOf(config,snapshot,now),...nativeProof,snapshot_sha256:hash(snapshot)};
   if(!capacity.admit_one_task) throw new Error('MCM_DISPATCH_DENIED: admit_one_task=false; queue until actual release and fresh evidence');
   const evidence_sha256=hash({dependencies:dependencyRecords,artifacts:[...checkedArtifacts.values()].sort((a,b)=>a.artifact_id.localeCompare(b.artifact_id))});
-  return {root,task_id:taskId,task_sha256:hash(task),evidence_sha256,args_sha256:hash(args),snapshot_path:chosen,capacity};
+  return {root,task_id:taskId,task_sha256:hash(task),evidence_sha256,args_sha256:hash(args),snapshot_path:chosen,capacity,...(verifySnapshot?{native_snapshot:snapshot}:{})};
 }
 
 /** One process-local admission ledger. It is not a scheduler or a Host allocation oracle. */
 export function createPermitLedger({now=()=>Date.now(),ttlMs=60000}={}) {
   const permits=new Map(), starts=[];
+  const domain=capacity=>capacity.allocation_domain_id??'legacy-host';
   const cleanup=capacity=>{
     const time=now(); for(const [key,p] of permits) if(p.expires_ms<=time) permits.delete(key);
     // A previously issued (including future-skew-tolerated) snapshot cannot
@@ -166,7 +179,7 @@ export function createPermitLedger({now=()=>Date.now(),ttlMs=60000}={}) {
     // use a timestamp still ahead of the tool clock to release a slot.
     for(let i=starts.length-1;i>=0;i--) {
       const entry=starts[i];
-      if(capacity.snapshot_sha256 && entry.snapshot_sha256 && capacity.snapshot_sha256!==entry.snapshot_sha256 &&
+      if(entry.domain===domain(capacity)&&capacity.snapshot_sha256 && entry.snapshot_sha256 && capacity.snapshot_sha256!==entry.snapshot_sha256 &&
         capacity.captured_ms>entry.started_ms && capacity.captured_ms>entry.snapshot_captured_ms && capacity.captured_ms<=time) starts.splice(i,1);
     }
   };
@@ -175,7 +188,8 @@ export function createPermitLedger({now=()=>Date.now(),ttlMs=60000}={}) {
     issue(sessionId,validation) {
       cleanup(validation.capacity);
       const k=key(sessionId,validation.args_sha256); permits.delete(k);
-      if(validation.capacity.allocated+permits.size+starts.length>=validation.capacity.effective_normal_slots) throw new Error('MCM_DISPATCH_DENIED: current evidence plus outstanding dispatch reservations has no normal slot');
+      const ownDomain=domain(validation.capacity),pending=[...permits.values()].filter(p=>domain(p.capacity)===ownDomain).length,started=starts.filter(p=>p.domain===ownDomain).length;
+      if(validation.capacity.allocated+pending+started>=validation.capacity.effective_normal_slots) throw new Error('MCM_DISPATCH_DENIED: current evidence plus outstanding dispatch reservations has no normal slot');
       const permit={...validation,session_id:sessionId,permit_id:randomUUID(),expires_ms:Math.min(now()+ttlMs,validation.capacity.captured_ms+60000)};
       permits.set(k,permit); return permit;
     },
@@ -183,7 +197,7 @@ export function createPermitLedger({now=()=>Date.now(),ttlMs=60000}={}) {
     consume(sessionId,args,expected) {
       const k=key(sessionId,hash(args)), permit=permits.get(k);
       if(!permit||permit!==expected||permit.expires_ms<=now()) return false;
-      permits.delete(k); starts.push({started_ms:now(),snapshot_captured_ms:permit.capacity.captured_ms,snapshot_sha256:permit.capacity.snapshot_sha256,session_id:sessionId,task_id:permit.task_id}); return true;
+      permits.delete(k); starts.push({domain:domain(permit.capacity),started_ms:now(),snapshot_captured_ms:permit.capacity.captured_ms,snapshot_sha256:permit.capacity.snapshot_sha256,session_id:sessionId,task_id:permit.task_id}); return true;
     },
     // Used only by tests/diagnostics, never a source of actual Host occupancy.
     pendingCount:()=>permits.size

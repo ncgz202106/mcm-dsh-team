@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtemp, mkdir, writeFile, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { createHash } from 'node:crypto';
 import { buildBundle } from '../src/build.mjs';
 import { ROLES, presetDeclarations, rolePlugins, emitYaml } from '../src/presets.mjs';
 import { SKILL_ROUTING, OPTIONAL_ROLES } from '../src/skill-routing.mjs';
@@ -77,6 +78,10 @@ test('build embeds source prompt bytes reproducibly and check detects prompt dri
     assert.equal(provenance.role_count, 12);
     assert.equal(provenance.optional_roles['mcm-code-lead'].enabled_by_default, false);
     assert.match(provenance.skill_routing_sha256, /^[a-f0-9]{64}$/);
+    for (const name of ['runtime-guard-core.mjs','runtime-guard-plugin.mjs','root-pool-observer.mjs']) {
+      const digest=createHash('sha256').update(await readFile(new URL(`../src/${name}`,import.meta.url))).digest('hex');
+      assert.equal(provenance.runtime_guard_source_sha256[`src/${name}`],digest);
+    }
     assert.equal(SKILL_ROUTING.bundle_version, provenance.bundle_version);
     assert.ok(text.includes("disabled: !!js process.platform === 'win32'"));
     assert.equal(text.includes('promptFile'), false);

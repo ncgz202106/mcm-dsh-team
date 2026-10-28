@@ -453,6 +453,98 @@ class CurrentContext(unittest.TestCase):
         self.assertFalse(normal["admit_one_task"])
         self.assertTrue(reserve["admit_one_task"])
 
+    def root_snapshot(self, used=1, **updates):
+        payload = {"schema_version": 1, "capture_id": "SYNTHETIC_CAPTURE", "allocation_scope": "root-activation-pool",
+                   "root_agent_id": "synthetic-root", "caller_agent_id": "synthetic-paper-lead",
+                   "allocation_domain_id": "synthetic-domain", "captured_at": datetime.now(timezone.utc).isoformat(),
+                   "pool_capacity": {"verified": True, "max_active_descendants": 4, "reserved_slots": used,
+                                     "pending_materializations": 0, "absent_pool_zero_proven": False},
+                   "records": [{"agent_id": "child-" + str(i), "kind": "external" if i else "local", "closing": i == 0}
+                               for i in range(used)], "coverage_gaps": [], "admit_one_task": True}
+        payload.update(updates)
+        path = self.root / "root-pool-snapshot.json"
+        mcm.atomic_json(path, payload)
+        return path
+
+    def test_root_pool_cli_is_advisory_even_for_complete_fresh_capture(self):
+        self.config(normal_slots=7, reserve_slots=1)
+        report = mcm.runtime_capacity(self.root, self.root_snapshot(2))
+        self.assertTrue(report["records_reconciled"])
+        self.assertEqual(report["allocated"], 2)
+        self.assertEqual(report["advisory_effective_total"], 4)
+        self.assertEqual(report["advisory_normal_available"], 1)
+        self.assertTrue(report["advisory_can_admit"])
+        self.assertTrue(report["closing_residents_counted"])
+        for field in ("capacity_known", "admit_one_task", "native_capture_ledger_verified", "host_capacity_verified", "host_allocation_count_known"):
+            self.assertFalse(report[field], field)
+        self.assertTrue(report["native_validation_required"])
+        self.assertIsNone(report["normal_available"])
+        self.assertIsNone(report["effective_total"])
+
+    def test_root_pool_pending_unpublished_reservation_remains_unknown(self):
+        path = self.root_snapshot(1)
+        payload = mcm.read_json(path)
+        payload["pool_capacity"].update(verified=False, reserved_slots=2, pending_materializations=1)
+        payload["coverage_gaps"] = ["own-pool-materialization-pending", "reservations-not-reconciled-with-residents"]
+        mcm.atomic_json(path, payload)
+        report = mcm.runtime_capacity(self.root, path)
+        self.assertFalse(report["records_reconciled"])
+        self.assertFalse(report["allocation_count_known"])
+        self.assertFalse(report["advisory_can_admit"])
+        self.assertIsNone(report["advisory_available"])
+        self.assertEqual(report["reserved_slots_declared"], 2)
+        self.assertEqual(report["allocated"], 1)
+
+    def test_root_pool_stale_pause_deny_flag_and_full_pool_cannot_advise_admission(self):
+        cases = [
+            {"captured_at": "2020-01-01T00:00:00Z"},
+            {"captured_at": "2026-01-01T00:00:00"},
+            {"captured_at": (datetime.now(timezone.utc) + timedelta(minutes=2)).isoformat()},
+            {"admit_one_task": False},
+        ]
+        for updates in cases:
+            with self.subTest(updates=updates):
+                report = mcm.runtime_capacity(self.root, self.root_snapshot(1, **updates))
+                self.assertFalse(report["advisory_can_admit"])
+                self.assertFalse(report["admit_one_task"])
+        self.assertFalse(mcm.runtime_capacity(self.root, self.root_snapshot(3))["advisory_can_admit"])
+        self.config(pause_state={"paused": True, "reason": "synthetic user stop"})
+        report = mcm.runtime_capacity(self.root, self.root_snapshot(1))
+        self.assertFalse(report["advisory_can_admit"])
+        self.assertTrue(report["user_paused"])
+
+    def test_root_pool_reserve_estimate_never_grants_reserve_authority(self):
+        path = self.root_snapshot(3)
+        ordinary, reserve = mcm.runtime_capacity(self.root, path), mcm.runtime_capacity(self.root, path, True)
+        self.assertEqual(ordinary["advisory_available"], 0)
+        self.assertEqual(reserve["advisory_available"], 1)
+        self.assertTrue(reserve["advisory_can_admit"])
+        self.assertFalse(reserve["admit_one_task"])
+        self.assertTrue(reserve["native_validation_required"])
+
+    def test_root_pool_rejects_malformed_identity_rows_and_counts(self):
+        mutations = [
+            lambda p: p.update(schema_version=True),
+            lambda p: p.update(caller_agent_id=""),
+            lambda p: p.update(allocation_domain_id="x" * 257),
+            lambda p: p["records"][0].update(closing="false"),
+            lambda p: p["records"][0].update(kind=["local"]),
+            lambda p: p["records"].append(dict(p["records"][0])),
+            lambda p: p["records"][0].update(agent_id=p["root_agent_id"]),
+            lambda p: p["pool_capacity"].update(reserved_slots=True),
+            lambda p: p["pool_capacity"].update(max_active_descendants=0),
+            lambda p: p["pool_capacity"].update(pending_materializations=-1),
+            lambda p: p.update(coverage_gaps=[False]),
+            lambda p: p.update(records=p["records"] * 1025),
+        ]
+        for mutation in mutations:
+            path = self.root_snapshot(1)
+            payload = mcm.read_json(path)
+            mutation(payload)
+            mcm.atomic_json(path, payload)
+            with self.assertRaisesRegex(ValueError, "Root pool"):
+                mcm.runtime_capacity(self.root, path)
+
     def test_parallel_programmers_write_disjoint_files_and_overlap_is_rejected(self):
         first = self.task()
         second = dict(first, task_id="P2", owner_agent_id="programmer-two", allowed_write_paths=["src/pipeline"])

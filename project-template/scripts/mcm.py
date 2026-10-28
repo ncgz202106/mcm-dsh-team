@@ -757,6 +757,8 @@ def restore_snapshot(project, label, destination=None):
 def runtime_capacity(project, snapshot=None, reserve_task=False):
     config = read_json(Path(project) / "config" / "runtime.json")
     raw = read_json(snapshot) if snapshot else {"records": []}
+    if raw.get("allocation_scope") == "root-activation-pool":
+        return root_pool_advisory(project, config, raw, snapshot, reserve_task)
     rows = raw.get("records")
     if not isinstance(rows, list):
         raise ValueError("Normalize listRuntime into {records:[{agent_id,state,is_root,role}]} before import")
@@ -811,6 +813,87 @@ def runtime_capacity(project, snapshot=None, reserve_task=False):
             "waiting_supervisors_counted": True, "root_excluded": True,
             "source": str(snapshot) if snapshot else "no runtime snapshot supplied; capacity calculation only",
             "does_not_spawn_or_control_dsh": True, "allocated_agents": [r["agent_id"] for r in allocated]}
+
+
+def root_pool_advisory(project, config, raw, snapshot, reserve_task=False):
+    """Parse a scoped capture without pretending to verify its native ledger.
+
+    This CLI runs outside the loaded plugin process. Even perfectly formed JSON
+    cannot prove the exact live caller/service/pool or a process-local capture.
+    Only the mounted native preflight can make an actual admission decision.
+    """
+    def integer(value, minimum=0):
+        return isinstance(value, int) and not isinstance(value, bool) and value >= minimum
+
+    def identity(value):
+        return isinstance(value, str) and 0 < len(value) <= 256 and bool(value.strip())
+
+    if raw.get("schema_version") != 1 or isinstance(raw.get("schema_version"), bool):
+        raise ValueError("Root pool snapshot requires schema_version=1")
+    for key in ("root_agent_id", "caller_agent_id", "allocation_domain_id", "capture_id"):
+        if not identity(raw.get(key)):
+            raise ValueError("Root pool snapshot requires bounded " + key)
+    rows, pool, gaps = raw.get("records"), raw.get("pool_capacity"), raw.get("coverage_gaps")
+    if not isinstance(rows, list) or len(rows) > 1024 or not isinstance(pool, dict):
+        raise ValueError("Root pool records/capacity have unsupported structure")
+    if not isinstance(gaps, list) or len(gaps) > 32 or any(not isinstance(gap, str) or len(gap) > 200 for gap in gaps):
+        raise ValueError("Root pool coverage_gaps must be a bounded string list")
+    for row in rows:
+        if (not isinstance(row, dict) or not identity(row.get("agent_id")) or
+                not isinstance(row.get("kind"), str) or row.get("kind") not in {"local", "external"} or
+                not isinstance(row.get("closing"), bool)):
+            raise ValueError("Root pool record requires agent_id, local/external kind and boolean closing")
+    ids = [row["agent_id"] for row in rows]
+    if len(set(ids)) != len(ids):
+        raise ValueError("Root pool records contain duplicate agent identity")
+    if raw["root_agent_id"] in ids:
+        raise ValueError("Root pool records must exclude the root")
+    limit, reserved, pending = (pool.get(key) for key in ("max_active_descendants", "reserved_slots", "pending_materializations"))
+    if not integer(limit, 1) or not integer(reserved) or not integer(pending) or not isinstance(pool.get("verified"), bool):
+        raise ValueError("Root pool capacity needs integer limit/counts and boolean verified")
+    normal, reserve = config["normal_slots"], config["reserve_slots"]
+    if not integer(normal) or not integer(reserve):
+        raise ValueError("Configured normal/reserve slots must be non-negative integers")
+    maximum_age = config.get("capacity_snapshot_max_age_seconds", 60)
+    if not isinstance(maximum_age, (int, float)) or isinstance(maximum_age, bool) or maximum_age <= 0:
+        raise ValueError("capacity_snapshot_max_age_seconds must be positive")
+    age = None
+    try:
+        captured = datetime.fromisoformat(raw.get("captured_at") or "")
+        if captured.tzinfo is not None:
+            age = (datetime.now(timezone.utc) - captured).total_seconds()
+    except (TypeError, ValueError):
+        pass
+    fresh = age is not None and -5 <= age <= maximum_age
+    reconciled = reserved == len(rows) and pending == 0 and not gaps
+    structurally_complete = reconciled and pool["verified"] is True
+    total = min(normal + reserve, limit)
+    normal_limit = min(normal, max(0, total - reserve))
+    advisory_known = structurally_complete and fresh
+    paused = pause_state(project)["paused"]
+    selected_limit = total if reserve_task else normal_limit
+    return {"allocation_scope": "root-activation-pool", "root_agent_id": raw["root_agent_id"],
+            "caller_agent_id": raw["caller_agent_id"], "allocation_domain_id": raw["allocation_domain_id"],
+            "allocated": len(rows), "reserved_slots_declared": reserved, "pending_materializations_declared": pending,
+            "records_reconciled": reconciled, "coverage_gaps": gaps,
+            "normal_slots": normal, "reserve_slots": reserve, "configured_total": normal + reserve,
+            "normal_available": None, "reserve_available": None,
+            "advisory_effective_total": total, "advisory_effective_normal_slots": normal_limit,
+            "advisory_available": max(0, selected_limit - reserved) if advisory_known else None,
+            "advisory_normal_available": max(0, normal_limit - reserved) if advisory_known else None,
+            "advisory_reserve_available": max(0, total - max(normal_limit, reserved)) if advisory_known else None,
+            "advisory_can_admit": (advisory_known and not paused and raw.get("admit_one_task") is not False and reserved < selected_limit),
+            "capacity_known": False, "admit_one_task": False, "native_validation_required": True,
+            "native_capture_ledger_verified": False, "pool_capacity_verified": False,
+            "pool_capacity_declared_verified": pool["verified"], "pool_max_active_descendants_declared": limit,
+            "host_allocation_count_known": False, "host_capacity_verified": False,
+            "host_max_active_descendants": None, "allocation_count_known": reconciled,
+            "effective_total": None, "effective_normal_slots": None,
+            "snapshot_fresh": fresh, "snapshot_age_seconds": age, "snapshot_max_age_seconds": maximum_age,
+            "team_limit_is_host_capacity": False, "user_paused": paused, "reserve_requested": reserve_task,
+            "waiting_supervisors_counted": True, "closing_residents_counted": True, "root_excluded": True,
+            "source": str(snapshot), "does_not_spawn_or_control_dsh": True, "allocated_agents": ids,
+            "next": "Obtain a fresh capture for this exact manager in the mounted plugin process, then call mcm_dispatch_preflight; this offline JSON report never grants admission."}
 
 
 def context_pack(project, task_id):

@@ -29,7 +29,7 @@
                 - DSH 根队长是唯一内部调度者及 .mcm/{tasks,artifacts,issues,decisions}.json、config、人工关口的唯一登记者。Codex 是外部检查点技术总监，经队长接单的编号工作包协作；不能同时直接向现有成员下冲突指令，也不冒充同一 Team 的 Lead。
                 - 原生 spawn 必须显式指定 schema 支持的 agent_preset 和项目目录，并读回真实 preset/父子关系/有效工具。Team 成员名字不等于预设身份，部分 Team 入口会继承 Lead preset；未核验身份不开始写入，不通过新建另一个 root 绕过派发边界。
                 - 最大派生深度 2：root→一级主管/执行者→二级叶子。可委派者仅 captain、model-lead、paper-lead，以及明确启用的 code-lead；其他角色不得再派生。programmer 可直属 captain 或在 code-lead 下，始终是叶子。
-                - 容量以当前项目约束与真实 Host 能力/新鲜运行快照的交集为准，不硬编码 8 或 16。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待不表示已释放。
+                - 容量以当前项目约束与实际共享根激活池的新鲜观测交集为准，不硬编码 8 或 16，不把每根限额称为 Desktop/Host 全局上限。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待/closing 不表示已释放。
                 - 本预设未给叶子配置原生派生插件；运行端可能叠加全局/外部工具。禁止越权调用，也不得把行为约束宣称为工具安全隔离或 OS 沙箱。
                 - 普通 subagent 消息只限相邻父子，跨分支由共同父层转发任务 ID、短结论、版本化路径和明确问题；不假 peer/跨 Team 通道，不以无限文件轮询模拟群聊。
 
@@ -64,7 +64,7 @@
 
                 派发前尚未取得孩子原生 ID 时，`owner_agent_id` 可写明确的计划身份（如 `pending:FIG-01`）；这不是原生Session身份。创建成功后由队长通过readback写入真实ID，禁止声称计划身份已获Host核验。
 
-                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
+                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；配置限额不等于剩余名额。当前实际管理者调用 `mcm_root_pool_capture({})`，将返回的 `snapshot` 原样保存到本人获配的独占证据路径，并以预检 `snapshot_path` 引用；若无获权路径则交队长保存。全局 `config/runtime.json.runtime_snapshot` 与登记仍由队长单写。证据明确为 `allocation_scope=root-activation-pool`，绑定本进程的实际调用 Agent、根、服务和池；主管须获取自己的捕获，不能复用队长文件。工具只读内存并返回JSON，不代写项目。旧Host文件、自填verified=true、重启前文件均不能替代当前捕获。来源不支持、预留尚未发布、未知、过期、暂停、满额或 `admit_one_task=false` 时排队；不能spawn探测、臆造ID或 `active=0`。源码候选尚未正式安装时，工具缺失就报告缺口，不假定热加载。
 
                 普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
 
@@ -264,7 +264,7 @@
                 - DSH 根队长是唯一内部调度者及 .mcm/{tasks,artifacts,issues,decisions}.json、config、人工关口的唯一登记者。Codex 是外部检查点技术总监，经队长接单的编号工作包协作；不能同时直接向现有成员下冲突指令，也不冒充同一 Team 的 Lead。
                 - 原生 spawn 必须显式指定 schema 支持的 agent_preset 和项目目录，并读回真实 preset/父子关系/有效工具。Team 成员名字不等于预设身份，部分 Team 入口会继承 Lead preset；未核验身份不开始写入，不通过新建另一个 root 绕过派发边界。
                 - 最大派生深度 2：root→一级主管/执行者→二级叶子。可委派者仅 captain、model-lead、paper-lead，以及明确启用的 code-lead；其他角色不得再派生。programmer 可直属 captain 或在 code-lead 下，始终是叶子。
-                - 容量以当前项目约束与真实 Host 能力/新鲜运行快照的交集为准，不硬编码 8 或 16。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待不表示已释放。
+                - 容量以当前项目约束与实际共享根激活池的新鲜观测交集为准，不硬编码 8 或 16，不把每根限额称为 Desktop/Host 全局上限。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待/closing 不表示已释放。
                 - 本预设未给叶子配置原生派生插件；运行端可能叠加全局/外部工具。禁止越权调用，也不得把行为约束宣称为工具安全隔离或 OS 沙箱。
                 - 普通 subagent 消息只限相邻父子，跨分支由共同父层转发任务 ID、短结论、版本化路径和明确问题；不假 peer/跨 Team 通道，不以无限文件轮询模拟群聊。
 
@@ -299,7 +299,7 @@
 
                 派发前尚未取得孩子原生 ID 时，`owner_agent_id` 可写明确的计划身份（如 `pending:FIG-01`）；这不是原生Session身份。创建成功后由队长通过readback写入真实ID，禁止声称计划身份已获Host核验。
 
-                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
+                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；配置限额不等于剩余名额。当前实际管理者调用 `mcm_root_pool_capture({})`，将返回的 `snapshot` 原样保存到本人获配的独占证据路径，并以预检 `snapshot_path` 引用；若无获权路径则交队长保存。全局 `config/runtime.json.runtime_snapshot` 与登记仍由队长单写。证据明确为 `allocation_scope=root-activation-pool`，绑定本进程的实际调用 Agent、根、服务和池；主管须获取自己的捕获，不能复用队长文件。工具只读内存并返回JSON，不代写项目。旧Host文件、自填verified=true、重启前文件均不能替代当前捕获。来源不支持、预留尚未发布、未知、过期、暂停、满额或 `admit_one_task=false` 时排队；不能spawn探测、臆造ID或 `active=0`。源码候选尚未正式安装时，工具缺失就报告缺口，不假定热加载。
 
                 普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
 
@@ -459,7 +459,7 @@
                 - DSH 根队长是唯一内部调度者及 .mcm/{tasks,artifacts,issues,decisions}.json、config、人工关口的唯一登记者。Codex 是外部检查点技术总监，经队长接单的编号工作包协作；不能同时直接向现有成员下冲突指令，也不冒充同一 Team 的 Lead。
                 - 原生 spawn 必须显式指定 schema 支持的 agent_preset 和项目目录，并读回真实 preset/父子关系/有效工具。Team 成员名字不等于预设身份，部分 Team 入口会继承 Lead preset；未核验身份不开始写入，不通过新建另一个 root 绕过派发边界。
                 - 最大派生深度 2：root→一级主管/执行者→二级叶子。可委派者仅 captain、model-lead、paper-lead，以及明确启用的 code-lead；其他角色不得再派生。programmer 可直属 captain 或在 code-lead 下，始终是叶子。
-                - 容量以当前项目约束与真实 Host 能力/新鲜运行快照的交集为准，不硬编码 8 或 16。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待不表示已释放。
+                - 容量以当前项目约束与实际共享根激活池的新鲜观测交集为准，不硬编码 8 或 16，不把每根限额称为 Desktop/Host 全局上限。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待/closing 不表示已释放。
                 - 本预设未给叶子配置原生派生插件；运行端可能叠加全局/外部工具。禁止越权调用，也不得把行为约束宣称为工具安全隔离或 OS 沙箱。
                 - 普通 subagent 消息只限相邻父子，跨分支由共同父层转发任务 ID、短结论、版本化路径和明确问题；不假 peer/跨 Team 通道，不以无限文件轮询模拟群聊。
 
@@ -494,7 +494,7 @@
 
                 派发前尚未取得孩子原生 ID 时，`owner_agent_id` 可写明确的计划身份（如 `pending:FIG-01`）；这不是原生Session身份。创建成功后由队长通过readback写入真实ID，禁止声称计划身份已获Host核验。
 
-                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
+                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；配置限额不等于剩余名额。当前实际管理者调用 `mcm_root_pool_capture({})`，将返回的 `snapshot` 原样保存到本人获配的独占证据路径，并以预检 `snapshot_path` 引用；若无获权路径则交队长保存。全局 `config/runtime.json.runtime_snapshot` 与登记仍由队长单写。证据明确为 `allocation_scope=root-activation-pool`，绑定本进程的实际调用 Agent、根、服务和池；主管须获取自己的捕获，不能复用队长文件。工具只读内存并返回JSON，不代写项目。旧Host文件、自填verified=true、重启前文件均不能替代当前捕获。来源不支持、预留尚未发布、未知、过期、暂停、满额或 `admit_one_task=false` 时排队；不能spawn探测、臆造ID或 `active=0`。源码候选尚未正式安装时，工具缺失就报告缺口，不假定热加载。
 
                 普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
 
@@ -631,7 +631,7 @@
                 - DSH 根队长是唯一内部调度者及 .mcm/{tasks,artifacts,issues,decisions}.json、config、人工关口的唯一登记者。Codex 是外部检查点技术总监，经队长接单的编号工作包协作；不能同时直接向现有成员下冲突指令，也不冒充同一 Team 的 Lead。
                 - 原生 spawn 必须显式指定 schema 支持的 agent_preset 和项目目录，并读回真实 preset/父子关系/有效工具。Team 成员名字不等于预设身份，部分 Team 入口会继承 Lead preset；未核验身份不开始写入，不通过新建另一个 root 绕过派发边界。
                 - 最大派生深度 2：root→一级主管/执行者→二级叶子。可委派者仅 captain、model-lead、paper-lead，以及明确启用的 code-lead；其他角色不得再派生。programmer 可直属 captain 或在 code-lead 下，始终是叶子。
-                - 容量以当前项目约束与真实 Host 能力/新鲜运行快照的交集为准，不硬编码 8 或 16。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待不表示已释放。
+                - 容量以当前项目约束与实际共享根激活池的新鲜观测交集为准，不硬编码 8 或 16，不把每根限额称为 Desktop/Host 全局上限。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待/closing 不表示已释放。
                 - 本预设未给叶子配置原生派生插件；运行端可能叠加全局/外部工具。禁止越权调用，也不得把行为约束宣称为工具安全隔离或 OS 沙箱。
                 - 普通 subagent 消息只限相邻父子，跨分支由共同父层转发任务 ID、短结论、版本化路径和明确问题；不假 peer/跨 Team 通道，不以无限文件轮询模拟群聊。
 
@@ -666,7 +666,7 @@
 
                 派发前尚未取得孩子原生 ID 时，`owner_agent_id` 可写明确的计划身份（如 `pending:FIG-01`）；这不是原生Session身份。创建成功后由队长通过readback写入真实ID，禁止声称计划身份已获Host核验。
 
-                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
+                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；配置限额不等于剩余名额。当前实际管理者调用 `mcm_root_pool_capture({})`，将返回的 `snapshot` 原样保存到本人获配的独占证据路径，并以预检 `snapshot_path` 引用；若无获权路径则交队长保存。全局 `config/runtime.json.runtime_snapshot` 与登记仍由队长单写。证据明确为 `allocation_scope=root-activation-pool`，绑定本进程的实际调用 Agent、根、服务和池；主管须获取自己的捕获，不能复用队长文件。工具只读内存并返回JSON，不代写项目。旧Host文件、自填verified=true、重启前文件均不能替代当前捕获。来源不支持、预留尚未发布、未知、过期、暂停、满额或 `admit_one_task=false` 时排队；不能spawn探测、臆造ID或 `active=0`。源码候选尚未正式安装时，工具缺失就报告缺口，不假定热加载。
 
                 普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
 
@@ -805,7 +805,7 @@
                 - DSH 根队长是唯一内部调度者及 .mcm/{tasks,artifacts,issues,decisions}.json、config、人工关口的唯一登记者。Codex 是外部检查点技术总监，经队长接单的编号工作包协作；不能同时直接向现有成员下冲突指令，也不冒充同一 Team 的 Lead。
                 - 原生 spawn 必须显式指定 schema 支持的 agent_preset 和项目目录，并读回真实 preset/父子关系/有效工具。Team 成员名字不等于预设身份，部分 Team 入口会继承 Lead preset；未核验身份不开始写入，不通过新建另一个 root 绕过派发边界。
                 - 最大派生深度 2：root→一级主管/执行者→二级叶子。可委派者仅 captain、model-lead、paper-lead，以及明确启用的 code-lead；其他角色不得再派生。programmer 可直属 captain 或在 code-lead 下，始终是叶子。
-                - 容量以当前项目约束与真实 Host 能力/新鲜运行快照的交集为准，不硬编码 8 或 16。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待不表示已释放。
+                - 容量以当前项目约束与实际共享根激活池的新鲜观测交集为准，不硬编码 8 或 16，不把每根限额称为 Desktop/Host 全局上限。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待/closing 不表示已释放。
                 - 本预设未给叶子配置原生派生插件；运行端可能叠加全局/外部工具。禁止越权调用，也不得把行为约束宣称为工具安全隔离或 OS 沙箱。
                 - 普通 subagent 消息只限相邻父子，跨分支由共同父层转发任务 ID、短结论、版本化路径和明确问题；不假 peer/跨 Team 通道，不以无限文件轮询模拟群聊。
 
@@ -840,7 +840,7 @@
 
                 派发前尚未取得孩子原生 ID 时，`owner_agent_id` 可写明确的计划身份（如 `pending:FIG-01`）；这不是原生Session身份。创建成功后由队长通过readback写入真实ID，禁止声称计划身份已获Host核验。
 
-                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
+                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；配置限额不等于剩余名额。当前实际管理者调用 `mcm_root_pool_capture({})`，将返回的 `snapshot` 原样保存到本人获配的独占证据路径，并以预检 `snapshot_path` 引用；若无获权路径则交队长保存。全局 `config/runtime.json.runtime_snapshot` 与登记仍由队长单写。证据明确为 `allocation_scope=root-activation-pool`，绑定本进程的实际调用 Agent、根、服务和池；主管须获取自己的捕获，不能复用队长文件。工具只读内存并返回JSON，不代写项目。旧Host文件、自填verified=true、重启前文件均不能替代当前捕获。来源不支持、预留尚未发布、未知、过期、暂停、满额或 `admit_one_task=false` 时排队；不能spawn探测、臆造ID或 `active=0`。源码候选尚未正式安装时，工具缺失就报告缺口，不假定热加载。
 
                 普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
 
@@ -983,7 +983,7 @@
                 - DSH 根队长是唯一内部调度者及 .mcm/{tasks,artifacts,issues,decisions}.json、config、人工关口的唯一登记者。Codex 是外部检查点技术总监，经队长接单的编号工作包协作；不能同时直接向现有成员下冲突指令，也不冒充同一 Team 的 Lead。
                 - 原生 spawn 必须显式指定 schema 支持的 agent_preset 和项目目录，并读回真实 preset/父子关系/有效工具。Team 成员名字不等于预设身份，部分 Team 入口会继承 Lead preset；未核验身份不开始写入，不通过新建另一个 root 绕过派发边界。
                 - 最大派生深度 2：root→一级主管/执行者→二级叶子。可委派者仅 captain、model-lead、paper-lead，以及明确启用的 code-lead；其他角色不得再派生。programmer 可直属 captain 或在 code-lead 下，始终是叶子。
-                - 容量以当前项目约束与真实 Host 能力/新鲜运行快照的交集为准，不硬编码 8 或 16。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待不表示已释放。
+                - 容量以当前项目约束与实际共享根激活池的新鲜观测交集为准，不硬编码 8 或 16，不把每根限额称为 Desktop/Host 全局上限。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待/closing 不表示已释放。
                 - 本预设未给叶子配置原生派生插件；运行端可能叠加全局/外部工具。禁止越权调用，也不得把行为约束宣称为工具安全隔离或 OS 沙箱。
                 - 普通 subagent 消息只限相邻父子，跨分支由共同父层转发任务 ID、短结论、版本化路径和明确问题；不假 peer/跨 Team 通道，不以无限文件轮询模拟群聊。
 
@@ -1018,7 +1018,7 @@
 
                 派发前尚未取得孩子原生 ID 时，`owner_agent_id` 可写明确的计划身份（如 `pending:FIG-01`）；这不是原生Session身份。创建成功后由队长通过readback写入真实ID，禁止声称计划身份已获Host核验。
 
-                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
+                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；配置限额不等于剩余名额。当前实际管理者调用 `mcm_root_pool_capture({})`，将返回的 `snapshot` 原样保存到本人获配的独占证据路径，并以预检 `snapshot_path` 引用；若无获权路径则交队长保存。全局 `config/runtime.json.runtime_snapshot` 与登记仍由队长单写。证据明确为 `allocation_scope=root-activation-pool`，绑定本进程的实际调用 Agent、根、服务和池；主管须获取自己的捕获，不能复用队长文件。工具只读内存并返回JSON，不代写项目。旧Host文件、自填verified=true、重启前文件均不能替代当前捕获。来源不支持、预留尚未发布、未知、过期、暂停、满额或 `admit_one_task=false` 时排队；不能spawn探测、臆造ID或 `active=0`。源码候选尚未正式安装时，工具缺失就报告缺口，不假定热加载。
 
                 普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
 
@@ -1166,7 +1166,7 @@
                 - DSH 根队长是唯一内部调度者及 .mcm/{tasks,artifacts,issues,decisions}.json、config、人工关口的唯一登记者。Codex 是外部检查点技术总监，经队长接单的编号工作包协作；不能同时直接向现有成员下冲突指令，也不冒充同一 Team 的 Lead。
                 - 原生 spawn 必须显式指定 schema 支持的 agent_preset 和项目目录，并读回真实 preset/父子关系/有效工具。Team 成员名字不等于预设身份，部分 Team 入口会继承 Lead preset；未核验身份不开始写入，不通过新建另一个 root 绕过派发边界。
                 - 最大派生深度 2：root→一级主管/执行者→二级叶子。可委派者仅 captain、model-lead、paper-lead，以及明确启用的 code-lead；其他角色不得再派生。programmer 可直属 captain 或在 code-lead 下，始终是叶子。
-                - 容量以当前项目约束与真实 Host 能力/新鲜运行快照的交集为准，不硬编码 8 或 16。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待不表示已释放。
+                - 容量以当前项目约束与实际共享根激活池的新鲜观测交集为准，不硬编码 8 或 16，不把每根限额称为 Desktop/Host 全局上限。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待/closing 不表示已释放。
                 - 本预设未给叶子配置原生派生插件；运行端可能叠加全局/外部工具。禁止越权调用，也不得把行为约束宣称为工具安全隔离或 OS 沙箱。
                 - 普通 subagent 消息只限相邻父子，跨分支由共同父层转发任务 ID、短结论、版本化路径和明确问题；不假 peer/跨 Team 通道，不以无限文件轮询模拟群聊。
 
@@ -1201,7 +1201,7 @@
 
                 派发前尚未取得孩子原生 ID 时，`owner_agent_id` 可写明确的计划身份（如 `pending:FIG-01`）；这不是原生Session身份。创建成功后由队长通过readback写入真实ID，禁止声称计划身份已获Host核验。
 
-                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
+                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；配置限额不等于剩余名额。当前实际管理者调用 `mcm_root_pool_capture({})`，将返回的 `snapshot` 原样保存到本人获配的独占证据路径，并以预检 `snapshot_path` 引用；若无获权路径则交队长保存。全局 `config/runtime.json.runtime_snapshot` 与登记仍由队长单写。证据明确为 `allocation_scope=root-activation-pool`，绑定本进程的实际调用 Agent、根、服务和池；主管须获取自己的捕获，不能复用队长文件。工具只读内存并返回JSON，不代写项目。旧Host文件、自填verified=true、重启前文件均不能替代当前捕获。来源不支持、预留尚未发布、未知、过期、暂停、满额或 `admit_one_task=false` 时排队；不能spawn探测、臆造ID或 `active=0`。源码候选尚未正式安装时，工具缺失就报告缺口，不假定热加载。
 
                 普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
 
@@ -1339,7 +1339,7 @@
                 - DSH 根队长是唯一内部调度者及 .mcm/{tasks,artifacts,issues,decisions}.json、config、人工关口的唯一登记者。Codex 是外部检查点技术总监，经队长接单的编号工作包协作；不能同时直接向现有成员下冲突指令，也不冒充同一 Team 的 Lead。
                 - 原生 spawn 必须显式指定 schema 支持的 agent_preset 和项目目录，并读回真实 preset/父子关系/有效工具。Team 成员名字不等于预设身份，部分 Team 入口会继承 Lead preset；未核验身份不开始写入，不通过新建另一个 root 绕过派发边界。
                 - 最大派生深度 2：root→一级主管/执行者→二级叶子。可委派者仅 captain、model-lead、paper-lead，以及明确启用的 code-lead；其他角色不得再派生。programmer 可直属 captain 或在 code-lead 下，始终是叶子。
-                - 容量以当前项目约束与真实 Host 能力/新鲜运行快照的交集为准，不硬编码 8 或 16。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待不表示已释放。
+                - 容量以当前项目约束与实际共享根激活池的新鲜观测交集为准，不硬编码 8 或 16，不把每根限额称为 Desktop/Host 全局上限。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待/closing 不表示已释放。
                 - 本预设未给叶子配置原生派生插件；运行端可能叠加全局/外部工具。禁止越权调用，也不得把行为约束宣称为工具安全隔离或 OS 沙箱。
                 - 普通 subagent 消息只限相邻父子，跨分支由共同父层转发任务 ID、短结论、版本化路径和明确问题；不假 peer/跨 Team 通道，不以无限文件轮询模拟群聊。
 
@@ -1374,7 +1374,7 @@
 
                 派发前尚未取得孩子原生 ID 时，`owner_agent_id` 可写明确的计划身份（如 `pending:FIG-01`）；这不是原生Session身份。创建成功后由队长通过readback写入真实ID，禁止声称计划身份已获Host核验。
 
-                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
+                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；配置限额不等于剩余名额。当前实际管理者调用 `mcm_root_pool_capture({})`，将返回的 `snapshot` 原样保存到本人获配的独占证据路径，并以预检 `snapshot_path` 引用；若无获权路径则交队长保存。全局 `config/runtime.json.runtime_snapshot` 与登记仍由队长单写。证据明确为 `allocation_scope=root-activation-pool`，绑定本进程的实际调用 Agent、根、服务和池；主管须获取自己的捕获，不能复用队长文件。工具只读内存并返回JSON，不代写项目。旧Host文件、自填verified=true、重启前文件均不能替代当前捕获。来源不支持、预留尚未发布、未知、过期、暂停、满额或 `admit_one_task=false` 时排队；不能spawn探测、臆造ID或 `active=0`。源码候选尚未正式安装时，工具缺失就报告缺口，不假定热加载。
 
                 普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
 
@@ -1555,7 +1555,7 @@
                 - DSH 根队长是唯一内部调度者及 .mcm/{tasks,artifacts,issues,decisions}.json、config、人工关口的唯一登记者。Codex 是外部检查点技术总监，经队长接单的编号工作包协作；不能同时直接向现有成员下冲突指令，也不冒充同一 Team 的 Lead。
                 - 原生 spawn 必须显式指定 schema 支持的 agent_preset 和项目目录，并读回真实 preset/父子关系/有效工具。Team 成员名字不等于预设身份，部分 Team 入口会继承 Lead preset；未核验身份不开始写入，不通过新建另一个 root 绕过派发边界。
                 - 最大派生深度 2：root→一级主管/执行者→二级叶子。可委派者仅 captain、model-lead、paper-lead，以及明确启用的 code-lead；其他角色不得再派生。programmer 可直属 captain 或在 code-lead 下，始终是叶子。
-                - 容量以当前项目约束与真实 Host 能力/新鲜运行快照的交集为准，不硬编码 8 或 16。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待不表示已释放。
+                - 容量以当前项目约束与实际共享根激活池的新鲜观测交集为准，不硬编码 8 或 16，不把每根限额称为 Desktop/Host 全局上限。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待/closing 不表示已释放。
                 - 本预设未给叶子配置原生派生插件；运行端可能叠加全局/外部工具。禁止越权调用，也不得把行为约束宣称为工具安全隔离或 OS 沙箱。
                 - 普通 subagent 消息只限相邻父子，跨分支由共同父层转发任务 ID、短结论、版本化路径和明确问题；不假 peer/跨 Team 通道，不以无限文件轮询模拟群聊。
 
@@ -1590,7 +1590,7 @@
 
                 派发前尚未取得孩子原生 ID 时，`owner_agent_id` 可写明确的计划身份（如 `pending:FIG-01`）；这不是原生Session身份。创建成功后由队长通过readback写入真实ID，禁止声称计划身份已获Host核验。
 
-                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
+                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；配置限额不等于剩余名额。当前实际管理者调用 `mcm_root_pool_capture({})`，将返回的 `snapshot` 原样保存到本人获配的独占证据路径，并以预检 `snapshot_path` 引用；若无获权路径则交队长保存。全局 `config/runtime.json.runtime_snapshot` 与登记仍由队长单写。证据明确为 `allocation_scope=root-activation-pool`，绑定本进程的实际调用 Agent、根、服务和池；主管须获取自己的捕获，不能复用队长文件。工具只读内存并返回JSON，不代写项目。旧Host文件、自填verified=true、重启前文件均不能替代当前捕获。来源不支持、预留尚未发布、未知、过期、暂停、满额或 `admit_one_task=false` 时排队；不能spawn探测、臆造ID或 `active=0`。源码候选尚未正式安装时，工具缺失就报告缺口，不假定热加载。
 
                 普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
 
@@ -1736,7 +1736,7 @@
                 - DSH 根队长是唯一内部调度者及 .mcm/{tasks,artifacts,issues,decisions}.json、config、人工关口的唯一登记者。Codex 是外部检查点技术总监，经队长接单的编号工作包协作；不能同时直接向现有成员下冲突指令，也不冒充同一 Team 的 Lead。
                 - 原生 spawn 必须显式指定 schema 支持的 agent_preset 和项目目录，并读回真实 preset/父子关系/有效工具。Team 成员名字不等于预设身份，部分 Team 入口会继承 Lead preset；未核验身份不开始写入，不通过新建另一个 root 绕过派发边界。
                 - 最大派生深度 2：root→一级主管/执行者→二级叶子。可委派者仅 captain、model-lead、paper-lead，以及明确启用的 code-lead；其他角色不得再派生。programmer 可直属 captain 或在 code-lead 下，始终是叶子。
-                - 容量以当前项目约束与真实 Host 能力/新鲜运行快照的交集为准，不硬编码 8 或 16。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待不表示已释放。
+                - 容量以当前项目约束与实际共享根激活池的新鲜观测交集为准，不硬编码 8 或 16，不把每根限额称为 Desktop/Host 全局上限。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待/closing 不表示已释放。
                 - 本预设未给叶子配置原生派生插件；运行端可能叠加全局/外部工具。禁止越权调用，也不得把行为约束宣称为工具安全隔离或 OS 沙箱。
                 - 普通 subagent 消息只限相邻父子，跨分支由共同父层转发任务 ID、短结论、版本化路径和明确问题；不假 peer/跨 Team 通道，不以无限文件轮询模拟群聊。
 
@@ -1771,7 +1771,7 @@
 
                 派发前尚未取得孩子原生 ID 时，`owner_agent_id` 可写明确的计划身份（如 `pending:FIG-01`）；这不是原生Session身份。创建成功后由队长通过readback写入真实ID，禁止声称计划身份已获Host核验。
 
-                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
+                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；配置限额不等于剩余名额。当前实际管理者调用 `mcm_root_pool_capture({})`，将返回的 `snapshot` 原样保存到本人获配的独占证据路径，并以预检 `snapshot_path` 引用；若无获权路径则交队长保存。全局 `config/runtime.json.runtime_snapshot` 与登记仍由队长单写。证据明确为 `allocation_scope=root-activation-pool`，绑定本进程的实际调用 Agent、根、服务和池；主管须获取自己的捕获，不能复用队长文件。工具只读内存并返回JSON，不代写项目。旧Host文件、自填verified=true、重启前文件均不能替代当前捕获。来源不支持、预留尚未发布、未知、过期、暂停、满额或 `admit_one_task=false` 时排队；不能spawn探测、臆造ID或 `active=0`。源码候选尚未正式安装时，工具缺失就报告缺口，不假定热加载。
 
                 普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
 
@@ -1929,7 +1929,7 @@
                 - DSH 根队长是唯一内部调度者及 .mcm/{tasks,artifacts,issues,decisions}.json、config、人工关口的唯一登记者。Codex 是外部检查点技术总监，经队长接单的编号工作包协作；不能同时直接向现有成员下冲突指令，也不冒充同一 Team 的 Lead。
                 - 原生 spawn 必须显式指定 schema 支持的 agent_preset 和项目目录，并读回真实 preset/父子关系/有效工具。Team 成员名字不等于预设身份，部分 Team 入口会继承 Lead preset；未核验身份不开始写入，不通过新建另一个 root 绕过派发边界。
                 - 最大派生深度 2：root→一级主管/执行者→二级叶子。可委派者仅 captain、model-lead、paper-lead，以及明确启用的 code-lead；其他角色不得再派生。programmer 可直属 captain 或在 code-lead 下，始终是叶子。
-                - 容量以当前项目约束与真实 Host 能力/新鲜运行快照的交集为准，不硬编码 8 或 16。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待不表示已释放。
+                - 容量以当前项目约束与实际共享根激活池的新鲜观测交集为准，不硬编码 8 或 16，不把每根限额称为 Desktop/Host 全局上限。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待/closing 不表示已释放。
                 - 本预设未给叶子配置原生派生插件；运行端可能叠加全局/外部工具。禁止越权调用，也不得把行为约束宣称为工具安全隔离或 OS 沙箱。
                 - 普通 subagent 消息只限相邻父子，跨分支由共同父层转发任务 ID、短结论、版本化路径和明确问题；不假 peer/跨 Team 通道，不以无限文件轮询模拟群聊。
 
@@ -1964,7 +1964,7 @@
 
                 派发前尚未取得孩子原生 ID 时，`owner_agent_id` 可写明确的计划身份（如 `pending:FIG-01`）；这不是原生Session身份。创建成功后由队长通过readback写入真实ID，禁止声称计划身份已获Host核验。
 
-                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
+                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；配置限额不等于剩余名额。当前实际管理者调用 `mcm_root_pool_capture({})`，将返回的 `snapshot` 原样保存到本人获配的独占证据路径，并以预检 `snapshot_path` 引用；若无获权路径则交队长保存。全局 `config/runtime.json.runtime_snapshot` 与登记仍由队长单写。证据明确为 `allocation_scope=root-activation-pool`，绑定本进程的实际调用 Agent、根、服务和池；主管须获取自己的捕获，不能复用队长文件。工具只读内存并返回JSON，不代写项目。旧Host文件、自填verified=true、重启前文件均不能替代当前捕获。来源不支持、预留尚未发布、未知、过期、暂停、满额或 `admit_one_task=false` 时排队；不能spawn探测、臆造ID或 `active=0`。源码候选尚未正式安装时，工具缺失就报告缺口，不假定热加载。
 
                 普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
 
@@ -2117,7 +2117,7 @@
                 - DSH 根队长是唯一内部调度者及 .mcm/{tasks,artifacts,issues,decisions}.json、config、人工关口的唯一登记者。Codex 是外部检查点技术总监，经队长接单的编号工作包协作；不能同时直接向现有成员下冲突指令，也不冒充同一 Team 的 Lead。
                 - 原生 spawn 必须显式指定 schema 支持的 agent_preset 和项目目录，并读回真实 preset/父子关系/有效工具。Team 成员名字不等于预设身份，部分 Team 入口会继承 Lead preset；未核验身份不开始写入，不通过新建另一个 root 绕过派发边界。
                 - 最大派生深度 2：root→一级主管/执行者→二级叶子。可委派者仅 captain、model-lead、paper-lead，以及明确启用的 code-lead；其他角色不得再派生。programmer 可直属 captain 或在 code-lead 下，始终是叶子。
-                - 容量以当前项目约束与真实 Host 能力/新鲜运行快照的交集为准，不硬编码 8 或 16。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待不表示已释放。
+                - 容量以当前项目约束与实际共享根激活池的新鲜观测交集为准，不硬编码 8 或 16，不把每根限额称为 Desktop/Host 全局上限。根不占后代槽；所有后代及等待主管占槽，保留 1 应急。未知容量或快照陈旧不按无限名额派发；满额排 queued，不盲重试。闲置/等待/closing 不表示已释放。
                 - 本预设未给叶子配置原生派生插件；运行端可能叠加全局/外部工具。禁止越权调用，也不得把行为约束宣称为工具安全隔离或 OS 沙箱。
                 - 普通 subagent 消息只限相邻父子，跨分支由共同父层转发任务 ID、短结论、版本化路径和明确问题；不假 peer/跨 Team 通道，不以无限文件轮询模拟群聊。
 
@@ -2152,7 +2152,7 @@
 
                 派发前尚未取得孩子原生 ID 时，`owner_agent_id` 可写明确的计划身份（如 `pending:FIG-01`）；这不是原生Session身份。创建成功后由队长通过readback写入真实ID，禁止声称计划身份已获Host核验。
 
-                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；它给出的配置限额不等于当前剩余名额。有效 Host 快照须来自实际独立核对的名额证据，带时区、`allocation_scope=host`、`host_capacity.verified=true/evidence_ref`，在 `config/runtime.json.runtime_snapshot` 指向项目内文件。未知、过期、暂停、`admit_one_task=false` 时保持队列，不能把一次 spawn 当“有界探针”，也不能自行编造 `active=0`。
+                管理角色派发前先把具体任务登记到 `.mcm/tasks.json`，给出子角色 `owner_role`、待绑定的 `owner_agent_id`、独占路径和验收标准；已知孩子真实身份后再由队长补全绑定。通过 `mcm_runtime_readback({})` 读回自身真实预设、父级和深度；配置限额不等于剩余名额。当前实际管理者调用 `mcm_root_pool_capture({})`，将返回的 `snapshot` 原样保存到本人获配的独占证据路径，并以预检 `snapshot_path` 引用；若无获权路径则交队长保存。全局 `config/runtime.json.runtime_snapshot` 与登记仍由队长单写。证据明确为 `allocation_scope=root-activation-pool`，绑定本进程的实际调用 Agent、根、服务和池；主管须获取自己的捕获，不能复用队长文件。工具只读内存并返回JSON，不代写项目。旧Host文件、自填verified=true、重启前文件均不能替代当前捕获。来源不支持、预留尚未发布、未知、过期、暂停、满额或 `admit_one_task=false` 时排队；不能spawn探测、臆造ID或 `active=0`。源码候选尚未正式安装时，工具缺失就报告缺口，不假定热加载。
 
                 普通 depends_on 字符串/旧对象仍须前项 approved；作者交付待审时保持 in_review，独立 verifier/reviewer 显式登记 `{task_id,relation:"review",output_refs:[完整artifact_id/path/version/sha256],handoff_ref:{path,sha256}}`。refs 必须匹配作者 outputs/output_readback、当前登记及复验 inputs，交接 SHA 与实际文件一致；作者归属和传递上游有效，复验写范围不得覆盖源稿、上游证据或交接。pending 孩子身份须派发后读回绑定，接受报告时仍核真实非作者；review 准入不授予批准或Host余量，禁止预批作者、删执行依赖或伪造容量。
 

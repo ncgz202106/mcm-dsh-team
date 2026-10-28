@@ -44,7 +44,7 @@ export async function buildBundle(root, { check = false } = {}) {
       assurance: 'Role/tool declarations are not an OS sandbox; inherited or global tools require runtime inspection. Optional role activation and skill routing are task policies, not Host-enforced permissions.',
       skill_routing_sha256: createHash('sha256').update(JSON.stringify(SKILL_ROUTING)).digest('hex'),
       routing_source_sha256: createHash('sha256').update(await readFile(new URL('./skill-routing.mjs', import.meta.url))).digest('hex'),
-      runtime_guard_source_sha256: Object.fromEntries(await Promise.all(['runtime-guard-core.mjs','runtime-guard-plugin.mjs'].map(async name=>[`src/${name}`,createHash('sha256').update(await readFile(new URL(`./${name}`,import.meta.url))).digest('hex')]))),
+      runtime_guard_source_sha256: Object.fromEntries(await Promise.all(['runtime-guard-core.mjs','runtime-guard-plugin.mjs','root-pool-observer.mjs'].map(async name=>[`src/${name}`,createHash('sha256').update(await readFile(new URL(`./${name}`,import.meta.url))).digest('hex')]))),
       figure_style_source_sha256: createHash('sha256').update(styleBytes).digest('hex'),
       prompt_sha256: sources
     }, null, 2)}\n`

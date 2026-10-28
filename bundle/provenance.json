@@ -38,12 +38,13 @@
   "skill_routing_sha256": "da9e63d41ea0b00be7af1aa5286c19f3a0e4db03b4b8485b7a0a4bc4a25655e0",
   "routing_source_sha256": "2a97d3746cd4ca88dca7b59a7295b4aa652206f32d8dde8b7b581233118faede",
   "runtime_guard_source_sha256": {
-    "src/runtime-guard-core.mjs": "e6db328bf197c305b9b6571dcfe0116d418d3d5c684d6b414d15e70559c33509",
-    "src/runtime-guard-plugin.mjs": "d802909fc90415f9113048e68d25fffaa2cafce0fcc3a8298e74ad16e301187d"
+    "src/runtime-guard-core.mjs": "46d319ab20c1b51ba7c1a445709b7ad4730352f6242f2c19bfba762dcb6358b9",
+    "src/runtime-guard-plugin.mjs": "66834a3a1f0e59a4f49fa0915131b903da8c8ae87513450b9c7ddf81c2a514b0",
+    "src/root-pool-observer.mjs": "2f9cdee5bddaae38a9785058ca2d91649ce2074cf383996ed81754cd63af1093"
   },
   "figure_style_source_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
   "prompt_sha256": {
-    "prompts/shared.md": "b861193109f09de053f007af39eb0383da33ae30bef62cc16085c29dc90fde48",
+    "prompts/shared.md": "4e6a6a4b3a0db802bdd3c69de5e6d4daf1e27644b482f7c7cbab80a18b92cb8d",
     "prompts/mcm-captain.md": "bce04fa3d6eff1a7e320f7c69a1c202da7d5b98abdbb02ca00bcd9352b85d919",
     "prompts/mcm-model-lead.md": "b2e937c2b0177b03da2b8da70cc30c3c4a477162a964ce12ee1f22ab5836b9b0",
     "prompts/mcm-modeler.md": "b415575b8ca7aac9e9ce8078b010605439679f4299091dd1815d073ad1d49ad3",

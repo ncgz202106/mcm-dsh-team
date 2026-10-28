@@ -4,7 +4,8 @@ import { mkdtemp, mkdir, writeFile, rm, readFile, symlink } from 'node:fs/promis
 import { tmpdir } from 'node:os';
 import { join, resolve, sep } from 'node:path';
 import { capacityOf, createPermitLedger, hash, isDelegation, validateDispatch } from '../src/runtime-guard-core.mjs';
-import { apply } from '../src/runtime-guard-plugin.mjs';
+import { createRuntimeGuard } from '../src/runtime-guard-plugin.mjs';
+import { createRootPoolObserver, SOURCE_PIN } from '../src/root-pool-observer.mjs';
 
 async function fixture(t) {
   const root=await mkdtemp(join(tmpdir(),'mcm-guard-'));
@@ -33,10 +34,18 @@ async function reviewFixture(t) {
   await sync();return {...f,ref,artifact,upstream,producer,handoff,sync};
 }
 
-function pluginFixture(f) {
-  const tools=new Map(),callbacks={},agent={id:f.root,session:{header:{cwd:f.root,delegationDepth:0}},ctx:{}};let guard;
-  apply({tools:{register:d=>tools.set(d.name,d),guard:g=>{guard=g;}},on:(name,fn)=>{callbacks[name]=fn;},agentPresets:{composedPreset:()=> 'mcm-captain'},subagents:{config:{maxActiveSubagents:{get:()=>8}}}},{role:'mcm-captain'});
-  return {callbacks,guard,preflight:()=>tools.get('mcm_dispatch_preflight').execute({task_id:f.task.task_id,subagent_arguments:f.args},{agent}),execution:()=>({agent,name:'subagent',arguments:JSON.parse(JSON.stringify(f.args)),signal:new AbortController().signal})};
+function pluginFixture(f,{role='mcm-captain',depth=0}={}) {
+  const tools=new Map(),callbacks={},agent={id:f.root,session:{header:{cwd:f.root,delegationDepth:depth}},ctx:{}};let guard;
+  const agents={get:id=>id===agent.id?agent:undefined,roots:()=>[agent],isOwnedBy:()=>false};
+  const manager={ctx:{agents},rootPools:new WeakMap(),resident:new Map(),materializations:new Set(),closingScopes:new Map(),draining:false};
+  const ctx={agents,tools:{register:d=>tools.set(d.name,d),guard:g=>{guard=g;}},on:(name,fn)=>{callbacks[name]=fn;},agentPresets:{composedPreset:()=>role},subagents:{manager,config:{maxActiveSubagents:{get:()=>8}}}};
+  const observer=createRootPoolObserver({verifySource:async()=>({pin:SOURCE_PIN,checkCurrent:()=>{},checkPool:()=>{}})});
+  createRuntimeGuard({observer})(ctx,{role});
+  return {callbacks,guard,tools,agent,ctx,observer,preflight:async()=>{
+    const capture=await tools.get('mcm_root_pool_capture').execute({},{agent});assert.equal(capture.capacity_known,true);
+    await f.save('audit/runtime.json',capture.snapshot);
+    return tools.get('mcm_dispatch_preflight').execute({task_id:f.task.task_id,subagent_arguments:f.args},{agent});
+  },execution:()=>({agent,name:'subagent',arguments:JSON.parse(JSON.stringify(f.args)),signal:new AbortController().signal})};
 }
 
 test('capacity is fail-closed for missing, unverified, stale or timezone-free evidence',()=>{
@@ -112,21 +121,17 @@ test('alternate delegation names are recognized while ordinary communication rem
   for(const name of ['send_message','read','pwsh','mcm_runtime_readback']) assert.equal(isDelegation(name),false,name);
 });
 test('monotonic guard denies bypass and atomically consumes only a revalidated exact permit',async t=>{
-  const f=await fixture(t);const tools=new Map(), agent={id:'captain-test',session:{header:{cwd:f.root,delegationDepth:1}},ctx:{}}, callbacks={};let guard;
-  const ctx={tools:{register:d=>tools.set(d.name,d),guard:g=>{guard=g;}},on:(name,fn)=>{callbacks[name]=fn;},agentPresets:{composedPreset:()=> 'mcm-paper-lead'},subagents:{config:{maxActiveSubagents:{get:()=>8}}}};
-  apply(ctx,{role:'mcm-paper-lead'});const execution=()=>({agent,name:'subagent',arguments:JSON.parse(JSON.stringify(f.args)),signal:new AbortController().signal});
+  const f=await fixture(t),p=pluginFixture(f,{role:'mcm-paper-lead',depth:1}),{guard,callbacks,execution}=p;
   assert.match(guard(execution()),/missing/);
   await assert.rejects(callbacks['tools/pre-execute'](execution(),async()=>({kind:'allow'})),/one-use/);
-  await tools.get('mcm_dispatch_preflight').execute({task_id:'FIG-01',subagent_arguments:f.args},{agent});
+  await p.preflight();
   const good=execution();await callbacks['tools/pre-execute'](good,async()=>({kind:'allow'}));assert.equal(guard(good),undefined);assert.match(guard(good),/consumed/);
   assert.match(guard({...execution(),name:'subagent_codex'}),/alternate/);
 });
 test('body-stage asynchronous delay cannot outlive the permit even when capacity evidence lasts longer',async t=>{
   const f=await fixture(t);f.config.capacity_snapshot_max_age_seconds=300;await f.save('config/runtime.json',f.config);
-  const tools=new Map(), callbacks={}, agent={id:'expiry-body',session:{header:{cwd:f.root,delegationDepth:1}},ctx:{}};let guard;
-  const ctx={tools:{register:d=>tools.set(d.name,d),guard:g=>{guard=g;}},on:(name,fn)=>{callbacks[name]=fn;},agentPresets:{composedPreset:()=> 'mcm-paper-lead'},subagents:{config:{maxActiveSubagents:{get:()=>8}}}};
-  apply(ctx,{role:'mcm-paper-lead'});const execution={agent,name:'subagent',arguments:f.args,signal:new AbortController().signal};
-  await tools.get('mcm_dispatch_preflight').execute({task_id:'FIG-01',subagent_arguments:f.args},{agent});
+  const p=pluginFixture(f,{role:'mcm-paper-lead',depth:1}),{callbacks,guard}=p,execution=p.execution();
+  await p.preflight();
   await callbacks['tools/pre-execute'](execution,async()=>({kind:'allow'}));assert.equal(guard(execution),undefined);
   const realClock=Date.now, later=realClock()+61000;Date.now=()=>later;
   try {await assert.rejects(callbacks['tools/execute'](execution,async()=>{throw new Error('native body must not run');}),/permit expired/);} finally {Date.now=realClock;}
@@ -224,4 +229,52 @@ test('producer delivery metadata is bound across preflight and native execution 
 test('task relative project_root resolves from known project root, never process cwd',async t=>{
   const f=await fixture(t);f.task.project_root='.';await f.save('.mcm/tasks.json',{format_version:1,records:[f.task]});await validateDispatch(f.request);
   for(const project_root of [tmpdir(),'..','tasks',false]) {f.task.project_root=project_root;await f.save('.mcm/tasks.json',{format_version:1,records:[f.task]});await assert.rejects(validateDispatch(f.request),/another project/);}
+});
+
+test('native hook chain supports captain then resident paper lead through first pool creation',async t=>{
+  // Offline registry/allocator simulation. This exercises the plugin hooks and
+  // shared permit ledger, not the official SDK or an actual desktop Host.
+  const f=await fixture(t),root={id:'captain',ctx:{role:'mcm-captain'},session:{header:{cwd:f.root,delegationDepth:0}}};
+  const live=new Map([[root.id,root]]),owners=new Map();
+  const agents={get:id=>live.get(id),roots:()=>[root],isOwnedBy:(id,parent)=>owners.get(id)===parent};
+  const manager={ctx:{agents},rootPools:new WeakMap(),resident:new Map(),materializations:new Set(),closingScopes:new Map(),draining:false};
+  const service={manager,config:{maxActiveSubagents:{get:()=>3}}};
+  const observer=createRootPoolObserver({verifySource:async()=>({pin:SOURCE_PIN,checkCurrent:()=>{},checkPool:()=>{}})});
+  const mount=createRuntimeGuard({observer});
+  function roleContext(role) {
+    const tools=new Map(),callbacks={};let guard;
+    const ctx={agents,subagents:service,agentPresets:{composedPreset:agentCtx=>agentCtx.role},
+      tools:{register:tool=>tools.set(tool.name,tool),guard:fn=>{guard=fn;}},on:(name,fn)=>{callbacks[name]=fn;}};
+    mount(ctx,{role});return {tools,callbacks,get guard(){return guard;}};
+  }
+  const captain=roleContext('mcm-captain'),paperContext=roleContext('mcm-paper-lead');
+  const paperTask={...f.task,task_id:'PAPER',owner_role:'mcm-paper-lead',owner_agent_id:'pending:PAPER',allowed_write_paths:['tasks/PAPER']};
+  f.config.normal_slots=2;f.config.reserve_slots=1;await f.save('config/runtime.json',f.config);
+  await f.save('.mcm/tasks.json',{format_version:1,records:[paperTask,f.task]});
+  const paperArgs={...f.args,agent_preset:'mcm-paper-lead'};
+  async function prepare(context,agent,taskId,args) {
+    const capture=await context.tools.get('mcm_root_pool_capture').execute({},{agent});assert.equal(capture.capacity_known,true);
+    await f.save('audit/runtime.json',capture.snapshot);
+    const preflight=await context.tools.get('mcm_dispatch_preflight').execute({task_id:taskId,subagent_arguments:args},{agent});
+    const execution={agent,name:'subagent',arguments:args,signal:new AbortController().signal};
+    await context.callbacks['tools/pre-execute'](execution,async()=>{});assert.equal(context.guard(execution),undefined);
+    return {execution,preflight,capture};
+  }
+  function publish(parent,id,role) {
+    let pool=manager.rootPools.get(root);if(!pool){pool={slots:new Set()};manager.rootPools.set(root,pool);}
+    pool.slots.add(Symbol(id));const child={id,ctx:{role},session:{header:{cwd:f.root,delegationDepth:parent.session.header.delegationDepth+1}}};
+    live.set(id,child);owners.set(id,parent);manager.resident.set(id,{kind:'local',childId:id,parent,pool,handle:{agent:child},ancestry:new WeakSet([root,parent,child])});return child;
+  }
+  const first=await prepare(captain,root,'PAPER',paperArgs);assert.equal(first.capture.snapshot.pool_capacity.absent_pool_zero_proven,true);
+  let paper;await captain.callbacks['tools/execute'](first.execution,async()=>{paper=publish(root,'paper','mcm-paper-lead');});
+  await new Promise(resolve=>setTimeout(resolve,5));
+  const second=await prepare(paperContext,paper,'FIG-01',f.args);
+  assert.equal(second.capture.snapshot.pool_capacity.reserved_slots,1);
+  assert.equal(second.capture.snapshot.allocation_domain_id,first.capture.snapshot.allocation_domain_id);
+  await paperContext.callbacks['tools/execute'](second.execution,async()=>publish(paper,'figure','mcm-figure'));
+  await new Promise(resolve=>setTimeout(resolve,5));
+  const full=await captain.tools.get('mcm_root_pool_capture').execute({},{agent:root});
+  assert.equal(full.snapshot.pool_capacity.reserved_slots,2);await f.save('audit/runtime.json',full.snapshot);
+  await assert.rejects(captain.tools.get('mcm_dispatch_preflight').execute({task_id:'PAPER',subagent_arguments:paperArgs},{agent:root}),/admit_one_task=false/);
+  assert.equal(manager.resident.size,2); // Emergency slot remains unused.
 });

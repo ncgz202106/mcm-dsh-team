@@ -47,7 +47,9 @@ test('current prompt sources retain pause, small-context, role readback and hone
   assert.match(shared, /实际 agent_id/);
   assert.match(shared, /部分 Team 入口会继承/);
   assert.match(shared, /运行端可能叠加全局/);
-  assert.match(shared, /真实 Host/);
+  assert.match(shared, /实际共享根激活池/);
+  assert.match(shared, /不把每根限额称为 Desktop\/Host 全局上限/);
+  assert.match(shared, /mcm_root_pool_capture/);
   assert.ok(!shared.includes('maxActiveSubagents=8'));
   const programmer = await readFile(new URL('mcm-programmer.md', promptsRoot), 'utf8');
   assert.match(programmer, /深度 1/);

@@ -1,0 +1,53 @@
+{
+  "version": "0.2.2-candidate",
+  "base_commit": "763891c51e8519d798a582dee918d0218b8dccac",
+  "created_at_utc": "2026-10-28T15:53:04.695400+00:00",
+  "artifacts": {
+    "root-pool-software-verification.json": "70691cf303fb4305acbb843cf57840bea631b39b3e8a53d1a99af823e8ce0792",
+    "root-pool-current-source.json": "a52d2ab39017f2f897ab74ed4cd6997baef22757f75d7756bdac393f15cf1491",
+    "root-pool-independent.json": "02ac4e9529522d45338ea10e6c77f5a5010d9d2f6e73005d705b9fb328224b80"
+  },
+  "actual_software_tests": {
+    "overlay_and_design_regressions": 44,
+    "project_regressions": 120,
+    "bundle_regressions": 65,
+    "installer_faults": 10,
+    "total": 239
+  },
+  "current_source_files_bound": 207,
+  "change_after_full_test_run": {
+    "files": [
+      "project-template/protocols/01-runtime-and-dispatch.md"
+    ],
+    "kind": "documentation only; runtime and test code identical",
+    "current_source_rechecked": true,
+    "independent_review_includes_final_protocol": true
+  },
+  "package_dry_run": {
+    "command": "npm pack --dry-run --ignore-scripts --json (cwd=bundle)",
+    "exit_code": 0,
+    "version": "0.2.2",
+    "observer_included": true,
+    "archive_created": false
+  },
+  "resolved_independent_findings": [
+    "OBS-M01",
+    "OBS-M02",
+    "OBS-M03"
+  ],
+  "privacy": {
+    "scanner": "gitleaks 8.30.1 local directory scan",
+    "findings": 0,
+    "public_evidence_personal_path_session_key_shape_check": "passed"
+  },
+  "installed_version_unchanged": "0.2.1",
+  "native_runtime_for_this_patch": "not_performed",
+  "actual_desktop_capacity": "not_observed",
+  "human_gate_approval_created": false,
+  "release_ready": false,
+  "limits": [
+    "These reports bind source and offline tests; they do not prove default attestation succeeds in visible DSH.",
+    "Historical 217-test reports and native fixtures retain their original byte meanings.",
+    "The private scientific project, paper originals, raw sessions, credentials, profiles and backups are excluded."
+  ]
+}

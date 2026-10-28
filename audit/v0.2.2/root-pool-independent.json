@@ -1,0 +1,246 @@
+{
+  "format_version": 1,
+  "date": "2026-10-28",
+  "reviewer": "Codex non-author observer_review",
+  "verdict": "pass_for_scoped_source_and_offline_behavior",
+  "release_ready": false,
+  "native_runtime_verified": false,
+  "installed_or_hot_reloaded": false,
+  "scope": "Candidate source and synthetic offline behavior only; no official SDK imported/evaluated, no Host/model/UI or installation operation. Static primary archive texts parsed as data using Node built-in Acorn.",
+  "reviewed_source_sha256": {
+    "bundle/src/root-pool-observer.mjs": "2f9cdee5bddaae38a9785058ca2d91649ce2074cf383996ed81754cd63af1093",
+    "bundle/src/runtime-guard-core.mjs": "46d319ab20c1b51ba7c1a445709b7ad4730352f6242f2c19bfba762dcb6358b9",
+    "bundle/src/runtime-guard-plugin.mjs": "66834a3a1f0e59a4f49fa0915131b903da8c8ae87513450b9c7ddf81c2a514b0",
+    "bundle/src/build.mjs": "2e736e6cbde8a3f872d063bb3b0c3ea8d09d6189dae5a043eff756f96d4ded4f",
+    "bundle/tests/root-pool-observer.test.mjs": "02d99f6ef04b44533a9392dd0cd8b5f065a089139ac808ea825bf4ee583d558a",
+    "bundle/tests/runtime-guard.test.mjs": "3df5500f9ab002e5307f6902f94e48c2be9251c53bc108551e0fbe53c24e7a67",
+    "bundle/tests/build.test.mjs": "c53e096e4c13c7219b03980118a5d3fea80a0d028797dd8fa11f6e7bc82619d4",
+    "bundle/tests/skill-routing.test.mjs": "2e35583072ffb87c1cf794b5c6fcaf889988ded84204c62f8620f617b0c1e6c4",
+    "bundle/prompts/shared.md": "1fa05332e5d44604835a333cccf6757326cf80814c8b6b7730cffc8b904c732d",
+    "bundle/cordis.patch.yml": "771dd8c5337b369608a909b3eef9d3b4f59904335628b274bdbf7b92e3c4c4b3",
+    "bundle/provenance.json": "dd517fb32a86951b909e773af3e1de0cc17c611556045fe90126ed025940a4ad",
+    "project-template/scripts/mcm.py": "1c716f7d16487da3a2e2ead96fe432d344a72ce1662bb026d957c21b86ab5302",
+    "project-template/tests/test_context_skills.py": "7e67fc63691697968c643ea42203c1dde9f0228f012f7cf10a5c14f7a068f1b3",
+    "project-template/protocols/01-runtime-and-dispatch.md": "2dd22b3b7b42bd3950216f8068e703e439e8004dadfa53d9652cb41d40355e3f",
+    "docs/原生派发门禁.md": "7856e18dc6543045171f114c769042bcd3888d78bcfcbf818773464766f80eba",
+    "docs/v0.2.2根激活池观测.md": "e043f4a483193925da2f80bf51f2e0388d9efb774e540f4948bdd675c398a176",
+    "docs/v0.2.2复验依赖修复.md": "070628e1f4cfe6c3a95d24022d916444843642688f8df5f96d59348b37676a7e"
+  },
+  "frozen_source_binding": {
+    "manifest_files_checked": 207,
+    "mismatches": 0,
+    "note": "Byte agreement only; this review does not claim all files were visually or scientifically reviewed."
+  },
+  "actual_independent_checks": [
+    {
+      "command": "node --test bundle/tests/*.test.mjs",
+      "exit_code": 0,
+      "tests": 65,
+      "passed": 65,
+      "failed": 0
+    },
+    {
+      "command": "python -m unittest discover -s project-template/tests -q",
+      "exit_code": 0,
+      "tests": 120,
+      "passed": 120,
+      "failed": 0
+    },
+    {
+      "command": "node bundle/src/build.mjs --check",
+      "exit_code": 0,
+      "role_count": 12
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    },
+    {
+      "kind": "independently authored synthetic edge probes",
+      "passed": 3,
+      "failed": 0,
+      "cases": [
+        "Resident manager closing key with empty retained set denies new and prior capture",
+        "Unrelated closing branch remains counted without closing root or sibling",
+        "Fresh trace proxies retain raw service identities; same-count reservation replacement invalidates"
+      ]
+    },
+    {
+      "kind": "static primary archive bundle/package/class AST pin verification",
+      "passed": 13,
+      "failed": 0,
+      "sdk_executed": false
+    }
+  ],
+  "findings": [
+    {
+      "id": "OBS-M01",
+      "severity": "major",
+      "state": "closed_for_source_scope",
+      "issue": "External plugin bare SDK resolution did not reach application runtime",
+      "fix": "Fallback to actual absolute desktop-host argv entry/runtime layout, hash-pinned entry/package and exact SDK path; retain SDK bytes/version/exported-constructor checks",
+      "evidence": [
+        "Synthetic resolver positive/negative tests",
+        "Static official desktop launch source and host entry pin comparison"
+      ],
+      "native_positive_proof": "pending"
+    },
+    {
+      "id": "OBS-M02",
+      "severity": "major",
+      "state": "closed_for_source_scope",
+      "issue": "Fresh Cordis trace wrappers were compared as canonical service objects",
+      "fix": "Canonicalize existing injected services via official original metadata, retaining pinned raw class and resolved official exported-constructor identity checks; re-read scoped binding each observation",
+      "evidence": [
+        "Pinned Cordis4.0.5 source semantics",
+        "Fresh per-access trace-wrapper regression",
+        "Raw registry get/roots directly return stored Agent references"
+      ]
+    },
+    {
+      "id": "OBS-M03",
+      "severity": "major",
+      "state": "closed",
+      "issue": "Resident caller closing-scope key with empty members was omitted",
+      "fix": "Check every exact caller ownership-lineage object against closing scope keys and retained members",
+      "evidence": [
+        "Independent before-fix probe incorrectly returned capacity_known=true",
+        "Independent after-fix probe denies capture and old proof",
+        "Author regression plus independent Node suite pass"
+      ]
+    }
+  ],
+  "additional_resolutions": [
+    "Updated obsolete Host wording assertion rather than restoring incorrect global scope language",
+    "Updated delivered project runtime protocol to root-pool capture and native ledger; historical rehearsal remains frozen",
+    "Explicit manager-owned evidence snapshot_path avoids unnecessary captain relay while global config/registries remain captain-only",
+    "Generated YAML/provenance now current and binds observer source"
+  ],
+  "static_primary_pin_checks": [
+    {
+      "field": "desktop_host_entry_sha256",
+      "actual": "6ae7cb9d57516b73c8aa4317c514ed81d28f2680efcee56d8faf2e588bb28c48",
+      "expected": "6ae7cb9d57516b73c8aa4317c514ed81d28f2680efcee56d8faf2e588bb28c48",
+      "matches": true
+    },
+    {
+      "field": "desktop_host_package_sha256",
+      "actual": "e5dc6576213b8c888e3848a4956ef45bc64aa202cfc47ba93871db35b090251c",
+      "expected": "e5dc6576213b8c888e3848a4956ef45bc64aa202cfc47ba93871db35b090251c",
+      "matches": true
+    },
+    {
+      "field": "cordis_bundle_sha256",
+      "actual": "6a9394c0877ff45218818c6e815edd038f8057e1a1deb390a8d43ec81c57691e",
+      "expected": "6a9394c0877ff45218818c6e815edd038f8057e1a1deb390a8d43ec81c57691e",
+      "matches": true
+    },
+    {
+      "field": "cordis_package_sha256",
+      "actual": "b73831b926b16cbd684aa1b277461e7800a2b35e2dd351ad3c2c8c0db158589d",
+      "expected": "b73831b926b16cbd684aa1b277461e7800a2b35e2dd351ad3c2c8c0db158589d",
+      "matches": true
+    },
+    {
+      "field": "subagents_bundle_sha256",
+      "actual": "9a9572e70fffdb100deb63326167f32bbf63016ce49c0017495dabcb95b44168",
+      "expected": "9a9572e70fffdb100deb63326167f32bbf63016ce49c0017495dabcb95b44168",
+      "matches": true
+    },
+    {
+      "field": "agents_bundle_sha256",
+      "actual": "7b59cf82c2784c25bdce4e3e24e5e5303b02b9f1003efacf50255492d17baf8b",
+      "expected": "7b59cf82c2784c25bdce4e3e24e5e5303b02b9f1003efacf50255492d17baf8b",
+      "matches": true
+    },
+    {
+      "field": "dsh-subagent_manifest",
+      "actual": {
+        "name": "@deepseek-ai/dsh-subagent",
+        "version": "0.2.1-rc.2"
+      },
+      "expected": {
+        "name": "@deepseek-ai/dsh-subagent",
+        "version": "0.2.1-rc.2"
+      },
+      "matches": true
+    },
+    {
+      "field": "dsh-agent_manifest",
+      "actual": {
+        "name": "@deepseek-ai/dsh-agent",
+        "version": "0.2.1-rc.2"
+      },
+      "expected": {
+        "name": "@deepseek-ai/dsh-agent",
+        "version": "0.2.1-rc.2"
+      },
+      "matches": true
+    },
+    {
+      "field": "cordis_manifest",
+      "actual": {
+        "name": "@deepseek-ai/cordis",
+        "version": "4.0.5"
+      },
+      "expected": {
+        "name": "@deepseek-ai/cordis",
+        "version": "4.0.5"
+      },
+      "matches": true
+    },
+    {
+      "field": "service_class_sha256",
+      "class": "SubagentRuntime",
+      "bundle": "subagents",
+      "start": 122223,
+      "end": 141227,
+      "actual": "ed5c578643b2bfb22c2a43db8a2605c17f8c1685deb8d201371d662b1bc72205",
+      "expected": "ed5c578643b2bfb22c2a43db8a2605c17f8c1685deb8d201371d662b1bc72205",
+      "matches": true,
+      "required_methods_present": true
+    },
+    {
+      "field": "manager_class_sha256",
+      "class": "SubagentManager",
+      "bundle": "subagents",
+      "start": 50989,
+      "end": 96937,
+      "actual": "00f79c8a19576ba8862362ca946eb9298492a62d69622286758bb6a85ba64763",
+      "expected": "00f79c8a19576ba8862362ca946eb9298492a62d69622286758bb6a85ba64763",
+      "matches": true,
+      "required_methods_present": true
+    },
+    {
+      "field": "pool_class_sha256",
+      "class": "ActivationPool",
+      "bundle": "subagents",
+      "start": 44744,
+      "end": 45344,
+      "actual": "7f3afb379c215094b908361d8296e4eac4f93b344347fbb2b2dce02d9b5a928f",
+      "expected": "7f3afb379c215094b908361d8296e4eac4f93b344347fbb2b2dce02d9b5a928f",
+      "matches": true,
+      "required_methods_present": true
+    },
+    {
+      "field": "registry_class_sha256",
+      "class": "AgentRegistry",
+      "bundle": "agents",
+      "start": 12690,
+      "end": 28068,
+      "actual": "10435104617d5ac2fcb536e354135fdae4fb643981f89f62d49bc40d23fc5a08",
+      "expected": "10435104617d5ac2fcb536e354135fdae4fb643981f89f62d49bc40d23fc5a08",
+      "matches": true,
+      "required_methods_present": true
+    }
+  ],
+  "limitations": [
+    "No actual default attester success or live allocator count was observed in visible DSH; requires later safe deployment and visible native validation.",
+    "Read-only reflection uses pinned version-specific internals, not public allocator API. SDK upgrades remain unknown until reviewed.",
+    "Executed class/method fingerprints plus disk bytes do not attest every loaded closure helper or provide OS isolation.",
+    "Synthetic contexts bypass SDK imports by an offline module-level test seam; they do not establish real native permissions or capacity.",
+    "CLI root-pool parsing remains advisory and cannot mint native capture authority.",
+    "This independent review does not claim the root-authored full239 software suite as its own test execution, or certify complete A/B/C scientific rehearsal."
+  ],
+  "public_data_filter": "Contains only relative repository paths, package metadata, hashes, methods, findings and test scopes; excludes personal absolute paths, session IDs, raw SDK source, credentials, profiles and transcripts."
+}
