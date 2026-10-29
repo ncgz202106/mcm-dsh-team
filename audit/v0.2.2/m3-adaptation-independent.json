@@ -1,0 +1,125 @@
+{
+  "format_version": 1,
+  "review_id": "M3-source-independent",
+  "date": "2026-10-29",
+  "completed_at_utc": "2026-10-29T05:57:14.291846+00:00",
+  "base_commit": "0c3c380a638c8160727d03ee7d73590c69c9360f",
+  "non_author": true,
+  "verdict": "pass_for_scoped_source_and_offline_checks",
+  "reviewed_source_sha256": {
+    "project-template/references/award-patterns/catalog.json": "b5b5ec530d6aa0251ad6c4e44944b152a9e8f92cc287ad43d55b982ac8374ca0",
+    "project-template/references/award-patterns/patterns/baseline-and-error.md": "be663b629799dbd3995c9a20d4c722eed46588ce2d1ec42f9296f05ee2646786",
+    "project-template/references/award-patterns/patterns/evidence-proximity.md": "86ba4f0f4d2f1a07cf5856076b5a6751e01138b7bb748902c5c002bfe6031ad1",
+    "project-template/references/award-patterns/patterns/scale-and-semantic-color.md": "8a57cb435e746f8fab2b475cbf004244e7cdfe6a1957a807c426978f6bbdd438",
+    "project-template/references/award-patterns/patterns/semantic-transfer.md": "46fb34bee95012a43c8ac98c039eeb22a7ea77f9343ec697a6cd83c7a26a4707",
+    "skill-overlays/nature-figure/references/mcm-adaptation.md": "f39e5f9ac86f4477f61bf10433307475bb20bb521b56066f64fcc5e28f0e6e43",
+    "skill-overlays/nature-polishing/references/mcm-adaptation.md": "a6b26aa70879e69a516e214603e3c6c66d13aec0d67413db686207f2cc54e3d8",
+    "skill-overlays/nature-reviewer/references/mcm-adaptation.md": "75add674985809c8cbf3ededffb1c7078f9770616b890e7660f3a5bed19fd83d",
+    "skill-overlays/nature-statistics/references/mcm-adaptation.md": "7ddc028a5b416acb2d62532b478ac715984c7fdb7657b1fa0b61fabae7925681",
+    "skill-overlays/nature-writing/references/mcm-adaptation.md": "bd6c645f2eb73a3515bc052bb1984ded3b6665ab01d173b755e3e6b28b540cea",
+    "tools/verify-v022.py": "236ae07728fb35383100d9d2f869bb09df6fe2fd90bc8ebe9b766d4916b1e2a7",
+    "tests/test_verify_v022.py": "574b3cb1fe86fda6cd1de475737318d150d15a2888624139e3d56eec54d97444",
+    "docs/v0.2.2图文表达修订.md": "e92bcdf2e64b7974616df2d1f6dfad059009e5bf884326662a348de787f4d6e0"
+  },
+  "source_hashes_stable_during_review": true,
+  "findings": [],
+  "blocking_findings": 0,
+  "scope": "Twelve changed source/test files plus the new public explanation; source review and offline checks only.",
+  "checks": [
+    {
+      "command": "python -m unittest discover -s tests -q",
+      "exit_code": 0,
+      "tests": 46,
+      "execution": "Actually executed by this reviewer earlier in this review; no inherited report substituted."
+    },
+    {
+      "command": "node bundle/src/build.mjs --check --sync-project-style",
+      "exit_code": 0,
+      "role_count": 12
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    },
+    {
+      "kind": "library metadata and preservation",
+      "patterns": 11,
+      "source_cases": 9,
+      "versioned_entries": 4,
+      "legacy_entries_unchanged": 7,
+      "case_metadata_raw_bytes_unchanged": 9,
+      "styles_and_roles_raw_bytes_unchanged": true,
+      "gallery_and_historical_audit_git_diff": "unchanged"
+    },
+    {
+      "kind": "independent offline probes",
+      "passed": 7,
+      "failed": 0,
+      "probes": [
+        {
+          "id": "legacy-entry",
+          "passed": true,
+          "observation": "A legacy entry without optional metadata still validates."
+        },
+        {
+          "id": "complete-current-pin",
+          "passed": true,
+          "observation": "Declared v2 is returned with the real file SHA."
+        },
+        {
+          "id": "byte-drift-denies",
+          "passed": true,
+          "observation": "An unchanged declared pin rejects changed source bytes."
+        },
+        {
+          "id": "typed-complete-opt-in",
+          "passed": true,
+          "negative_cases": 7,
+          "observation": "Boolean/zero/string versions, incomplete pairs and invalid digests reject."
+        },
+        {
+          "id": "normalization-meaning",
+          "passed": true,
+          "coefficient_ratio": 3.0,
+          "per_volume_ratio": 4.8,
+          "scope": "Synthetic explicit relative-shortfall penalty; not an old benchmark answer."
+        },
+        {
+          "id": "residual-sign-meaning",
+          "passed": true,
+          "mean_actual_minus_prediction": -1.0,
+          "interpretation": "Prediction is higher in this synthetic example."
+        },
+        {
+          "id": "reference-not-envelope-midline",
+          "passed": true,
+          "parameter_midpoint_response": 1.0,
+          "envelope_midpoint": 2.0,
+          "scope": "Synthetic nonlinear response y=x^2; no empirical uncertainty claim."
+        }
+      ]
+    }
+  ],
+  "review_notes": [
+    "New conditions have single main homes in statistics, writing and figure branches; polishing/reviewer/cards relay short instructions.",
+    "Missing metadata is kept unspecified rather than borrowed or treated as proof of different dimensions.",
+    "Numerical interpretation inherits a checked formula/denominator/sign witness; author self-report is not independent verification.",
+    "Two rough alternatives apply only to crowded/unclear tasks; there is no universal figure quota or O-award score rule.",
+    "Numeric axes, categorical connecting lines and reference trajectories have explicit semantics; final independent page inspection remains required.",
+    "Four card changes are explicitly self-authored execution supplements; observation-only award status and source associations are unchanged.",
+    "The optional entry pin is a new complete opt-in pair. Old entries omitting both fields remain compatible; this is not retroactive assignment of old revisions.",
+    "The added public document explicitly leaves real M3 effect validation, visible native Skill refresh, full A and release pending."
+  ],
+  "limitations": [
+    "No DSH, SDK, Host, external model, account, profile, installation or scientific rehearsal operation was performed.",
+    "No new model-output comparison, figure/page rendering or actual Skill-consumption test was performed; behavioral and aesthetic benefit remain unverified.",
+    "Historical gallery and audit bytes were preserved, not rerun or reinterpreted as current behavioral acceptance.",
+    "Synthetic arithmetic probes check the guidance meaning only; they do not prove future model compliance.",
+    "The root-run full241 software report is separate evidence, not this reviewer's own execution.",
+    "Public documentation audit links must exist before commit; their planned names were read, but new evidence files are outside the source-review hash set."
+  ],
+  "native_runtime_verified": false,
+  "new_M3_behavior_verified": false,
+  "release_ready": false,
+  "public_data_filter": "Only relative repository paths, hashes, self-authored source observations and synthetic probes; no private sessions, absolute personal paths, SDK source, original papers or evaluation PDF data."
+}

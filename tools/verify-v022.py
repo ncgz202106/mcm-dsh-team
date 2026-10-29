@@ -82,7 +82,7 @@ def validate_library(root):
     catalog=read_json(base/'catalog.json')
     if catalog.get('format_version')!=1 or not isinstance(catalog.get('patterns'),list) or not catalog['patterns']:
         raise ValueError('Pattern catalog must contain versioned entries')
-    ids=set();case_ids=set();categories=set();hashes={};awards={}
+    ids=set();case_ids=set();categories=set();hashes={};awards={};declared_refs={}
     for row in catalog['patterns']:
         if not isinstance(row,dict) or not isinstance(row.get('id'),str) or not IDENTIFIER.fullmatch(row['id']):raise ValueError('Invalid pattern ID')
         if row['id'] in ids:raise ValueError('Duplicate pattern ID: '+row['id'])
@@ -95,6 +95,16 @@ def validate_library(root):
         target=relative_file(base,row.get('file'))
         if target.suffix!='.md' or not target.read_text(encoding='utf-8').strip():raise ValueError('Pattern must name a nonempty authored Markdown reference')
         hashes[row['file']]=digest(target)
+        # Old catalogs pin references through task inputs and omit entry-level
+        # metadata. Optional new pins must be complete and match real bytes;
+        # a declared version is not a claim of behavioral effectiveness.
+        if 'version' in row or 'sha256' in row:
+            version=row.get('version')
+            if not isinstance(version,int) or isinstance(version,bool) or version<1:
+                raise ValueError('Pattern entry needs a positive integer version: '+row['id'])
+            valid_digest(row.get('sha256'),'Pattern entry digest')
+            if row['sha256']!=hashes[row['file']]:raise ValueError('Pattern entry digest mismatch: '+row['id'])
+            declared_refs[row['id']]={'path':row['file'],'version':version,'sha256':row['sha256']}
         nonempty_strings(row.get('source_case_ids'),'Pattern source case IDs')
         for case_id in row['source_case_ids']:
             if not IDENTIFIER.fullmatch(case_id):raise ValueError('Unsafe source case ID')
@@ -103,6 +113,7 @@ def validate_library(root):
             awards[case_id]=case['award_evidence']['status']
     return {'status':'passed','patterns':len(ids),'source_cases':len(case_ids),'categories':sorted(categories),
             'catalog_sha256':digest(base/'catalog.json'),'reference_sha256':hashes,'declared_award_statuses':awards,
+            'versioned_patterns':len(declared_refs),'declared_pattern_refs':declared_refs,
             'limits':['Checked authored reference paths and source-observation metadata only; did not reauthenticate remote copies or reproduce paper results.',
                       'Award identity and an observed pattern do not establish causal award rules or the correctness of source modeling.']}
 

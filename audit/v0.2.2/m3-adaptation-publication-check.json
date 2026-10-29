@@ -1,0 +1,65 @@
+{
+  "format_version": 1,
+  "review_id": "M3-publication-check",
+  "completed_at_utc": "2026-10-29T13:28:59.213346+00:00",
+  "verdict": "pass_for_candidate_source_publication_only",
+  "non_author": true,
+  "blocking_findings": 0,
+  "findings": [],
+  "input_sha256": {
+    "audit/v0.2.2/m3-adaptation-evidence-index.json": "942454b39697feb59fa6d049e49b5124230b08a28b995d8377e4925b6d4e6360",
+    "audit/v0.2.2/m3-adaptation-independent.json": "090638d3530cd2c5e221861af69c66bbec75560dcc838c20dce79cccd3677dde",
+    "audit/v0.2.2/m3-adaptation-source-verification.json": "b450ef2c3dbacd867046195201aa959d7cb25d7654c039da6c9d6de53ad39a30",
+    "audit/v0.2.2/m3-adaptation-portable-probes.json": "a7fcf7695b2dfd155e700e9b6f0249c4868b4f60c5edbf356579aae59080cd90",
+    "audit/v0.2.2/m3-edge-probes.py": "e2b0211844c12b5f4c3a41781cb9a061676156166e563a8467682154a012a1bb"
+  },
+  "actual_checks": {
+    "sealed_reviewed_files": 13,
+    "current_software_fingerprints": 207,
+    "hash_mismatches": 0,
+    "software_record_counts": {
+      "overlay_and_design_regressions": 46,
+      "project_regressions": 120,
+      "bundle_regressions": 65,
+      "installer_faults": 10
+    },
+    "software_record_total": 241,
+    "full_software_reexecution": "Not repeated; verified actual prior record and current source byte bindings.",
+    "portable_probe": {
+      "command": "python audit/v0.2.2/m3-edge-probes.py",
+      "exit_code": 0,
+      "passed": 7,
+      "failed": 0,
+      "script_sha256": "e2b0211844c12b5f4c3a41781cb9a061676156166e563a8467682154a012a1bb"
+    },
+    "optimized_python": {
+      "command": "python -O audit/v0.2.2/m3-edge-probes.py",
+      "exit_code": 1,
+      "expected_denial": true
+    },
+    "doc_audit_links": {
+      "checked": 3,
+      "missing": 0
+    },
+    "privacy": {
+      "files_checked": 18,
+      "marker_matches": 0,
+      "scope": "Targeted personal-home, native session UUID and token-boundary common key-shape scan plus manual source/report review. This does not cover every historical Git object.",
+      "false_positive_resolved": "An unbounded key-prefix expression matched a protocol filename; token boundaries removed that non-secret match."
+    }
+  },
+  "source_safety_review": [
+    "Portable probe locates repository from its own file, imports only the local verifier module, and exercises validate_library on a named temporary synthetic fixture.",
+    "Temporary workspace absolute parent/name are checked before normal TemporaryDirectory cleanup; no persistent reports are written by probe.",
+    "Verifier import is guarded from CLI execution; no SDK, Host, external model, account, credential or installation operation is performed.",
+    "Public evidence distinguishes offline software checks, synthetic examples, prior independent review and pending real output validation."
+  ],
+  "limits": [
+    "No new M3 model behavior, graphic/page aesthetic benefit or actual native Skill refresh was verified.",
+    "The 241 software tests were not rerun by this publication reviewer; their recorded execution was checked against all 207 current source hashes.",
+    "Candidate source synchronization only; no release, main promotion, installation, scientific gate approval or original rehearsal resumption is established."
+  ],
+  "new_M3_behavior_verified": false,
+  "native_runtime_verified": false,
+  "release_ready": false
+}

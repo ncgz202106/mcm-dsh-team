@@ -69,7 +69,9 @@
         "mcm-2024-b-2411570",
         "mcm-2025-a-2501567"
       ],
-      "validation_status": "observed_pattern_not_causal_award_rule"
+      "validation_status": "observed_pattern_not_causal_award_rule",
+      "version": 2,
+      "sha256": "46fb34bee95012a43c8ac98c039eeb22a7ea77f9343ec697a6cd83c7a26a4707"
     },
     {
       "id": "baseline-and-error",
@@ -93,7 +95,9 @@
         "mcm-2024-c-2401298",
         "mcm-2024-c-2401919"
       ],
-      "validation_status": "observed_pattern_not_causal_award_rule"
+      "validation_status": "observed_pattern_not_causal_award_rule",
+      "version": 2,
+      "sha256": "be663b629799dbd3995c9a20d4c722eed46588ce2d1ec42f9296f05ee2646786"
     },
     {
       "id": "failure-regimes",
@@ -213,7 +217,9 @@
         "mcm-2025-b-2502617",
         "mcm-2025-c-2510006"
       ],
-      "validation_status": "observed_pattern_not_causal_award_rule"
+      "validation_status": "observed_pattern_not_causal_award_rule",
+      "version": 2,
+      "sha256": "8a57cb435e746f8fab2b475cbf004244e7cdfe6a1957a807c426978f6bbdd438"
     },
     {
       "id": "conditional-results",
@@ -263,7 +269,9 @@
         "mcm-2025-a-2501567",
         "mcm-2025-b-2502617"
       ],
-      "validation_status": "observed_pattern_not_causal_award_rule"
+      "validation_status": "observed_pattern_not_causal_award_rule",
+      "version": 2,
+      "sha256": "86ba4f0f4d2f1a07cf5856076b5a6751e01138b7bb748902c5c002bfe6031ad1"
     }
   ]
 }

@@ -43,6 +43,28 @@ class VersionVerifierTests(unittest.TestCase):
         self.library_fixture();report=verify.validate_library(self.root)
         self.assertEqual(report['status'],'passed');self.assertEqual(report['patterns'],1);self.assertEqual(report['source_cases'],1)
         self.assertIn('did not reauthenticate',report['limits'][0])
+        self.assertEqual(report['versioned_patterns'],0)
+        self.assertEqual(report['declared_pattern_refs'],{})
+
+    def test_optional_pattern_pin_binds_current_bytes_and_rejects_unannounced_drift(self):
+        self.library_fixture();path=self.library/'patterns/one.md'
+        row={**self.pattern,'version':2,'sha256':verify.digest(path)}
+        self.save(self.library/'catalog.json',{'format_version':1,'patterns':[row]})
+        report=verify.validate_library(self.root)
+        self.assertEqual(report['versioned_patterns'],1)
+        self.assertEqual(report['declared_pattern_refs'][row['id']],{'path':'patterns/one.md','version':2,'sha256':row['sha256']})
+        path.write_text('Changed authored conditions without updating the declared pin.',encoding='utf-8')
+        with self.assertRaisesRegex(ValueError,'Pattern entry digest mismatch'):verify.validate_library(self.root)
+
+    def test_optional_pattern_pin_requires_complete_typed_metadata(self):
+        self.library_fixture();digest=verify.digest(self.library/'patterns/one.md')
+        pins=[{'version':True,'sha256':digest},{'version':0,'sha256':digest},
+              {'version':'2','sha256':digest},{'version':2},{'sha256':digest},
+              {'version':2,'sha256':None},{'version':2,'sha256':'not-a-digest'}]
+        for pin in pins:
+            self.save(self.library/'catalog.json',{'format_version':1,'patterns':[{**self.pattern,**pin}]})
+            with self.subTest(pin=pin),self.assertRaisesRegex(ValueError,'Pattern entry'):
+                verify.validate_library(self.root)
 
     def test_duplicate_pattern_id_is_rejected(self):
         self.library_fixture();self.save(self.library/'catalog.json',{'format_version':1,'patterns':[self.pattern,copy.deepcopy(self.pattern)]})

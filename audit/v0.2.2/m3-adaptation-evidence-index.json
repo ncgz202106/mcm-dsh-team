@@ -1,0 +1,43 @@
+{
+  "format_version": 1,
+  "version": "0.2.2-candidate",
+  "base_commit": "0c3c380a638c8160727d03ee7d73590c69c9360f",
+  "created_at_utc": "2026-10-29T13:22:37.432677+00:00",
+  "artifacts": {
+    "m3-adaptation-source-verification.json": "b450ef2c3dbacd867046195201aa959d7cb25d7654c039da6c9d6de53ad39a30",
+    "m3-adaptation-independent.json": "090638d3530cd2c5e221861af69c66bbec75560dcc838c20dce79cccd3677dde",
+    "m3-adaptation-portable-probes.json": "a7fcf7695b2dfd155e700e9b6f0249c4868b4f60c5edbf356579aae59080cd90",
+    "m3-edge-probes.py": "e2b0211844c12b5f4c3a41781cb9a061676156166e563a8467682154a012a1bb"
+  },
+  "actual_software_tests": {
+    "overlay_and_design_regressions": 46,
+    "project_regressions": 120,
+    "bundle_regressions": 65,
+    "installer_faults": 10,
+    "total": 241
+  },
+  "source_fingerprints": 207,
+  "independent_reviewed_files": 13,
+  "pattern_catalog": {
+    "patterns": 11,
+    "source_cases": 9,
+    "explicit_versioned_entries": 4,
+    "legacy_entries": 7
+  },
+  "portable_probe_scope": {
+    "passed": 7,
+    "optimized_python_expected_denial": true,
+    "separate_followup_to_prior_sealed_review": true
+  },
+  "behavior_and_aesthetic_benefit": "pending_real_output_comparison",
+  "native_skill_refresh": "not_performed",
+  "installed_version_unchanged": "0.2.1",
+  "human_gate_approval_created": false,
+  "release_ready": false,
+  "limits": [
+    "Software and synthetic arithmetic checks do not establish model compliance, scientific result correctness or visual quality.",
+    "Prior paired comparisons are mixed and retained with their original scope; revised instructions require a new held-out behavioral check.",
+    "Original paper PDFs, private exercise inputs/results, session records, credentials, local profiles and backups are excluded.",
+    "Only the candidate branch is maintained; no main promotion, live installation or original rehearsal resumption occurs."
+  ]
+}

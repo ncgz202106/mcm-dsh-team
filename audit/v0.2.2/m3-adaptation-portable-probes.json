@@ -1,0 +1,130 @@
+{
+  "format_version": 1,
+  "script": "audit/v0.2.2/m3-edge-probes.py",
+  "script_sha256": "e2b0211844c12b5f4c3a41781cb9a061676156166e563a8467682154a012a1bb",
+  "executed_at_utc": "2026-10-29 06:04:23 UTC",
+  "command": "python audit/v0.2.2/m3-edge-probes.py",
+  "exit_code": 0,
+  "wall_time_seconds": 0.2822761,
+  "result": {
+    "status": "passed",
+    "passed": 7,
+    "failed": 0,
+    "assertions_enabled": true,
+    "probes": [
+      {
+        "id": "legacy-entry",
+        "passed": true,
+        "observation": "Omitting both optional fields remains compatible."
+      },
+      {
+        "id": "complete-current-pin",
+        "passed": true,
+        "observation": "A complete typed pin binds the actual current file."
+      },
+      {
+        "id": "byte-drift-denies",
+        "passed": true,
+        "observation": "Changing bytes without changing the declared pin is rejected."
+      },
+      {
+        "id": "typed-complete-opt-in",
+        "passed": true,
+        "negative_cases": 7,
+        "cases": [
+          "boolean version",
+          "zero version",
+          "string version",
+          "missing digest",
+          "missing version",
+          "null digest",
+          "short digest"
+        ]
+      },
+      {
+        "id": "normalization-meaning",
+        "passed": true,
+        "operands": {
+          "beta_a": 3,
+          "beta_b": 1,
+          "demand_a": 100,
+          "demand_b": 160
+        },
+        "penalty_expression": "J = beta_a*(shortfall_a/demand_a) + beta_b*(shortfall_b/demand_b)",
+        "unit_condition": "Both demands and shortfalls use the same arbitrary volume unit.",
+        "coefficient_ratio_expression": "beta_a/beta_b",
+        "coefficient_ratio": 3,
+        "per_volume_ratio_expression": "(beta_a/demand_a)/(beta_b/demand_b)",
+        "per_volume_ratio": 4.8
+      },
+      {
+        "id": "residual-sign-meaning",
+        "passed": true,
+        "operands": {
+          "observed": [
+            2,
+            3
+          ],
+          "predicted": [
+            3,
+            4
+          ]
+        },
+        "expression": "e_i = observed_i - predicted_i; mean_e = sum(e_i)/n",
+        "residuals": [
+          -1,
+          -1
+        ],
+        "mean_error": -1,
+        "interpretation": "Predictions are higher than observations in this synthetic example."
+      },
+      {
+        "id": "reference-not-envelope-midline",
+        "passed": true,
+        "operands": {
+          "parameter_endpoints": [
+            0,
+            2
+          ]
+        },
+        "response_expression": "y(x) = x**2",
+        "reference_expression": "y((x_low+x_high)/2)",
+        "envelope_midpoint_expression": "(y(x_low)+y(x_high))/2",
+        "parameter_midpoint": 1,
+        "reference_response": 1,
+        "endpoint_envelope_midpoint": 2,
+        "scope": "A nonlinear scalar response example, not a predictive or confidence interval."
+      }
+    ],
+    "scope": "Portable synthetic schema/byte checks and mathematical meaning examples only.",
+    "new_M3_model_behavior_verified": false,
+    "native_runtime_verified": false,
+    "release_ready": false,
+    "persistent_reports_written": false,
+    "limits": [
+      "No DSH, SDK, Host, model API, installation, original paper or evaluation data is used.",
+      "Schema-fixture award fields are test declarations, not real source or award authentication.",
+      "Arithmetic checks do not prove that a model follows the revised instructions or that a figure is attractive."
+    ]
+  },
+  "optimization_negative_check": {
+    "command": "python -O audit/v0.2.2/m3-edge-probes.py",
+    "exit_code": 1,
+    "result": {
+      "status": "failed",
+      "error_type": "ValueError",
+      "reason": "Run probes without Python optimization so assertions remain enabled",
+      "release_ready": false
+    },
+    "expected_denial": true
+  },
+  "prior_sealed_review": {
+    "report_sha256": "090638d3530cd2c5e221861af69c66bbec75560dcc838c20dce79cccd3677dde",
+    "report_binding_matches": true,
+    "source_mismatches": []
+  },
+  "limits": [
+    "New portable probe code is separately authored and executed evidence; it is not added retrospectively to the prior sealed 13-file review.",
+    "No model compliance, new M3 visual effectiveness, native Skill refresh or release approval is established."
+  ]
+}
