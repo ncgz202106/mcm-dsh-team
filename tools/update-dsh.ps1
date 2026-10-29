@@ -10,24 +10,29 @@ $ErrorActionPreference='Stop'
 . (Join-Path $PSScriptRoot 'dsh-install-common.ps1')
 $kitRoot=Split-Path -Parent $PSScriptRoot
 $sourceRoot=(Resolve-Path -LiteralPath (Join-Path $kitRoot 'bundle')).Path
-$cliPath=(Resolve-Path -LiteralPath $DshCli).Path
+# Kept for invocation/receipt compatibility. Existing-link updates never execute it.
+$cliPath=Get-AbsoluteDshPath $DshCli
 $pluginAbsolute=Get-AbsoluteDshPath $PluginRoot
 $pluginParent=Get-AbsoluteDshPath (Join-Path $env:USERPROFILE '.dsh/plugins')
 if ($pluginAbsolute -ne (Join-Path $pluginParent 'dsh-mcm-team')) { throw 'Upgrade target must be the current user named .dsh/plugins/dsh-mcm-team directory.' }
 if ($Profile -notmatch '^[a-zA-Z0-9_-]+$') { throw 'Invalid profile name.' }
 $profileRoot=Join-Path (Join-Path $env:USERPROFILE '.dsh/profiles') $Profile
 foreach ($p in @($sourceRoot,$pluginAbsolute,$profileRoot)) { Assert-DshPlainPath $p }
+Assert-DshDisjoint $sourceRoot $pluginAbsolute
 if (-not (Test-Path -LiteralPath (Join-Path $profileRoot 'package.json'))) { throw 'Existing DSH profile not found; this is an upgrade, not first-time installation.' }
 if (-not (Test-Path -LiteralPath (Join-Path $pluginAbsolute 'package.json'))) { throw 'Installed MCM plugin is missing.' }
 $package=Read-DshJson (Join-Path $sourceRoot 'package.json')
 $installedBefore=Read-DshJson (Join-Path $pluginAbsolute 'package.json')
 if ($package.name -ne 'dsh-mcm-team' -or $package.version -ne '0.2.2' -or $installedBefore.name -ne 'dsh-mcm-team') { throw 'Unexpected source/installed package identity.' }
+Assert-DshSameDependencyContract $installedBefore $package
 & node (Join-Path $sourceRoot 'src/build.mjs') --check
 if ($LASTEXITCODE) { throw 'Generated preset configuration is not current.' }
 $before=Read-DshJson (Join-Path $profileRoot 'package.json')
 Assert-DshUnrelatedPackage $before $before
 if (-not $before.dependencies['dsh-mcm-team']) { throw 'Expected an existing MCM profile dependency.' }
 Assert-DshResolvedPlugin $profileRoot $pluginAbsolute
+$lockAudit=Get-DshLockAudit $profileRoot
+Write-DshLockAuditWarning $lockAudit
 if (-not $BackupRoot) { $BackupRoot=Join-Path (Split-Path -Parent (Split-Path -Parent $kitRoot)) 'work/v020-install-backups' }
 $stamp=Get-Date -Format 'yyyyMMdd-HHmmss-fff'
 $backup=Join-Path (Get-AbsoluteDshPath $BackupRoot) $stamp
@@ -35,7 +40,7 @@ Assert-DshPlainPath $backup
 foreach ($p in @($sourceRoot,$pluginAbsolute,$profileRoot)) { Assert-DshDisjoint $backup $p }
 $active=@(Get-Process -Name 'DeepSeek Harness' -ErrorAction SilentlyContinue)
 if ($CheckOnly) {
-    [pscustomobject]@{version=$package.version;source=$sourceRoot;target=$pluginAbsolute;profile=$Profile;backup_parent=(Get-AbsoluteDshPath $BackupRoot);desktop_running=($active.Count -gt 0);requires_normal_exit=($active.Count -gt 0);changed=$false} | ConvertTo-Json
+    [pscustomobject]@{status='upgrade_preflight_passed';version=$package.version;source=$sourceRoot;target=$pluginAbsolute;profile=$Profile;backup_parent=(Get-AbsoluteDshPath $BackupRoot);desktop_running=($active.Count -gt 0);requires_normal_exit=($active.Count -gt 0);install_mode='registered_link_file_swap';dependency_install_performed=$false;cli_will_run=$false;lockfile_audit=$lockAudit;changed=$false} | ConvertTo-Json -Depth 10
     return
 }
 Assert-DshClosed
@@ -54,11 +59,11 @@ New-Item -ItemType Directory -Path $backup | Out-Null
 Copy-Item -LiteralPath $pluginAbsolute -Destination (Join-Path $backup 'plugin') -Recurse
 $profileBackup=Join-Path $backup 'profile';New-Item -ItemType Directory -Path $profileBackup | Out-Null
 foreach ($name in $DshProfileFiles) { if ($profileState[$name]) { Copy-Item -LiteralPath (Join-Path $profileRoot $name) -Destination (Join-Path $profileBackup $name) } }
-$receipt=[ordered]@{format_version=2;started_at=[DateTimeOffset]::UtcNow.ToString('o');status='backed_up';source=$sourceRoot;target=$pluginAbsolute;profile=$Profile;profile_root=$profileRoot;backup=$backup;retired=$retired;cli_path=$cliPath;old_version=$installedBefore.version;new_version=$package.version;plugin_hashes_before=$pluginHashes;source_hashes=$sourceHashes;profile_state_before=$profileState;unrelated_runtime_before=$unrelatedRuntime;original_rehearsal_resumed=$false}
+$receipt=[ordered]@{format_version=3;started_at=[DateTimeOffset]::UtcNow.ToString('o');status='backed_up';source=$sourceRoot;target=$pluginAbsolute;profile=$Profile;profile_root=$profileRoot;backup=$backup;retired=$retired;cli_path=$cliPath;install_mode='registered_link_file_swap';dependency_install_performed=$false;lockfile_audit=$lockAudit;verified_scope=@('plugin_tree','profile_files','unrelated_direct_manifests');old_version=$installedBefore.version;new_version=$package.version;plugin_hashes_before=$pluginHashes;source_hashes=$sourceHashes;profile_state_before=$profileState;unrelated_runtime_before=$unrelatedRuntime;original_rehearsal_resumed=$false}
 $receiptPath=Join-Path $backup 'installation.json'
 Save-DshReceipt $receiptPath $receipt
 Assert-DshBackup $backup $receipt
-$swapped=$false;$cliAttempted=$false
+$swapped=$false
 try {
     Copy-Item -LiteralPath $sourceRoot -Destination $stage -Recurse
     Assert-DshTreeHashes $stage $sourceHashes
@@ -69,9 +74,10 @@ try {
     Move-Item -LiteralPath $pluginAbsolute -Destination $retired
     $swapped=$true
     Move-Item -LiteralPath $stage -Destination $pluginAbsolute
-    $cliAttempted=$true
-    Invoke-DshProfileCli $cliPath $Profile @('add','--save-exact',"link:$($pluginAbsolute.Replace('\','/'))")
+    # The profile already links this exact canonical directory. Reinstalling
+    # packages here can prune unrelated transitive modules even with no manifest delta.
     $after=Read-DshJson (Join-Path $profileRoot 'package.json')
+    Assert-DshProfileState $profileRoot $profileState
     Assert-DshUnrelatedPackage $before $after
     Assert-DshUnrelatedRuntime $profileRoot $after $unrelatedRuntime
     Assert-DshTreeHashes $pluginAbsolute $sourceHashes
@@ -81,22 +87,20 @@ try {
     $receipt.profile_state_after=Get-DshProfileState $profileRoot
     $receipt.patch_sha256=Get-DshHash (Join-Path $pluginAbsolute 'cordis.patch.yml')
     Save-DshReceipt $receiptPath $receipt
-    [pscustomobject]@{status=$receipt.status;version=$package.version;backup=$backup;receipt=$receiptPath;original_rehearsal_resumed=$false} | ConvertTo-Json
+    [pscustomobject]@{status=$receipt.status;version=$package.version;backup=$backup;receipt=$receiptPath;install_mode=$receipt.install_mode;dependency_install_performed=$false;lockfile_audit=$lockAudit;original_rehearsal_resumed=$false} | ConvertTo-Json -Depth 10
 } catch {
     $failure=$_.Exception.Message;$rollbackErrors=@()
     try {
         Assert-DshClosed
         Assert-DshBackup $backup $receipt
         if ($swapped) {
-            if (Test-Path -LiteralPath $pluginAbsolute) { Move-Item -LiteralPath $pluginAbsolute -Destination $failed }
+            if (Test-Path -LiteralPath $pluginAbsolute) { Assert-DshTreeHashes $pluginAbsolute $sourceHashes; Move-Item -LiteralPath $pluginAbsolute -Destination $failed }
             if (-not (Test-Path -LiteralPath $retired)) { throw 'Retired plugin is missing; preserve backup for manual recovery.' }
+            Assert-DshTreeHashes $retired $pluginHashes
             Move-Item -LiteralPath $retired -Destination $pluginAbsolute
         }
-        Restore-DshProfileFiles $profileRoot $profileBackup $profileState (Join-Path $backup 'rollback-displaced-profile')
-        if ($cliAttempted) {
-            if (-not $profileState['pnpm-lock.yaml']) { throw 'No saved pnpm lockfile; dependency rollback cannot be certified automatically.' }
-            Invoke-DshProfileCli $cliPath $Profile @('install','--offline','--frozen-lockfile')
-        }
+        # No profile/dependency writes were made by this transaction. Never
+        # overwrite a concurrent user edit or run a global install during recovery.
         Assert-DshProfileState $profileRoot $profileState
         Assert-DshTreeHashes $pluginAbsolute $pluginHashes
         Assert-DshResolvedPlugin $profileRoot $pluginAbsolute

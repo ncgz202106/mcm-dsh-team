@@ -1,6 +1,6 @@
 # MCM A/B/C · DSH PTC 多 Agent v0.2.2 候选
 
-本分支在冻结的0.2.1上增加优秀论文模式库、可运行图表与页面小样，并进行真实模型对照。当前尚未正式安装或宣称完整A题通过；已安装稳定版仍为0.2.1。
+本分支在冻结的0.2.1上增加优秀论文模式库、可运行图表与页面小样，并进行真实模型对照。2026-10-30的0.2.2试装已撤回，实装回到0.2.1；当前候选仍待原生运行时验证，不能由源码检查宣称已部署或完整A题通过。后续实装状态以对应部署记录为准。
 
 - [本轮改动、验收安排与边界](docs/v0.2.2研究与验收.md)
 - [9篇案例与11条按需模式](project-template/references/award-patterns/catalog.json)
@@ -9,7 +9,7 @@
 - [本版源码与软件检查](audit/v0.2.2/source-verification.json)；真实模型、视觉和人工批准分别留证，不能由该检查器代签。
 - [待审交付依赖修复与最新软件检查](docs/v0.2.2复验依赖修复.md)：旧执行依赖仍须批准；显式复验依赖可读取已交付固定版本，容量未知仍拒绝。历史原生运行时报告不证明这次新代码已部署。
 
-以下保留稳定版0.2.1的安装与历史说明；本候选通过全部发布条件后再更新部署记录。
+以下保留稳定版0.2.1的功能与历史说明；本候选通过全部发布条件后再更新部署记录。
 
 # MCM A/B/C · DSH PTC 多 Agent v0.2.1
 
@@ -24,7 +24,24 @@
 - [图表组合演示](audit/v0.2.1/demo/evidence-panels.png)（合成数据）
 - 新会话使用“美赛 · 队长”和[启动词](启动词.txt)，填唯一项目根；原暂停演练不因升级恢复。
 
-重新安装或维护时，先运行 `python tools/verify-v021.py --run-tests`。DSH插件通过官方更新器安装，需正常退出桌面版，不能热覆盖。实际安装与Skill部署状态以本版deployment.json为准，源码或单元测试通过不自证安装成功。
+稳定版0.2.1的历史检查入口为 `python tools/verify-v021.py --run-tests`。该版本的实际安装与Skill部署记录见上方 deployment.json；历史报告和源码测试不能自证当前候选安装成功。
+
+## 安装、更新与回滚
+
+本轮仅硬化候选源码中的维护工具，没有执行安装。完整边界与命令见[更新与回滚](docs/更新与回滚.md)。先用 `-CheckOnly` 只读核验；实际安装、换入或恢复文件前，保存工作并正常退出DSH，脚本不强制关闭进程，也不热替换。
+
+```powershell
+pwsh -File tools/update-dsh.ps1 -DshCli '<实际 dsh.cmd 路径>' -CheckOnly
+pwsh -File tools/update-dsh.ps1 -DshCli '<实际 dsh.cmd 路径>'
+```
+
+已登记的标准安装须有真实junction或symlink指向当前用户的 `.dsh/plugins/dsh-mcm-team`，同字节副本不能替代链接核验。旧版与候选的依赖合同相同，更新器才会备份、核哈希并换入MCM文件；不调用CLI，不重写profile、锁文件或共享 `node_modules`。v3收据记录 `install_mode: registered_link_file_swap`、`dependency_install_performed: false` 和 `status: installed_pending_runtime_verification`。依赖合同改变则以 `MCM_DEPENDENCY_MIGRATION_REQUIRED` 拒绝，另行制定迁移计划。
+
+预检使用Python 3标准库核根锁文件的pnpm 9 block importer子集及直接specifier，报告 `consistent`、`mismatch` 或 `unknown`；这不是完整pnpm锁文件校验。已登记真实链接、依赖合同不变的文件更新可在明确警告后继续，因为不会改共享依赖。首次安装仍使用 `tools/install-dsh.ps1` 调用官方CLI链接本包 `bundle`，路径须保持稳定；已有profile锁文件不一致或无法审计时，在调用CLI前拒绝。新空profile没有既有锁文件，不伪报为一致。非常规布局不自动迁移。
+
+恢复先用 `tools/restore-dsh.ps1 -BackupDirectory '<实际备份目录>' -CheckOnly`。v2/v3收据都须证明profile前后未变、两版依赖合同一致、实际链接及插件哈希符合，才允许仅恢复MCM文件；后续用户配置有变化即拒绝，不覆盖。恢复不运行全局install；profile或依赖迁移以 `MCM_RESTORE_MIGRATION_REQUIRED` 拒绝。v3成功记录 `restored_verified` 和 `restore_scope: plugin_files_only`；旧v2成功仅记 `restored_plugin_files_verified` 及 `legacy_dependency_tree_unverified: true`，不能证明旧CLI触及的传递依赖树已恢复。新旧副本和本机备份均保留，用户profile与真实备份路径不进入公开仓库。
+
+本轮桌面启动问题已收敛到browser userdata状态；锁文件异常是独立诊断，不能据此归因Web认证。工具源码修复不表示候选已部署，安装成功也不代替隔离新会话中的角色、派发、Skill执行与成果回读验证。
 
 公开仓库的后续改动按[同步约定](docs/GitHub同步.md)检查、提交和推送。新报告去除本机路径；旧版公开历史未在本次改写或追认脱敏。
 
@@ -55,32 +72,9 @@
 - [当前验证报告](audit/verification.json)及[独立架构视觉记录](audit/architecture-visual-v2.json)。107项Python、37项Node和10项安装故障注入通过；[主运行机制9项](audit/native-runtime-smoke.json)与[门禁10项](audit/guard-native-runtime.json)使用真实DSH和确定性模型夹具，最终报告均绑定当前安装目录的字节，不能冒充外部模型自主执行验收。
 - [官方npm打包的插件](dsh-mcm-team-0.2.0.tgz)，完整项目模板和文档则保留在本包中。
 
-## 安装与更新
+## v0.2.0 历史安装与运行证据
 
-适配已检查的DSH 0.2.1-rc.2。候选测试完成后，保存工作并正常退出DSH。官方命令行修改profile，不能与活跃Host同时更新；脚本不会强制关闭桌面版。
-
-从本包根目录先只读预检，再执行更新：
-
-```powershell
-pwsh -File tools/update-dsh.ps1 -DshCli 'E:\dsh desktop\resources\runtime\cli\bin\dsh.cmd' -CheckOnly
-pwsh -File tools/update-dsh.ps1 -DshCli 'E:\dsh desktop\resources\runtime\cli\bin\dsh.cmd'
-```
-
-更新器备份旧插件及有关profile配置，校验候选字节，再用官方安装命令更新同一插件ID，保留其他插件。安全更新和恢复限定当前用户.dsh/plugins/dsh-mcm-team；其他位置须先核对原生安装布局，不能用自定义路径绕过检查。
-
-完整插件树与备份记录相对路径、存在状态和字节哈希；恢复还会核对安装后profile和实际依赖解析，拒绝覆盖后来发生的用户修改。-PluginRoot保留接口，但不允许借此写任意目录。回滚可先用restore-dsh.ps1的-CheckOnly，只读核验后再正常退出DSH执行。
-
-首次安装用tools/install-dsh.ps1及相同-DshCli参数；检测到现有标准安装时转入可回滚更新器。首次安装链接本包bundle目录，因此请保留稳定路径。操作说明见[更新与回滚](docs/更新与回滚.md)。
-
-首次目录链接不由当前严格标准目录更新器自动迁移；非常规布局须先单独核对，不强行覆盖。
-
-启动DSH后核对版本0.2.0、12个“美赛 · ”角色和有效配置；建立隔离新会话，验证实际角色、派发、技能执行和成果。命令成功不等于运行时验收通过；本README不自证已安装成功。
-
-v0.2.0历史安装目录为当前用户的 `.dsh/plugins/dsh-mcm-team`。当时的收据保留在仓库外本机备份中；[非作者安装核验](audit/installed-verification.json)的14项检查确认当时29份安装文件、配置/依赖保留、12角色及新工具绑定，以及当时安装字节的主9项与门禁10项证据。旧收据状态及证据入口见[历史安装摘要](audit/installation-summary.json)。用户profile备份不混入公开包。
-
-最新备份回到本次门禁修订前的0.2.0；20261025-221327-045仍保存原0.1.0。两轮之间profile的cordis.patch.yml已有变化，第二段回到0.1.0的预检可能拒绝，须核对并保留用户后续配置，不能承诺直接连续执行两次恢复。详见[更新与回滚](docs/更新与回滚.md)。
-
-[早先桌面真实模型小演练](audit/live-model-verification.json)已实际生成四类图并调用专项技能，保留DEV-01“容量准入失败仍派发”的历史偏差。当前门禁修复已由真实工具管线和[桌面外部模型负向复验](audit/guard-live-verification.json)分别验证：容量未知预检拒绝、无许可原生派发拒绝、实际零子会话，40个保护文件与4个人工关口保持。负向检查通过不等于完整自主建模通过。
+[非作者安装核验](audit/installed-verification.json)、[历史安装摘要](audit/installation-summary.json)、[桌面真实模型小演练](audit/live-model-verification.json)和[门禁负向复验](audit/guard-live-verification.json)保留原报告的版本、偏差与验证范围。它们不证明当前候选已部署，也不代表完整自主建模通过。旧收据和用户profile备份保留在仓库外；不将当年的CLI更新与依赖恢复流程作为当前操作指南。当前维护入口见上方[安装、更新与回滚](#安装更新与回滚)及[详细说明](docs/更新与回滚.md)。
 
 ## 如何使用
 
