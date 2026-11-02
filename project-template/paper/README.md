@@ -15,7 +15,7 @@ python scripts/paper.py check build/paper/demo.pdf
 
 编译输出放在 `build/paper/`，不混入章节源码。构建使用 XeLaTeX 和 BibTeX，由 latexmk 处理重复运行；Windows 若缺少 PATH 中的 Perl，会检查 Git 自带 Perl，仅补入构建子进程环境。
 
-主报告与 AI 报告在同一个 PDF 中。`main-report-end` 标签位于主报告最后一页，检查器依此计算主报告页数；AI 报告从下一页开始。页数不会通过把参考文献或附录移至 AI 报告规避。默认队号 `0000000`、DRAFT 指引和演练标识都会在发布检查中被拦截。
+主报告与 AI 报告在同一个 PDF 中，默认依次为参考文献、AI报告、必要附录。当前`main-report-end`标签在全部内容末尾，检查器保守计入整份PDF，AI与参考文献可以共页；正文内容篇幅单独统计，不把附录算成正文。若按适用规则排除独立AI页，须另有可核实的独占页边界，不能提前移动标签漏计参考文献或附录。启用真实附录时按`sections/appendix.tex`注释另起一页；空附录不强制分页。默认队号`0000000`、DRAFT指引和演练标识都会在发布检查中被拦截。
 
 论文负责人是 `main.tex`、`team.tex`、主章节和 `references.bib` 的唯一整合者。写作子 Agent 在任务卡指定的独立子稿目录交付；排版子 Agent 负责样式、构建与检查报告，主文件修改先交论文负责人整合。`paper/generated/` 的数值由求解导出流程生成，不手工改数。
 

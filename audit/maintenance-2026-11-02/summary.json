@@ -1,0 +1,85 @@
+{
+  "date": "2026-11-02",
+  "scope": "Evidence-led figure/writing maintenance, not a new contest-result or DSH runtime attestation",
+  "version": "0.2.1",
+  "role_count": 12,
+  "roles_model_permissions_changed": false,
+  "specialized_skill_branches": {
+    "nature-figure": {
+      "reference_sha256": "21e73b2539e797960ab706677b371ad9ec18bb2a114843e3af34c44a74ea8497",
+      "local_readback_equal": true
+    },
+    "nature-writing": {
+      "reference_sha256": "57bc20535cffd22b377aa32ab5786144967749f87d4ac65fbfb59a493ad2a5ad",
+      "local_readback_equal": true
+    },
+    "nature-polishing": {
+      "reference_sha256": "9da35a952a4010c01250dceaadefbeef3c5d375bae994744ddab9f74b1296e7e",
+      "local_readback_equal": true
+    },
+    "nature-reviewer": {
+      "reference_sha256": "ef9d17aefa8a75235d518ffa1e16365aadf6f564b64b29ca228324f1c4efd424",
+      "local_readback_equal": true
+    },
+    "nature-statistics": {
+      "reference_sha256": "ec67c09bf4805a78200e12c31b7b6795bb36b2155d1fae396d4145ec195dd8d0",
+      "local_readback_equal": true
+    }
+  },
+  "local_skill_update": "5 MCM reference files applied with verified private rollback receipt; general skill entry points preserved",
+  "regressions": {
+    "current_build_and_content": {
+      "passed": true,
+      "version": "0.2.1",
+      "role_count": 12,
+      "skill_count": 5,
+      "style_default_consistent": true
+    },
+    "overlay_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "tests": 9,
+      "count_observed": true
+    },
+    "project_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "tests": 115,
+      "count_observed": true
+    },
+    "bundle_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "tests": 37,
+      "count_observed": true
+    },
+    "installer_faults": {
+      "passed": true,
+      "exit_code": 0,
+      "tests": 10,
+      "count_observed": true
+    }
+  },
+  "independent_review": {
+    "status": "passed",
+    "private_report_sha256": "2fcb351d534e0bbe66e23490c79879afae81949d99a50a9a670b8bfa061e5a38",
+    "extra_boundary_checks": 12,
+    "extra_8_tests_overlap_full_suite": true
+  },
+  "template_compile": {
+    "synthetic": true,
+    "pages": 6,
+    "warnings": 0,
+    "passed": true,
+    "human_release_approved": false,
+    "independent_visual_status": "not_claimed"
+  },
+  "bundle_pack": {
+    "members": 26,
+    "patch_matches_source": true,
+    "sha256": "10c59715bfbe1101a25478bebe9d8c17343c464fc50c7c835090527bbc7687d1"
+  },
+  "DSH_installation_or_runtime_test": false,
+  "external_model_calls": 0,
+  "private_papers_or_user_materials_published": false
+}

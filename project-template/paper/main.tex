@@ -67,13 +67,14 @@
 \bibliographystyle{plain}
 \bibliography{references}
 \endgroup
-\input{sections/appendix.tex}
-\label{main-report-end}
-\clearpage
 \section*{Report on Use of AI Tools}
 \ifdefined\MCMWorkflowDemo
   \input{demo/ai-use.tex}
 \else
   \input{ai-use/report.tex}
 \fi
+\input{sections/appendix.tex}
+% AI may share a reference page: count all pages conservatively. Do not move
+% this marker before the Appendix to claim an unverified page exemption.
+\label{main-report-end}
 \end{document}

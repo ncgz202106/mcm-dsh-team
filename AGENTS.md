@@ -32,3 +32,12 @@
 - 图表/PDF/架构图及过滤后的 audit 是仓库内容，不能用 blanket build/、*.pdf、*.png 忽略规则破坏证据链。
 
 使用与同步入口见 README.md 和 docs/GitHub同步.md。
+
+## 定向模块路径
+
+- `bundle/prompts/` 与 `bundle/src/skill-routing.mjs`：角色职责、专项Skill路由；`node bundle/src/build.mjs`生成有效预设。
+- `skill-overlays/`：五项Nature工具的MCM适配分支；`tools/skill-overlays.py`备份、应用及回滚，不覆盖通用主Skill。
+- `project-template/scripts/figure_check.py`：图表文件、尺寸和来源核对；`visual_range.py`检查最终坐标是否隐藏源点或区间。
+- `project-template/tests/`、`bundle/tests/`：Python和Node回归；`docs/科研图表与论文经验.md`记录可迁移经验。
+
+图表教学库和图型建议服务具体主张，不机械增加图数或套用模板。正文、参考文献、AI披露及附录分别报告；官方页数预算按项目规则核对。更新源码与本地Skill不等于已在DSH新会话运行验收。

@@ -26,6 +26,10 @@ scripts/figure_demo.py 的 new_plot_canvas(style, panels=1/2) 提供最终尺寸
 
 运行 python scripts/figure_check.py --root PROJECT RELATIVE_CONTRACT。该工具核输入/输出/脚本与QA读回hash、PDF尺寸、最终缩放字号及明显文字原点越界；它不证明完整字形/图像无裁切、不自动证明科学有效或美观。多面板必须用实际渲染的绘图区边界做对齐审计；单绘图区记录不适用及原因，不能冒称做过多面板测试。有本地nature-figure时按其说明实际运行源审计、PDF字形和碰撞检查，再逐张读图；失败不伪造通过记录。
 
+字体/碰撞通过仍可能把负效应或置信区间裁在轴外。最终设定坐标后可用项目`scripts/visual_range.py`中的`require_visible_data(points, ax.get_ylim(), lower=lower, upper=upper)`检查完整点及区间；横向图用`ax.get_xlim()`。无定义值显式保留并说明，不能补零或用只剩成功组的数据调用检查。此工具不改数据、不生成美观或独立验收结论。
+
+当前模板的末尾顺序是参考文献、AI使用报告、必要附录；正文篇幅不包括附录，官方主报告预算则按适用规则另核。AI与参考文献共页时，默认构建保守计入整份PDF，不能通过提前移动`main-report-end`漏计附录。若要排除独立AI页，须另有明确且可核实的独占页边界与规则依据。
+
 ## 原生公式与简明文字
 
 公式使用 equation + aligned、align、cases 等原生LaTeX环境；按等号/关系号对齐，长式合理拆行，必要式才编号并通过label/ref引用。变量首次出现给物理含义和单位；图表/公式前说明用途，后说明允许推出的结论。断行、字体等表达修复不自动变成科学改模；符号、公式或判据实质变化须由模型负责人确认并复验。

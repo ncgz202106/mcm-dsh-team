@@ -2,7 +2,7 @@
 """Verify the current upgrade; do not reuse frozen v0.2.0 attestations."""
 from pathlib import Path
 from datetime import datetime, timezone
-import argparse,hashlib,json,subprocess,sys
+import argparse,hashlib,json,subprocess,sys,re
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--run-tests',action='store_true');p.add_argument('--output',type=Path);a=p.parse_args()
@@ -25,14 +25,21 @@ def main():
     record('current_build_and_content',shape)
     if a.run_tests:
         commands={
-            'overlay_regressions':([sys.executable,'-m','unittest','discover','-s','tests','-q'],9),
-            'project_regressions':([sys.executable,'-m','unittest','discover','-s','project-template/tests','-q'],107),
-            'bundle_regressions':(['node','--test',*map(str,sorted((root/'bundle/tests').glob('*.test.mjs')))],37),
-            'installer_faults':(['pwsh','-NoProfile','-File','tools/test-install.ps1'],10)}
-        for name,(command,count) in commands.items():
+            'overlay_regressions':[sys.executable,'-m','unittest','discover','-s','tests','-q'],
+            'project_regressions':[sys.executable,'-m','unittest','discover','-s','project-template/tests','-q'],
+            'bundle_regressions':['node','--test',*map(str,sorted((root/'bundle/tests').glob('*.test.mjs')))],
+            'installer_faults':['pwsh','-NoProfile','-File','tools/test-install.ps1']}
+        for name,command in commands.items():
             result=subprocess.run(command,cwd=root,capture_output=True,text=True,encoding='utf-8',errors='replace',timeout=120)
+            # Counts are observations of this execution, not frozen release totals.
+            output=result.stdout+'\n'+result.stderr
+            match=re.search(r'Ran (\d+) tests?\b',output) or re.search(r'(?:#|ℹ) tests (\d+)\b',output)
+            count=int(match.group(1)) if match else None
+            if name=='installer_faults':
+                try:count=int(json.loads(result.stdout)['count'])
+                except (ValueError,KeyError,TypeError):count=None
             # No command paths, machine environment or raw logs enter the portable record.
-            checks[name]={'passed':result.returncode==0,'exit_code':result.returncode,'tests':count}
+            checks[name]={'passed':result.returncode==0 and count is not None and count>0,'exit_code':result.returncode,'tests':count,'count_observed':count is not None}
             if result.returncode:print(name+' failed; see local execution output',file=sys.stderr)
     source_files=[]
     for directory in ['bundle','skill-overlays','project-template','tools','tests']:
