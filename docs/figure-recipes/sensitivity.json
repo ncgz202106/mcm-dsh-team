@@ -1,0 +1,44 @@
+{
+  "recipe": "sensitivity",
+  "synthetic": true,
+  "caption_english": "Synthetic one-factor design at 0.8, 1.0 and 1.2 times baseline. Lines join the three tested levels for reading only. The target 0.25 is an assumed rule. Filled cells identify the larger response at each tested level; no continuous switch boundary or global sensitivity is estimated. These are deterministic values, not confidence intervals.",
+  "panel_roles": [
+    "Show the baseline reversal missed by endpoint-only spans",
+    "Translate values to a discrete decision"
+  ],
+  "size_mm": [
+    165.1,
+    165.1
+  ],
+  "minimum_final_glyph_pt": 12,
+  "data": {
+    "path": "sensitivity.data.json",
+    "sha256": "bd7ff9943c514bd114cf670470491fbf105d9e8ba59a3d69dc3c6c23755841d8"
+  },
+  "outputs": [
+    {
+      "path": "sensitivity.pdf",
+      "sha256": "390cc751ec858715ee1554a64bcaeba0f424c7d65b6b1b74f893f57c98ecb54b"
+    },
+    {
+      "path": "sensitivity.svg",
+      "sha256": "43aa13803f0cfac1fe7dd8a232f7b2bd9dd3502328098c2bb95c06680f7d9586"
+    },
+    {
+      "path": "sensitivity.png",
+      "sha256": "2dec39e07345a78bdc880efb10470c984414c12aba6aab76510c8b6c5feca20c"
+    }
+  ],
+  "qa": {
+    "alignment": "passed",
+    "audit_pdf_text.py": {
+      "exit_code": 0
+    },
+    "audit_figure_collisions.py": {
+      "exit_code": 0
+    }
+  },
+  "visual_review": "pending_actual_inspection",
+  "independent_acceptance": "not_claimed",
+  "production_use": "Adapt one drawing function to frozen results; replace data contract and caption."
+}

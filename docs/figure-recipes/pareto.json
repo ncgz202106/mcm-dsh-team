@@ -1,0 +1,44 @@
+{
+  "recipe": "pareto",
+  "synthetic": true,
+  "caption_english": "Twelve synthetic feasible candidates: cost is minimized and benefit maximized. Non-dominance refers only to this tested set. Three named options illustrate preference choices, not a unique optimum. Lower bars give successive benefit increases from zero to Lean, Lean to Balanced and Balanced to High benefit; they are not benefit/cost ratios.",
+  "panel_roles": [
+    "Show trade-off and dominated choices",
+    "Compare incremental benefit of named alternatives"
+  ],
+  "size_mm": [
+    165.1,
+    165.1
+  ],
+  "minimum_final_glyph_pt": 12,
+  "data": {
+    "path": "pareto.data.json",
+    "sha256": "0fca1d20d0585d98f7c6bc21c51f1588a58bfbc165c9c5a173fa7ed2d2a58907"
+  },
+  "outputs": [
+    {
+      "path": "pareto.pdf",
+      "sha256": "8809bdcf0e2c9196eb216c9df2ca9d9c8627da645df2bbffebf44172c3a7581b"
+    },
+    {
+      "path": "pareto.svg",
+      "sha256": "97450ad1aed1b897f6741dccb091a16020329368af5d97f255ce1308d53fe458"
+    },
+    {
+      "path": "pareto.png",
+      "sha256": "ec16ba1f9d2753b4843534ed2f636f6557145f651e005b362206888297defc87"
+    }
+  ],
+  "qa": {
+    "alignment": "passed",
+    "audit_pdf_text.py": {
+      "exit_code": 0
+    },
+    "audit_figure_collisions.py": {
+      "exit_code": 0
+    }
+  },
+  "visual_review": "pending_actual_inspection",
+  "independent_acceptance": "not_claimed",
+  "production_use": "Adapt one drawing function to frozen results; replace data contract and caption."
+}

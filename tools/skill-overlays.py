@@ -48,9 +48,21 @@ def plan(source,skills_root):
         entry=inside(root,name+'/SKILL.md')
         if not entry.is_file():raise ValueError('Required installed skill missing: '+name)
         original=entry.read_bytes()
-        ref=source/name/manifest['reference']
+        ref=inside(source,name+'/'+manifest['reference'])
         if not ref.is_file() or not ref.read_text(encoding='utf-8').strip():raise ValueError('Missing MCM reference: '+name)
-        for relative,content in [(name+'/SKILL.md',render_hook(original,manifest['hook'])),(name+'/'+manifest['reference'],ref.read_bytes())]:
+        payload=[(name+'/SKILL.md',render_hook(original,manifest['hook'])),(name+'/'+manifest['reference'],ref.read_bytes())]
+        resources=manifest.get('resources',{}).get(name,[])
+        if not isinstance(resources,list) or len(resources)!=len(set(resources)):raise ValueError('Duplicate or invalid MCM resources')
+        for relative in resources:
+            # Add only explicitly named MCM resources; never replace general upstream helpers.
+            p=Path(relative)
+            if len(p.parts)!=2 or p.parts[0] not in ('references','scripts','assets') or not p.name.startswith('mcm-'):
+                raise ValueError('Resource must be a namespaced MCM supporting file')
+            if relative==manifest['reference']:raise ValueError('Duplicate MCM reference')
+            resource=inside(source/name,relative)
+            if not resource.is_file() or not resource.stat().st_size:raise ValueError('Missing MCM resource: '+relative)
+            payload.append((name+'/'+relative,resource.read_bytes()))
+        for relative,content in payload:
             target=inside(root,relative);before=target.read_bytes() if target.exists() else None
             if before!=content:changes.append({'relative':relative,'before':before,'after':content})
     return manifest,changes

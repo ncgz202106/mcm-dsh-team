@@ -1,0 +1,46 @@
+{
+  "recipe": "strategies",
+  "synthetic": true,
+  "caption_english": "Four deterministic synthetic strategies against the same dashed gray reference. All panels share time and response limits. Labels give the final tested response. No observations are omitted and no uncertainty has been estimated.",
+  "panel_roles": [
+    "Compare strategy 1 to shared baseline",
+    "Compare strategy 2 to shared baseline",
+    "Compare strategy 3 to shared baseline",
+    "Retain the losing strategy 4"
+  ],
+  "size_mm": [
+    165.1,
+    172.72
+  ],
+  "minimum_final_glyph_pt": 12,
+  "data": {
+    "path": "strategies.data.json",
+    "sha256": "28ceb68a967373dc014cae0f9d6c927d9bc3c7813f73bf66c21fddc469fc580e"
+  },
+  "outputs": [
+    {
+      "path": "strategies.pdf",
+      "sha256": "c6478e8327d675b2b7af5c8c97b186058f7e2578c7985dfb3cb96a4f264eec7b"
+    },
+    {
+      "path": "strategies.svg",
+      "sha256": "8378d6e1e23e3e220619c0336b6379c5d35c2cbe4bd9071dcf6a526b8bba25b6"
+    },
+    {
+      "path": "strategies.png",
+      "sha256": "4b4d701cf2875b07d21a9945a755a6a6002aaaf6896a2ab7dc6a19239bdaddb7"
+    }
+  ],
+  "qa": {
+    "alignment": "passed",
+    "audit_pdf_text.py": {
+      "exit_code": 0
+    },
+    "audit_figure_collisions.py": {
+      "exit_code": 0
+    }
+  },
+  "visual_review": "pending_actual_inspection",
+  "independent_acceptance": "not_claimed",
+  "production_use": "Adapt one drawing function to frozen results; replace data contract and caption."
+}

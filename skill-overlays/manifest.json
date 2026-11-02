@@ -4,5 +4,12 @@
   "scope": "MCM A/B/C task adaptation only; retain upstream journal and general workflows",
   "skills": ["nature-figure", "nature-writing", "nature-polishing", "nature-reviewer", "nature-statistics"],
   "reference": "references/mcm-adaptation.md",
+  "resources": {
+    "nature-figure": [
+      "references/mcm-visual-recipes.md",
+      "scripts/mcm-gallery.py",
+      "assets/mcm-figure-style.json"
+    ]
+  },
   "hook": "For an explicitly assigned MCM A/B/C task, first read [MCM task adaptation](references/mcm-adaptation.md). This conditional branch takes precedence over journal-specific outlines, fixed review counts and delegation defaults below. Preserve the project task scope, user paper structure and parent-managed delegation. For all other tasks, follow the existing skill unchanged."
 }

@@ -1,0 +1,44 @@
+{
+  "recipe": "prediction",
+  "synthetic": true,
+  "caption_english": "Synthetic known-mean Gaussian experiment, 36 observations. The dashed line separates 12 held-out draws. The blue band is a pointwise nominal 95% observation interval from the specified generating SD 1.2, not an estimated fitted-model confidence band. The lower panel retains every residual. No forecasting skill is inferred.",
+  "panel_roles": [
+    "Locate observations relative to reference and interval",
+    "Expose signed errors and test boundary"
+  ],
+  "size_mm": [
+    165.1,
+    165.1
+  ],
+  "minimum_final_glyph_pt": 12,
+  "data": {
+    "path": "prediction.data.json",
+    "sha256": "651a9d741b73713bb79d1cadd07aed74d7c9a530cfcb0c7b799e90a0ccefe074"
+  },
+  "outputs": [
+    {
+      "path": "prediction.pdf",
+      "sha256": "92fbef995a69550bfa733ff565fcb766739eb0d284fd7e4f4c6cf16d75b25084"
+    },
+    {
+      "path": "prediction.svg",
+      "sha256": "bcf845e741f6ae738d6302c60002f844ae39c8e87029375e911452bc0ab7e055"
+    },
+    {
+      "path": "prediction.png",
+      "sha256": "c52d6840f04e1d34f0a601d2ce51a323e2129eff2bf9e77b24171273517d80fe"
+    }
+  ],
+  "qa": {
+    "alignment": "passed",
+    "audit_pdf_text.py": {
+      "exit_code": 0
+    },
+    "audit_figure_collisions.py": {
+      "exit_code": 0
+    }
+  },
+  "visual_review": "pending_actual_inspection",
+  "independent_acceptance": "not_claimed",
+  "production_use": "Adapt one drawing function to frozen results; replace data contract and caption."
+}

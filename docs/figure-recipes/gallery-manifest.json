@@ -1,0 +1,276 @@
+{
+  "synthetic": true,
+  "script_sha256": "de0bb91a172ad4ed6111b9e28893f0bf695ba3a866c985b5fc4936c137a1c35f",
+  "style_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+  "recipes": [
+    {
+      "recipe": "prediction",
+      "synthetic": true,
+      "caption_english": "Synthetic known-mean Gaussian experiment, 36 observations. The dashed line separates 12 held-out draws. The blue band is a pointwise nominal 95% observation interval from the specified generating SD 1.2, not an estimated fitted-model confidence band. The lower panel retains every residual. No forecasting skill is inferred.",
+      "panel_roles": [
+        "Locate observations relative to reference and interval",
+        "Expose signed errors and test boundary"
+      ],
+      "size_mm": [
+        165.1,
+        165.1
+      ],
+      "minimum_final_glyph_pt": 12,
+      "data": {
+        "path": "prediction.data.json",
+        "sha256": "651a9d741b73713bb79d1cadd07aed74d7c9a530cfcb0c7b799e90a0ccefe074"
+      },
+      "outputs": [
+        {
+          "path": "prediction.pdf",
+          "sha256": "92fbef995a69550bfa733ff565fcb766739eb0d284fd7e4f4c6cf16d75b25084"
+        },
+        {
+          "path": "prediction.svg",
+          "sha256": "bcf845e741f6ae738d6302c60002f844ae39c8e87029375e911452bc0ab7e055"
+        },
+        {
+          "path": "prediction.png",
+          "sha256": "c52d6840f04e1d34f0a601d2ce51a323e2129eff2bf9e77b24171273517d80fe"
+        }
+      ],
+      "qa": {
+        "alignment": "passed",
+        "audit_pdf_text.py": {
+          "exit_code": 0
+        },
+        "audit_figure_collisions.py": {
+          "exit_code": 0
+        }
+      },
+      "visual_review": "pending_actual_inspection",
+      "independent_acceptance": "not_claimed",
+      "production_use": "Adapt one drawing function to frozen results; replace data contract and caption."
+    },
+    {
+      "recipe": "sensitivity",
+      "synthetic": true,
+      "caption_english": "Synthetic one-factor design at 0.8, 1.0 and 1.2 times baseline. Lines join the three tested levels for reading only. The target 0.25 is an assumed rule. Filled cells identify the larger response at each tested level; no continuous switch boundary or global sensitivity is estimated. These are deterministic values, not confidence intervals.",
+      "panel_roles": [
+        "Show the baseline reversal missed by endpoint-only spans",
+        "Translate values to a discrete decision"
+      ],
+      "size_mm": [
+        165.1,
+        165.1
+      ],
+      "minimum_final_glyph_pt": 12,
+      "data": {
+        "path": "sensitivity.data.json",
+        "sha256": "bd7ff9943c514bd114cf670470491fbf105d9e8ba59a3d69dc3c6c23755841d8"
+      },
+      "outputs": [
+        {
+          "path": "sensitivity.pdf",
+          "sha256": "390cc751ec858715ee1554a64bcaeba0f424c7d65b6b1b74f893f57c98ecb54b"
+        },
+        {
+          "path": "sensitivity.svg",
+          "sha256": "43aa13803f0cfac1fe7dd8a232f7b2bd9dd3502328098c2bb95c06680f7d9586"
+        },
+        {
+          "path": "sensitivity.png",
+          "sha256": "2dec39e07345a78bdc880efb10470c984414c12aba6aab76510c8b6c5feca20c"
+        }
+      ],
+      "qa": {
+        "alignment": "passed",
+        "audit_pdf_text.py": {
+          "exit_code": 0
+        },
+        "audit_figure_collisions.py": {
+          "exit_code": 0
+        }
+      },
+      "visual_review": "pending_actual_inspection",
+      "independent_acceptance": "not_claimed",
+      "production_use": "Adapt one drawing function to frozen results; replace data contract and caption."
+    },
+    {
+      "recipe": "pareto",
+      "synthetic": true,
+      "caption_english": "Twelve synthetic feasible candidates: cost is minimized and benefit maximized. Non-dominance refers only to this tested set. Three named options illustrate preference choices, not a unique optimum. Lower bars give successive benefit increases from zero to Lean, Lean to Balanced and Balanced to High benefit; they are not benefit/cost ratios.",
+      "panel_roles": [
+        "Show trade-off and dominated choices",
+        "Compare incremental benefit of named alternatives"
+      ],
+      "size_mm": [
+        165.1,
+        165.1
+      ],
+      "minimum_final_glyph_pt": 12,
+      "data": {
+        "path": "pareto.data.json",
+        "sha256": "0fca1d20d0585d98f7c6bc21c51f1588a58bfbc165c9c5a173fa7ed2d2a58907"
+      },
+      "outputs": [
+        {
+          "path": "pareto.pdf",
+          "sha256": "8809bdcf0e2c9196eb216c9df2ca9d9c8627da645df2bbffebf44172c3a7581b"
+        },
+        {
+          "path": "pareto.svg",
+          "sha256": "97450ad1aed1b897f6741dccb091a16020329368af5d97f255ce1308d53fe458"
+        },
+        {
+          "path": "pareto.png",
+          "sha256": "ec16ba1f9d2753b4843534ed2f636f6557145f651e005b362206888297defc87"
+        }
+      ],
+      "qa": {
+        "alignment": "passed",
+        "audit_pdf_text.py": {
+          "exit_code": 0
+        },
+        "audit_figure_collisions.py": {
+          "exit_code": 0
+        }
+      },
+      "visual_review": "pending_actual_inspection",
+      "independent_acceptance": "not_claimed",
+      "production_use": "Adapt one drawing function to frozen results; replace data contract and caption."
+    },
+    {
+      "recipe": "paired",
+      "synthetic": true,
+      "caption_english": "Synthetic differences on 120 matched IDs, retaining all observations. Half-violin uses Gaussian KDE with Scott bandwidth; dot, thick line and thin line give median, IQR and 10\u201390% quantiles. Jitter affects only horizontal position. The ECDF includes all paired differences. Neither distribution display nor quantile is an effect CI.",
+      "panel_roles": [
+        "Show spread, asymmetry and negative outcomes",
+        "Read the fraction below any decision threshold"
+      ],
+      "size_mm": [
+        165.1,
+        165.1
+      ],
+      "minimum_final_glyph_pt": 12,
+      "data": {
+        "path": "paired.data.json",
+        "sha256": "1645c3c8dc99ff96f83d7fca07201e1e728cc2f979992d8a11ca2150d01fc1cf"
+      },
+      "outputs": [
+        {
+          "path": "paired.pdf",
+          "sha256": "338c83a0797e0daaa6d4bcd1bfd4453e4efaa9649bb5a7358b787afdd690fbe5"
+        },
+        {
+          "path": "paired.svg",
+          "sha256": "21a1b033c49074f482840bac32d4dc08e03e8c60651ee8b30bdf13f2cac4c0f1"
+        },
+        {
+          "path": "paired.png",
+          "sha256": "d79e4949019eb848c482c810572d1d05a34d70eb910843ea11ed645c36ba5167"
+        }
+      ],
+      "qa": {
+        "alignment": "passed",
+        "audit_pdf_text.py": {
+          "exit_code": 0
+        },
+        "audit_figure_collisions.py": {
+          "exit_code": 0
+        }
+      },
+      "visual_review": "pending_actual_inspection",
+      "independent_acceptance": "not_claimed",
+      "production_use": "Adapt one drawing function to frozen results; replace data contract and caption."
+    },
+    {
+      "recipe": "strategies",
+      "synthetic": true,
+      "caption_english": "Four deterministic synthetic strategies against the same dashed gray reference. All panels share time and response limits. Labels give the final tested response. No observations are omitted and no uncertainty has been estimated.",
+      "panel_roles": [
+        "Compare strategy 1 to shared baseline",
+        "Compare strategy 2 to shared baseline",
+        "Compare strategy 3 to shared baseline",
+        "Retain the losing strategy 4"
+      ],
+      "size_mm": [
+        165.1,
+        172.72
+      ],
+      "minimum_final_glyph_pt": 12,
+      "data": {
+        "path": "strategies.data.json",
+        "sha256": "28ceb68a967373dc014cae0f9d6c927d9bc3c7813f73bf66c21fddc469fc580e"
+      },
+      "outputs": [
+        {
+          "path": "strategies.pdf",
+          "sha256": "c6478e8327d675b2b7af5c8c97b186058f7e2578c7985dfb3cb96a4f264eec7b"
+        },
+        {
+          "path": "strategies.svg",
+          "sha256": "8378d6e1e23e3e220619c0336b6379c5d35c2cbe4bd9071dcf6a526b8bba25b6"
+        },
+        {
+          "path": "strategies.png",
+          "sha256": "4b4d701cf2875b07d21a9945a755a6a6002aaaf6896a2ab7dc6a19239bdaddb7"
+        }
+      ],
+      "qa": {
+        "alignment": "passed",
+        "audit_pdf_text.py": {
+          "exit_code": 0
+        },
+        "audit_figure_collisions.py": {
+          "exit_code": 0
+        }
+      },
+      "visual_review": "pending_actual_inspection",
+      "independent_acceptance": "not_claimed",
+      "production_use": "Adapt one drawing function to frozen results; replace data contract and caption."
+    },
+    {
+      "recipe": "spatial",
+      "synthetic": true,
+      "caption_english": "Four synthetic 8\u00d78 non-geographic fields, with one fixed 0\u20131 color range. Every cell is shown without spatial interpolation. The design illustrates movement on a grid, not any real location, forecast, map boundary or calibrated risk.",
+      "panel_roles": [
+        "Locate the field at step 1 on the same scale",
+        "Locate the field at step 2 on the same scale",
+        "Locate the field at step 3 on the same scale",
+        "Locate the field at step 4 on the same scale"
+      ],
+      "size_mm": [
+        165.1,
+        172.72
+      ],
+      "minimum_final_glyph_pt": 12,
+      "data": {
+        "path": "spatial.data.json",
+        "sha256": "96d055fc371d86a5bf5e604f028b8d818670c7525bdcf12c533571d964d38181"
+      },
+      "outputs": [
+        {
+          "path": "spatial.pdf",
+          "sha256": "6d04a567cb9341f7633de82e2a18c5a5811ccebec55f823259509ee0863e6792"
+        },
+        {
+          "path": "spatial.svg",
+          "sha256": "f50450235372a156c52a3fce600673e90ffd8f14ad85c32a3dce52ee16163638"
+        },
+        {
+          "path": "spatial.png",
+          "sha256": "a64c1b3beaadaf971466a583ad6a75396c64ed7f76c0500788f59a9f905b0759"
+        }
+      ],
+      "qa": {
+        "alignment": "passed",
+        "audit_pdf_text.py": {
+          "exit_code": 0
+        },
+        "audit_figure_collisions.py": {
+          "exit_code": 0
+        }
+      },
+      "visual_review": "pending_actual_inspection",
+      "independent_acceptance": "not_claimed",
+      "production_use": "Adapt one drawing function to frozen results; replace data contract and caption."
+    }
+  ],
+  "review_status": "not_a_visual_or_scientific_approval"
+}

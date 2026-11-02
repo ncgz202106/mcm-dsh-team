@@ -1,0 +1,27 @@
+{
+  "synthetic": true,
+  "seed": 731,
+  "arrays": {
+    "level": [
+      0.8,
+      1.0,
+      1.2
+    ],
+    "strategy_a": [
+      0.12,
+      0.31,
+      0.18
+    ],
+    "strategy_b": [
+      0.22,
+      0.24,
+      0.27
+    ],
+    "selected": [
+      1,
+      0,
+      1
+    ],
+    "assumed_target": 0.25
+  }
+}

@@ -37,6 +37,7 @@
 
 - `bundle/prompts/` 与 `bundle/src/skill-routing.mjs`：角色职责、专项Skill路由；`node bundle/src/build.mjs`生成有效预设。
 - `skill-overlays/`：五项Nature工具的MCM适配分支；`tools/skill-overlays.py`备份、应用及回滚，不覆盖通用主Skill。
+- `skill-overlays/nature-figure/references/mcm-visual-recipes.md`与`scripts/mcm-gallery.py`：按需选图和六组合成布局；配套style资产由构建器`--sync-project-style`从bundle唯一源同步。支持资源须列入overlay manifest的resources，禁止覆盖通用上游脚本。
 - `project-template/scripts/figure_check.py`：图表文件、尺寸和来源核对；`visual_range.py`检查最终坐标是否隐藏源点或区间。
 - `project-template/tests/`、`bundle/tests/`：Python和Node回归；`docs/科研图表与论文经验.md`记录可迁移经验。
 

@@ -1,0 +1,44 @@
+{
+  "recipe": "paired",
+  "synthetic": true,
+  "caption_english": "Synthetic differences on 120 matched IDs, retaining all observations. Half-violin uses Gaussian KDE with Scott bandwidth; dot, thick line and thin line give median, IQR and 10\u201390% quantiles. Jitter affects only horizontal position. The ECDF includes all paired differences. Neither distribution display nor quantile is an effect CI.",
+  "panel_roles": [
+    "Show spread, asymmetry and negative outcomes",
+    "Read the fraction below any decision threshold"
+  ],
+  "size_mm": [
+    165.1,
+    165.1
+  ],
+  "minimum_final_glyph_pt": 12,
+  "data": {
+    "path": "paired.data.json",
+    "sha256": "1645c3c8dc99ff96f83d7fca07201e1e728cc2f979992d8a11ca2150d01fc1cf"
+  },
+  "outputs": [
+    {
+      "path": "paired.pdf",
+      "sha256": "338c83a0797e0daaa6d4bcd1bfd4453e4efaa9649bb5a7358b787afdd690fbe5"
+    },
+    {
+      "path": "paired.svg",
+      "sha256": "21a1b033c49074f482840bac32d4dc08e03e8c60651ee8b30bdf13f2cac4c0f1"
+    },
+    {
+      "path": "paired.png",
+      "sha256": "d79e4949019eb848c482c810572d1d05a34d70eb910843ea11ed645c36ba5167"
+    }
+  ],
+  "qa": {
+    "alignment": "passed",
+    "audit_pdf_text.py": {
+      "exit_code": 0
+    },
+    "audit_figure_collisions.py": {
+      "exit_code": 0
+    }
+  },
+  "visual_review": "pending_actual_inspection",
+  "independent_acceptance": "not_claimed",
+  "production_use": "Adapt one drawing function to frozen results; replace data contract and caption."
+}

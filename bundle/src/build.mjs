@@ -63,11 +63,13 @@ if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1]
   const root = fileURLToPath(new URL('../', import.meta.url));
   const result = await buildBundle(root, { check: process.argv.includes('--check') });
   if (process.argv.includes('--sync-project-style')) {
-    const target = resolve(root, '../project-template/config/figure-style.json');
     const desired = await readFile(join(root, 'src/figure-style.json'), 'utf8');
-    if (process.argv.includes('--check')) {
-      if (await readFile(target,'utf8') !== desired) throw new Error('Project default style differs from the bundle source');
-    } else await writeFile(target, desired, 'utf8');
+    for (const relative of ['../project-template/config/figure-style.json','../skill-overlays/nature-figure/assets/mcm-figure-style.json']) {
+      const target = resolve(root, relative);
+      if (process.argv.includes('--check')) {
+        if (await readFile(target,'utf8') !== desired) throw new Error('Figure style differs from the bundle source: ' + relative);
+      } else await writeFile(target, desired, 'utf8');
+    }
   }
   console.log(`${process.argv.includes('--check') ? 'Verified' : 'Built'} ${result.role_count} role presets.`);
 }

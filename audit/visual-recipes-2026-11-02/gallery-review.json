@@ -1,0 +1,252 @@
+{
+  "scope": "Six synthetic examples only; not actual contest results or deployment",
+  "script_sha256": "de0bb91a172ad4ed6111b9e28893f0bf695ba3a866c985b5fc4936c137a1c35f",
+  "style_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+  "examples": [
+    {
+      "recipe": "prediction",
+      "outputs": [
+        {
+          "path": "prediction.pdf",
+          "sha256": "92fbef995a69550bfa733ff565fcb766739eb0d284fd7e4f4c6cf16d75b25084"
+        },
+        {
+          "path": "prediction.svg",
+          "sha256": "bcf845e741f6ae738d6302c60002f844ae39c8e87029375e911452bc0ab7e055"
+        },
+        {
+          "path": "prediction.png",
+          "sha256": "c52d6840f04e1d34f0a601d2ce51a323e2129eff2bf9e77b24171273517d80fe"
+        }
+      ],
+      "size_mm": [
+        165.1,
+        165.1
+      ],
+      "minimum_glyph_pt_required": 12,
+      "collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      },
+      "font_audit": {
+        "auditable": true,
+        "minimum_required_pt": 12.0,
+        "minimum_found_pt": 12.0,
+        "text_run_count": 28,
+        "below_minimum_count": 0
+      },
+      "alignment": "passed",
+      "actual_visual_check": "author_seen_all_six",
+      "independent_visual_check": "not_completed_agent_usage_limit"
+    },
+    {
+      "recipe": "sensitivity",
+      "outputs": [
+        {
+          "path": "sensitivity.pdf",
+          "sha256": "390cc751ec858715ee1554a64bcaeba0f424c7d65b6b1b74f893f57c98ecb54b"
+        },
+        {
+          "path": "sensitivity.svg",
+          "sha256": "43aa13803f0cfac1fe7dd8a232f7b2bd9dd3502328098c2bb95c06680f7d9586"
+        },
+        {
+          "path": "sensitivity.png",
+          "sha256": "2dec39e07345a78bdc880efb10470c984414c12aba6aab76510c8b6c5feca20c"
+        }
+      ],
+      "size_mm": [
+        165.1,
+        165.1
+      ],
+      "minimum_glyph_pt_required": 12,
+      "collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      },
+      "font_audit": {
+        "auditable": true,
+        "minimum_required_pt": 12.0,
+        "minimum_found_pt": 12.0,
+        "text_run_count": 24,
+        "below_minimum_count": 0
+      },
+      "alignment": "passed",
+      "actual_visual_check": "author_seen_all_six",
+      "independent_visual_check": "not_completed_agent_usage_limit"
+    },
+    {
+      "recipe": "pareto",
+      "outputs": [
+        {
+          "path": "pareto.pdf",
+          "sha256": "8809bdcf0e2c9196eb216c9df2ca9d9c8627da645df2bbffebf44172c3a7581b"
+        },
+        {
+          "path": "pareto.svg",
+          "sha256": "97450ad1aed1b897f6741dccb091a16020329368af5d97f255ce1308d53fe458"
+        },
+        {
+          "path": "pareto.png",
+          "sha256": "ec16ba1f9d2753b4843534ed2f636f6557145f651e005b362206888297defc87"
+        }
+      ],
+      "size_mm": [
+        165.1,
+        165.1
+      ],
+      "minimum_glyph_pt_required": 12,
+      "collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      },
+      "font_audit": {
+        "auditable": true,
+        "minimum_required_pt": 12.0,
+        "minimum_found_pt": 12.0,
+        "text_run_count": 40,
+        "below_minimum_count": 0
+      },
+      "alignment": "passed",
+      "actual_visual_check": "author_seen_all_six",
+      "independent_visual_check": "not_completed_agent_usage_limit"
+    },
+    {
+      "recipe": "paired",
+      "outputs": [
+        {
+          "path": "paired.pdf",
+          "sha256": "338c83a0797e0daaa6d4bcd1bfd4453e4efaa9649bb5a7358b787afdd690fbe5"
+        },
+        {
+          "path": "paired.svg",
+          "sha256": "21a1b033c49074f482840bac32d4dc08e03e8c60651ee8b30bdf13f2cac4c0f1"
+        },
+        {
+          "path": "paired.png",
+          "sha256": "d79e4949019eb848c482c810572d1d05a34d70eb910843ea11ed645c36ba5167"
+        }
+      ],
+      "size_mm": [
+        165.1,
+        165.1
+      ],
+      "minimum_glyph_pt_required": 12,
+      "collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      },
+      "font_audit": {
+        "auditable": true,
+        "minimum_required_pt": 12.0,
+        "minimum_found_pt": 12.0,
+        "text_run_count": 27,
+        "below_minimum_count": 0
+      },
+      "alignment": "passed",
+      "actual_visual_check": "author_seen_all_six",
+      "independent_visual_check": "not_completed_agent_usage_limit"
+    },
+    {
+      "recipe": "strategies",
+      "outputs": [
+        {
+          "path": "strategies.pdf",
+          "sha256": "c6478e8327d675b2b7af5c8c97b186058f7e2578c7985dfb3cb96a4f264eec7b"
+        },
+        {
+          "path": "strategies.svg",
+          "sha256": "8378d6e1e23e3e220619c0336b6379c5d35c2cbe4bd9071dcf6a526b8bba25b6"
+        },
+        {
+          "path": "strategies.png",
+          "sha256": "4b4d701cf2875b07d21a9945a755a6a6002aaaf6896a2ab7dc6a19239bdaddb7"
+        }
+      ],
+      "size_mm": [
+        165.1,
+        172.72
+      ],
+      "minimum_glyph_pt_required": 12,
+      "collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 4,
+        "contained_image_overlays": 0
+      },
+      "font_audit": {
+        "auditable": true,
+        "minimum_required_pt": 12.0,
+        "minimum_found_pt": 12.0,
+        "text_run_count": 49,
+        "below_minimum_count": 0
+      },
+      "alignment": "passed",
+      "actual_visual_check": "author_seen_all_six",
+      "independent_visual_check": "not_completed_agent_usage_limit"
+    },
+    {
+      "recipe": "spatial",
+      "outputs": [
+        {
+          "path": "spatial.pdf",
+          "sha256": "6d04a567cb9341f7633de82e2a18c5a5811ccebec55f823259509ee0863e6792"
+        },
+        {
+          "path": "spatial.svg",
+          "sha256": "f50450235372a156c52a3fce600673e90ffd8f14ad85c32a3dce52ee16163638"
+        },
+        {
+          "path": "spatial.png",
+          "sha256": "a64c1b3beaadaf971466a583ad6a75396c64ed7f76c0500788f59a9f905b0759"
+        }
+      ],
+      "size_mm": [
+        165.1,
+        172.72
+      ],
+      "minimum_glyph_pt_required": 12,
+      "collision_summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      },
+      "font_audit": {
+        "auditable": true,
+        "minimum_required_pt": 12.0,
+        "minimum_found_pt": 12.0,
+        "text_run_count": 45,
+        "below_minimum_count": 0
+      },
+      "alignment": "passed",
+      "actual_visual_check": "author_seen_all_six",
+      "independent_visual_check": "not_completed_agent_usage_limit"
+    }
+  ],
+  "installation": "not DSH; local Codex overlay receipt retained privately",
+  "independent_forward_trial": {
+    "status": "not_completed",
+    "reason": "Subagent execution stopped by account usage limit; no review received."
+  },
+  "author_second_input_trial": {
+    "status": "passed_author_checks_only",
+    "input_sha256": "b5e3ee1aa8526584c78877dd6ba7cdf55c1379cb84d708f5f297086a66e3e041",
+    "cases": 2,
+    "pairs_per_case": 60,
+    "pdf_sha256": "017d43bf214a5ee4204086ea96216a4963d7ce7cf373db269885d81f09531537",
+    "minimum_glyph_pt": 12,
+    "collision_fail": 0,
+    "collision_warn": 0,
+    "alignment": "passed",
+    "independent_acceptance": false
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "scope": "MCM visual recipes maintenance; local Codex skills and source preset only",
+  "local_skill_reference_and_resource_hashes": [
+    {
+      "file": "nature-figure/references/mcm-adaptation.md",
+      "sha256": "390c152e88e8078440cb4ab259847ea0e0cfbbd1664e1872620de6623c17b3fb"
+    },
+    {
+      "file": "nature-figure/references/mcm-visual-recipes.md",
+      "sha256": "aebb3a66fdd313d630c3acd7b1b58496482feae172740d2d1c0c75e4dd31d7fc"
+    },
+    {
+      "file": "nature-figure/scripts/mcm-gallery.py",
+      "sha256": "de0bb91a172ad4ed6111b9e28893f0bf695ba3a866c985b5fc4936c137a1c35f"
+    },
+    {
+      "file": "nature-figure/assets/mcm-figure-style.json",
+      "sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff"
+    },
+    {
+      "file": "nature-writing/references/mcm-adaptation.md",
+      "sha256": "4d7efefe5afafb2890ec5019109f097f49d4047cbc9840262af6e2bb95ef79b2"
+    },
+    {
+      "file": "nature-polishing/references/mcm-adaptation.md",
+      "sha256": "9da35a952a4010c01250dceaadefbeef3c5d375bae994744ddab9f74b1296e7e"
+    },
+    {
+      "file": "nature-reviewer/references/mcm-adaptation.md",
+      "sha256": "08c518498e447e2d1b427560e151f7b86413cc4e1487e409cd131a19a836ba6b"
+    },
+    {
+      "file": "nature-statistics/references/mcm-adaptation.md",
+      "sha256": "ec67c09bf4805a78200e12c31b7b6795bb36b2155d1fae396d4145ec195dd8d0"
+    }
+  ],
+  "native_dsh_installed": false,
+  "human_gates_changed": false,
+  "core_paper_changed": false,
+  "source_and_artifact_bindings": "matched",
+  "overwrite_rejection": "passed",
+  "independent_forward_trial": "not_completed_agent_usage_limit",
+  "author_second_input_trial": "completed; not independent",
+  "regressions": {
+    "current_build_and_content": {
+      "passed": true,
+      "version": "0.2.1",
+      "role_count": 12,
+      "skill_count": 5,
+      "style_default_consistent": true
+    },
+    "overlay_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "tests": 18,
+      "count_observed": true
+    },
+    "project_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "tests": 115,
+      "count_observed": true
+    },
+    "bundle_regressions": {
+      "passed": true,
+      "exit_code": 0,
+      "tests": 37,
+      "count_observed": true
+    },
+    "installer_faults": {
+      "passed": true,
+      "exit_code": 0,
+      "tests": 10,
+      "count_observed": true
+    }
+  },
+  "bundle_pack": {
+    "members": 26,
+    "sha256": "60f9ec9c4f2992ebdc6dba95c13046a703178f0d91faab5f68b5a2dca235edb0",
+    "source_match": true,
+    "installed_in_dsh": false
+  },
+  "privacy_increment_scan": {
+    "files_considered": 54,
+    "text_files_scanned": 42,
+    "findings": 0,
+    "scope": "New files and added lines in modified source; not a full history audit"
+  }
+}

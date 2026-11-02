@@ -1,5 +1,5 @@
 from pathlib import Path
-import importlib.util,json,tempfile,unittest
+import importlib.util,json,tempfile,unittest,shutil
 
 ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('skill_overlays',ROOT/'tools/skill-overlays.py')
@@ -20,7 +20,7 @@ class SkillOverlayTests(unittest.TestCase):
     def install(self):return overlay.apply(SOURCE,self.skills,self.backups,True)
     def test_dry_run_does_not_mutate_and_apply_preserves_upstream(self):
         before=self.snapshot();plan=overlay.apply(SOURCE,self.skills)
-        self.assertEqual(plan['changed_files'],10);self.assertEqual(before,self.snapshot())
+        self.assertEqual(plan['changed_files'],10+sum(map(len,self.manifest.get('resources',{}).values())));self.assertEqual(before,self.snapshot())
         self.install()
         for relative,original in before.items():
             current=(self.skills/relative).read_bytes()
@@ -32,6 +32,24 @@ class SkillOverlayTests(unittest.TestCase):
         self.assertEqual(self.install()['changed_files'],0)
         self.assertEqual(overlay.restore(result['receipt'])['status'],'restore_preflight_passed')
         overlay.restore(result['receipt'],True);self.assertEqual(before,self.snapshot())
+    def test_extra_resources_installed_exactly_and_later_edits_protected(self):
+        result=self.install()
+        for name,resources in self.manifest.get('resources',{}).items():
+            for relative in resources:
+                self.assertEqual((SOURCE/name/relative).read_bytes(),(self.skills/name/relative).read_bytes())
+        target=self.skills/'nature-figure/scripts/mcm-gallery.py'
+        target.write_bytes(target.read_bytes()+b'\n# Later task edit\n')
+        before=self.snapshot()
+        with self.assertRaisesRegex(ValueError,'later skill changes'):overlay.restore(result['receipt'],True)
+        self.assertEqual(before,self.snapshot())
+    def test_invalid_resource_manifest_rejected_before_any_write(self):
+        source=self.base/'source';shutil.copytree(SOURCE,source)
+        for invalid in ['../escape.py','scripts/validate_figure.py','scripts/../../mcm-escape.py','scripts/mcm-missing.py']:
+            manifest=dict(self.manifest);manifest['resources']={'nature-figure':[invalid]}
+            (source/'manifest.json').write_text(json.dumps(manifest),encoding='utf-8')
+            before=self.snapshot()
+            with self.assertRaises(ValueError):overlay.apply(source,self.skills,self.backups,True)
+            self.assertEqual(before,self.snapshot())
     def test_later_user_edit_blocks_restore_without_partial_changes(self):
         result=self.install();p=self.skills/'nature-reviewer/SKILL.md';p.write_bytes(p.read_bytes()+b'Later user work\n')
         before=self.snapshot()

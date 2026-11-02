@@ -1,0 +1,46 @@
+{
+  "recipe": "spatial",
+  "synthetic": true,
+  "caption_english": "Four synthetic 8\u00d78 non-geographic fields, with one fixed 0\u20131 color range. Every cell is shown without spatial interpolation. The design illustrates movement on a grid, not any real location, forecast, map boundary or calibrated risk.",
+  "panel_roles": [
+    "Locate the field at step 1 on the same scale",
+    "Locate the field at step 2 on the same scale",
+    "Locate the field at step 3 on the same scale",
+    "Locate the field at step 4 on the same scale"
+  ],
+  "size_mm": [
+    165.1,
+    172.72
+  ],
+  "minimum_final_glyph_pt": 12,
+  "data": {
+    "path": "spatial.data.json",
+    "sha256": "96d055fc371d86a5bf5e604f028b8d818670c7525bdcf12c533571d964d38181"
+  },
+  "outputs": [
+    {
+      "path": "spatial.pdf",
+      "sha256": "6d04a567cb9341f7633de82e2a18c5a5811ccebec55f823259509ee0863e6792"
+    },
+    {
+      "path": "spatial.svg",
+      "sha256": "f50450235372a156c52a3fce600673e90ffd8f14ad85c32a3dce52ee16163638"
+    },
+    {
+      "path": "spatial.png",
+      "sha256": "a64c1b3beaadaf971466a583ad6a75396c64ed7f76c0500788f59a9f905b0759"
+    }
+  ],
+  "qa": {
+    "alignment": "passed",
+    "audit_pdf_text.py": {
+      "exit_code": 0
+    },
+    "audit_figure_collisions.py": {
+      "exit_code": 0
+    }
+  },
+  "visual_review": "pending_actual_inspection",
+  "independent_acceptance": "not_claimed",
+  "production_use": "Adapt one drawing function to frozen results; replace data contract and caption."
+}
