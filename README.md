@@ -1,153 +1,72 @@
-# MCM A/B/C · DSH PTC 多 Agent v0.2.1
+# MCM A/B/C 数学建模团队
 
-当前维护版本为 **0.2.1**。历史工作目录名保留不变，实际版本以 bundle/package.json 为准。
+一套从题目拆解、建模求解到英文论文和科研图表的协作模板。Codex 与 DSH 共用 12 类角色、任务交接规则和写作参考。项目记录把题问、模型、计算结果、图表和审阅绑定到具体版本。
 
-另提供 **Codex 美赛团队适配候选**。它使用同一角色和图表规范，生成 12 类项目角色、独立项目模板及 `$mcm-team` 入口。当前客户端的原生角色绑定与工具拦截待验，正式自动派发预检保持阻断。使用、控制范围和回滚见[Codex 使用说明](docs/Codex使用说明.md)。
+| 使用方式 | 当前状态 | 文档 |
+| --- | --- | --- |
+| **Codex** | `$mcm-team` 入口与新项目模板可用。原生角色绑定和 Hook 拦截仍待运行时验收，严格预检会阻止正式自动派发。 | [安装、预检与回滚](docs/Codex使用说明.md) |
+| **DSH** | 维护线为 v0.2.1，提供项目模板和原生派发门禁。实际部署版本和能力以安装收据与运行时读回为准。 | [v0.2.1 说明](docs/v0.2.1更新说明.md) · [更新与回滚](docs/更新与回滚.md) |
 
-共享模板新增[七部分论文骨架](project-template/resources/mcm-skills/o-award-framework.md)和[图表案例速查](project-template/resources/mcm-skills/chart-reference.md)。[34 条可筛选案例索引](adapters/codex/skill/references/chart-gallery.html)提供论文定位、论证用途和绘图建议。DSH 与 Codex 新项目使用同一份文字参考。
+## 快速开始
 
-图表设计已进一步落地为[按需选图配方](skill-overlays/nature-figure/references/mcm-visual-recipes.md)和[六组可运行样例](skill-overlays/nature-figure/scripts/mcm-gallery.py)：预测/残差、敏感性/决策、Pareto权衡、配对分布、策略小图、共享色标网格。示例为原创合成数据；技能安装器同时备份、部署和回滚这组资源。角色预设会引导按任务读取，保留真实核数与入稿审阅。运行示例、查看预览及使用方法见[图表使用说明](docs/美赛图表Skill使用.md)。
+### Codex
 
-2026-11-02维护补强：[图表与论文经验](docs/科研图表与论文经验.md)已纳入五个专项Skill分支和角色提示；新增源点/区间可见性工具`visual_range.py`，保留共享尺度、配对分布、三点非单调与无定义状态等按需表达。论文模板按参考文献→AI报告→附录排列。这些是当前源码维护，不代表重新安装DSH、后续候选全流程验收或获奖保证；旧安装记录不自动证明当前字节已部署。
+在仓库根目录运行，需要 Python 3.11 或更新版本。
 
-本次新增五个专项Skill的MCM条件分支、三类论证内容卡、多面板证据设计与叙事审阅；图表默认色号改为单一配置源。12角色、默认两名编程手、论文→写作/图表/排版、PTC和原生派发门禁保持。
+```powershell
+python tools/install-codex-skill.py preview
+python tools/install-codex-skill.py install
+python tools/codex-project.py new --destination 'D:/MCM/practice-01'
+```
 
-- [v0.2.1更新、Skill安装与恢复说明](docs/v0.2.1更新说明.md)
-- [本版软件与源码检查](audit/v0.2.1/verification.json)
-- [实际安装与独立复核记录](audit/v0.2.1/deployment.json)（已安装0.2.1；42项安装与证据绑定检查通过）
-- [角色与Skill源码](skill-overlays/manifest.json)
-- [图表组合演示](audit/v0.2.1/demo/evidence-panels.png)（合成数据）
-- 新会话使用“美赛 · 队长”和[启动词](启动词.txt)，填唯一项目根；原暂停演练不因升级恢复。
+在 Codex 中打开新目录，输入 **“使用 `$mcm-team` 检查这个项目”**。题面放入 `input/problem/`，附件放入 `input/attachments/`。已有项目可用 `python tools/codex-project.py preview --destination '<项目目录>'` 查看差异。
 
-重新安装或维护时，先运行 `python tools/verify-v021.py --run-tests`。DSH插件通过官方更新器安装，需正常退出桌面版，不能热覆盖。实际安装与Skill部署状态以本版deployment.json为准，源码或单元测试通过不自证安装成功。
+首次进入项目时，可运行 `python scripts/mcm.py codex capabilities` 和 `python scripts/mcm.py codex preflight` 查看当前能力与阻断原因。需要重建适配配置时，运行 `node adapters/codex/build.mjs`。
 
-公开仓库的后续改动按[同步约定](docs/GitHub同步.md)检查、提交和推送。新报告去除本机路径；旧版公开历史未在本次改写或追认脱敏。
+### DSH
+
+按[更新与回滚说明](docs/更新与回滚.md)安装或更新预设，再建立独立项目。新会话选择 **“美赛 · 队长”**，设置项目工作目录并使用[启动词](启动词.txt)。
+
+```powershell
+pwsh -File tools/new-project.ps1 -Destination 'D:/MCM/practice-01'
+```
+
+## 团队怎样协作
+
+| 阶段 | 主要交付 | 人工关口 |
+| --- | --- | --- |
+| 题意与证据 | 题问清单、规则、数据来源、验证条件 | H0 选题 |
+| 候选建模 | 独立方案比较、主模型、假设与接口 | H1 模型路线 |
+| 求解与独立验证 | 可复现代码、冻结结果、对照和灵敏性分析 | H2 核心结果 |
+| 写作与整合 | 英文论文、图表、LaTeX 源码和逐页复核 | H3 最终稿 |
+
+队长负责调度和全局登记。建模负责人组织独立提案，默认两个编程实例分别负责求解和实验导出。论文负责人统一整合写作、图表和排版成果。验证与审阅由非作者完成。Codex 的实际子 Agent 由根队长统一创建，主管负责拆任务与整合。
+
+任务按固定输入版本和独占写入范围交接。上游结果变化时，依赖的图表、摘要和审阅随之失效。详见[协作协议](docs/协作协议.md)、[角色与专项 Skill](docs/角色与专项Skill.md)和[角色架构图](diagrams/01-role-architecture.png)。
+
+## 论文与图表
+
+[七部分写作骨架](project-template/resources/mcm-skills/o-award-framework.md)依次组织题目、摘要与关键词，接着是问题重述与分析、假设与符号、模型建立与求解、灵敏性、模型评价和参考文献。AI 使用报告与必要附录另行安排，当年规则和题目要求优先。
+
+每个子问交代目标、继承输入、基线、模型、求解、结果、验证和下问接口。每个必要的结论小节用对应的图或表支撑主要发现。项目通过 [章节图表映射模板](project-template/templates/section-visual-map.json)核对引用和文件版本，由非作者检查图文一致性及实际入稿效果。
+
+- [34 条图表案例索引](adapters/codex/skill/references/chart-gallery.html)提供队号、页码、图号和迁移点评。下载 HTML 后可在本地筛选。
+- [图表选型速查](project-template/resources/mcm-skills/chart-reference.md)与[六种可运行配方](skill-overlays/nature-figure/references/mcm-visual-recipes.md)覆盖残差对照、敏感性、Pareto 权衡、配对分布、策略小图和空间小图。
+- [科研图表使用说明](docs/美赛图表Skill使用.md)说明如何从冻结数据导出 PDF、SVG 和 PNG，并检查最终字号、图例、区间与版面。
+
+## 看成品与验收
+
+[四页合成演练论文](examples/codex-smoke/paper.pdf)用四图一表覆盖五个必要小节，包含研究路线、参数表、求解误差、敏感性热图和参数包络。
+
+![合成演练的九组参数敏感性热图](examples/codex-smoke/evidence/figures/sensitivity.png)
+
+[复现说明](examples/codex-smoke/README.md)提供模型、代码与冻结数据。[独立复核](examples/codex-smoke/independent-demo-review.json)记录数值重算和逐页检查。[Codex 候选验收](audit/codex-adapter-2026-11-03/README.md)记录实际测试范围和原生运行时缺口。
 
 <details>
-<summary>v0.2.0 历史交付与使用说明（以下旧报告不证明当前源码通过）</summary>
+<summary>维护与历史记录</summary>
 
-# MCM A/B/C · DSH PTC 多 Agent v0.2.0
-
-中文协作、英文论文。DSH队长是唯一日常内部调度者；Codex在模型路线、核心结果、论文整合三个检查点提供技术审阅。PTC指Programmatic Tool Calling。本版用于新启动会话，原已暂停演练不恢复、不迁移、不覆盖。
-
-## 新版变化
-
-- 保留原11个角色ID，新增默认不启动的mcm-code-lead，共12类预设。
-- 编程默认两个实例：核心求解、实验与结果导出；第三实例或主管只按实际工程包启用。
-- 论文负责人派发写作、科研图表、排版；图多时拆定量与方法示意两个图表实例。
-- 按任务加载专项Skill，排除shumo2、shumo-core等全流程总控的直接或间接自动调用。
-- 小上下文、单写入者、成果读回、当前依赖闭包、H2结果与H3最终PDF分离。
-- 统一图表美学，编译、内容完整与视觉验收分别留证。
-- 原生派发门禁：真实角色读回、任务与新鲜容量证据、一次许可；暂停、未知或过期时直接拒绝。
-
-实际版本见bundle/package.json，验证见audit/及安装收据。旧版报告不证明新版通过；合成演练不构成参赛结果。
-
-## 先看交付成果
-
-- [七页合成演练PDF](rehearsal-v2/build/paper/demo.pdf)：用户结构、原生公式、方法总览、结果对照、灵敏性和参数包络；示范排版与管线，不能直接参赛提交。
-- [12角色与检查点架构](diagrams/01-role-architecture.png)、[实际通信与成果依赖](diagrams/02-runtime-communication.png)、[竞赛与整改闭环](diagrams/03-workflow-review.png)。同目录保留SVG、JSON源和可缩放HTML。
-- [图表样例目录](rehearsal-v2/figures/figure-demo/)：每图PDF、SVG、300dpi PNG、数据、契约与检查记录。
-- [当前验证报告](audit/verification.json)及[独立架构视觉记录](audit/architecture-visual-v2.json)。107项Python、37项Node和10项安装故障注入通过；[主运行机制9项](audit/native-runtime-smoke.json)与[门禁10项](audit/guard-native-runtime.json)使用真实DSH和确定性模型夹具，最终报告均绑定当前安装目录的字节，不能冒充外部模型自主执行验收。
-- [官方npm打包的插件](dsh-mcm-team-0.2.0.tgz)，完整项目模板和文档则保留在本包中。
-
-## 安装与更新
-
-适配已检查的DSH 0.2.1-rc.2。候选测试完成后，保存工作并正常退出DSH。官方命令行修改profile，不能与活跃Host同时更新；脚本不会强制关闭桌面版。
-
-从本包根目录先只读预检，再执行更新：
-
-```powershell
-pwsh -File tools/update-dsh.ps1 -DshCli 'E:\dsh desktop\resources\runtime\cli\bin\dsh.cmd' -CheckOnly
-pwsh -File tools/update-dsh.ps1 -DshCli 'E:\dsh desktop\resources\runtime\cli\bin\dsh.cmd'
-```
-
-更新器备份旧插件及有关profile配置，校验候选字节，再用官方安装命令更新同一插件ID，保留其他插件。安全更新和恢复限定当前用户.dsh/plugins/dsh-mcm-team；其他位置须先核对原生安装布局，不能用自定义路径绕过检查。
-
-完整插件树与备份记录相对路径、存在状态和字节哈希；恢复还会核对安装后profile和实际依赖解析，拒绝覆盖后来发生的用户修改。-PluginRoot保留接口，但不允许借此写任意目录。回滚可先用restore-dsh.ps1的-CheckOnly，只读核验后再正常退出DSH执行。
-
-首次安装用tools/install-dsh.ps1及相同-DshCli参数；检测到现有标准安装时转入可回滚更新器。首次安装链接本包bundle目录，因此请保留稳定路径。操作说明见[更新与回滚](docs/更新与回滚.md)。
-
-首次目录链接不由当前严格标准目录更新器自动迁移；非常规布局须先单独核对，不强行覆盖。
-
-启动DSH后核对版本0.2.0、12个“美赛 · ”角色和有效配置；建立隔离新会话，验证实际角色、派发、技能执行和成果。命令成功不等于运行时验收通过；本README不自证已安装成功。
-
-v0.2.0历史安装目录为当前用户的 `.dsh/plugins/dsh-mcm-team`。当时的收据保留在仓库外本机备份中；[非作者安装核验](audit/installed-verification.json)的14项检查确认当时29份安装文件、配置/依赖保留、12角色及新工具绑定，以及当时安装字节的主9项与门禁10项证据。旧收据状态及证据入口见[历史安装摘要](audit/installation-summary.json)。用户profile备份不混入公开包。
-
-最新备份回到本次门禁修订前的0.2.0；20261025-221327-045仍保存原0.1.0。两轮之间profile的cordis.patch.yml已有变化，第二段回到0.1.0的预检可能拒绝，须核对并保留用户后续配置，不能承诺直接连续执行两次恢复。详见[更新与回滚](docs/更新与回滚.md)。
-
-[早先桌面真实模型小演练](audit/live-model-verification.json)已实际生成四类图并调用专项技能，保留DEV-01“容量准入失败仍派发”的历史偏差。当前门禁修复已由真实工具管线和[桌面外部模型负向复验](audit/guard-live-verification.json)分别验证：容量未知预检拒绝、无许可原生派发拒绝、实际零子会话，40个保护文件与4个人工关口保持。负向检查通过不等于完整自主建模通过。
-
-## 如何使用
-
-已有项目不必重复创建副本或重装环境。新演练建议使用独立目录：
-
-```powershell
-pwsh -File tools/new-project.ps1 -Destination 'D:\MCM\practice-01'
-Set-Location 'D:\MCM\practice-01'
-pwsh -File scripts/setup.ps1
-.venv\Scripts\python.exe scripts/mcm.py --root . doctor
-```
-
-setup默认准备Python 3.12环境；已有兼容、经检查的环境可复用。题面放input/problem，附件放input/attachments；登记后的data/raw不覆盖，清洗另写data/processed。
-
-在DSH新会话选择“美赛 · 队长”，工作目录设为项目绝对路径，粘贴启动词.txt并填写路径及状态。无需人工打开12个会话。原暂停演练只有用户另行明确恢复才可继续。
-
-## 分工与专项技能
-
-队长直管建模负责人、证据数据、编程、验证、论文负责人、审阅老师，必要时启用编程主管。主管按授权配额派叶子，最大深度2。原生spawn显式传agent_preset并读回真实角色/父级/深度/工具；Team成员名字不能代替角色绑定。
-
-容量取项目预算与真实Host能力交集，保留应急位；等待主管仍占位。Team限制不等于Host容量。未知、过期或满额时先排队，确认实际释放后再派发。
-
-管理角色先用mcm_runtime_readback核真实身份，再以mcm_dispatch_preflight核任务和容量并取得一次许可，随后原样调用原生subagent。许可最长60秒，不能并发重复使用；叶子及全局替代委派入口会在正常工具管线被拒绝。详见[原生派发门禁](docs/原生派发门禁.md)。配置上限和当前running数量都不能冒充实际占槽；缺少合格Host证据时停在诊断/队列，不自动创建“探针”。这是工具流程约束，不是OS隔离。
-
-| 任务 | 主Skill | 边界 |
-|---|---|---|
-| 定量图、组合图 | nature-figure | 固定结果、项目后端与最终尺寸 |
-| 方法/几何/流程示意 | fireworks-tech-graph | 可编辑矢量源 |
-| 文献检索 | nature-academic-search | 具体证据缺口，不默认限定CNS |
-| 引用核验 | nature-ref-verifier | 元数据与正文支持分别核查 |
-| 合法全文获取 | nature-downloader | 按需，说明访问边界 |
-| 英文写作与精简 | nature-writing、nature-polishing | generic路线，保留用户结构 |
-| 统计审查 | nature-statistics | 适用的独立性与不确定性检查 |
-| 独立审阅 | nature-reviewer | 用美赛要求，非期刊录用标准 |
-| PDF页面检查 | pdf | 配合既有LaTeX构建 |
-
-每任务选一个主Skill，按需读必要分支。已安装、已读取、实际执行、产物验收分别记录，缺依赖如实报告。Skill不能扩大任务、写入、派生或恢复权限。映射源bundle/src/skill-routing.mjs，项目导出config/skill-routing.json；详见[角色与专项Skill](docs/角色与专项Skill.md)。
-
-## 论文与科研图表
-
-固定功能顺序：题目/摘要/关键词；问题重述与分析；假设与符号；模型建立与求解；灵敏性分析；模型评价；参考文献；附录。Summary Sheet、正式编号和单列AI报告服从适用规则。方法总览放分析末；每个子问包含模型、算法、验证、结果图表和解释边界；结论建议归模型评价。
-
-从大纲建立“题问—主张—证据—图表—章节”清单，先粗图与一句主要发现再精修。方法/框架示意通常全篇1–2张，结果/验证/灵敏性图按证据需要，不设总图数配额。白底、统一字体、蓝/青绿/橙、线型与标记，最终PDF核心图文12pt；输出PDF、SVG、300dpi PNG、代码、数据映射和英文图注。
-
-编程/验证核数、论文负责人核表达、排版核入稿、非作者看完整图及最终PDF。数学冲突回建模负责人，不能在润色时改含义。精简冗余表述而保留必要来源，引用数量本身不代表重复率。
-
-独立新项目可运行四图合成演示：
-
-```powershell
-python scripts/figure_demo.py --root . --skill-root "$env:USERPROFILE\.dsh\skills\nature-figure"
-python scripts/paper.py --root . build --demo
-```
-
-示例含方法总览、结果对照、灵敏性和参数包络，始终标注synthetic。不提供skill-root只执行项目检查，不能声称执行了专项技能。正式骨架用paper.py --root . build；详情见项目paper/README.md。编译通过、内容完整、视觉通过分别记录，不以自动评分替代审美。
-
-## 关口与恢复
-
-H0题意选题、H1模型、H2核心结果边界、H3最终稿来自真实用户确认。H2绑定模型/结果/同代验证，H3绑定确切PDF及消费结果。排版变化复查PDF，不自动恢复或扩大科学批准。Codex作者成果也交非作者验收。
-
-```powershell
-python scripts/mcm.py --root . context-pack TASK-ID
-python scripts/mcm.py --root . validate --strict
-python scripts/mcm.py --root . refresh
-python scripts/mcm.py --root . gate H2_RESULTS
-python scripts/mcm.py --root . snapshot last-good
-python scripts/mcm.py --root . restore last-good
-```
-
-命令只检查，不授予批准。当前依赖失效会阻断；无关历史失效成果保留提示。恢复写入独立目录。整改由原审阅者或指定非作者复验，默认最多三轮，仍阻断则提交回退/缩减决策。
-
-AI归档保留可见输入输出、实际模型、PTC及附件清单，排除内部推理和凭据；核对warnings与覆盖，失败可用原生/export补充。实际核验后才登记人工确认，正式披露按适用政策生成。内部评分只排序改进项，不保证O奖。
-
-流程与故障索引见[协作协议](docs/协作协议.md)及diagrams三张架构图。
+- [仓库同步约定](docs/GitHub同步.md)
+- [DSH v0.2.1 验证记录](audit/v0.2.1/verification.json)和[历史部署记录](audit/v0.2.1/deployment.json)
+- [v0.2.0 七页合成演练](rehearsal-v2/build/paper/demo.pdf)和[历史交付说明](docs/交付与验收.md)
 
 </details>
