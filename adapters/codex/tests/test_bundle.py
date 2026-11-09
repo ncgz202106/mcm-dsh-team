@@ -70,6 +70,17 @@ class BundleTests(unittest.TestCase):
         self.assertEqual(provenance['template']['path'],'paper/provenance')
         self.assertTrue((ROOT/'project-template'/provenance['template']['path']/provenance['main_tex']).is_file())
 
+    def test_shared_references_and_public_case_index(self):
+        generated=ROOT/'adapters/codex/generated'
+        for name in ('o-award-framework.md','chart-reference.md'):
+            shared=(ROOT/'project-template/resources/mcm-skills'/name).read_text(encoding='utf-8')
+            self.assertEqual((generated/'project/resources/mcm-skills'/name).read_text(encoding='utf-8'),shared)
+            self.assertEqual((generated/'skill/references'/name).read_text(encoding='utf-8'),shared)
+        index=(generated/'skill/references/chart-gallery.html').read_text(encoding='utf-8')
+        self.assertEqual(index.count('<article class="card"'),34)
+        self.assertNotIn('data:image/',index)
+        self.assertNotIn('selected_papers/',index)
+
     def test_fresh_generated_project_can_enter_synthetic_rehearsal(self):
         import sys
         with tempfile.TemporaryDirectory() as tmp:

@@ -1,4 +1,4 @@
 interface:
   display_name: "美赛团队"
-  short_description: "在Codex组织建模、求解、科研图表、论文整合与可追溯独立验收"
-  default_prompt: "使用 $mcm-team 启动或接续我指定的美赛项目，先核对当前状态和实际协作能力。"
+  short_description: "组织美赛建模、求解、高级图表、固定O奖论文骨架与独立验收"
+  default_prompt: "使用 $mcm-team 启动或接续我指定的美赛项目，核对当前状态与协作能力，并按共享O奖骨架组织论文和审阅。"

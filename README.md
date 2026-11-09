@@ -4,6 +4,8 @@
 
 另提供 **Codex 美赛团队适配候选**。它使用同一角色和图表规范，生成 12 类项目角色、独立项目模板及 `$mcm-team` 入口。当前客户端的原生角色绑定与工具拦截待验，正式自动派发预检保持阻断。使用、控制范围和回滚见[Codex 使用说明](docs/Codex使用说明.md)。
 
+共享模板新增[七部分论文骨架](project-template/resources/mcm-skills/o-award-framework.md)和[图表案例速查](project-template/resources/mcm-skills/chart-reference.md)。[34 条可筛选案例索引](adapters/codex/skill/references/chart-gallery.html)提供论文定位、论证用途和绘图建议。DSH 与 Codex 新项目使用同一份文字参考。
+
 图表设计已进一步落地为[按需选图配方](skill-overlays/nature-figure/references/mcm-visual-recipes.md)和[六组可运行样例](skill-overlays/nature-figure/scripts/mcm-gallery.py)：预测/残差、敏感性/决策、Pareto权衡、配对分布、策略小图、共享色标网格。示例为原创合成数据；技能安装器同时备份、部署和回滚这组资源。角色预设会引导按任务读取，保留真实核数与入稿审阅。运行示例、查看预览及使用方法见[图表使用说明](docs/美赛图表Skill使用.md)。
 
 2026-11-02维护补强：[图表与论文经验](docs/科研图表与论文经验.md)已纳入五个专项Skill分支和角色提示；新增源点/区间可见性工具`visual_range.py`，保留共享尺度、配对分布、三点非单调与无定义状态等按需表达。论文模板按参考文献→AI报告→附录排列。这些是当前源码维护，不代表重新安装DSH、后续候选全流程验收或获奖保证；旧安装记录不自动证明当前字节已部署。

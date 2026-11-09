@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>美赛优秀论文图表案例索引</title>
+<style>
+:root { --ink:#17202A; --muted:#5C6673; --line:#E5E9EF; --soft:#F6F8FB; --blue:#2F6BFF; --navy:#183153; --teal:#009E73; --orange:#E69F00; }
+* { box-sizing:border-box; }
+body { margin:0; background:#fff; color:var(--ink); font-family:"Segoe UI","Microsoft YaHei",Arial,sans-serif; line-height:1.62; }
+header { border-bottom:1px solid var(--line); padding:34px max(24px,5vw) 22px; }
+h1 { margin:0 0 8px; font-size:28px; letter-spacing:-.02em; }
+.lead { max-width:980px; color:var(--muted); margin:0; }
+.rule { margin-top:16px; color:var(--navy); font-weight:600; }
+.toolbar { position:sticky; top:0; z-index:10; background:rgba(255,255,255,.98); border-bottom:1px solid var(--line); padding:12px max(24px,5vw); display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+.chip { border:1px solid var(--line); background:#fff; color:var(--muted); border-radius:999px; padding:5px 12px; font:inherit; font-size:13px; cursor:pointer; }
+.chip.active { border-color:var(--blue); color:var(--blue); background:#F4F7FF; }
+#search { margin-left:auto; min-width:220px; padding:7px 10px; border:1px solid var(--line); border-radius:6px; font:inherit; color:var(--ink); }
+main { max-width:1240px; margin:0 auto; padding:26px 20px 60px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(360px,1fr)); gap:20px; }
+.card { border:1px solid var(--line); border-radius:10px; padding:18px; background:#fff; break-inside:avoid; }
+.card-head { display:flex; justify-content:space-between; gap:12px; align-items:flex-start; }
+.eyebrow { color:var(--blue); font-size:12px; font-weight:700; letter-spacing:.02em; }
+h2 { margin:2px 0 12px; font-size:18px; }
+.badge { white-space:nowrap; border-radius:4px; padding:2px 8px; font-size:12px; font-weight:700; }
+.badge.primary { color:var(--teal); background:#ECF8F4; }
+.badge.conditional { color:#8A5A00; background:#FFF7E8; }
+figure { margin:0 0 14px; }
+img { display:block; width:100%; height:auto; border:1px solid var(--line); background:#fff; }
+figcaption { margin-top:7px; color:var(--muted); font-size:12px; }
+a { color:var(--blue); text-decoration:none; }
+a:hover { text-decoration:underline; }
+dl { margin:0; display:grid; grid-template-columns:92px 1fr; gap:7px 12px; font-size:13px; }
+dt { color:var(--navy); font-weight:700; }
+dd { margin:0; color:var(--muted); }
+dd ul { margin:0; padding-left:18px; }
+.caution { color:#8A3A12; }
+footer { border-top:1px solid var(--line); padding:22px max(24px,5vw); color:var(--muted); font-size:13px; }
+@media print { .toolbar { display:none; } main { max-width:none; padding:0; } .grid { display:block; } .card { border:none; border-top:1px solid var(--line); border-radius:0; padding:14px 0; page-break-inside:avoid; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>美赛优秀论文图表案例索引</h1>
+  <p class="lead">34 个图表案例，保留论文定位、图型用途和迁移建议。按论证任务筛选案例，再回看论文对应页。</p>
+  <p class="rule">克制、专业、统一：一张图一个问题；一个强调色；基线中性；区间有定义；最终尺寸可读。</p>
+</header>
+<div class="toolbar"><button class="chip active" data-filter="all">全部 34</button><button class="chip" data-filter="多面板组合">多面板组合</button><button class="chip" data-filter="敏感性与阈值">敏感性与阈值</button><button class="chip" data-filter="时间序列与机制可视化">时间序列与机制可视化</button><button class="chip" data-filter="机制与架构">机制与架构</button><button class="chip" data-filter="框架与研究总览">框架与研究总览</button><button class="chip" data-filter="概念与信息图">概念与信息图</button><button class="chip" data-filter="空间与组合图">空间与组合图</button><button class="chip" data-filter="算法与工作流程">算法与工作流程</button><button class="chip" data-filter="预测与不确定性">预测与不确定性</button><button class="chip" data-filter="验证与残差">验证与残差</button><button class="chip" data-filter="精选">只看精选</button><input id="search" type="search" placeholder="搜索图型、来源或要点"></div>
+<main><div class="grid" id="grid">
+<article class="card" data-category="机制与架构" data-level="精选" data-search="01_mechanism_network 机制与架构 2024 c · 2401298 · outstanding winner + ams duel-temporal bayesian network（图注原文拼写） 解释新增的双时间尺度状态传递和跨层机制，尤其适合把创新点从公式中可视化。 白底、灰框观测输入、绿色交叉网格隐状态、橙色机制节点、紫色细箭头；绿色粗箭头只标记新增机制。 复杂网络拆为单层积木与双层堆叠；重复输入节点淡化；节点和箭头按从左到右的信息流分层。 只给真正新增的机制一个强调色 把复杂模型拆成可理解的构建步骤 箭头命名真实传递的变量或状态">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">机制与架构</div>
+      <h2>Mechanism Network</h2>
+    </div>
+    <span class="badge primary">精选</span>
+  </div>
+  <figure>
+    <figcaption>2024 C · 2401298 · Outstanding Winner + AMS · PDF p.16 · Figure 10</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>解释新增的双时间尺度状态传递和跨层机制，尤其适合把创新点从公式中可视化。</dd>
+    <dt>配色</dt><dd>白底、灰框观测输入、绿色交叉网格隐状态、橙色机制节点、紫色细箭头；绿色粗箭头只标记新增机制。</dd>
+    <dt>排版</dt><dd>复杂网络拆为单层积木与双层堆叠；重复输入节点淡化；节点和箭头按从左到右的信息流分层。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>只给真正新增的机制一个强调色</li><li>把复杂模型拆成可理解的构建步骤</li><li>箭头命名真实传递的变量或状态</li></ul></dd>
+    <dt>注意</dt><dd class="caution">图注原文将 Dual 写作 Duel，不应照抄；小图标不能替代变量定义。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="机制与架构" data-level="条件收录" data-search="02_mechanism_feedback 机制与架构 2024 a · 2405424 · outstanding winner ecosystem with normal lampreys 用闭环表达资源、性比、繁殖与死亡之间的反馈；适合生态、系统动力学和耦合机制。 淡青背景、粉橙节点、绿色死亡率节点、紫色箭头；正负关系用符号而不只靠颜色。 闭合回路表达反馈，图内自带 +/− 符号图例；与同页 s 形曲线形成曲线证据与机制解释的衔接。 把相关方向编码为符号与图例 机制图画成闭合回路以表达反馈 曲线证据与机制图同页组织">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">机制与架构</div>
+      <h2>Mechanism Feedback</h2>
+    </div>
+    <span class="badge conditional">条件收录</span>
+  </div>
+  <figure>
+    <figcaption>2024 A · 2405424 · Outstanding Winner · PDF p.13 · Figure 7</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>用闭环表达资源、性比、繁殖与死亡之间的反馈；适合生态、系统动力学和耦合机制。</dd>
+    <dt>配色</dt><dd>淡青背景、粉橙节点、绿色死亡率节点、紫色箭头；正负关系用符号而不只靠颜色。</dd>
+    <dt>排版</dt><dd>闭合回路表达反馈，图内自带 +/− 符号图例；与同页 S 形曲线形成曲线证据与机制解释的衔接。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>把相关方向编码为符号与图例</li><li>机制图画成闭合回路以表达反馈</li><li>曲线证据与机制图同页组织</li></ul></dd>
+    <dt>注意</dt><dd class="caution">淡青底偏重；复用时建议改白或浅灰底，并核验箭头方向与公式一致。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="概念与信息图" data-level="精选" data-search="03_concept_infographic 概念与信息图 2020 f · 2005623 · outstanding winner heights above sea level vary across cities 把有序风险或海拔量级转成无需读坐标即可判断的类别排序。 浅蓝到深蓝近黑的单色明度渐变；灰色斜楔作唯一中性对比。 城市名左对齐、数值右对齐、类别标签置于色带内部；无网格、无坐标轴、无额外图例框。 用单色明度阶编码有序量级 把标签写进色块内部以减少视线跳转 用一个几何形状提示趋势而不增加数据系列">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">概念与信息图</div>
+      <h2>Concept Infographic</h2>
+    </div>
+    <span class="badge primary">精选</span>
+  </div>
+  <figure>
+    <figcaption>2020 F · 2005623 · Outstanding Winner · PDF p.4 · Figure 2</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>把有序风险或海拔量级转成无需读坐标即可判断的类别排序。</dd>
+    <dt>配色</dt><dd>浅蓝到深蓝近黑的单色明度渐变；灰色斜楔作唯一中性对比。</dd>
+    <dt>排版</dt><dd>城市名左对齐、数值右对齐、类别标签置于色带内部；无网格、无坐标轴、无额外图例框。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>用单色明度阶编码有序量级</li><li>把标签写进色块内部以减少视线跳转</li><li>用一个几何形状提示趋势而不增加数据系列</li></ul></dd>
+    <dt>注意</dt><dd class="caution">镜像页面自带第三方二维码水印，已尽量裁除；来源见完整图注，复用时不得把水印当作论文版式。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="概念与信息图" data-level="精选" data-search="04_concept_lifecycle 概念与信息图 2023 f · 2305794 · outstanding winner + comap + informs the ratio chart and ratio life cycle curve 把实证范围与理论阶段模型并置，支撑后续预测模型的选择。 淡蓝误差棒、绿色均值、橙色对照；粉、杏黄、青绿低饱和阶段背景带。 左实证、右理论；阶段名直接放在背景带顶部；细灰坐标轴，无图例框。 用低饱和阶段背景带分段 实证面板与理论面板共享颜色语义 让概念曲线直接承接数据规律">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">概念与信息图</div>
+      <h2>Concept Lifecycle</h2>
+    </div>
+    <span class="badge primary">精选</span>
+  </div>
+  <figure>
+    <figcaption>2023 F · 2305794 · Outstanding Winner + COMAP + INFORMS · PDF p.7 · Figure 3</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>把实证范围与理论阶段模型并置，支撑后续预测模型的选择。</dd>
+    <dt>配色</dt><dd>淡蓝误差棒、绿色均值、橙色对照；粉、杏黄、青绿低饱和阶段背景带。</dd>
+    <dt>排版</dt><dd>左实证、右理论；阶段名直接放在背景带顶部；细灰坐标轴，无图例框。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>用低饱和阶段背景带分段</li><li>实证面板与理论面板共享颜色语义</li><li>让概念曲线直接承接数据规律</li></ul></dd>
+    <dt>注意</dt><dd class="caution">阶段划分需有数据或文献依据，不能仅凭颜色把连续变化硬切成阶段。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="预测与不确定性" data-level="精选" data-search="05_forecast_fan 预测与不确定性 2023 f · 2305794 · outstanding winner + comap + informs prediction interval of temperature change with different carbon emissions 展示不同排放情景下未来升温路径、情景分叉和不确定性扩散。 灰色历史曲线；青→蓝→橙→红的低透明度连续扇形；冷色代表低情景、暖色代表高情景。 上方主图为累计排放—升温扇形，下方对齐时间轴用同色细线标出情景终止年；情景名直接贴在锥端。 用同色系渐变锥表达情景范围 图例内联到数据端点 用对齐辅助轴连接主图与时间信息">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">预测与不确定性</div>
+      <h2>Forecast Fan</h2>
+    </div>
+    <span class="badge primary">精选</span>
+  </div>
+  <figure>
+    <figcaption>2023 F · 2305794 · Outstanding Winner + COMAP + INFORMS · PDF p.14 · Figure 7</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>展示不同排放情景下未来升温路径、情景分叉和不确定性扩散。</dd>
+    <dt>配色</dt><dd>灰色历史曲线；青→蓝→橙→红的低透明度连续扇形；冷色代表低情景、暖色代表高情景。</dd>
+    <dt>排版</dt><dd>上方主图为累计排放—升温扇形，下方对齐时间轴用同色细线标出情景终止年；情景名直接贴在锥端。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>用同色系渐变锥表达情景范围</li><li>图例内联到数据端点</li><li>用对齐辅助轴连接主图与时间信息</li></ul></dd>
+    <dt>注意</dt><dd class="caution">必须说明扇形是置信区间、预测区间还是情景包络；不同口径不能混称。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="预测与不确定性" data-level="条件收录" data-search="06_forecast_interval_suite 预测与不确定性 2025 c · 2510006 · outstanding winner actual vs predicted first-medal countries; training/testing/2028 prediction; exponential regression with confidence interval 把实际对照、训练/测试过程、点预测和区间预测按证据链排在同一页。 蓝 actual/training、红橙 predicted、绿 2028 prediction/ci、浅灰网格。 上两图并列，下方单图居中；区间用竖条或水平带并标注端点数值，区间数值进入图注。 分层呈现历史、训练、测试和预测 区间必须写置信水平和具体端点 让图注承担口径说明">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">预测与不确定性</div>
+      <h2>Forecast Interval Suite</h2>
+    </div>
+    <span class="badge conditional">条件收录</span>
+  </div>
+  <figure>
+    <figcaption>2025 C · 2510006 · Outstanding Winner · PDF p.14 · Figures 12–14</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>把实际对照、训练/测试过程、点预测和区间预测按证据链排在同一页。</dd>
+    <dt>配色</dt><dd>蓝 Actual/Training、红橙 Predicted、绿 2028 prediction/CI、浅灰网格。</dd>
+    <dt>排版</dt><dd>上两图并列，下方单图居中；区间用竖条或水平带并标注端点数值，区间数值进入图注。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>分层呈现历史、训练、测试和预测</li><li>区间必须写置信水平和具体端点</li><li>让图注承担口径说明</li></ul></dd>
+    <dt>注意</dt><dd class="caution">原图字号偏小，且图内/图注置信水平存在需复核之处；复用前统一 90%/95% 口径。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="预测与不确定性" data-level="精选" data-search="07_ranking_ci 预测与不确定性 2025 c · 2510006 · outstanding winner top 10 total / gold medal predictions with 90% confidence intervals 按数值降序回答排名问题，同时把预测不确定性并进排名而非隐藏。 深蓝 2024 observed、中蓝 2028 predicted、黑色误差线、橙黄三角 90% ci 标记；浅灰网格。 总牌/金牌双面板并列，共享国家类别顺序和纵轴口径；置信水平写进图题。 排名按值降序 观测与预测并列柱 误差线或区间标记与置信水平同时出现">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">预测与不确定性</div>
+      <h2>Ranking Ci</h2>
+    </div>
+    <span class="badge primary">精选</span>
+  </div>
+  <figure>
+    <figcaption>2025 C · 2510006 · Outstanding Winner · PDF p.16 · Figures 16–17</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>按数值降序回答排名问题，同时把预测不确定性并进排名而非隐藏。</dd>
+    <dt>配色</dt><dd>深蓝 2024 Observed、中蓝 2028 Predicted、黑色误差线、橙黄三角 90% CI 标记；浅灰网格。</dd>
+    <dt>排版</dt><dd>总牌/金牌双面板并列，共享国家类别顺序和纵轴口径；置信水平写进图题。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>排名按值降序</li><li>观测与预测并列柱</li><li>误差线或区间标记与置信水平同时出现</li></ul></dd>
+    <dt>注意</dt><dd class="caution">两个面板的纵轴尺度不同，不能只因视觉高度相同就判断波动相同。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="时间序列与机制可视化" data-level="精选" data-search="08_timeseries_grid 时间序列与机制可视化 2022 c · 2200401 · outstanding winner + siam adjusted grids of bitcoin price with ma(30) 把模型内部参数/网格可视化为背景纹理，说明自适应机制如何随趋势漂移。 极细浅青网格、深蓝真实价格、砖红 ma(30)；背景元素统一降饱和。 背景网格约二十条低对比曲线，主线只有两条并拉开线宽；左上小图例。 把模型参数画成背景纹理而非文字注释 主线控制在两色并拉开线宽 背景元素不争夺读数注意力">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">时间序列与机制可视化</div>
+      <h2>Timeseries Grid</h2>
+    </div>
+    <span class="badge primary">精选</span>
+  </div>
+  <figure>
+    <figcaption>2022 C · 2200401 · Outstanding Winner + SIAM · PDF p.10 · Figure 4</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>把模型内部参数/网格可视化为背景纹理，说明自适应机制如何随趋势漂移。</dd>
+    <dt>配色</dt><dd>极细浅青网格、深蓝真实价格、砖红 MA(30)；背景元素统一降饱和。</dd>
+    <dt>排版</dt><dd>背景网格约二十条低对比曲线，主线只有两条并拉开线宽；左上小图例。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>把模型参数画成背景纹理而非文字注释</li><li>主线控制在两色并拉开线宽</li><li>背景元素不争夺读数注意力</li></ul></dd>
+    <dt>注意</dt><dd class="caution">网格线数量多，真实复用时需确认最终缩放后仍不产生摩尔纹或视觉噪声。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="空间与组合图" data-level="精选" data-search="09_spatial_small_multiples 空间与组合图 2023 e · 2301428 · outstanding winner some data visualization 用真实夜景作视觉锚点，再用同轮廓 small multiples 展示多个空间指标。 左侧墨蓝底金色灯光；右侧浅底灰/橙/蓝/绿指标图，每幅自带微型色标。 左实景照片与右 2×3 等尺寸空间小图对照；统一地区轮廓，深色与浅色形成明暗节奏。 共享同一几何边界才可比较 每幅小图配紧凑色标 用一张实景图作证据起点而非装饰">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">空间与组合图</div>
+      <h2>Spatial Small Multiples</h2>
+    </div>
+    <span class="badge primary">精选</span>
+  </div>
+  <figure>
+    <figcaption>2023 E · 2301428 · Outstanding Winner · PDF p.8 · Figure 5</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>用真实夜景作视觉锚点，再用同轮廓 small multiples 展示多个空间指标。</dd>
+    <dt>配色</dt><dd>左侧墨蓝底金色灯光；右侧浅底灰/橙/蓝/绿指标图，每幅自带微型色标。</dd>
+    <dt>排版</dt><dd>左实景照片与右 2×3 等尺寸空间小图对照；统一地区轮廓，深色与浅色形成明暗节奏。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>共享同一几何边界才可比较</li><li>每幅小图配紧凑色标</li><li>用一张实景图作证据起点而非装饰</li></ul></dd>
+    <dt>注意</dt><dd class="caution">真实地图需核验合法来源、边界、投影和色标；资源包只保留论文页面局部作设计参考。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="验证与残差" data-level="精选" data-search="10_validation_2x2 验证与残差 2024 c · 2401298 · outstanding winner + ams predicted vs actual 多场比赛/样本共享坐标和口径，同时展示预测、模拟残差效应与失败区间。 橙实线预测、绿线与浅灰阴影残差效应、浅灰网格。 2×2 small multiples，横轴 point number，纵轴 e；每面板右上统一微型图例。 多面板共享坐标与图例 用浅灰阴影让误差可见 正文明确标注失效区间而非只报成功">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">验证与残差</div>
+      <h2>Validation 2X2</h2>
+    </div>
+    <span class="badge primary">精选</span>
+  </div>
+  <figure>
+    <figcaption>2024 C · 2401298 · Outstanding Winner + AMS · PDF p.20 · Figure 13</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>多场比赛/样本共享坐标和口径，同时展示预测、模拟残差效应与失败区间。</dd>
+    <dt>配色</dt><dd>橙实线预测、绿线与浅灰阴影残差效应、浅灰网格。</dd>
+    <dt>排版</dt><dd>2×2 small multiples，横轴 Point Number，纵轴 E；每面板右上统一微型图例。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>多面板共享坐标与图例</li><li>用浅灰阴影让误差可见</li><li>正文明确标注失效区间而非只报成功</li></ul></dd>
+    <dt>注意</dt><dd class="caution">阴影区间定义必须在图注中写明，不能把模拟包络误称为置信区间。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="验证与残差" data-level="精选" data-search="11_diagnostics_acf 验证与残差 2022 c · 2200401 · outstanding winner + siam heat map, acf and pacf figure 把参数寻优与残差白噪声诊断并排，压缩模型辨识过程。 红黄顺序色阶热力图、单一蓝 acf/pacf 棒、极浅蓝置信带。 三联等高对齐面板；热力图只标最优点不铺满数字；子图标题小字置顶。 参数寻优与模型检验同排 置信带用低透明色块 热力图只标关键最优点">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">验证与残差</div>
+      <h2>Diagnostics Acf</h2>
+    </div>
+    <span class="badge primary">精选</span>
+  </div>
+  <figure>
+    <figcaption>2022 C · 2200401 · Outstanding Winner + SIAM · PDF p.14 · Figure 6</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>把参数寻优与残差白噪声诊断并排，压缩模型辨识过程。</dd>
+    <dt>配色</dt><dd>红黄顺序色阶热力图、单一蓝 ACF/PACF 棒、极浅蓝置信带。</dd>
+    <dt>排版</dt><dd>三联等高对齐面板；热力图只标最优点不铺满数字；子图标题小字置顶。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>参数寻优与模型检验同排</li><li>置信带用低透明色块</li><li>热力图只标关键最优点</li></ul></dd>
+    <dt>注意</dt><dd class="caution">示例裁剪以图形为主；复用时需保留完整色标、p/q 轴名和单位。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="敏感性与阈值" data-level="条件收录" data-search="12_sensitivity_windows 敏感性与阈值 2024 c · 2401298 · outstanding winner + ams performance evaluation with different windows for match 2023-wimbledon-1301 比较不同窗口/步长参数，说明小窗口噪声与大窗口平滑之间的取舍。 蓝、橙、绿、黄四条参数曲线；红色虚线 equilibrium line 作唯一参照。 单图多曲线，横轴时间、纵轴积分差；水平基准线把偏离变成可判读的视觉量。 参数对照图必须给基准线 把噪声与过度平滑变成可见差异 曲线数过多时改 small multiples">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">敏感性与阈值</div>
+      <h2>Sensitivity Windows</h2>
+    </div>
+    <span class="badge conditional">条件收录</span>
+  </div>
+  <figure>
+    <figcaption>2024 C · 2401298 · Outstanding Winner + AMS · PDF p.7 · Figure 4</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>比较不同窗口/步长参数，说明小窗口噪声与大窗口平滑之间的取舍。</dd>
+    <dt>配色</dt><dd>蓝、橙、绿、黄四条参数曲线；红色虚线 Equilibrium Line 作唯一参照。</dd>
+    <dt>排版</dt><dd>单图多曲线，横轴时间、纵轴积分差；水平基准线把偏离变成可判读的视觉量。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>参数对照图必须给基准线</li><li>把噪声与过度平滑变成可见差异</li><li>曲线数过多时改 small multiples</li></ul></dd>
+    <dt>注意</dt><dd class="caution">四条多色线略易混；正式论文建议减至 2–3 组并用线型辅助。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="敏感性与阈值" data-level="条件收录" data-search="13_scenario_small_multiples 敏感性与阈值 2024 e · 2413552 · outstanding winner + informs potential reduction in property loss under different interventions（按图意概括） 比较多个干预方案在两个地区/情景中的效果与差异。 浅蓝虚线 no intervention、绿色 community、橙色 property owner；浅灰网格。 左右同轴 small multiples，共享 2024–2034 横轴和 losses 纵轴；基线用虚线。 多方案用同轴小图 跨面板同色同图例 共同 benchmark 用中性虚线">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">敏感性与阈值</div>
+      <h2>Scenario Small Multiples</h2>
+    </div>
+    <span class="badge conditional">条件收录</span>
+  </div>
+  <figure>
+    <figcaption>2024 E · 2413552 · Outstanding Winner + INFORMS · PDF p.18 · Figure 6</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>比较多个干预方案在两个地区/情景中的效果与差异。</dd>
+    <dt>配色</dt><dd>浅蓝虚线 No Intervention、绿色 Community、橙色 Property Owner；浅灰网格。</dd>
+    <dt>排版</dt><dd>左右同轴 small multiples，共享 2024–2034 横轴和 Losses 纵轴；基线用虚线。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>多方案用同轴小图</li><li>跨面板同色同图例</li><li>共同 benchmark 用中性虚线</li></ul></dd>
+    <dt>注意</dt><dd class="caution">早期指南指出原论文该处可能存在图文方向冲突；只学版式，结论以重新核验的数据为准。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="验证与残差" data-level="条件收录" data-search="14_component_validation 验证与残差 2024 b · 2407038 · outstanding winner + informs predicted current velocity vs real current velocity 按 north-south / east-west / vertical 三个物理分量分别验证环境场预测。 深蓝/灰预测线与橙红真实线；浅灰网格。 (a)(b)(c) 三图并列，统一时间轴、速度单位与右上图例。 按物理分量拆 small multiples 共享轴、单位和图例 用统一口径支撑后续模型输入">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">验证与残差</div>
+      <h2>Component Validation</h2>
+    </div>
+    <span class="badge conditional">条件收录</span>
+  </div>
+  <figure>
+    <figcaption>2024 B · 2407038 · Outstanding Winner + INFORMS · PDF p.7 · Figure 3</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>按 North-South / East-West / Vertical 三个物理分量分别验证环境场预测。</dd>
+    <dt>配色</dt><dd>深蓝/灰预测线与橙红真实线；浅灰网格。</dd>
+    <dt>排版</dt><dd>(a)(b)(c) 三图并列，统一时间轴、速度单位与右上图例。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>按物理分量拆 small multiples</li><li>共享轴、单位和图例</li><li>用统一口径支撑后续模型输入</li></ul></dd>
+    <dt>注意</dt><dd class="caution">两线高度重叠、线细且图小；复用时应加粗主曲线、用线型区分并补残差面板。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="敏感性与阈值" data-level="条件收录" data-search="15_threshold_matrix 敏感性与阈值 2025 c · 2510006 · outstanding winner the number of total medals / gold medals varies with the correlation coefficient 用行=对象、列=参数值的矩阵展示哪些结论稳定、哪些对阈值敏感。 黑白三线表，无网格、无装饰；数值居中。 两张并排标准三线表；阈值 r=0.3–0.7 横向展开，国家纵向排列。 参数扫描做成对象×阈值矩阵 稳定行与敏感行同表呈现 在正文点出决策反转或敏感对象">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">敏感性与阈值</div>
+      <h2>Threshold Matrix</h2>
+    </div>
+    <span class="badge conditional">条件收录</span>
+  </div>
+  <figure>
+    <figcaption>2025 C · 2510006 · Outstanding Winner · PDF p.23 · Tables 8–9</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>用行=对象、列=参数值的矩阵展示哪些结论稳定、哪些对阈值敏感。</dd>
+    <dt>配色</dt><dd>黑白三线表，无网格、无装饰；数值居中。</dd>
+    <dt>排版</dt><dd>两张并排标准三线表；阈值 r=0.3–0.7 横向展开，国家纵向排列。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>参数扫描做成对象×阈值矩阵</li><li>稳定行与敏感行同表呈现</li><li>在正文点出决策反转或敏感对象</li></ul></dd>
+    <dt>注意</dt><dd class="caution">这是证据结构范本而非高视觉设计；正式论文可转热图或 tornado 图并补单位、颜色语义。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="空间与组合图" data-level="条件收录" data-search="16_radar_small_multiples 空间与组合图 2023 d · 2300229 · outstanding winner + leonhard euler radar map of the normalization topsis scores 在多指标优先级评分中比较三个对象的轮廓差异。 turkey 橙、indonesia 绿、mexico 蓝；每幅单色半透明填充，细灰同心圆与辐条。 三国并列雷达 small multiples，共享 0.2–0.8 同心圆刻度和 goal 1–17 轴标签。 雷达小图共享刻度上限 每幅只用一个色相 填充透明度以能看见网格为准">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">空间与组合图</div>
+      <h2>Radar Small Multiples</h2>
+    </div>
+    <span class="badge conditional">条件收录</span>
+  </div>
+  <figure>
+    <figcaption>2023 D · 2300229 · Outstanding Winner + Leonhard Euler · PDF p.13 · Figure 5</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>在多指标优先级评分中比较三个对象的轮廓差异。</dd>
+    <dt>配色</dt><dd>Turkey 橙、Indonesia 绿、Mexico 蓝；每幅单色半透明填充，细灰同心圆与辐条。</dd>
+    <dt>排版</dt><dd>三国并列雷达 small multiples，共享 0.2–0.8 同心圆刻度和 Goal 1–17 轴标签。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>雷达小图共享刻度上限</li><li>每幅只用一个色相</li><li>填充透明度以能看见网格为准</li></ul></dd>
+    <dt>注意</dt><dd class="caution">雷达面积受轴顺序与归一化影响；仅在指标同量纲且顺序有明确含义时使用。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="框架与研究总览" data-level="精选" data-search="17_evaluation_framework 框架与研究总览 2019 e · 1902029 · outstanding winner evaluation framework 在综合评价论文中用尺度轴声明适用边界，再展示从生态系统类型到总价值的层级聚合。 紫色生态系统起点、灰色支持服务、绿色服务与价值类别、浅绿色总值；蓝色尺度轴与细箭头。 顶部 time &amp; space scale 双向轴、左侧 value category 轴；纵向树状层级，箭头指向最终 total value。 用双向轴显式声明尺度边界 分类层与汇总层使用不同颜色 让每个箭头对应可追溯的聚合关系">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">框架与研究总览</div>
+      <h2>Evaluation Framework</h2>
+    </div>
+    <span class="badge primary">精选</span>
+  </div>
+  <figure>
+    <figcaption>2019 E · 1902029 · Outstanding Winner · PDF p.8 · Figure 1</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>在综合评价论文中用尺度轴声明适用边界，再展示从生态系统类型到总价值的层级聚合。</dd>
+    <dt>配色</dt><dd>紫色生态系统起点、灰色支持服务、绿色服务与价值类别、浅绿色总值；蓝色尺度轴与细箭头。</dd>
+    <dt>排版</dt><dd>顶部 Time &amp; Space Scale 双向轴、左侧 Value Category 轴；纵向树状层级，箭头指向最终 Total Value。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>用双向轴显式声明尺度边界</li><li>分类层与汇总层使用不同颜色</li><li>让每个箭头对应可追溯的聚合关系</li></ul></dd>
+    <dt>注意</dt><dd class="caution">箭头细、字号小；复用时重绘加粗，并避免支持服务被重复计值。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="框架与研究总览" data-level="条件收录" data-search="18_sdg_research_framework 框架与研究总览 2023 d · 2300229 · outstanding winner + leonhard euler the framework of our work 把关系图、优先级、动态资源分配、冲击情景和敏感性串成一条多模型任务链。 蓝、绿、紫品红、橙红分别对应不同模型与冲击，底部黄→粉渐变带承载参数敏感性。 左右双列模型块、虚线分组框、粗绿色跨列箭头；底部横向敏感性带收束到 result。 色相划分模型归属 粗箭头表达上一模型输出成为下一模型输入 把冲击与敏感性画进主框架而非附在末尾">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">框架与研究总览</div>
+      <h2>Sdg Research Framework</h2>
+    </div>
+    <span class="badge conditional">条件收录</span>
+  </div>
+  <figure>
+    <figcaption>2023 D · 2300229 · Outstanding Winner + Leonhard Euler · PDF p.4 · Figure 1</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>把关系图、优先级、动态资源分配、冲击情景和敏感性串成一条多模型任务链。</dd>
+    <dt>配色</dt><dd>蓝、绿、紫品红、橙红分别对应不同模型与冲击，底部黄→粉渐变带承载参数敏感性。</dd>
+    <dt>排版</dt><dd>左右双列模型块、虚线分组框、粗绿色跨列箭头；底部横向敏感性带收束到 Result。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>色相划分模型归属</li><li>粗箭头表达上一模型输出成为下一模型输入</li><li>把冲击与敏感性画进主框架而非附在末尾</li></ul></dd>
+    <dt>注意</dt><dd class="caution">框内文字很小且信息密度高；正式论文应放大或减少每框文字。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="机制与架构" data-level="条件收录" data-search="19_temporal_allocation_mechanism 机制与架构 2023 d · 2300229 · outstanding winner + leonhard euler overview of temporal champagne tower model 解释按优先级逐层注资、达标进入完成队列、余量向次优先目标溢出的动态机制。 深绿到浅绿目标节点、蓝色直接资源箭头、浅蓝剩余资源、橙色协同/竞争虚线箭头、灰色时间列。 t/t+1/t+2/t+3 时间列中排列目标节点；右上图例区分四类箭头语义。 时间列＋目标节点表达动态过程 不同箭头承载不同资源语义 图例紧贴主图并解释线型/颜色">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">机制与架构</div>
+      <h2>Temporal Allocation Mechanism</h2>
+    </div>
+    <span class="badge conditional">条件收录</span>
+  </div>
+  <figure>
+    <figcaption>2023 D · 2300229 · Outstanding Winner + Leonhard Euler · PDF p.15 · Figure 6</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>解释按优先级逐层注资、达标进入完成队列、余量向次优先目标溢出的动态机制。</dd>
+    <dt>配色</dt><dd>深绿到浅绿目标节点、蓝色直接资源箭头、浅蓝剩余资源、橙色协同/竞争虚线箭头、灰色时间列。</dd>
+    <dt>排版</dt><dd>t/t+1/t+2/t+3 时间列中排列目标节点；右上图例区分四类箭头语义。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>时间列＋目标节点表达动态过程</li><li>不同箭头承载不同资源语义</li><li>图例紧贴主图并解释线型/颜色</li></ul></dd>
+    <dt>注意</dt><dd class="caution">这是机制示意而非结果图；需与后文数值模拟配套使用。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="机制与架构" data-level="条件收录" data-search="20_adoption_feedback_loop 机制与架构 2023 d · 2300229 · outstanding winner + leonhard euler how companies or organizations use our model 把抽象模型接到外部使用者，展示投资、优先级、资源分配与收益回流的采纳闭环。 蓝色组织图标/框与箭头、绿色 benefits、橙棕色 investment；白底。 环形反馈布局，粗蓝箭头把模型收益回喂组织，底部 investment 回线闭合。 用图标区分主体规模 箭头上直接标注流动对象 闭环粗线明确反馈路径">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">机制与架构</div>
+      <h2>Adoption Feedback Loop</h2>
+    </div>
+    <span class="badge conditional">条件收录</span>
+  </div>
+  <figure>
+    <figcaption>2023 D · 2300229 · Outstanding Winner + Leonhard Euler · PDF p.22 · Figure 10</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>把抽象模型接到外部使用者，展示投资、优先级、资源分配与收益回流的采纳闭环。</dd>
+    <dt>配色</dt><dd>蓝色组织图标/框与箭头、绿色 Benefits、橙棕色 Investment；白底。</dd>
+    <dt>排版</dt><dd>环形反馈布局，粗蓝箭头把模型收益回喂组织，底部 Investment 回线闭合。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>用图标区分主体规模</li><li>箭头上直接标注流动对象</li><li>闭环粗线明确反馈路径</li></ul></dd>
+    <dt>注意</dt><dd class="caution">与生态反馈环路不同，本图是模型应用流程；图标不可取代变量或成本定义。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="框架与研究总览" data-level="精选" data-search="21_literature_review_framework 框架与研究总览 2023 e · 2301428 · outstanding winner literature review framework 把文献综述组织成分类维度与优缺点对照，而非罗列文献。 橙色中心圈，绿/蓝/紫三条主线，浅色子框；橙/蓝虚线框分别圈住优缺点。 中心概念发散三层，每层二分；底部 strengths / weaknesses 双行评估带。 中心概念发散＋逐层二分 用统一评估带收束优缺点 虚线框归并同类判断维度">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">框架与研究总览</div>
+      <h2>Literature Review Framework</h2>
+    </div>
+    <span class="badge primary">精选</span>
+  </div>
+  <figure>
+    <figcaption>2023 E · 2301428 · Outstanding Winner · PDF p.4 · Figure 2</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>把文献综述组织成分类维度与优缺点对照，而非罗列文献。</dd>
+    <dt>配色</dt><dd>橙色中心圈，绿/蓝/紫三条主线，浅色子框；橙/蓝虚线框分别圈住优缺点。</dd>
+    <dt>排版</dt><dd>中心概念发散三层，每层二分；底部 Strengths / Weaknesses 双行评估带。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>中心概念发散＋逐层二分</li><li>用统一评估带收束优缺点</li><li>虚线框归并同类判断维度</li></ul></dd>
+    <dt>注意</dt><dd class="caution">图位于页面下半部，文字较小；复用时保持分类依据可追溯。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="算法与工作流程" data-level="精选" data-search="22_three_stage_workflow 算法与工作流程 2023 e · 2301428 · outstanding winner flow chart of our work 把章节结构直接映射到“数据→指标→风险→干预→策略→公众交付物”的工作流。 蓝、玫红、灰绿三条带标题；白底细红/绿边框。 自上而下三条泳道，按 part i/ii/iii 与章节号分组；带内左右分栏。 色带＋章节号做泳道 把验证和敏感性画进主流程 末端显式画面向公众的交付物">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">算法与工作流程</div>
+      <h2>Three Stage Workflow</h2>
+    </div>
+    <span class="badge primary">精选</span>
+  </div>
+  <figure>
+    <figcaption>2023 E · 2301428 · Outstanding Winner · PDF p.5 · Figure 3</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>把章节结构直接映射到“数据→指标→风险→干预→策略→公众交付物”的工作流。</dd>
+    <dt>配色</dt><dd>蓝、玫红、灰绿三条带标题；白底细红/绿边框。</dd>
+    <dt>排版</dt><dd>自上而下三条泳道，按 Part I/II/III 与章节号分组；带内左右分栏。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>色带＋章节号做泳道</li><li>把验证和敏感性画进主流程</li><li>末端显式画面向公众的交付物</li></ul></dd>
+    <dt>注意</dt><dd class="caution">图形横向很扁，不能拉伸变形；正式使用应拆成更清晰的矢量模块。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="多面板组合" data-level="精选" data-search="23_risk_criterion_panels 多面板组合 2023 e · 2301428 · outstanding winner diagram of risk assessment criterion 把定性风险分区与边际成本—风险曲线并置，形成可操作阈值判据。 纯黑白线稿，无颜色依赖；可接受灰度打印。 (a) alarp 三区阈值图、(b) cost–risk 曲线，共享一个图注，子标签置图下。 阈值线分区 曲线边际箭头解释判据 黑白线稿仍保留完整信息">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">多面板组合</div>
+      <h2>Risk Criterion Panels</h2>
+    </div>
+    <span class="badge primary">精选</span>
+  </div>
+  <figure>
+    <figcaption>2023 E · 2301428 · Outstanding Winner · PDF p.14 · Figure 7</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>把定性风险分区与边际成本—风险曲线并置，形成可操作阈值判据。</dd>
+    <dt>配色</dt><dd>纯黑白线稿，无颜色依赖；可接受灰度打印。</dd>
+    <dt>排版</dt><dd>(a) ALARP 三区阈值图、(b) Cost–Risk 曲线，共享一个图注，子标签置图下。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>阈值线分区</li><li>曲线边际箭头解释判据</li><li>黑白线稿仍保留完整信息</li></ul></dd>
+    <dt>注意</dt><dd class="caution">这是准则示意而非实证数据图；不可误读为估计曲线。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="框架与研究总览" data-level="条件收录" data-search="24_ggdp_task_framework 框架与研究总览 2023 f · 2305794 · outstanding winner + comap + informs the framework of our study 把四道题拆成核算、气候评价、产业优化和国家案例四块，并显示跨任务依赖与反馈。 蓝、绿为主；绿色 task 标签；圆角虚线分块与跨块虚线箭头。 四象限式任务分块，框内嵌公式、微型曲线和指标层级，箭头显示 shift impact 与案例回流。 编号 task 标签拆分长论文 框架内嵌关键公式和微型曲线 虚线箭头表达跨任务依赖">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">框架与研究总览</div>
+      <h2>Ggdp Task Framework</h2>
+    </div>
+    <span class="badge conditional">条件收录</span>
+  </div>
+  <figure>
+    <figcaption>2023 F · 2305794 · Outstanding Winner + COMAP + INFORMS · PDF p.4 · Figure 1</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>把四道题拆成核算、气候评价、产业优化和国家案例四块，并显示跨任务依赖与反馈。</dd>
+    <dt>配色</dt><dd>蓝、绿为主；绿色 Task 标签；圆角虚线分块与跨块虚线箭头。</dd>
+    <dt>排版</dt><dd>四象限式任务分块，框内嵌公式、微型曲线和指标层级，箭头显示 Shift Impact 与案例回流。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>编号 Task 标签拆分长论文</li><li>框架内嵌关键公式和微型曲线</li><li>虚线箭头表达跨任务依赖</li></ul></dd>
+    <dt>注意</dt><dd class="caution">物理页码与印刷页码相差 2；箭头交叉较多，复用时可简化为非交叉轨道。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="机制与架构" data-level="精选" data-search="25_production_factor_flow 机制与架构 2023 f · 2305794 · outstanding winner + comap + informs the flow of production factors 用二部流向图表达资本/劳动力从夕阳产业向朝阳产业的重新分配假设。 上排绿色夕阳产业、下排蓝色朝阳产业、白底黑色交叉箭头。 上下两排各三个圆角框，中间全连接箭头；极简、无网格和图例框。 色相区分流出方与流入方 二部图表达重分配 机制图与后文优化算法配套">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">机制与架构</div>
+      <h2>Production Factor Flow</h2>
+    </div>
+    <span class="badge primary">精选</span>
+  </div>
+  <figure>
+    <figcaption>2023 F · 2305794 · Outstanding Winner + COMAP + INFORMS · PDF p.15 · Figure 8</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>用二部流向图表达资本/劳动力从夕阳产业向朝阳产业的重新分配假设。</dd>
+    <dt>配色</dt><dd>上排绿色夕阳产业、下排蓝色朝阳产业、白底黑色交叉箭头。</dd>
+    <dt>排版</dt><dd>上下两排各三个圆角框，中间全连接箭头；极简、无网格和图例框。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>色相区分流出方与流入方</li><li>二部图表达重分配</li><li>机制图与后文优化算法配套</li></ul></dd>
+    <dt>注意</dt><dd class="caution">只表达机制假设，不承载流量、成本或结果；不应冒充定量证据。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="算法与工作流程" data-level="精选" data-search="26_iterative_algorithm_flow 算法与工作流程 2023 f · 2305794 · outstanding winner + comap + informs calculation flow chart 展示含起止、判断、参数更新与循环回边的十年递推优化流程。 浅蓝填充、蓝色描边的圆角框/平行四边形/菱形；红蓝实心圆点表起止。 从左到右的线性流程，右侧循环回边；参数更新单独成框。 判断框 yes/no 双出口 循环回边可见 把本期结果作为下期初值显式画出">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">算法与工作流程</div>
+      <h2>Iterative Algorithm Flow</h2>
+    </div>
+    <span class="badge primary">精选</span>
+  </div>
+  <figure>
+    <figcaption>2023 F · 2305794 · Outstanding Winner + COMAP + INFORMS · PDF p.17 · Figure 9</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>展示含起止、判断、参数更新与循环回边的十年递推优化流程。</dd>
+    <dt>配色</dt><dd>浅蓝填充、蓝色描边的圆角框/平行四边形/菱形；红蓝实心圆点表起止。</dd>
+    <dt>排版</dt><dd>从左到右的线性流程，右侧循环回边；参数更新单独成框。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>判断框 Yes/No 双出口</li><li>循环回边可见</li><li>把本期结果作为下期初值显式画出</li></ul></dd>
+    <dt>注意</dt><dd class="caution">原图较小；复用应重绘、加粗文字，并与目标函数及约束同页说明。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="框架与研究总览" data-level="条件收录" data-search="27_deep_sea_task_chain 框架与研究总览 2024 b · 2407038 · outstanding winner + informs work flow 把环境场预测、装备优化、概率搜索、异地外推和敏感性映射为章节号一致的三层任务链。 顶部七色章节标签，三条浅色横带，内嵌小地图、设备清单、pareto 散点和概率曲线；橙红黄强调框。 顶部章节号色标、下方三条横向任务带，每带嵌入对应结果缩略图，箭头向右为主并含回环。 章节号色标＋分带任务链＋内嵌子图 把预测不确定性传入搜索行动 小图缩略胜过算法清单">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">框架与研究总览</div>
+      <h2>Deep Sea Task Chain</h2>
+    </div>
+    <span class="badge conditional">条件收录</span>
+  </div>
+  <figure>
+    <figcaption>2024 B · 2407038 · Outstanding Winner + INFORMS · PDF p.4 · Figure 1</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>把环境场预测、装备优化、概率搜索、异地外推和敏感性映射为章节号一致的三层任务链。</dd>
+    <dt>配色</dt><dd>顶部七色章节标签，三条浅色横带，内嵌小地图、设备清单、Pareto 散点和概率曲线；橙红黄强调框。</dd>
+    <dt>排版</dt><dd>顶部章节号色标、下方三条横向任务带，每带嵌入对应结果缩略图，箭头向右为主并含回环。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>章节号色标＋分带任务链＋内嵌子图</li><li>把预测不确定性传入搜索行动</li><li>小图缩略胜过算法清单</li></ul></dd>
+    <dt>注意</dt><dd class="caution">信息密度极高，缩放后小字需重绘；早期参考页曾有绿色伪影，本裁剪来自原 PDF 复核版。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="算法与工作流程" data-level="精选" data-search="28_search_state_transition 算法与工作流程 2024 b · 2407038 · outstanding winner + informs searching strategy based on probability 把 bayes 更新后的一步搜索状态转移画成空间上可检查的迭代步骤。 红格已搜索、黄格当前高概率、蓝格未搜索；红/橙/绿箭头分别标已搜、当前与下一中心。 5×5 栅格叠地形底图，曲线箭头指出下一步中心；文字标签紧贴路径。 颜色状态编码表达算法一步 曲线箭头表示跳转而非顺序流 把已搜索概率置零的假设画进图">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">算法与工作流程</div>
+      <h2>Search State Transition</h2>
+    </div>
+    <span class="badge primary">精选</span>
+  </div>
+  <figure>
+    <figcaption>2024 B · 2407038 · Outstanding Winner + INFORMS · PDF p.19 · Figure 9</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>把 Bayes 更新后的一步搜索状态转移画成空间上可检查的迭代步骤。</dd>
+    <dt>配色</dt><dd>红格已搜索、黄格当前高概率、蓝格未搜索；红/橙/绿箭头分别标已搜、当前与下一中心。</dd>
+    <dt>排版</dt><dd>5×5 栅格叠地形底图，曲线箭头指出下一步中心；文字标签紧贴路径。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>颜色状态编码表达算法一步</li><li>曲线箭头表示跳转而非顺序流</li><li>把已搜索概率置零的假设画进图</li></ul></dd>
+    <dt>注意</dt><dd class="caution">依赖颜色语义，必须保留文字标签；需与先验→后验公式配套使用。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="多面板组合" data-level="条件收录" data-search="29_decision_time_panels 多面板组合 2024 b · 2407038 · outstanding winner + informs accumulated probability of finding a submersible in 5 or 50 hours 把 5 小时与 50 小时搜救结果并置，支撑尽早搜索与边际收益递减的决策建议。 白底、淡蓝累计概率曲线、浅灰网格；两面板统一图例与纵轴。 (a)(b) 双面板并列，统一 accumulated probability 纵轴；图上方参数表、下方总图注。 同一纵轴口径比较两个决策时点 关键数值放正文而不塞进图 图表直接服务行动建议">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">多面板组合</div>
+      <h2>Decision Time Panels</h2>
+    </div>
+    <span class="badge conditional">条件收录</span>
+  </div>
+  <figure>
+    <figcaption>2024 B · 2407038 · Outstanding Winner + INFORMS · PDF p.20 · Figure 10</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>把 5 小时与 50 小时搜救结果并置，支撑尽早搜索与边际收益递减的决策建议。</dd>
+    <dt>配色</dt><dd>白底、淡蓝累计概率曲线、浅灰网格；两面板统一图例与纵轴。</dd>
+    <dt>排版</dt><dd>(a)(b) 双面板并列，统一 Accumulated Probability 纵轴；图上方参数表、下方总图注。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>同一纵轴口径比较两个决策时点</li><li>关键数值放正文而不塞进图</li><li>图表直接服务行动建议</li></ul></dd>
+    <dt>注意</dt><dd class="caution">两面板横轴量程不同，复用时应统一或明确标注；无实测对照，不能当验证图。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="框架与研究总览" data-level="精选" data-search="30_four_question_framework 框架与研究总览 2024 c · 2401298 · outstanding winner + ams framework of our work 按四道题分别展示概念操作化、检验、复杂模型与泛化的完整论证链。 2×2 彩色分区：绿虚线、橙黄、粉、蓝实心框；虚线表达推断、实线表达执行。 四分区各自带输入→流程→输出；基线与复杂模型并列；右下小插图。 按题问分块 每个分区带可见出口 基线对照直接进入总览图">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">框架与研究总览</div>
+      <h2>Four Question Framework</h2>
+    </div>
+    <span class="badge primary">精选</span>
+  </div>
+  <figure>
+    <figcaption>2024 C · 2401298 · Outstanding Winner + AMS · PDF p.4 · Figure 1</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>按四道题分别展示概念操作化、检验、复杂模型与泛化的完整论证链。</dd>
+    <dt>配色</dt><dd>2×2 彩色分区：绿虚线、橙黄、粉、蓝实心框；虚线表达推断、实线表达执行。</dd>
+    <dt>排版</dt><dd>四分区各自带输入→流程→输出；基线与复杂模型并列；右下小插图。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>按题问分块</li><li>每个分区带可见出口</li><li>基线对照直接进入总览图</li></ul></dd>
+    <dt>注意</dt><dd class="caution">小插图为装饰，可删；色块偏多，正式使用建议降饱和。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="机制与架构" data-level="条件收录" data-search="31_generalizable_architecture 机制与架构 2024 c · 2401298 · outstanding winner + ams general framework 把网球动量模型抽象为可迁移到其他运动项目的“观测指标→潜变量→残差效应”架构。 青绿菱形输入、橙粉紫箭头、橙色潜变量矩形、绿色网纹目标构念。 左右重复列表达同一框架可实例化两次；同页上方另有双面板残差/熵对照。 三层架构表达可观测到潜变量再到构念 重复列表示跨场景泛化 网纹填充突出唯一核心输出">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">机制与架构</div>
+      <h2>Generalizable Architecture</h2>
+    </div>
+    <span class="badge conditional">条件收录</span>
+  </div>
+  <figure>
+    <figcaption>2024 C · 2401298 · Outstanding Winner + AMS · PDF p.21 · Figure 15</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>把网球动量模型抽象为可迁移到其他运动项目的“观测指标→潜变量→残差效应”架构。</dd>
+    <dt>配色</dt><dd>青绿菱形输入、橙粉紫箭头、橙色潜变量矩形、绿色网纹目标构念。</dd>
+    <dt>排版</dt><dd>左右重复列表达同一框架可实例化两次；同页上方另有双面板残差/熵对照。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>三层架构表达可观测到潜变量再到构念</li><li>重复列表示跨场景泛化</li><li>网纹填充突出唯一核心输出</li></ul></dd>
+    <dt>注意</dt><dd class="caution">标签框极密，缩放易糊；正式图只保留核心三层并另列变量表。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="多面板组合" data-level="条件收录" data-search="32_figure_table_evidence 多面板组合 2024 e · 2413552 · outstanding winner + informs future extreme weather and predictions for the insurance industry; insurance amount forecast by state with fluctuations for 2023–2034 用趋势图外推、三线表给出州级数值、正文转为风险分级策略，形成图—表—文三联证据。 蓝/紫实线为观测，绿/橙虚线为预测；灰网格；表格为黑白三线表。 上方双纵轴时间序列，下方按州级风险分组的预测表，图注与表格紧邻。 实线观测、虚线预测统一编码 图给趋势、表给引用数值、正文给策略 按风险等级组织表格">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">多面板组合</div>
+      <h2>Figure Table Evidence</h2>
+    </div>
+    <span class="badge conditional">条件收录</span>
+  </div>
+  <figure>
+    <figcaption>2024 E · 2413552 · Outstanding Winner + INFORMS · PDF p.12 · Figure 3 + Table 2</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>用趋势图外推、三线表给出州级数值、正文转为风险分级策略，形成图—表—文三联证据。</dd>
+    <dt>配色</dt><dd>蓝/紫实线为观测，绿/橙虚线为预测；灰网格；表格为黑白三线表。</dd>
+    <dt>排版</dt><dd>上方双纵轴时间序列，下方按州级风险分组的预测表，图注与表格紧邻。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>实线观测、虚线预测统一编码</li><li>图给趋势、表给引用数值、正文给策略</li><li>按风险等级组织表格</li></ul></dd>
+    <dt>注意</dt><dd class="caution">双纵轴且右轴单位含义模糊；复用建议拆成两个对齐面板并补预测区间。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="框架与研究总览" data-level="条件收录" data-search="33_olympic_task_overview 框架与研究总览 2025 c · 2510006 · outstanding winner our work 用三个色带把数据处理、奖牌预测、教练效应与原创洞察按任务分区，并直接嵌入关键模型和条件分支。 浅青绿、橙黄、浅蓝、浅粉色带；右上四色椭圆图例；红色虚线外框。 三横带＋底部两分区，任务色带内再放子流程；奖杯与运动员剪影点缀。 色带＋图例编码任务阶段 总览图直接写关键方法和条件分支 用虚线外框统一收口">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">框架与研究总览</div>
+      <h2>Olympic Task Overview</h2>
+    </div>
+    <span class="badge conditional">条件收录</span>
+  </div>
+  <figure>
+    <figcaption>2025 C · 2510006 · Outstanding Winner · PDF p.4 · Figure 1</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>用三个色带把数据处理、奖牌预测、教练效应与原创洞察按任务分区，并直接嵌入关键模型和条件分支。</dd>
+    <dt>配色</dt><dd>浅青绿、橙黄、浅蓝、浅粉色带；右上四色椭圆图例；红色虚线外框。</dd>
+    <dt>排版</dt><dd>三横带＋底部两分区，任务色带内再放子流程；奖杯与运动员剪影点缀。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>色带＋图例编码任务阶段</li><li>总览图直接写关键方法和条件分支</li><li>用虚线外框统一收口</li></ul></dd>
+    <dt>注意</dt><dd class="caution">奖杯/剪影属装饰可删；图内条件公式字小，早期参考页曾有绿色伪影，本裁剪来自原 PDF 复核版。</dd>
+  </dl>
+</article>
+
+<article class="card" data-category="多面板组合" data-level="精选" data-search="34_confidence_small_multiples 多面板组合 2025 c · 2510006 · outstanding winner medal count confidence interval at 60%, 80%, 90%, 95%, 99% confidence levels 固定类别顺序和纵轴，只改变置信水平，比较区间上下界随置信度变宽。 红 upper bound、蓝 lower bound、灰网格；白底；面板内大号百分比标注参数档位。 5 个 2+2+1 排布的 small multiples，共享 y 轴刻度、横轴国家顺序与图例。 严格固定刻度和类别顺序 扫描参数写在面板内部 上下界成对编码用于区间敏感性">
+  <div class="card-head">
+    <div>
+      <div class="eyebrow">多面板组合</div>
+      <h2>Confidence Small Multiples</h2>
+    </div>
+    <span class="badge primary">精选</span>
+  </div>
+  <figure>
+    <figcaption>2025 C · 2510006 · Outstanding Winner · PDF p.22 · Figures 22–26</figcaption>
+  </figure>
+  <dl>
+    <dt>适用场景</dt><dd>固定类别顺序和纵轴，只改变置信水平，比较区间上下界随置信度变宽。</dd>
+    <dt>配色</dt><dd>红 Upper Bound、蓝 Lower Bound、灰网格；白底；面板内大号百分比标注参数档位。</dd>
+    <dt>排版</dt><dd>5 个 2+2+1 排布的 small multiples，共享 y 轴刻度、横轴国家顺序与图例。</dd>
+    <dt>可复用视觉要点</dt><dd><ul><li>严格固定刻度和类别顺序</li><li>扫描参数写在面板内部</li><li>上下界成对编码用于区间敏感性</li></ul></dd>
+    <dt>注意</dt><dd class="caution">只给上下界，无点预测、覆盖率或简单基线；复用应补这些证据。</dd>
+  </dl>
+</article>
+</div></main>
+<footer>页码为 PDF 物理页序。索引提供论文定位与自编评注。引用具体数据或图表前回查论文，核对来源与图例口径。</footer>
+<script>
+const chips = [...document.querySelectorAll('.chip')];
+const cards = [...document.querySelectorAll('.card')];
+const search = document.getElementById('search');
+let category = 'all';
+function apply() {
+  const q = search.value.trim().toLowerCase();
+  cards.forEach(card => {
+    const catOk = category === 'all' || card.dataset.category === category || card.dataset.level === category;
+    const textOk = !q || card.dataset.search.includes(q);
+    card.hidden = !(catOk && textOk);
+  });
+}
+chips.forEach(chip => chip.addEventListener('click', () => {
+  chips.forEach(c => c.classList.remove('active'));
+  chip.classList.add('active');
+  category = chip.dataset.filter;
+  apply();
+}));
+search.addEventListener('input', apply);
+</script>
+</body>
+</html>

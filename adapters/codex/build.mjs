@@ -154,6 +154,13 @@ export async function build({ root = ROOT, out = join(ROOT,'adapters/codex/gener
   await load('project-template/templates/section-visual-map.json');
   await load('project-template/protocols/07-argument-and-visual-design.md');
   for(const name of ['SKILL.md','references/start.md','agents/openai.yaml']) add(`skill/${name}`,await load(`adapters/codex/skill/${name}`));
+  for (const name of ['o-award-framework.md', 'chart-reference.md']) {
+    const reference = await load(`project-template/resources/mcm-skills/${name}`);
+    add(`skill/references/${name}`, reference);
+    add(`project/resources/mcm-skills/${name}`, reference);
+  }
+  const chartGallery = await load('adapters/codex/skill/references/chart-gallery.html');
+  add('skill/references/chart-gallery.html',chartGallery);
   const overlay = JSON.parse(await load('skill-overlays/manifest.json'));
   for(const skill of overlay.skills) {
     for(const rel of [overlay.reference,...(overlay.resources?.[skill]||[])]) {

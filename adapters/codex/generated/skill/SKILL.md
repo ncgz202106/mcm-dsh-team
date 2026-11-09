@@ -1,6 +1,6 @@
 ---
 name: mcm-team
-description: 在Codex中启动或接续MCM A/B/C数学建模团队，组织建模、求解、论文、科研图表和独立验收。仅用于用户指定的美赛项目，不接管无关编程任务。
+description: 在Codex中启动或接续MCM A/B/C数学建模团队，组织建模、求解、论文、科研图表和独立验收。论文规划、写作与审阅使用七部分骨架及优秀论文案例。仅用于用户指定的美赛项目，不接管无关编程或通用建模任务。
 ---
 
 # 美赛团队
@@ -13,7 +13,9 @@ description: 在Codex中启动或接续MCM A/B/C数学建模团队，组织建�
 
 任务只带目标、输入版本/哈希、相关决定、未关闭问题、独占写范围、技能及验收。通过本项目控制CLI检查认领、交付与接收；作者自报不构成角色认证、事实或批准。
 
-专项Skill按任务只读必要部分，记录实际读取与执行。美赛经验资源在references/skills/：nature-figure下的mcm-visual-recipes是六类合成图示例；nature-writing、nature-polishing、nature-reviewer、nature-statistics为对应美赛适配。它们不是已安装上游Skill的替身。定量图绑定真实结果，最终尺寸可读，实际查看完整图和PDF。
+专项Skill按任务只读必要部分，记录实际读取与执行。美赛经验资源在references/skills/：nature-figure下的mcm-visual-recipes是六类合成图示例；nature-writing、nature-polishing、nature-reviewer、nature-statistics为对应美赛适配。它们不是已安装上游Skill的替身。`references/chart-gallery.html`与`references/chart-reference.md`提供34个优秀论文图表案例的索引和迁移建议。图表任务按需读取最相近的1–2例。定量图绑定真实结果，最终尺寸可读，实际查看完整图和PDF。
+
+论文规划、写作和审阅共同读取[O奖固定骨架与案例迁移](references/o-award-framework.md)。默认固定七部分功能顺序，并按子问完成“目标→继承输入→基线→模型→求解→结果→验证→下问接口”；额外交付物服从当年题目。范文只提供可迁移方法，不能覆盖当届规则、已有项目批准或用户明确调整。
 
 论文阶段按小节检查视觉证据。每个必要的结论小节绑定主要发现、真实依据和对应图表，使用项目的 paper/section-visual-map.json 及论证设计协议。非作者核对遗漏、图表结论和最终页面。
 

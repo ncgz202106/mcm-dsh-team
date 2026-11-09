@@ -41,6 +41,7 @@
 - `project-template/scripts/figure_check.py`：图表文件、尺寸和来源核对；`visual_range.py`检查最终坐标是否隐藏源点或区间。
 - `project-template/tests/`、`bundle/tests/`：Python和Node回归；`docs/科研图表与论文经验.md`记录可迁移经验。
 - `adapters/codex/build.mjs`：从共享角色和资源生成 Codex 项目配置及入口，运行 `node adapters/codex/build.mjs --check` 核对生成文件。
+- `project-template/resources/mcm-skills/`：DSH 与 Codex 共用的写作和图表文字参考。公开图表索引位于 `adapters/codex/skill/references/chart-gallery.html`，原论文图像保存在本机。
 - `tools/codex-project.py`、`tools/install-codex-skill.py`：新项目、兼容预览、入口安装及回滚。测试在 `adapters/codex/tests/`。
 - `project-template/scripts/codex_control.py`：任务批次、收件、快照和恢复诊断。`section_visuals.py`核对逐小节图表覆盖。
 
