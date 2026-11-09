@@ -1,0 +1,340 @@
+{
+  "format_version": 2,
+  "review_type": "independent synthetic fault injection and local regression verification",
+  "reviewed_at": "2026-11-09",
+  "reviewer_canonical_agent_id": "/root/final_control_review",
+  "independence": {
+    "production_authorship": false,
+    "production_files_modified": [],
+    "review_tests_authored": [
+      "project-template/tests/test_codex_review_regressions.py",
+      "adapters/codex/tests/test_install_recovery.py"
+    ]
+  },
+  "status": "targeted_regressions_passed",
+  "formal_pass": false,
+  "native_role_binding_verified": false,
+  "native_hook_runtime_verified": false,
+  "reviewed_sha256": {
+    "project-template/scripts/codex_control.py": "3aa453cb2927707be675e9789d035dd8b26d5e72a8cdefc0721ab2f82d01de8e",
+    "project-template/scripts/codex_hook.py": "6ff71e756cdfa4d257443445ed2f20eb74c6e2d162312613597f709472e1be47",
+    "project-template/scripts/mcm.py": "b221b3e17c5e7eaa41c9f5f284cc2ed64e1166c027f3a76ebf085da2b45e8d30",
+    "tools/codex-project.py": "4fa98d1e380e4d33f65071b9e940672b17a33bb4402b449158662bc0c1b217a5",
+    "tools/install-codex-skill.py": "7ce4fc8d1b4a856897c4b9ea6d35c082180f1a3eadda54d34f8fdae53367132c",
+    "adapters/codex/build.mjs": "078bf7e0cd1766656cb86f7af05c4385ecd867ebefb53cbf4a911e45b754fc28",
+    "project-template/tests/test_codex_review_regressions.py": "5f75806aa3a9c7b4d7440dca2c0edf058458d6748b2de1d14e480f81be52d91d",
+    "adapters/codex/tests/test_install_recovery.py": "3326ffda94b7f2dd107c1b91b012e87aa8792fb46f7d8205f1da76e29342cf65",
+    "adapters/codex/tests/test_bundle.py": "0fe3c12a64011b0c80c5b6e3981dbef6688e3993fe9f2f441e337050437da02e",
+    "adapters/codex/generated/manifest.json": "e83b3e82de744141284b4c2e016777cb9221b1bebeb82d118c37eacf0529e500",
+    "adapters/codex/generated/project/README-example.md": "22c3b6735779cb1049f6aa5b05f45e4ea1cb3a58bc04bdf8c693d71675f117cd",
+    "adapters/codex/generated/project/paper/provenance/latex-project.json": "032b1571ebf2dcd4921082b94e60e5b470f09b7d7cd33a34b57b3513db84d4c0",
+    "adapters/codex/generated/skill/SKILL.md": "49dc4d6f883176f93c8d5fdda74834c41ad4803e1352fa136c48d1a284c9689d",
+    "project-template/data/raw/README.md": "fcf50e45b1e2d65a7d57c71e0d1f2264b40b4284cfe56ef09e7b0212b881f2ea"
+  },
+  "checks": [
+    {
+      "command": "python -m unittest discover -s project-template/tests -p 'test_codex*.py' -q",
+      "exit_code": 0,
+      "tests": 52,
+      "status": "passed",
+      "scope": "includes the 10 new control probes"
+    },
+    {
+      "command": "python -m unittest discover -s adapters/codex/tests -p test_install_recovery.py -v",
+      "exit_code": 0,
+      "tests": 4,
+      "status": "passed",
+      "scope": "installer recovery with a synthetic payload and real temporary paths"
+    },
+    {
+      "command": "node --test bundle/tests/*.test.mjs",
+      "exit_code": 0,
+      "tests": 37,
+      "status": "passed",
+      "scope": "local legacy bundle regressions only"
+    },
+    {
+      "command": "node adapters/codex/build.mjs --check",
+      "exit_code": 0,
+      "files": 43,
+      "roles": 12,
+      "status": "passed",
+      "scope": "generated bundle matches current inputs"
+    },
+    {
+      "command": "python -m unittest discover -s adapters/codex/tests -q",
+      "exit_code": 0,
+      "tests": 17,
+      "status": "passed",
+      "scope": "includes the four installer fault injection probes"
+    }
+  ],
+  "findings": [
+    {
+      "id": "ICR-01",
+      "status": "retest_passed",
+      "test_file": "project-template/tests/test_codex_review_regressions.py",
+      "observed": "Intake rejects an unrelated paper edit injected during copy. The original baseline, task and artifact registry bytes remain unchanged. Recovery flags the paper change and the prepared journal. No output was promoted."
+    },
+    {
+      "id": "ICR-02",
+      "status": "retest_passed",
+      "test_file": "project-template/tests/test_codex_review_regressions.py",
+      "observed": "Changing the output declaration after claim rejects delivery and leaves the attempt claimed. With the original declaration intact, mismatches in kind, path, version, generation and owner are rejected, and matching delivery succeeds."
+    },
+    {
+      "id": "ICR-03",
+      "status": "retest_passed",
+      "test_file": "adapters/codex/tests/test_install_recovery.py",
+      "observed": "A preparation write failure preserves the active install. Interrupted promotion and a failed final journal update both leave usable prepared receipts. Rollback restores exact prior receipt bytes and rejects a changed previous receipt."
+    },
+    {
+      "id": "ICR-04",
+      "status": "retest_passed",
+      "test_file": "project-template/tests/test_codex_review_regressions.py",
+      "observed": "A residual regular writer lock blocks preflight, recovery and claim. Recovery exposes the reported PID and inspection action. Lock bytes stay unchanged."
+    },
+    {
+      "id": "ICR-05",
+      "status": "retest_passed",
+      "test_file": "project-template/tests/test_codex_review_regressions.py",
+      "observed": "A protected edit injected between the initial scan and refresh rejects protect. The existing baseline stays byte-identical and integrity reports the edit."
+    },
+    {
+      "id": "ICR-06",
+      "status": "retest_passed",
+      "test_file": "project-template/tests/test_codex_review_regressions.py",
+      "observed": "Empty, malformed JSON, non-object and invalid-field lock records are diagnosed as malformed, block preflight and remain untouched. A simulated dangling symlink is also reported as an unresolved lock."
+    },
+    {
+      "id": "ICR-07",
+      "status": "reproduced_then_retest_passed",
+      "test_file": "project-template/tests/test_codex_review_regressions.py",
+      "observed": "Before the follow-up fix, replacing the passed review with a failed review immediately after validation allowed intake to succeed and bind the failed review hash. The final version rejects that substitution and leaves the artifact registry empty."
+    },
+    {
+      "id": "ICR-08",
+      "status": "retest_passed",
+      "test_file": "project-template/tests/test_codex_review_regressions.py",
+      "observed": "Changing the delivered manifest during staging while keeping its schema valid now rejects intake before the artifact registry is changed."
+    }
+  ],
+  "limitations": [
+    "The probes used synthetic projects and simulated identities. The dangling writer symlink check used a simulated filesystem entry because actual symlink creation was unavailable in the local Windows test process.",
+    "No external model API, DSH desktop, background Host, active skill installation, or live contest project was used.",
+    "This review does not establish native role binding, native hook invocation, operating-system isolation, scientific validity, or human approval."
+  ],
+  "initial_review": {
+    "format_version": 1,
+    "review_type": "independent static code review and synthetic local fault injection",
+    "reviewed_at": "2026-11-08",
+    "reviewer_canonical_agent_id": "/root/codex_adapter_independent_review",
+    "independence": {
+      "production_authorship": false,
+      "production_files_modified": [],
+      "report_files_only": true,
+      "native_custom_role_loaded": false
+    },
+    "status": "changes_requested",
+    "formal_pass": false,
+    "native_role_binding_verified": false,
+    "native_hook_runtime_verified": false,
+    "reviewed_sha256": {
+      "project-template/scripts/codex_control.py": "0195733acb6f7d1212c7fe4e83b37117e0e2eae17bbae60b64c0f11d21377f59",
+      "project-template/scripts/codex_hook.py": "6ff71e756cdfa4d257443445ed2f20eb74c6e2d162312613597f709472e1be47",
+      "project-template/scripts/mcm.py": "b221b3e17c5e7eaa41c9f5f284cc2ed64e1166c027f3a76ebf085da2b45e8d30",
+      "tools/codex-project.py": "4fa98d1e380e4d33f65071b9e940672b17a33bb4402b449158662bc0c1b217a5",
+      "tools/install-codex-skill.py": "a75d95fc59ac8a1b8fb517c1b31ecf0adb1b106a8f7d3da757a1342b226dc515",
+      "adapters/codex/build.mjs": "4bf992a11b6fafac788a0ecc78939710a834a8ec3be647c8bf3fb4052b3df529"
+    },
+    "checks": [
+      {
+        "command": "python -m unittest discover -s project-template/tests -p 'test_codex*.py' -q",
+        "exit_code": 0,
+        "tests": 42,
+        "status": "passed"
+      },
+      {
+        "command": "python -m unittest discover -s project-template/tests -q",
+        "exit_code": 0,
+        "tests": 167,
+        "status": "passed"
+      },
+      {
+        "command": "node --test bundle/tests/*.test.mjs",
+        "exit_code": 0,
+        "tests": 37,
+        "status": "passed",
+        "scope": "local legacy bundle regressions only; no DSH runtime executed"
+      },
+      {
+        "command": "python -m unittest discover -s adapters/codex/tests -q",
+        "exit_code": 1,
+        "tests": 12,
+        "failures": 1,
+        "status": "failed",
+        "detail": "test_figure_knowledge_and_science_preserved expects the literal 真实结果; generated role uses 冻结结果. Static inspection found the fixed scientific-source requirement preserved; this is a test-anchor mismatch, not evidence of native readiness."
+      }
+    ],
+    "findings": [
+      {
+        "id": "ICR-01",
+        "severity": "major",
+        "priority": 1,
+        "status": "open",
+        "file": "project-template/scripts/codex_control.py",
+        "lines": [
+          505,
+          568
+        ],
+        "title": "accept silently incorporates unrelated protected writes into its new baseline",
+        "impact": "A protected paper/code/data file changed after the initial integrity check can become the accepted baseline. accept returns success and subsequent integrity/recover no longer detects the unauthorized change.",
+        "reproduction": [
+          "Create a synthetic fixture with paper/main.tex='original', then claim/deliver and prepare the non-author record using Controls.handoff().",
+          "Wrap codex_control.shutil.copyfile so that immediately after copying an intake output it changes paper/main.tex to 'concurrent unauthorized change'.",
+          "Call accept(), then integrity()."
+        ],
+        "observed": {
+          "accept_ok": true,
+          "integrity_ok": true,
+          "integrity_changes": [],
+          "paper_content": "concurrent unauthorized change"
+        },
+        "recommendation": "Capture the original protection snapshot and exact files this transaction may modify; validate all other protected paths again before commit, and derive the next baseline from the validated original plus authorized transaction outputs instead of rehashing every live file."
+      },
+      {
+        "id": "ICR-02",
+        "severity": "major",
+        "priority": 2,
+        "status": "open",
+        "file": "project-template/scripts/codex_control.py",
+        "lines": [
+          278,
+          313
+        ],
+        "title": "Claim fingerprint omits the declared output contract",
+        "impact": "Changing task.outputs after claim does not invalidate the attempt, so a different artifact set can be delivered under the original task-contract SHA.",
+        "reproduction": [
+          "Claim T1 with outputs=[{'artifact_id':'DECLARED'}].",
+          "Replace only task.outputs with [{'artifact_id':'RESULT-1'}] in the task registry.",
+          "Create a manifest for RESULT-1 and call deliver()."
+        ],
+        "observed": {
+          "deliver_ok": true,
+          "status": "in_review"
+        },
+        "recommendation": "Include outputs in the fixed task contract and cover each identity and expected output property required by the project contract; add a regression for a post-claim output change."
+      },
+      {
+        "id": "ICR-03",
+        "severity": "major",
+        "priority": 1,
+        "status": "open",
+        "file": "tools/install-codex-skill.py",
+        "lines": [
+          66,
+          78
+        ],
+        "title": "An installation can switch successfully before its rollback journal exists",
+        "impact": "Failure writing backup/receipt.json after promotion leaves the new installation active although the command fails; its standard rollback entry is absent. Previous bytes survive in backup/previous but require manual recovery.",
+        "reproduction": [
+          "Install into a temporary skills/mcm-team and retain its receipt bytes.",
+          "Perform an update while injecting OSError only when write() targets receipt.json.",
+          "Inspect the active embedded receipt's backup directory."
+        ],
+        "observed": {
+          "error": "Independent injected disk write failure",
+          "active_receipt_changed": true,
+          "new_transaction_receipt_exists": false,
+          "previous_preserved": true
+        },
+        "recommendation": "Persist a prepared transaction journal before moving either installation, use atomic phase updates, and support inspection/recovery of prepared or switched transactions without requiring a receipt that is written only at the end."
+      },
+      {
+        "id": "ICR-04",
+        "severity": "major",
+        "priority": 2,
+        "status": "open",
+        "file": "project-template/scripts/codex_control.py",
+        "lines": [
+          243,
+          272,
+          576,
+          594
+        ],
+        "title": "Recovery and preflight report success with a residual writer lock",
+        "impact": "After an abrupt process exit leaves .mcm/write.lock, recover and preflight can both say ok even though every mutation fails with 'Registry writer already active'. This hides a required recovery action.",
+        "reproduction": [
+          "Create/protect an empty synthetic project with queued T1.",
+          "Write a representative .mcm/write.lock with nonexistent PID 987654321.",
+          "Call recover(), preflight(T1, synthetic_demo=True), and claim()."
+        ],
+        "observed": {
+          "recover_ok": true,
+          "preflight_ok": true,
+          "lock_diagnostic_present": false,
+          "claim_error": "Registry writer already active; inspect .mcm/write.lock before recovery"
+        },
+        "recommendation": "Report the lock and observable owner state in read-only recovery, flag unresolved locks as blockers, and retain explicit human repair rather than deleting a lock automatically."
+      }
+    ],
+    "limitations": [
+      "All fault probes used temporary synthetic projects and simulated identities. They do not authenticate native roles, hook callbacks, user approval, scientific validity, or operating-system isolation.",
+      "No external model API, DSH desktop, background Host, or live contest project was used.",
+      "Strict mode remains blocked by design and manual capability JSON does not enable it.",
+      "The reviewer did not modify implementation or tests. Re-review is required for any changed source SHA."
+    ]
+  },
+  "integration_delta": {
+    "reviewed_at": "2026-11-09",
+    "status": "local_integration_passed",
+    "previous_reviewed_sha256": {
+      "project-template/scripts/codex_control.py": "2a80aa86aa01dd347b1d294a238d2a8342905e21a325eb77bcac8cbd2a59852f",
+      "project-template/scripts/codex_hook.py": "6ff71e756cdfa4d257443445ed2f20eb74c6e2d162312613597f709472e1be47",
+      "project-template/scripts/mcm.py": "b221b3e17c5e7eaa41c9f5f284cc2ed64e1166c027f3a76ebf085da2b45e8d30",
+      "tools/codex-project.py": "4fa98d1e380e4d33f65071b9e940672b17a33bb4402b449158662bc0c1b217a5",
+      "tools/install-codex-skill.py": "7ce4fc8d1b4a856897c4b9ea6d35c082180f1a3eadda54d34f8fdae53367132c",
+      "adapters/codex/build.mjs": "078bf7e0cd1766656cb86f7af05c4385ecd867ebefb53cbf4a911e45b754fc28",
+      "project-template/tests/test_codex_review_regressions.py": "a87fc4eb9516b8f8ef45111b6a95d08d54d4a51dffb5ce650cc69a05cf3dd9cd",
+      "adapters/codex/tests/test_install_recovery.py": "3326ffda94b7f2dd107c1b91b012e87aa8792fb46f7d8205f1da76e29342cf65"
+    },
+    "checks": [
+      {
+        "command": "python -m unittest discover -s project-template/tests -q",
+        "exit_code": 0,
+        "tests": 180,
+        "scope": "pypdf supplied through a process-local PYTHONPATH; includes 13 independent control probes"
+      },
+      {
+        "command": "python -m unittest discover -s adapters/codex/tests -q",
+        "exit_code": 0,
+        "tests": 18,
+        "scope": "includes fresh-project synthetic init and preflight, portable README and provenance, and four installer fault probes"
+      },
+      {
+        "command": "node --test bundle/tests/*.test.mjs",
+        "exit_code": 0,
+        "tests": 37,
+        "scope": "local legacy bundle regression only"
+      },
+      {
+        "command": "node adapters/codex/build.mjs --check",
+        "exit_code": 0,
+        "files": 43,
+        "roles": 12,
+        "manifest_source_hashes_verified": 42,
+        "manifest_generated_hashes_verified": 42
+      }
+    ],
+    "findings": [
+      {
+        "id": "ICR-09",
+        "status": "reproduced_then_retest_passed",
+        "test_file": "project-template/tests/test_codex_review_regressions.py",
+        "observed": "The earlier scaffold scan accepted a regular file at data and a Windows directory junction at data pointing to an empty directory. The final scan rejects both, rejects symbolic links and mount-point tags at the scan root and under it, and rejects modified or undeclared scaffold files. Rejections leave the project unmarked and preserve the source entry.",
+        "probe_notes": "A real Windows directory junction was created in a temporary project. Symbolic link and nested mount-point metadata were simulated in portable regression tests."
+      }
+    ],
+    "scope": "Local configuration projection, generated project initialization and synthetic preflight. Strict preflight remains blocked. No native role, hook callback, active installation, model call, scientific validation or human approval was exercised."
+  }
+}

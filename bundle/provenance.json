@@ -50,10 +50,10 @@
     "prompts/mcm-programmer.md": "3cedc36029994ee546c29da2e37c89d6c4914098c1fa056de55f0e8ae6a51933",
     "prompts/mcm-code-lead.md": "f6be118dde9cfb264dc3700313c9017bff3684a796c95c800ed2a02b84dcebb1",
     "prompts/mcm-verifier.md": "1d7d5d1489c490fae2c2f1093fadfa520f29d914cb984fbd4357067be42a10f8",
-    "prompts/mcm-paper-lead.md": "68a3080697c214916fbe5830528a35b4638af1ce9e8b1282e590af90396fd1fd",
+    "prompts/mcm-paper-lead.md": "135c27ad5210d517fa74e7435f9906136ceff5a723541ae8215f759ad798117e",
     "prompts/mcm-writer.md": "0dab3ab5eff2a56531fa15a8b8157def18959e3ca44936e1bc67a7f958cdc289",
-    "prompts/mcm-figure.md": "5bbdd7f0a7bcf29c95b61b6ba0add3207515cad4d2b1a577bbaafb5de1144a79",
+    "prompts/mcm-figure.md": "d99513c098ef208c53fe7bec948f49af4d9c4b5c660382d02d40e30ccd1684ad",
     "prompts/mcm-typesetter.md": "a1d3517feb0d3dea7bb63667f5e4ec10e9722f4e3b1b50c375af4084bd0d1a78",
-    "prompts/mcm-reviewer.md": "671e1decc79670216dd9bced2e0ca3a1881c8559c970b1888ec806f0b34d1521"
+    "prompts/mcm-reviewer.md": "99bbd2a1c2fc46172f34995a70c7c44a5b4a2db6853ce7d0e54fb362cf17bf9b"
   }
 }

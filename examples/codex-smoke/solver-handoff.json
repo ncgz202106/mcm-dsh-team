@@ -1,0 +1,96 @@
+{
+  "format_version": 1,
+  "synthetic": true,
+  "native_role_binding": false,
+  "canonical_task_name": "/root/codex_demo_solver",
+  "execution_identity": "Ordinary Codex collaboration agent assigned to the P1 solver implementation; no native mcm-programmer binding asserted",
+  "generated_at_utc": "2026-11-03T07:57:13.132907+00:00",
+  "contract_path": "examples/codex-smoke/model-contract.json",
+  "contract_sha256": "e229abef99d75a015f370fd61459ec5fc082f2cdd178e62ad1cbcfa49b14c1ce",
+  "solver_path": "examples/codex-smoke/solver.py",
+  "solver_sha256": "07ac18ba2a11fdb167344373afd559422d603e5cc1b338835c9e38bd9bb452cf",
+  "tests_path": "examples/codex-smoke/test_solver.py",
+  "tests_sha256": "9814ead2397cc1fcf38a88715ee3e3939270a0ee84c96df96d28485e49995116",
+  "parameters": {
+    "r": 0.35,
+    "K": 100.0,
+    "d": 0.08,
+    "B0": 12.0,
+    "horizon": 30.0
+  },
+  "interfaces": [
+    "analytic(t, r, K, d, B0) -> float",
+    "solve(r, K, d, B0, horizon, dt=0.1) -> list[tuple[float, float]]"
+  ],
+  "method": "Fixed-step classical fourth-order Runge-Kutta, shortened last step, exact horizon endpoint; no clipping or analytical replacement",
+  "analytic_branches": [
+    "B0=0 remains zero",
+    "t=0 returns B0",
+    "r=d uses B0/(1+(r/K)*B0*t)",
+    "r>d evaluates an algebraically equivalent negative-exponential form to avoid long-time exponential overflow",
+    "r<d uses the contract exp/expm1 formula"
+  ],
+  "validation": {
+    "author_tests_command": "python -B -m unittest discover -s examples/codex-smoke -p test_solver.py -v",
+    "author_tests_exit_code": 0,
+    "author_tests_count": 18,
+    "author_tests_status": "passed",
+    "author_tests_output": "test_above_carrying_capacity (test_solver.SolverTests.test_above_carrying_capacity) ... ok\ntest_both_rates_zero (test_solver.SolverTests.test_both_rates_zero) ... ok\ntest_default_accuracy_and_finite_nonnegative_trajectory (test_solver.SolverTests.test_default_accuracy_and_finite_nonnegative_trajectory) ... ok\ntest_equal_growth_and_mortality (test_solver.SolverTests.test_equal_growth_and_mortality) ... ok\ntest_excessive_grid_is_rejected (test_solver.SolverTests.test_excessive_grid_is_rejected) ... ok\ntest_fourth_order_refinement (test_solver.SolverTests.test_fourth_order_refinement) ... ok\ntest_horizon_survives_floating_point_grid_rounding (test_solver.SolverTests.test_horizon_survives_floating_point_grid_rounding) ... ok\ntest_initial_condition (test_solver.SolverTests.test_initial_condition) ... ok\ntest_invalid_inputs (test_solver.SolverTests.test_invalid_inputs) ... ok\ntest_limit_near_equal_rates (test_solver.SolverTests.test_limit_near_equal_rates) ... ok\ntest_long_time_analytic_does_not_overflow (test_solver.SolverTests.test_long_time_analytic_does_not_overflow) ... ok\ntest_mortality_above_growth (test_solver.SolverTests.test_mortality_above_growth) ... ok\ntest_positive_equilibrium (test_solver.SolverTests.test_positive_equilibrium) ... ok\ntest_short_final_step_and_horizon_smaller_than_dt (test_solver.SolverTests.test_short_final_step_and_horizon_smaller_than_dt) ... ok\ntest_unsafe_step_fails_without_clipping (test_solver.SolverTests.test_unsafe_step_fails_without_clipping) ... ok\ntest_zero_biomass (test_solver.SolverTests.test_zero_biomass) ... ok\ntest_zero_growth_is_exponential_decay (test_solver.SolverTests.test_zero_growth_is_exponential_decay) ... ok\ntest_zero_horizon (test_solver.SolverTests.test_zero_horizon) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 0.006s\n\nOK\n",
+    "grid_metrics": [
+      {
+        "dt": 0.2,
+        "row_count": 151,
+        "max_absolute_error": 4.773999506824111e-07,
+        "final_time": 30.0,
+        "final_biomass": 77.01595145506724,
+        "all_finite_nonnegative": true
+      },
+      {
+        "dt": 0.1,
+        "row_count": 301,
+        "max_absolute_error": 2.9889868358168314e-08,
+        "final_time": 30.0,
+        "final_biomass": 77.01595149585181,
+        "all_finite_nonnegative": true
+      },
+      {
+        "dt": 0.05,
+        "row_count": 601,
+        "max_absolute_error": 1.870269272785663e-09,
+        "final_time": 30.0,
+        "final_biomass": 77.01595149835275,
+        "all_finite_nonnegative": true
+      }
+    ],
+    "error_ratios_for_step_halving": [
+      15.971965649422042,
+      15.98158553588864
+    ],
+    "default_absolute_error_threshold": 0.001,
+    "default_error_passed": true,
+    "independent_review_status": "pending separate reviewer; author tests do not replace independent review"
+  },
+  "runtime": {
+    "python": "3.14.7",
+    "implementation": "CPython",
+    "system": "Windows",
+    "dependencies": "standard library only",
+    "randomness": "none"
+  },
+  "limitations": [
+    "Synthetic numerical rehearsal only; no real ecological observations, calibration, uncertainty inference, or scientific approval.",
+    "Fixed-step RK4 does not provide adaptive error control or unconditional positivity; negative or nonfinite RK stages/results raise ArithmeticError.",
+    "A successful solve requires an accuracy check for the chosen grid; the validated default and refinement grids use the frozen contract parameters.",
+    "Inputs must be finite with K>0, dt>0, and t/r/d/B0/horizon>=0; the in-memory trajectory is limited to 1000000 steps.",
+    "Extreme floating-point parameter magnitudes beyond the synthetic contract were not comprehensively validated; underflow and intermediate overflow may limit accuracy.",
+    "Scenario experiments, data manifests, plots, independent review, and Git synchronization belong to other explicitly assigned work."
+  ],
+  "files_written_by_this_agent": [
+    "examples/codex-smoke/solver.py",
+    "examples/codex-smoke/test_solver.py",
+    "examples/codex-smoke/solver-handoff.json"
+  ],
+  "contract_modified": false,
+  "dsh_or_external_model_api_invoked": false,
+  "git_commit_created": false
+}

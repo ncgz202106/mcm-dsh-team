@@ -1,0 +1,15 @@
+{
+  "format_version": 1,
+  "_template_only": true,
+  "sections": [],
+  "entry_example": {
+    "section_id": "sec:example",
+    "title": "Subquestion conclusion",
+    "conclusion": "State the concrete finding and comparison",
+    "visual_required": true,
+    "reason_without_visual": null,
+    "section_source": {"path": "paper/sections/example.tex", "sha256": "FILL_ACTUAL_HASH"},
+    "visual_refs": [{"kind": "figure", "label": "fig:example", "path": "figures/example.pdf", "sha256": "FILL_ACTUAL_HASH", "caption": "Explain the comparison, units, result and conditions"}]
+  },
+  "note": "Create paper/section-visual-map.json from actual sources. Audit every necessary conclusion-bearing section; a shared visual may serve several sections if each explains its relevant finding. Reasoned exceptions and final-page aesthetics require non-author review."
+}

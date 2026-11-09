@@ -1,0 +1,106 @@
+{
+  "format_version": 1,
+  "adapter_version": "0.1.0-candidate",
+  "roles": [
+    {
+      "id": "mcm-captain",
+      "logical_children": [
+        "mcm-model-lead",
+        "mcm-evidence",
+        "mcm-programmer",
+        "mcm-code-lead",
+        "mcm-verifier",
+        "mcm-paper-lead",
+        "mcm-reviewer"
+      ],
+      "physical_parent": null,
+      "may_spawn": true,
+      "optional": false
+    },
+    {
+      "id": "mcm-model-lead",
+      "logical_children": [
+        "mcm-modeler"
+      ],
+      "physical_parent": "mcm-captain",
+      "may_spawn": false,
+      "optional": false
+    },
+    {
+      "id": "mcm-modeler",
+      "logical_children": [],
+      "physical_parent": "mcm-captain",
+      "may_spawn": false,
+      "optional": false
+    },
+    {
+      "id": "mcm-evidence",
+      "logical_children": [],
+      "physical_parent": "mcm-captain",
+      "may_spawn": false,
+      "optional": false
+    },
+    {
+      "id": "mcm-programmer",
+      "logical_children": [],
+      "physical_parent": "mcm-captain",
+      "may_spawn": false,
+      "optional": false
+    },
+    {
+      "id": "mcm-code-lead",
+      "logical_children": [
+        "mcm-programmer"
+      ],
+      "physical_parent": "mcm-captain",
+      "may_spawn": false,
+      "optional": true
+    },
+    {
+      "id": "mcm-verifier",
+      "logical_children": [],
+      "physical_parent": "mcm-captain",
+      "may_spawn": false,
+      "optional": false
+    },
+    {
+      "id": "mcm-paper-lead",
+      "logical_children": [
+        "mcm-writer",
+        "mcm-figure",
+        "mcm-typesetter"
+      ],
+      "physical_parent": "mcm-captain",
+      "may_spawn": false,
+      "optional": false
+    },
+    {
+      "id": "mcm-writer",
+      "logical_children": [],
+      "physical_parent": "mcm-captain",
+      "may_spawn": false,
+      "optional": false
+    },
+    {
+      "id": "mcm-figure",
+      "logical_children": [],
+      "physical_parent": "mcm-captain",
+      "may_spawn": false,
+      "optional": false
+    },
+    {
+      "id": "mcm-typesetter",
+      "logical_children": [],
+      "physical_parent": "mcm-captain",
+      "may_spawn": false,
+      "optional": false
+    },
+    {
+      "id": "mcm-reviewer",
+      "logical_children": [],
+      "physical_parent": "mcm-captain",
+      "may_spawn": false,
+      "optional": false
+    }
+  ]
+}

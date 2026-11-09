@@ -1,0 +1,82 @@
+{
+  "format_version": 1,
+  "synthetic": true,
+  "created_at_utc": "2026-11-09T05:18:12.339223+00:00",
+  "inputs": {
+    "model-contract.json": "e229abef99d75a015f370fd61459ec5fc082f2cdd178e62ad1cbcfa49b14c1ce",
+    "solver.py": "07ac18ba2a11fdb167344373afd559422d603e5cc1b338835c9e38bd9bb452cf",
+    "solver-handoff.json": "55a06b2df06749f016725efc8512872bc5fa7450323c48e33adf70d095146e16",
+    "experiments.py": "4df76d8ba8d75b48b79fe13f0c29aa40c38ec7dc0cbf1893e88ee4c0d9c0eb43"
+  },
+  "figure_style": {
+    "path": "bundle/src/figure-style.json",
+    "sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff"
+  },
+  "data_files": {
+    "convergence.csv": {
+      "sha256": "4df99c8213e11a135bf6f8a1a634f0ed438cea33fdee2011b1933592206b17d9",
+      "bytes": 243
+    },
+    "envelope.csv": {
+      "sha256": "68525f2e819a8eb3b65f3819af68ebc411b31767ef2a9eaa13222b010e8d9f1f",
+      "bytes": 41694
+    },
+    "numbers.tex": {
+      "sha256": "eb7d97a2163d2e0a1f42bb6d83ae9f30b421bcfe07c8b76bbba99ef64f3b0db5",
+      "bytes": 327
+    },
+    "scenarios.csv": {
+      "sha256": "b2f13cb010ee568c97e83d9d2eed6e94fa19bc7da6b1836954a5057bc9f4533c",
+      "bytes": 1266
+    },
+    "trajectories.csv": {
+      "sha256": "5a999647a2dcfdc15a3026dc0f4305faa0994f1e8aebf3939961d25070592fcb",
+      "bytes": 561136
+    },
+    "validation.json": {
+      "sha256": "12c372b1aadcf1c5196a97cd28010cc494a81c491f0ef2901cfde5f1e9c7dfe9",
+      "bytes": 1424
+    }
+  },
+  "parameters": {
+    "r": 0.35,
+    "K": 100.0,
+    "d": 0.08,
+    "B0": 12.0,
+    "horizon": 30.0
+  },
+  "scenario_grid": {
+    "mortality": [
+      0.04,
+      0.08,
+      0.12
+    ],
+    "growth": [
+      0.28,
+      0.35,
+      0.42
+    ],
+    "parameter_envelope": "min/max across the fixed nine r,d scenarios; not a confidence interval"
+  },
+  "runtime": {
+    "python": "3.15.2",
+    "platform": "Windows"
+  },
+  "deterministic": true,
+  "randomness": "none",
+  "missing_values": 0,
+  "exclusions": 0,
+  "unit_definitions": {
+    "time": "arbitrary time unit",
+    "biomass": "synthetic biomass unit"
+  },
+  "macro_definitions": {
+    "BaselineBiomass": "baseline B(30), dt=0.1",
+    "SolverError": "maximum absolute baseline error over t=0..30, dt=0.1",
+    "FirstErrorRatio": "maximum error at dt=0.2 divided by maximum error at dt=0.1",
+    "SecondErrorRatio": "maximum error at dt=0.1 divided by maximum error at dt=0.05",
+    "MinimumBiomass": "minimum final-time biomass across nine scenarios",
+    "MaximumBiomass": "maximum final-time biomass across nine scenarios"
+  },
+  "scope": "Synthetic workflow rehearsal only; no ecological calibration or scientific approval"
+}

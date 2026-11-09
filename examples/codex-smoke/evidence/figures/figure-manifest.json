@@ -1,0 +1,65 @@
+{
+  "synthetic": true,
+  "figures": {
+    "trajectory": {
+      "mapping_sha256": "59de73b73bdde8701616ae25aa776953957abf78b99e49e7b5ecd1316f8d6713",
+      "exports": {
+        "pdf": {
+          "sha256": "b010be2fc1fcacf506ae2ccdb61e5b3664e4a850c974ed385735d504033ca3f4"
+        },
+        "svg": {
+          "sha256": "992948febdcc8034b45aa3da548b9987659372bf619da96ea49b063889334bb9"
+        },
+        "png": {
+          "sha256": "5efaaf4af4c1e019124a61fd278f0b068391976d82e3442529e9887e823ad4fe"
+        }
+      }
+    },
+    "sensitivity": {
+      "mapping_sha256": "f1c7a4763d95f203ac9ac89c4e3f3b2760b64bd198b020b942046cfd29b2d712",
+      "exports": {
+        "pdf": {
+          "sha256": "5ed0b37fbc2b704d73d11c194eeb2cbede3ec82d41f81fa103d6f267c2ec4441"
+        },
+        "svg": {
+          "sha256": "503ad8e1ff39dcf43ddd44b8da3cc018f88710968236854ea11ccfa991996787"
+        },
+        "png": {
+          "sha256": "ae4cbb27d5194b6ffaf86086ee517f8b3c8a2020eb5e2ce2b9d4c02b2a833758"
+        }
+      }
+    },
+    "envelope": {
+      "mapping_sha256": "2b6ba8356c71f849075c68fdd995453e7f535ca36f071393b4073542c97ce75a",
+      "exports": {
+        "pdf": {
+          "sha256": "571a51bf06b058ddb229381bab9a1ee19e2d85a2b07d00e690422f565e6fa4c0"
+        },
+        "svg": {
+          "sha256": "5379b7f4d3a247018c67854db9da20c8e95098e6d7567845c921353ebbf649d8"
+        },
+        "png": {
+          "sha256": "1f8e72f570d77796306d334272a60a9bcbcf6e21404f072b104891168cf5411a"
+        }
+      }
+    },
+    "workflow": {
+      "mapping_sha256": "dc1ea70c2f60fc6a7cb524a77301d500d3a2721b9112ac245e23a5037868d0a8",
+      "exports": {
+        "pdf": {
+          "sha256": "d89f019cacd142d42e9374c4b5359dc1bfce06ed34f171bed8221718cc461aed"
+        },
+        "svg": {
+          "sha256": "f08236e190f339f7bd830656cb4a3dfe6307fe17c075110de11da3b8636b7fe7"
+        },
+        "png": {
+          "sha256": "c3b0d4e8454d0fe3987bde8869df8fbd39b25864120e005007954572689bcd23"
+        }
+      }
+    }
+  },
+  "data_manifest_sha256": "c359704f95d1c87e71444ac01dea5f0bea8370d8983269b24da04b423ebf4c21",
+  "plotting_source_sha256": "4df76d8ba8d75b48b79fe13f0c29aa40c38ec7dc0cbf1893e88ee4c0d9c0eb43",
+  "matplotlib_version": "3.11.2",
+  "independent_review": "pending"
+}

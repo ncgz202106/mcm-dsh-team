@@ -1,0 +1,139 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper,textwidth=165.1mm,top=19mm,bottom=17mm]{geometry}
+\usepackage{newtxtext,amsmath,amssymb,newtxmath,graphicx,booktabs,xcolor,fancyhdr,float}
+\usepackage[hidelinks]{hyperref}
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}\fancyhf{}\lhead{Synthetic workflow rehearsal}\rhead{\thepage}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\setlength{\intextsep}{6pt}
+\setlength{\abovecaptionskip}{6pt}
+\raggedbottom
+\input{numbers.tex}
+\begin{document}
+\begin{center}
+{\LARGE\bfseries Growth, Loss and Numerical Evidence\par}
+\smallskip
+{\large A Controlled Modeling Rehearsal\par}
+{\normalsize Codex MCM Adapter Demonstration\par}
+\end{center}
+{\small
+\textbf{Abstract.}
+We compare fourth-order Runge--Kutta (RK4) with a closed-form reference for a
+synthetic biomass model. At time 30, baseline biomass is \BaselineBiomass\ units.
+The largest sampled baseline error is \mbox{$\SolverError$} units. Nine prescribed
+growth and loss combinations produce terminal biomass from \MinimumBiomass\ to
+\MaximumBiomass\ units. The resulting envelope describes the range over those
+settings. The rehearsal uses synthetic inputs throughout.\par}
+
+\section{Problem Restatement and Analysis}
+\label{sec:problem}
+The rehearsal asks whether RK4 matches a known trajectory, how growth and loss
+affect terminal biomass, and how far the trajectories diverge.
+Figure~\ref{fig:workflow} traces the inputs and verification steps.
+\begin{figure}[H]\centering
+\includegraphics{figures/workflow.pdf}
+\caption{Evidence flow for the synthetic rehearsal. RK4 and the analytic reference
+share the model contract. CSVs supply plots and paper numbers.
+The data manifest records their SHA-256 hashes.}\label{fig:workflow}
+\end{figure}
+
+\section{Assumptions and Notation}
+\label{sec:assumptions}
+The system is spatially homogeneous with constant coefficients and nonnegative
+biomass. Table~\ref{tab:assumptions} defines the baseline and the units used in
+the synthetic calculations.
+\begin{table}[H]\centering
+\caption{Baseline quantities and units from the synthetic model contract.}
+\label{tab:assumptions}
+\begin{tabular}{lll}\toprule
+Symbol & Meaning & Baseline value\\\midrule
+$B_0$ & Initial biomass & $12$ biomass units\\
+$r$ & Intrinsic growth rate & $0.35$ per time unit\\
+$d$ & Constant per-capita loss rate & $0.08$ per time unit\\
+$K$ & Growth carrying-capacity parameter & $100$ biomass units\\
+$T$ & Time horizon & $30$ time units\\
+$h$ & Integration step & $0.1$ time units\\
+\bottomrule\end{tabular}
+\end{table}
+
+\clearpage
+\section{Model Construction and Solution}
+\label{sec:model}
+The balance between density-limited growth and loss gives
+\begin{equation}\dot B=rB\left(1-\frac{B}{K}\right)-dB
+             =aB-qB^2,\qquad a=r-d,\quad q=r/K.\end{equation}
+For $a\ne0$ and $B_0>0$, substituting $u=1/B$ gives $\dot u+au=q$ and hence
+\begin{equation} B(t)=\frac{B_0e^{at}}{1+(qB_0/a)(e^{at}-1)}.\end{equation}
+At $a=0$, integration yields $B(t)=B_0/(1+qB_0t)$. With $B_0=0$, biomass stays
+zero. RK4 uses a shortened final step when the horizon falls between grid points.
+
+The comparison uses $E_h=\max_i|B_h(t_i)-B_{\rm exact}(t_i)|$ on the solver grid.
+At $h=0.1$, the error is $\SolverError$ biomass units, below the contract's
+$10^{-3}$ threshold. Halving $h$ from $0.2$ to $0.1$ and again to $0.05$ reduces
+the error by factors of \FirstErrorRatio\ and \SecondErrorRatio, close to the
+fourth-order factor of 16. Figure~\ref{fig:trajectory} shows where the numerical
+and analytic solutions differ over time.
+\begin{figure}[H]\centering
+\includegraphics{figures/trajectory.pdf}
+\caption{Baseline numerical verification at all 301 points with $h=0.1$.
+(a) The RK4 and analytic biomass trajectories overlap at the displayed scale.
+(b) The signed difference is shown in units of $10^{-8}$ biomass.}
+\label{fig:trajectory}
+\end{figure}
+
+\clearpage
+\section{Sensitivity Analysis}
+\label{sec:sensitivity}
+We vary $r\in\{0.28,0.35,0.42\}$ and $d\in\{0.04,0.08,0.12\}$, keeping $K$, $B_0$
+and the horizon fixed. Figure~\ref{fig:sensitivity} shows that terminal biomass
+increases with growth for each loss rate and decreases with loss for each growth
+rate. Across the nine settings, it ranges from \MinimumBiomass\ to
+\MaximumBiomass\ units.
+
+For $r>d$, the positive equilibrium and its local derivatives are
+\begin{align}
+B^*&=K\left(1-\frac{d}{r}\right),\\
+\frac{\partial B^*}{\partial d}&=-\frac{K}{r},
+&\frac{\partial B^*}{\partial r}&=\frac{Kd}{r^2}.
+\end{align}
+These equilibrium derivatives agree with the directions observed at the finite
+horizon. The finite-time values depend on the initial state and the time
+available to approach equilibrium.
+\begin{figure}[H]\centering
+\includegraphics{figures/sensitivity.pdf}
+\caption{Terminal biomass at $T=30$ across the nine tested growth and loss
+combinations. Each cell contains one RK4 result rounded to two decimals.
+The outlined center cell is the baseline.}\label{fig:sensitivity}
+\end{figure}
+
+\clearpage
+\section{Model Evaluation and Recommendations}
+\label{sec:evaluation}
+The analytic comparison verifies RK4 accuracy. The parameter envelope uses the
+pointwise extrema of the nine trajectories in the prescribed set $\mathcal S$.
+\begin{equation}
+[L(t),U(t)]=\left[\min_{s\in\mathcal S}B_s(t),\;
+                      \max_{s\in\mathcal S}B_s(t)\right],\quad |\mathcal S|=9.
+\end{equation}
+Figure~\ref{fig:envelope} shows the spread developing from a shared initial value.
+The bounds apply to the nine runs. Exceedance probabilities would require a
+distribution over inputs or empirical observations.
+\begin{figure}[H]\centering
+\includegraphics{figures/envelope.pdf}
+\caption{Pointwise minimum and maximum of nine trajectories on the common 301-point grid.
+Dashed lines show individual scenarios and the solid line marks the baseline.}
+\label{fig:envelope}
+\end{figure}
+
+Before interpreting the scenario results, verify numerical accuracy and report the
+parameter grid. An empirical application would also need calibration and an
+assessment of spatial effects.
+
+\section*{Report on Use of AI Tools}
+Codex assisted with the model contract, code, figures, manuscript and verification.
+
+\appendix\section{Reproduction}
+\label{sec:reproduction}
+The example README provides the test and TeX build commands. Frozen CSVs, file
+hashes, and figure provenance accompany the manuscript in the evidence directory.
+\end{document}

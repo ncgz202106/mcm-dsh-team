@@ -870,6 +870,8 @@ def main(argv=None):
     item.add_argument("--reserve-task", action="store_true")
     item = sub.add_parser("context-pack", help="Read-only bounded context for one task; no chat history export")
     item.add_argument("task_id")
+    item = sub.add_parser("codex", help="Codex adapter checks and synthetic rehearsal; never grants human approval")
+    item.add_argument("codex_args", nargs=argparse.REMAINDER)
     item = sub.add_parser("demo")
     item.add_argument("--force", action="store_true")
     args = parser.parse_args(argv)
@@ -878,7 +880,10 @@ def main(argv=None):
         if not (project / ".mcm-project").is_dir():
             raise ValueError("Project marker .mcm-project directory missing")
         command = args.command
-        if command == "doctor":
+        if command == "codex":
+            import codex_control
+            return codex_control.main(["--root", str(project), *args.codex_args])
+        elif command == "doctor":
             result = doctor(project)
         elif command == "timeline":
             result = timeline(project,args.at)

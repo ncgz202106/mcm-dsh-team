@@ -1,0 +1,319 @@
+{
+  "format_version": 1,
+  "synthetic": true,
+  "verdict": "PASS",
+  "passed": true,
+  "review_role": "Independent non-author review by an ordinary Codex collaboration agent",
+  "scope": "Frozen synthetic demonstration, numerical evidence, visual source data, and final four-page paper",
+  "reviewed_artifacts_sha256": {
+    "paper.pdf": "5e4846bee28a5b8bb080e4e4a86351f1e5b7dbf25579f888375cb8dfb377cfc5",
+    "paper.tex": "1330e4b3548227421dc16a34e01f7f48142b71f48aebac702d7fa01c2c2d5425",
+    "evidence/data-manifest.json": "c359704f95d1c87e71444ac01dea5f0bea8370d8983269b24da04b423ebf4c21",
+    "evidence/figures/figure-manifest.json": "5ff358ffb90a7fd74c60384340abdbe32336bb867f0581950b10cd28424fd13a"
+  },
+  "review_limits": "The verdict covers this synthetic configuration and the listed artifact hashes. Scientific approval, user gate approvals, and native role binding require separate evidence.",
+  "blockers": [],
+  "numeric_review": {
+    "method": "Re-derived the closed form via u=1/B and evaluated it with 45-digit decimal arithmetic. Independently implemented classical RK4 on the contract grids and compared every frozen row. No imports from the demo solver or experiment code were used for these calculations.",
+    "comparison_tolerance_biomass": 5e-13,
+    "trajectory_rows": 3762,
+    "maximum_csv_differences_biomass": {
+      "closed_form_csv": 2.842170943040401e-14,
+      "rk4_csv": 5.684341886080802e-14,
+      "absolute_error_csv": 7.157238495629484e-14
+    },
+    "closed_form_and_rk4": {
+      "r0.28_d0.04": {
+        "max_error": 2.3515165181823085e-8,
+        "max_error_time": 9.5,
+        "analytic_final": 85.32298002590328,
+        "rk4_final": 85.32298002184605,
+        "rows": 301
+      },
+      "r0.28_d0.08": {
+        "max_error": 7.834098735679777e-9,
+        "max_error_time": 16.6,
+        "analytic_final": 70.56236720875332,
+        "rk4_final": 70.56236720566987,
+        "rows": 301
+      },
+      "r0.28_d0.12": {
+        "max_error": 2.227699855898091e-9,
+        "max_error_time": 21.2,
+        "analytic_final": 55.42686766903719,
+        "rk4_final": 55.42686766744502,
+        "rows": 301
+      },
+      "r0.35_d0.04": {
+        "max_error": 7.038319591188598e-8,
+        "max_error_time": 7.3,
+        "analytic_final": 88.5197884577872,
+        "rk4_final": 88.51978845544497,
+        "rows": 301
+      },
+      "r0.35_d0.08": {
+        "max_error": 2.988988528332126e-8,
+        "max_error_time": 11.7,
+        "analytic_final": 77.01595149851786,
+        "rk4_final": 77.01595149585178,
+        "rows": 301
+      },
+      "r0.35_d0.12": {
+        "max_error": 1.1898935703664942e-8,
+        "max_error_time": 14.7,
+        "analytic_final": 65.41917721920503,
+        "rk4_final": 65.41917721670383,
+        "rows": 301
+      },
+      "r0.42_d0.04": {
+        "max_error": 1.6638183058562977e-7,
+        "max_error_time": 6,
+        "analytic_final": 90.46956675439229,
+        "rk4_final": 90.46956675346274,
+        "rows": 301
+      },
+      "r0.42_d0.08": {
+        "max_error": 8.285383435206945e-8,
+        "max_error_time": 7,
+        "analytic_final": 80.93509468665194,
+        "rk4_final": 80.93509468532525,
+        "rows": 301
+      },
+      "r0.42_d0.12": {
+        "max_error": 3.967756008641745e-8,
+        "max_error_time": 11.1,
+        "analytic_final": 71.38494292431491,
+        "rk4_final": 71.3849429226269,
+        "rows": 301
+      },
+      "baseline": {
+        "max_error": 2.988988528332126e-8,
+        "max_error_time": 11.7,
+        "analytic_final": 77.01595149851786,
+        "rk4_final": 77.01595149585178,
+        "rows": 301
+      },
+      "baseline_dt_0.2": {
+        "max_error": 4.773999692576964e-7,
+        "max_error_time": 12,
+        "analytic_final": 77.01595149851786,
+        "rk4_final": 77.01595145506725,
+        "rows": 151
+      },
+      "baseline_dt_0.05": {
+        "max_error": 1.8703019744250436e-9,
+        "max_error_time": 11.5,
+        "analytic_final": 77.01595149851786,
+        "rk4_final": 77.01595149835275,
+        "rows": 601
+      }
+    },
+    "step_halving_error_ratios": [
+      15.971957226750833,
+      15.981315152335132
+    ],
+    "contract_error_threshold_biomass": 0.001,
+    "equal_rate_max_absolute_error": 1.6892247283381106e-11,
+    "equal_rate_terminal_rk4": 5.30973451328361,
+    "zero_initial_all_zero_rows": 301,
+    "envelope": {
+      "grid_points": 301,
+      "scenarios_per_point": 9,
+      "checked": "Every grid time has the baseline and the exact pointwise min and max of its nine frozen numerical trajectories. All scenarios tie at t=0. The extrema below hold at every positive sampled time.",
+      "terminal": {
+        "time": 30,
+        "baseline_biomass": 77.01595149585181,
+        "minimum_biomass": 55.426867667445016,
+        "minimum_scenario": "r0.28_d0.12",
+        "maximum_biomass": 90.46956675346276,
+        "maximum_scenario": "r0.42_d0.04"
+      },
+      "peak_width": 47.85258074599769,
+      "peak_width_time": 11.9,
+      "terminal_width": 35.04269908601774,
+      "interpretation": "The band measures the range within the nine fixed parameter settings. It carries no probability model."
+    },
+    "sensitivity": "All six adjacent growth comparisons increase terminal biomass at fixed loss. All six adjacent loss comparisons decrease terminal biomass at fixed growth.",
+    "checked_manuscript_macros": {
+      "BaselineBiomass": "77.015951",
+      "SolverError": "2.99\\times 10^{-8}",
+      "FirstErrorRatio": "15.97",
+      "SecondErrorRatio": "15.98",
+      "MinimumBiomass": "55.426868",
+      "MaximumBiomass": "90.469567"
+    }
+  },
+  "provenance": {
+    "sha256_comparisons_including_cross_links": 43,
+    "checked": "Compared input bytes, handoff links, four CSVs and supporting records, data sizes, shared style, four figure mappings, and each of the 12 PDF/SVG/PNG figure exports. Compared the final build copies of the source, numeric macros, and four included PDFs against their example files."
+  },
+  "figures": {
+    "final_page_images": [
+      {
+        "page": 1,
+        "sha256": "a959aba8eaafb582ce2ae8a7a75dd3bf7aabcb704ca376bc4604dc78c56f245e",
+        "pixels": [
+          1241,
+          1754
+        ],
+        "dpi": 150,
+        "review_method": "Visually inspected final replacement render"
+      },
+      {
+        "page": 2,
+        "sha256": "ecc3e57c96d71f8281e52b47c068265e8a809148737d6471d86ba8d4e29a203b",
+        "pixels": [
+          1241,
+          1754
+        ],
+        "dpi": 150,
+        "review_method": "Visually inspected matching earlier render and verified final bytes identical"
+      },
+      {
+        "page": 3,
+        "sha256": "9ab2a76383c33bc22a015557218359d157c8e84e077e7f0587b6af93cf423d6d",
+        "pixels": [
+          1241,
+          1754
+        ],
+        "dpi": 150,
+        "review_method": "Visually inspected matching earlier render and verified final bytes identical"
+      },
+      {
+        "page": 4,
+        "sha256": "8802860115f5451a81d9351214468d7401e699d17e9d91289ba6c24e4c53e2d3",
+        "pixels": [
+          1241,
+          1754
+        ],
+        "dpi": 150,
+        "review_method": "Visually inspected matching earlier render and verified final bytes identical"
+      }
+    ],
+    "render_check": "Regenerated each page with Poppler at 150 DPI from the exact reviewed PDF. All four PNGs matched the visually inspected page bytes.",
+    "visual_defects_observed": [],
+    "mechanical_author_qa_cross_check": "The frozen reports show a 12 pt minimum for each figure export and zero collision failures or warnings. The vertically paired trajectory plot reports aligned horizontal axes. Independent visual inspection checked layout, units, legends and caption fit in the manuscript.",
+    "section_coverage": [
+      {
+        "section_id": "sec:problem",
+        "page": 1,
+        "display": "Figure 1",
+        "finding": "The schematic traces input parameters through the model, RK4, analytic checks, frozen CSVs and manuscript displays. The final caption distinguishes data use from the manifest's hash record."
+      },
+      {
+        "section_id": "sec:assumptions",
+        "page": 1,
+        "display": "Table 1",
+        "finding": "Six aligned rows pair symbols with meanings and units. Readers can distinguish the carrying-capacity parameter from the loss-adjusted equilibrium and the time horizon from the integration step."
+      },
+      {
+        "section_id": "sec:model",
+        "page": 2,
+        "display": "Figure 2a,b",
+        "finding": "The response panel shows agreement at biomass scale. The signed-error panel shows RK4's underestimation, its maximum magnitude near t=11.7, and the approach toward zero. A common time axis and an explicit 10^-8 scale distinguish the two comparisons."
+      },
+      {
+        "section_id": "sec:sensitivity",
+        "page": 3,
+        "display": "Figure 3",
+        "finding": "A labeled discrete 3 x 3 grid supports comparison along both rate axes. All nine values are legible, the outline identifies the baseline and the common color scale covers the full data range."
+      },
+      {
+        "section_id": "sec:evaluation",
+        "page": 4,
+        "display": "Figure 4",
+        "finding": "The time-dependent band reveals that scenario spread grows from a shared start and narrows after its peak. The scenario paths, dotted bounds and emphasized baseline are distinguishable. The caption and prose explain the fixed scenario set and the common grid."
+      }
+    ],
+    "section_visuals_passed": 5,
+    "section_visuals_required": 5,
+    "svg_checks": {
+      "curves": {
+        "baseline_RK4": {
+          "source_samples": 301,
+          "svg_vertices": 35,
+          "max_vertical_deviation_pt": 0.04841207622214938
+        },
+        "baseline_closed_form": {
+          "source_samples": 301,
+          "svg_vertices": 35,
+          "max_vertical_deviation_pt": 0.04841211720028582
+        },
+        "baseline_signed_error": {
+          "source_samples": 301,
+          "svg_vertices": 53,
+          "max_vertical_deviation_pt": 0.12703560608474618
+        },
+        "r0.28_d0.04": {
+          "source_samples": 301,
+          "svg_vertices": 43,
+          "max_vertical_deviation_pt": 0.12586847238640075
+        },
+        "r0.28_d0.08": {
+          "source_samples": 301,
+          "svg_vertices": 35,
+          "max_vertical_deviation_pt": 0.1815496919074917
+        },
+        "r0.28_d0.12": {
+          "source_samples": 301,
+          "svg_vertices": 28,
+          "max_vertical_deviation_pt": 0.08433500934370386
+        },
+        "r0.35_d0.04": {
+          "source_samples": 301,
+          "svg_vertices": 45,
+          "max_vertical_deviation_pt": 0.09591327535900973
+        },
+        "r0.35_d0.08": {
+          "source_samples": 301,
+          "svg_vertices": 40,
+          "max_vertical_deviation_pt": 0.13505245920566722
+        },
+        "r0.35_d0.12": {
+          "source_samples": 301,
+          "svg_vertices": 37,
+          "max_vertical_deviation_pt": 0.035219962434922536
+        },
+        "r0.42_d0.04": {
+          "source_samples": 301,
+          "svg_vertices": 46,
+          "max_vertical_deviation_pt": 0.0845620156100324
+        },
+        "r0.42_d0.08": {
+          "source_samples": 301,
+          "svg_vertices": 43,
+          "max_vertical_deviation_pt": 0.053417612407855586
+        },
+        "r0.42_d0.12": {
+          "source_samples": 301,
+          "svg_vertices": 39,
+          "max_vertical_deviation_pt": 0.05036108158503794
+        },
+        "minimum_biomass": {
+          "source_samples": 301,
+          "svg_vertices": 28,
+          "max_vertical_deviation_pt": 0.08433500934370386
+        },
+        "maximum_biomass": {
+          "source_samples": 301,
+          "svg_vertices": 46,
+          "max_vertical_deviation_pt": 0.0845620156100324
+        },
+        "baseline_biomass": {
+          "source_samples": 301,
+          "svg_vertices": 40,
+          "max_vertical_deviation_pt": 0.13505245920566722
+        }
+      },
+      "envelope_polygon_vertices_including_closure": 604,
+      "sensitivity_cell_labels_colors_and_positions_verified": 9,
+      "sensitivity_baseline_outline_verified": true,
+      "workflow_nodes_and_numeric_inputs_verified": true
+    }
+  },
+  "notes": [
+    "The initial workflow caption implied the manifest hashes were recorded before manuscript number generation. The final caption reflects the actual sequence and was visually checked.",
+    "All 301 values enter each curve's plotting call. SVG line rendering simplifies display vertices. The largest vertical departure across 15 paths at the source samples was 0.182 pt, or 0.38 px at 150 DPI. The shaded envelope retains both full boundary grids.",
+    "The abstract, AI disclosure and reproduction appendix serve front-matter and documentation roles. The five substantive sections each have a distinct display."
+  ]
+}

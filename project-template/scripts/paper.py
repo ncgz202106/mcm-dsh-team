@@ -382,6 +382,9 @@ def check(project,pdf,release=False,visual_review=None):
     report['content_status']='ready_for_review' if content['mechanical_passed'] and not data.get('synthetic') else 'draft_or_incomplete'
     report['content_errors']=content['errors']
     if release:
+        spec=importlib.util.spec_from_file_location('mcm_section_visuals',Path(__file__).with_name('section_visuals.py'))
+        section_module=importlib.util.module_from_spec(spec);spec.loader.exec_module(section_module)
+        section_coverage=section_module.audit(project)
         gate=release_gate_report(project,pdf)
         results=check_paper_results(project,data)
         figures=check_paper_figures(project,data)
@@ -391,9 +394,9 @@ def check(project,pdf,release=False,visual_review=None):
             visual['ok']=False
         report['human_release_approved']=gate['ok']
         report['visual_review_status']='passed' if visual['ok'] else 'pending_or_failed'
-        report['release_errors']=gate['errors']+results['errors']+figures['errors']+visual['errors']+report['content_errors']
-        report['release_ready']=report['mechanical_passed'] and gate['ok'] and results['ok'] and figures['ok'] and visual['ok'] and report['content_status']=='ready_for_review'
-        report['release_checks']={'gate':gate,'results':results,'figures':figures,'visual':visual}
+        report['release_errors']=gate['errors']+results['errors']+figures['errors']+visual['errors']+section_coverage['errors']+report['content_errors']
+        report['release_ready']=report['mechanical_passed'] and gate['ok'] and results['ok'] and figures['ok'] and visual['ok'] and section_coverage['ok'] and report['content_status']=='ready_for_review'
+        report['release_checks']={'gate':gate,'results':results,'figures':figures,'visual':visual,'section_visual_coverage':section_coverage}
     return report
 
 def main():

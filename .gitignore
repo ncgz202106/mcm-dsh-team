@@ -16,6 +16,10 @@ Thumbs.db
 !.env.example
 .dsh/
 .codex/
+# Reviewed generated project configuration only; never machine credentials.
+!adapters/codex/generated/project/.codex/
+!adapters/codex/generated/project/.codex/agents/
+!adapters/codex/generated/project/.codex/agents/*.toml
 .codex-runs/
 session.v4.jsonl*
 *.pem

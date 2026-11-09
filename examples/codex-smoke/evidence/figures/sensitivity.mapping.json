@@ -1,0 +1,72 @@
+{
+  "synthetic": true,
+  "figure": "sensitivity",
+  "caption": "Synthetic final-time response across all nine tested parameter combinations. Each cell displays B(30) from RK4 with dt = 0.1, K = 100 and B0 = 12; mortality varies by column and growth by row. The orange outline marks the baseline (r = 0.35, d = 0.08). Values are shown to two decimals and the shared sequential color scale spans 50–95 synthetic biomass units. Cells are discrete tested scenarios; no interpolation, confidence interval or global sensitivity claim is implied.",
+  "contract": {
+    "question": "How does final biomass vary over the tested grid?",
+    "claim": "All nine parameter outcomes remain directly comparable.",
+    "archetype": "quantitative grid",
+    "recipe": "sensitivity"
+  },
+  "data_mapping": {
+    "scenarios.csv": {
+      "population": "all 9 rows",
+      "rows": "r",
+      "columns": "d",
+      "cell_color_and_label": "final_biomass",
+      "label_format": ".2f",
+      "baseline_outline": "r=0.35, d=0.08"
+    }
+  },
+  "data_file_hashes": {
+    "scenarios.csv": "b2f13cb010ee568c97e83d9d2eed6e94fa19bc7da6b1836954a5057bc9f4533c"
+  },
+  "width_mm": 165.1,
+  "height_mm": 142.23999999999998,
+  "minimum_final_font_pt": 12,
+  "png_dpi": 300,
+  "input_style_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+  "no_interpolation": true,
+  "no_filtering": "All rows in each declared panel population retained",
+  "range_checks": [
+    {
+      "color_scale": [
+        50,
+        95
+      ],
+      "data_extent": [
+        55.426867667445016,
+        90.46956675346276
+      ],
+      "all_nine_cells_visible": true,
+      "no_interpolation": true,
+      "passed": true
+    }
+  ],
+  "automated_qa": {
+    "alignment": "NOT APPLICABLE",
+    "text": {
+      "exit_code": 0,
+      "stdout": "{\n  \"pdf\": \"evidence\\\\figures\\\\sensitivity.pdf\",\n  \"auditable\": true,\n  \"minimum_required_pt\": 12.0,\n  \"minimum_found_pt\": 12.0,\n  \"text_run_count\": 23,\n  \"below_minimum_count\": 0,\n  \"below_minimum\": [],\n  \"warnings\": []\n}\n",
+      "stderr": ""
+    },
+    "collision": {
+      "exit_code": 0,
+      "stdout": "Nature Figure Rendered Collision Audit\npdf: evidence\\figures\\sensitivity.pdf\npages: 1\nvisible text boxes: 23\nstroke paths: 6\n\n\nsummary: 0 fail, 0 warn, 0 contained fill overlays, 0 contained image overlays\nverdict: PASS\nnote: contained overlays can be intentional; WARN findings need final-size visual review\n",
+      "stderr": ""
+    }
+  },
+  "author_visual_review": "pending actual PNG inspection",
+  "independent_review": "pending separate reviewer",
+  "exports": {
+    "pdf": {
+      "sha256": "5ed0b37fbc2b704d73d11c194eeb2cbede3ec82d41f81fa103d6f267c2ec4441"
+    },
+    "svg": {
+      "sha256": "503ad8e1ff39dcf43ddd44b8da3cc018f88710968236854ea11ccfa991996787"
+    },
+    "png": {
+      "sha256": "ae4cbb27d5194b6ffaf86086ee517f8b3c8a2020eb5e2ce2b9d4c02b2a833758"
+    }
+  }
+}

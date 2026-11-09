@@ -1,0 +1,164 @@
+{
+  "format_version": 1,
+  "synthetic": true,
+  "manuscript": {
+    "path": "paper.pdf",
+    "sha256": "5e4846bee28a5b8bb080e4e4a86351f1e5b7dbf25579f888375cb8dfb377cfc5"
+  },
+  "manuscript_source": {
+    "path": "paper.tex",
+    "sha256": "1330e4b3548227421dc16a34e01f7f48142b71f48aebac702d7fa01c2c2d5425"
+  },
+  "section_visual_map": {
+    "path": "paper/section-visual-map.json",
+    "sha256": "d7a992b4f26d439cc6af65890372fa8582ee9160f84d6049965296fe400a9172"
+  },
+  "data_manifest": {
+    "path": "evidence/data-manifest.json",
+    "sha256": "c359704f95d1c87e71444ac01dea5f0bea8370d8983269b24da04b423ebf4c21"
+  },
+  "figure_manifest": {
+    "path": "evidence/figures/figure-manifest.json",
+    "sha256": "5ff358ffb90a7fd74c60384340abdbe32336bb867f0581950b10cd28424fd13a"
+  },
+  "compilation": {
+    "engine": "Tectonic 0.17.0+20260731 (XeTeX-based Codex bundled engine)",
+    "command": "tectonic -X compile --keep-logs --keep-intermediates --untrusted paper.tex",
+    "return_code": 0,
+    "pages": 4,
+    "page_size": "A4",
+    "tex_log_checks": "No overfull or underfull boxes, undefined references, missing characters or LaTeX Warning entries",
+    "runtime_note": "Initial font configuration and font-request diagnostics appeared; PDF generation completed and rendered math, text and plots were inspected."
+  },
+  "unit_tests": {
+    "command": "python -B -m unittest discover -s examples/codex-smoke -v",
+    "passed": 27
+  },
+  "clean_reproduction": {
+    "fresh_output_directory": true,
+    "readme_build_completed": true,
+    "generated_numbers_sha256_matches": true,
+    "matching_page_render_sha256": 4
+  },
+  "numerical_checks": {
+    "passed": 10,
+    "all_data_hashes_verified": true
+  },
+  "section_visual_coverage": {
+    "ok": true,
+    "errors": [],
+    "checked_sections": [
+      "sec:problem",
+      "sec:assumptions",
+      "sec:model",
+      "sec:sensitivity",
+      "sec:evaluation"
+    ],
+    "status": "checked",
+    "aesthetic_status": "not_assessed",
+    "limitations": [
+      "Declared coverage only: a non-author must check omitted subsections and whether visuals support the actual conclusions.",
+      "Source anchors and file hashes do not prove final-page legibility or aesthetic quality."
+    ]
+  },
+  "figure_exports": {
+    "trajectory": {
+      "width_mm": 165.1,
+      "png_dpi": [
+        300,
+        300
+      ],
+      "minimum_pdf_text_pt": 12.0,
+      "collision_verdict": "PASS",
+      "alignment_verdict": "PASS"
+    },
+    "sensitivity": {
+      "width_mm": 165.1,
+      "png_dpi": [
+        300,
+        300
+      ],
+      "minimum_pdf_text_pt": 12.0,
+      "collision_verdict": "PASS",
+      "alignment_verdict": "NOT APPLICABLE"
+    },
+    "envelope": {
+      "width_mm": 165.1,
+      "png_dpi": [
+        300,
+        300
+      ],
+      "minimum_pdf_text_pt": 12.0,
+      "collision_verdict": "PASS",
+      "alignment_verdict": "NOT APPLICABLE"
+    },
+    "workflow": {
+      "width_mm": 165.1,
+      "png_dpi": [
+        300,
+        300
+      ],
+      "minimum_pdf_text_pt": 12.0,
+      "collision_verdict": "PASS",
+      "alignment_verdict": "NOT APPLICABLE"
+    }
+  },
+  "static_plotting_source_preflight": {
+    "tool": "nature-figure/scripts/validate_figure.py",
+    "counts": {
+      "pass": 16,
+      "warn": 2,
+      "fail": 3
+    },
+    "disposition": "The source parser does not resolve the JSON style or export loop. Font family, PDF/SVG/PNG files, 300 DPI and the 165.1 mm canvas were verified in actual exports. The five parser findings remain recorded here."
+  },
+  "page_render": {
+    "command": "pdftoppm -r 150 -png paper.pdf page",
+    "return_code": 0,
+    "pages": [
+      {
+        "page": 1,
+        "page_render_sha256": "a959aba8eaafb582ce2ae8a7a75dd3bf7aabcb704ca376bc4604dc78c56f245e",
+        "minimum_embedded_figure_text_pt": 12.0
+      },
+      {
+        "page": 2,
+        "page_render_sha256": "ecc3e57c96d71f8281e52b47c068265e8a809148737d6471d86ba8d4e29a203b",
+        "minimum_embedded_figure_text_pt": 12.0
+      },
+      {
+        "page": 3,
+        "page_render_sha256": "9ab2a76383c33bc22a015557218359d157c8e84e077e7f0587b6af93cf423d6d",
+        "minimum_embedded_figure_text_pt": 12.0
+      },
+      {
+        "page": 4,
+        "page_render_sha256": "8802860115f5451a81d9351214468d7401e699d17e9d91289ba6c24e4c53e2d3",
+        "minimum_embedded_figure_text_pt": 12.0
+      }
+    ]
+  },
+  "author_visual_review": {
+    "status": "Reviewed final page 1 at 150 DPI. Final pages 2–4 are byte-identical renders of the inspected prior pages.",
+    "pages": [
+      "P1: complete workflow outlines, distinguishable arrows, legible table and correct references.",
+      "P2: analytic equations, aligned plots, signed error scale and caption rendered.",
+      "P3: all nine heatmap labels readable, baseline outlined, units and color scale visible.",
+      "P4: scenario curves, envelope, AI disclosure and reproduction appendix visible."
+    ]
+  },
+  "independent_review": "Prior artifact reviewed with a Figure 1 caption correction. Corrected artifact sent for delta review.",
+  "human_approval": null,
+  "caption_correction": {
+    "reason": "Clarify the relationship between frozen CSVs, manuscript numbers and manifest hashes following independent review.",
+    "prior_manuscript_sha256": "c14ae0a95bc7d83937e66f10fc5c1816afa7e1d40d0c1eadd8667d14ccd019df",
+    "changed_rendered_pages": [
+      1
+    ],
+    "identical_rendered_pages": [
+      2,
+      3,
+      4
+    ]
+  }
+}

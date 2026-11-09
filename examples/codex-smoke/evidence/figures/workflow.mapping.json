@@ -1,0 +1,66 @@
+{
+  "synthetic": true,
+  "figure": "workflow",
+  "caption": "Synthetic experiment and evidence flow. The model contract defines density-limited growth and constant per-capita loss. RK4 trajectories are evaluated against an analytic reference, including the zero-biomass and equal-rate cases. The nine scenarios use dt = 0.1. The baseline refinement uses dt = 0.2, 0.1 and 0.05. Hashed CSVs supply the numeric inputs for the figures and manuscript.",
+  "contract": {
+    "question": "How do model inputs become traceable evidence?",
+    "claim": "The workflow separates computation, frozen tables and presentation.",
+    "archetype": "schematic-led composite",
+    "schematic_not_quantitative_evidence": true
+  },
+  "data_mapping": {
+    "scenarios.csv": {
+      "population": "all 9 rows",
+      "schematic_inputs": [
+        "B0",
+        "K",
+        "r",
+        "d",
+        "horizon",
+        "dt"
+      ]
+    },
+    "convergence.csv": {
+      "population": "all 3 rows",
+      "step_sizes": "dt"
+    }
+  },
+  "data_file_hashes": {
+    "scenarios.csv": "b2f13cb010ee568c97e83d9d2eed6e94fa19bc7da6b1836954a5057bc9f4533c",
+    "convergence.csv": "4df99c8213e11a135bf6f8a1a634f0ed438cea33fdee2011b1933592206b17d9"
+  },
+  "width_mm": 165.1,
+  "height_mm": 69.85,
+  "minimum_final_font_pt": 12,
+  "png_dpi": 300,
+  "input_style_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+  "no_interpolation": true,
+  "no_filtering": "All rows in each declared panel population retained",
+  "range_checks": [],
+  "automated_qa": {
+    "alignment": "NOT APPLICABLE",
+    "text": {
+      "exit_code": 0,
+      "stdout": "{\n  \"pdf\": \"evidence\\\\figures\\\\workflow.pdf\",\n  \"auditable\": true,\n  \"minimum_required_pt\": 12.0,\n  \"minimum_found_pt\": 12.0,\n  \"text_run_count\": 25,\n  \"below_minimum_count\": 0,\n  \"below_minimum\": [],\n  \"warnings\": []\n}\n",
+      "stderr": ""
+    },
+    "collision": {
+      "exit_code": 0,
+      "stdout": "Nature Figure Rendered Collision Audit\npdf: evidence\\figures\\workflow.pdf\npages: 1\nvisible text boxes: 18\nstroke paths: 16\n\n\nsummary: 0 fail, 0 warn, 18 contained fill overlays, 0 contained image overlays\nverdict: PASS\nnote: contained overlays can be intentional; WARN findings need final-size visual review\n",
+      "stderr": ""
+    }
+  },
+  "author_visual_review": "pending actual PNG inspection",
+  "independent_review": "pending separate reviewer",
+  "exports": {
+    "pdf": {
+      "sha256": "d89f019cacd142d42e9374c4b5359dc1bfce06ed34f171bed8221718cc461aed"
+    },
+    "svg": {
+      "sha256": "f08236e190f339f7bd830656cb4a3dfe6307fe17c075110de11da3b8636b7fe7"
+    },
+    "png": {
+      "sha256": "c3b0d4e8454d0fe3987bde8869df8fbd39b25864120e005007954572689bcd23"
+    }
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "format_version": 1,
+  "synthetic": true,
+  "sections": [
+    {
+      "section_id": "sec:problem",
+      "title": "Problem Restatement and Analysis",
+      "conclusion": "The rehearsal traces the model contract through numerical verification and frozen results to the published displays.",
+      "visual_required": true,
+      "reason_without_visual": null,
+      "section_source": {
+        "path": "paper.tex",
+        "sha256": "1330e4b3548227421dc16a34e01f7f48142b71f48aebac702d7fa01c2c2d5425"
+      },
+      "page": 1,
+      "visual_refs": [
+        {
+          "kind": "schematic",
+          "label": "fig:workflow",
+          "path": "evidence/figures/workflow.pdf",
+          "sha256": "d89f019cacd142d42e9374c4b5359dc1bfce06ed34f171bed8221718cc461aed",
+          "caption": "Evidence flow for the synthetic rehearsal. CSVs supply plots and paper numbers. The data manifest records their SHA-256 hashes.",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "section_id": "sec:assumptions",
+      "title": "Assumptions and Notation",
+      "conclusion": "The synthetic baseline fixes the initial biomass, growth and loss rates, capacity, horizon and time step.",
+      "visual_required": true,
+      "reason_without_visual": null,
+      "section_source": {
+        "path": "paper.tex",
+        "sha256": "1330e4b3548227421dc16a34e01f7f48142b71f48aebac702d7fa01c2c2d5425"
+      },
+      "page": 1,
+      "visual_refs": [
+        {
+          "kind": "table",
+          "label": "tab:assumptions",
+          "path": "paper.tex",
+          "sha256": "1330e4b3548227421dc16a34e01f7f48142b71f48aebac702d7fa01c2c2d5425",
+          "caption": "Baseline quantities and units from the synthetic model contract.",
+          "page": 1
+        }
+      ]
+    },
+    {
+      "section_id": "sec:model",
+      "title": "Model Construction and Solution",
+      "conclusion": "RK4 matches the baseline analytic trajectory at the display scale and has maximum sampled absolute error 2.99 × 10⁻⁸ biomass units at h = 0.1.",
+      "visual_required": true,
+      "reason_without_visual": null,
+      "section_source": {
+        "path": "paper.tex",
+        "sha256": "1330e4b3548227421dc16a34e01f7f48142b71f48aebac702d7fa01c2c2d5425"
+      },
+      "page": 2,
+      "visual_refs": [
+        {
+          "kind": "figure",
+          "label": "fig:trajectory",
+          "path": "evidence/figures/trajectory.pdf",
+          "sha256": "b010be2fc1fcacf506ae2ccdb61e5b3664e4a850c974ed385735d504033ca3f4",
+          "caption": "Baseline numerical verification on the 301-point grid, with a trajectory comparison above and a signed-error panel below.",
+          "page": 2
+        }
+      ]
+    },
+    {
+      "section_id": "sec:sensitivity",
+      "title": "Sensitivity Analysis",
+      "conclusion": "Terminal biomass increases with growth and decreases with loss over the nine tested pairs, spanning 55.426868 to 90.469567 biomass units.",
+      "visual_required": true,
+      "reason_without_visual": null,
+      "section_source": {
+        "path": "paper.tex",
+        "sha256": "1330e4b3548227421dc16a34e01f7f48142b71f48aebac702d7fa01c2c2d5425"
+      },
+      "page": 3,
+      "visual_refs": [
+        {
+          "kind": "figure",
+          "label": "fig:sensitivity",
+          "path": "evidence/figures/sensitivity.pdf",
+          "sha256": "5ed0b37fbc2b704d73d11c194eeb2cbede3ec82d41f81fa103d6f267c2ec4441",
+          "caption": "Terminal biomass at T = 30 across the nine tested parameter combinations, with individual values and the outlined baseline.",
+          "page": 3
+        }
+      ]
+    },
+    {
+      "section_id": "sec:evaluation",
+      "title": "Model Evaluation and Recommendations",
+      "conclusion": "The pointwise minimum and maximum describe the spread across the nine fixed trajectories on the common time grid.",
+      "visual_required": true,
+      "reason_without_visual": null,
+      "section_source": {
+        "path": "paper.tex",
+        "sha256": "1330e4b3548227421dc16a34e01f7f48142b71f48aebac702d7fa01c2c2d5425"
+      },
+      "page": 4,
+      "visual_refs": [
+        {
+          "kind": "figure",
+          "label": "fig:envelope",
+          "path": "evidence/figures/envelope.pdf",
+          "sha256": "571a51bf06b058ddb229381bab9a1ee19e2d85a2b07d00e690422f565e6fa4c0",
+          "caption": "Baseline, individual scenarios and the pointwise extrema of the nine synthetic trajectories on the 301-point grid.",
+          "page": 4
+        }
+      ]
+    }
+  ]
+}

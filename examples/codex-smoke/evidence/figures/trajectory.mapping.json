@@ -1,0 +1,148 @@
+{
+  "synthetic": true,
+  "figure": "trajectory",
+  "caption": "Synthetic baseline trajectory and numerical accuracy. (a) All 301 RK4 values (dt = 0.1) and their analytic references over 0–30 arbitrary time units are shown. The curves overlap at the displayed biomass scale. (b) Signed RK4 minus analytic error at the same points, scaled by 10⁻⁸ for readability. Parameters: r = 0.35, K = 100, d = 0.08, B0 = 12. These deterministic synthetic results have no observational or ecological calibration.",
+  "contract": {
+    "question": "Does RK4 reproduce the analytic synthetic baseline?",
+    "claim": "Baseline response is resolved and default-grid numerical error is small.",
+    "archetype": "quantitative grid",
+    "recipe": "prediction",
+    "panel_roles": {
+      "a": "response",
+      "b": "accuracy beyond apparent curve overlap"
+    }
+  },
+  "data_mapping": {
+    "trajectories.csv": {
+      "population": "run_id == baseline; all 301 rows",
+      "a": [
+        "t",
+        "biomass",
+        "analytic_biomass"
+      ],
+      "b": [
+        "t",
+        "signed_error"
+      ],
+      "transform": "b y = signed_error / 1e-8; no other transformations"
+    }
+  },
+  "data_file_hashes": {
+    "trajectories.csv": "5a999647a2dcfdc15a3026dc0f4305faa0994f1e8aebf3939961d25070592fcb"
+  },
+  "width_mm": 165.1,
+  "height_mm": 137.16,
+  "minimum_final_font_pt": 12,
+  "png_dpi": 300,
+  "input_style_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+  "no_interpolation": true,
+  "no_filtering": "All rows in each declared panel population retained",
+  "range_checks": [
+    {
+      "points": 301,
+      "defined_points": 301,
+      "undefined_points": 0,
+      "intervals_checked": false,
+      "axis_limits": [
+        0.0,
+        86.0
+      ],
+      "data_extent": [
+        12.0,
+        77.01595149585181
+      ],
+      "passed": true,
+      "visual_review": "still_required"
+    },
+    {
+      "points": 301,
+      "defined_points": 301,
+      "undefined_points": 0,
+      "intervals_checked": false,
+      "axis_limits": [
+        0.0,
+        86.0
+      ],
+      "data_extent": [
+        12.0,
+        77.01595149851785
+      ],
+      "passed": true,
+      "visual_review": "still_required"
+    },
+    {
+      "points": 301,
+      "defined_points": 301,
+      "undefined_points": 0,
+      "intervals_checked": false,
+      "axis_limits": [
+        -0.4,
+        30.4
+      ],
+      "data_extent": [
+        0.0,
+        30.0
+      ],
+      "passed": true,
+      "visual_review": "still_required"
+    },
+    {
+      "points": 301,
+      "defined_points": 301,
+      "undefined_points": 0,
+      "intervals_checked": false,
+      "axis_limits": [
+        -3.4,
+        0.4
+      ],
+      "data_extent": [
+        -2.9889868358168314,
+        0.0
+      ],
+      "passed": true,
+      "visual_review": "still_required"
+    },
+    {
+      "points": 301,
+      "defined_points": 301,
+      "undefined_points": 0,
+      "intervals_checked": false,
+      "axis_limits": [
+        -0.4,
+        30.4
+      ],
+      "data_extent": [
+        0.0,
+        30.0
+      ],
+      "passed": true,
+      "visual_review": "still_required"
+    }
+  ],
+  "automated_qa": {
+    "alignment": "PASS",
+    "text": {
+      "exit_code": 0,
+      "stdout": "{\n  \"pdf\": \"evidence\\\\figures\\\\trajectory.pdf\",\n  \"auditable\": true,\n  \"minimum_required_pt\": 12.0,\n  \"minimum_found_pt\": 12.0,\n  \"text_run_count\": 31,\n  \"below_minimum_count\": 0,\n  \"below_minimum\": [],\n  \"warnings\": []\n}\n",
+      "stderr": ""
+    },
+    "collision": {
+      "exit_code": 0,
+      "stdout": "Nature Figure Rendered Collision Audit\npdf: evidence\\figures\\trajectory.pdf\npages: 1\nvisible text boxes: 24\nstroke paths: 42\n\n\nsummary: 0 fail, 0 warn, 0 contained fill overlays, 0 contained image overlays\nverdict: PASS\nnote: contained overlays can be intentional; WARN findings need final-size visual review\n",
+      "stderr": ""
+    }
+  },
+  "author_visual_review": "pending actual PNG inspection",
+  "independent_review": "pending separate reviewer",
+  "exports": {
+    "pdf": {
+      "sha256": "b010be2fc1fcacf506ae2ccdb61e5b3664e4a850c974ed385735d504033ca3f4"
+    },
+    "svg": {
+      "sha256": "992948febdcc8034b45aa3da548b9987659372bf619da96ea49b063889334bb9"
+    },
+    "png": {
+      "sha256": "5efaaf4af4c1e019124a61fd278f0b068391976d82e3442529e9887e823ad4fe"
+    }
+  }
+}

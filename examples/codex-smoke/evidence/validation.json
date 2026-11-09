@@ -1,0 +1,55 @@
+{
+  "format_version": 1,
+  "synthetic": true,
+  "checks": {
+    "initial_condition": true,
+    "finite_nonnegative": true,
+    "exact_horizon": true,
+    "equal_rates_limit": true,
+    "zero_initial_remains_zero": true,
+    "default_error_below_threshold": true,
+    "all_scenario_errors_below_threshold": true,
+    "dt_refinement": true,
+    "fourth_order_ratio": true,
+    "nine_fixed_scenarios": true
+  },
+  "passed": true,
+  "acceptance_absolute_error": 0.001,
+  "convergence": [
+    {
+      "synthetic": "true",
+      "dt": 0.2,
+      "row_count": 151,
+      "max_absolute_error": 4.773999506824111e-07,
+      "final_biomass": 77.01595145506724,
+      "final_time": 30.0
+    },
+    {
+      "synthetic": "true",
+      "dt": 0.1,
+      "row_count": 301,
+      "max_absolute_error": 2.9889868358168314e-08,
+      "final_biomass": 77.01595149585181,
+      "final_time": 30.0
+    },
+    {
+      "synthetic": "true",
+      "dt": 0.05,
+      "row_count": 601,
+      "max_absolute_error": 1.870269272785663e-09,
+      "final_biomass": 77.01595149835275,
+      "final_time": 30.0
+    }
+  ],
+  "step_halving_error_ratios": [
+    15.971965649422042,
+    15.98158553588864
+  ],
+  "boundary_checks": {
+    "equal_rates_max_absolute_error": 1.6893153542696382e-11,
+    "zero_initial_rows": 301
+  },
+  "scenario_count": 9,
+  "trajectory_row_count": 3762,
+  "independent_review": "pending; these are author-run computational checks"
+}

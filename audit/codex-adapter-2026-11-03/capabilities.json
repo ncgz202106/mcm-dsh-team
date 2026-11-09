@@ -1,0 +1,14 @@
+{
+  "format_version": 1,
+  "scope": "Current visible Codex collaboration tool surface; not all Codex clients",
+  "observed_cli_version": "0.166.0-alpha.5.1",
+  "generic_spawn_and_reply": {"status": "observed", "evidence": "A separately spawned read-only probe returned file hashes and its canonical task identity."},
+  "skill_file_read": {"status": "observed", "evidence": "nature-figure/SKILL.md and references/mcm-visual-recipes.md read by probe; execution not claimed."},
+  "native_custom_role_binding": {"status": "unverified", "reason": "Current spawn schema exposes task_name/message/fork_turns/model/reasoning_effort, not a native role selector; list only exposes names and status."},
+  "hook_runtime_enforcement": {"status": "unverified", "reason": "No host callback or blocked-call evidence has been collected in this chat."},
+  "context_isolation": {"status": "partially_observed", "reason": "fork_turns=none requested; probe did not observe parent draft history. Runtime fork mode not independently exposed."},
+  "role_tool_isolation": {"status": "unverified", "reason": "Injected tool schema is not evidence of a role-specific sandbox."},
+  "strict_native_acceptance": false,
+  "scientific_or_human_approval": false,
+  "sources": ["https://learn.chatgpt.com/docs/agent-configuration/subagents", "https://learn.chatgpt.com/docs/hooks"]
+}
