@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "applicable": true,
+  "auditable": true,
+  "verdict": "PASS",
+  "backend": "python-matplotlib",
+  "summary": {
+    "fail": 0,
+    "warn": 0,
+    "comparisons": 1,
+    "exemptions": 1
+  },
+  "tolerances": {
+    "alignment_pt": 1.5,
+    "gutter_pt": 1.5
+  },
+  "layout": {
+    "schema_version": 1,
+    "backend": "python-matplotlib",
+    "figure": {
+      "width_pt": 468.0,
+      "height_pt": 648.0
+    },
+    "panels": [
+      {
+        "id": "a",
+        "bbox_pt": [
+          78.66,
+          336.96000000000004,
+          337.85999999999996,
+          596.1600000000001
+        ]
+      },
+      {
+        "id": "b",
+        "bbox_pt": [
+          60.84,
+          105.65999999999998,
+          205.92,
+          250.73999999999998
+        ]
+      },
+      {
+        "id": "c",
+        "bbox_pt": [
+          285.48,
+          105.66000000000001,
+          430.55999999999995,
+          250.73999999999998
+        ]
+      }
+    ],
+    "row_groups": [
+      {
+        "id": "row-1",
+        "panels": [
+          "b",
+          "c"
+        ]
+      }
+    ],
+    "column_groups": [],
+    "boundary_groups": [],
+    "exemptions": [
+      {
+        "panels": [
+          "a"
+        ],
+        "checks": [
+          "all"
+        ],
+        "reason": "A projected 3D hero is not geometrically comparable to orthographic 2D references."
+      }
+    ]
+  },
+  "findings": []
+}

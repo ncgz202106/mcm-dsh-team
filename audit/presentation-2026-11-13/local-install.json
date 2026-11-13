@@ -1,0 +1,36 @@
+{
+  "format_version": 1,
+  "checked_at": "2026-11-13T15:14:47.206944+00:00",
+  "codex_skill": {
+    "same_payload": true,
+    "files": 18,
+    "file_sha256": {
+      "SKILL.md": "abcf5de6df0fd65ffefa67d682e37f0176f9ff4c8b08830ae9f42b2bf6b5edba",
+      "references/start.md": "4aed11ee01aa0a6f749e8b3b41ee075bd0dff4970b5ffa32d3675338e51ede67",
+      "agents/openai.yaml": "0fddf0e689961a31c89fbc750908b17c46db2e83c79dfb8ae01015dd4bc37436",
+      "references/o-award-framework.md": "01b6dad92554a2e7863d6b38eeda555109b2f20d18fb8cf3f514f14de05f15e6",
+      "references/chart-reference.md": "cdc6be400ff624905dfc704a75cb5a942d3ca7b9334fb98006bb6ffc550526cb",
+      "references/presentation-lessons.md": "b7e4855e8d48dbe62a8dafd5a09ca6a9204a2544bd9b38273769fbc85d6922dc",
+      "references/chart-gallery.html": "caf36045c4c6ee684afc94baa80bfe6e986973020773572aed2e42a537fb4251",
+      "references/skills/nature-figure/references/mcm-adaptation.md": "21df9306cdf47412702fd994123971cf1dd369b2c01d08355036d82a3d42ff87",
+      "references/skills/nature-figure/references/mcm-visual-recipes.md": "0ed164c8d5fcc6bef8e2ffe2862e2026eb9e01d1fdcd27b2aab24fc1c76bf30f",
+      "references/skills/nature-figure/scripts/mcm-gallery.py": "de0bb91a172ad4ed6111b9e28893f0bf695ba3a866c985b5fc4936c137a1c35f",
+      "references/skills/nature-figure/scripts/mcm-advanced.py": "1b078bbb9ed5d9a317d299ebfd75ec508e158e2d000fe760ae5ada2cbd18e358",
+      "references/skills/nature-figure/assets/mcm-figure-style.json": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+      "references/skills/nature-writing/references/mcm-adaptation.md": "505c3f67a7d537d47688aac2563398ad45c6bc743b5331ab180ecaacc39e734a",
+      "references/skills/nature-polishing/references/mcm-adaptation.md": "9da35a952a4010c01250dceaadefbeef3c5d375bae994744ddab9f74b1296e7e",
+      "references/skills/nature-reviewer/references/mcm-adaptation.md": "c8324016149830781e6b8b7c45da7c5f6454b3c311e9ef21f71fd7f9d1b3b0f7",
+      "references/skills/nature-statistics/references/mcm-adaptation.md": "ec67c09bf4805a78200e12c31b7b6795bb36b2155d1fae396d4145ec195dd8d0",
+      "references/readiness.md": "5af0f5c8f304d068f4a69705d91368cc026fd9d752b91a50febf5aba845b642d",
+      "references/source-notice.md": "daa4a9f5cd69603c010f0012b9edf4809229feafe01ac48aff0c7f6e97e0567c"
+    }
+  },
+  "specialist_overlays": {
+    "changed_files_after_apply": 0,
+    "applied_with_backup": true
+  },
+  "backups": "Workspace-private presentation-20261113/install-backups; no backup bytes published",
+  "native_runtime_verified": false,
+  "dsh_started": false,
+  "existing_projects_overwritten": false
+}

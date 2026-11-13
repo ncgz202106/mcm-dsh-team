@@ -19,7 +19,9 @@
 | 模型各问如何相接 | 分层机制链＋命名接口箭头 | 沿用方法图专项Skill | 箭头应有真实传递变量/约束，机制示意不充当实验验证 |
 | 网络关系如何变化 | 固定节点位置的符号子图＋完整邻接矩阵 | 按需定制 | 阈值公开，原网络保留；正负、方向与强度分别编码，不堆毛线球 |
 | 资源如何分配 | 守恒流图＋总量/单位 | 按需定制 | 每个节点入流=出流+显式损耗/存量变化；无真实流量不用Sankey |
-| 多维设计是否有折衷 | 可比指标点图/热图，必要时平行坐标 | 按需定制 | 雷达面积会受轴顺序和归一化影响；真实三维几何才考虑3D |
+| 多维设计是否有折衷 | 可比指标点图/热图，必要时平行坐标 | 按需定制 | 雷达面积受轴顺序和归一化影响；有真实第三变量时评估3D，并提供二维读数 |
+| 两个连续参数共同影响什么 | 三维响应面＋等高线/切片 | `mcm-advanced.py surface` | 标出实际采样网格与单位；只插值已说明的范围，不制造未计算极值 |
+| 空间路径如何穿过边界 | 三维轨迹＋XY/XZ投影 | `mcm-advanced.py trajectory` | 三轴有物理意义；起终点、方向、共同范围与遮挡都核查 |
 
 ## 将审美变成可执行选择
 
@@ -54,6 +56,8 @@
 
 ## O 奖案例只用于设计复盘
 
+新项目的`resources/mcm-skills/presentation-lessons.md`记录本轮实际查看的23页及可迁移做法；方法/框架图从其中选相关案例，明确每条箭头传递的状态、变量或约束，并让图与章节和公式对应。它是选择性读页记录，不证明范文中的算法、参数或引用已独立验证。
+
 需要以优秀论文作为设计简报时，读取项目 `resources/mcm-skills/o-award-framework.md` 第四节。全局入口的 `references/chart-gallery.html` 与 `references/chart-reference.md` 提供图表索引和页码，按当前论证任务筛选最相近的 1–2 个案例。框架图、流程图和算法流程优先看 `chart-reference.md` 的对应类别，提取真实任务接口、章节映射、判断分支、循环回边与状态转移。按项目结果重新组织比较对象、共同参照、面板职责和视觉层次。遇到拥挤曲线、过密网络或缺少 `y=x` 的验证散点，先改善比较与验证口径。
 
 ## 可运行样例与复用
@@ -63,9 +67,13 @@
 ```text
 python scripts/mcm-gallery.py --recipe paired --output NEW_DIRECTORY --style PROJECT/config/figure-style.json
 python scripts/mcm-gallery.py --recipe all --output ANOTHER_NEW_DIRECTORY
+python scripts/mcm-advanced.py --recipe surface --output NEW_SURFACE --style PROJECT/config/figure-style.json
+python scripts/mcm-advanced.py --recipe trajectory --output NEW_TRAJECTORY --style PROJECT/config/figure-style.json
 ```
 
 缺少项目配置时使用`assets/mcm-figure-style.json`，其源是预设的`bundle/src/figure-style.json`，构建器同步，不能另维护一份近似色。用`--qa-scripts PATH_TO_NATURE_FIGURE/scripts`可运行现有对齐和碰撞检查；已安装Skill时会自动发现相邻脚本。检测缺席明确记为未执行。
+
+用户偏好立体表达时，真实空间轨迹、两独立参数的响应面、三个有意义变量的结构散点主动提出3D候选；能否看清主结论决定取舍。`mcm-advanced.py`另支持`--data FROZEN.csv`：曲面列为`x_m,y_m,response_kPa`，轨迹列为`time_s,x_m,y_m,z_m`，真实任务应按实际变量改写命名与图注。没有第三变量的分类柱不加装饰厚度。二维投影、遮挡检查和轴域检查不因使用3D省略。
 
 输出PDF、SVG、300dpiPNG、合成数组JSON、英文图注、面板映射、导出尺寸与检查记录。脚本拒绝覆盖已有目录。复用时只选一个配方，把绘图函数复制到任务独占目录，**从冻结结果加载真实数据并改写数据契约和图注**；不能仅去掉Synthetic字样就把示例当结果。若真实数据尚未具备所需区间/指标，先交建模、编程和验证角色，不让绘图角色补算结论。
 

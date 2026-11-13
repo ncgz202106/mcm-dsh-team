@@ -43,17 +43,17 @@
   "figure_style_source_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
   "prompt_sha256": {
     "prompts/shared.md": "62a04dd78324dd61a66cd784114399adbf9d390d31d99602697170db592e81c2",
-    "prompts/mcm-captain.md": "f2e326abc5bd16044a66b9c71220f669d3caf3de8b3715c2fdf17cd8857c5ad6",
+    "prompts/mcm-captain.md": "0d92623f90fdc19577d6f8b4f94511ca1a8f37f9ebf90295c14e73c8af8a0b66",
     "prompts/mcm-model-lead.md": "a1cd4c6f6aeb43971e42c10e9ddc0d6c7fdaf9aa070e182c0cd5236ed676c64d",
     "prompts/mcm-modeler.md": "b415575b8ca7aac9e9ce8078b010605439679f4299091dd1815d073ad1d49ad3",
     "prompts/mcm-evidence.md": "1c35df16f89af6aab452c14686693f40385655dbca5765d3b90f6fbdfed85c4b",
     "prompts/mcm-programmer.md": "3cedc36029994ee546c29da2e37c89d6c4914098c1fa056de55f0e8ae6a51933",
     "prompts/mcm-code-lead.md": "f6be118dde9cfb264dc3700313c9017bff3684a796c95c800ed2a02b84dcebb1",
     "prompts/mcm-verifier.md": "1d7d5d1489c490fae2c2f1093fadfa520f29d914cb984fbd4357067be42a10f8",
-    "prompts/mcm-paper-lead.md": "eed283989207801c321b38730d9b254343e72557db4f99767d60254923f9d4fb",
+    "prompts/mcm-paper-lead.md": "15dd165c45a9d9f40c42516a7add70b79ba5cd40beea235bbc6cf194f550f89f",
     "prompts/mcm-writer.md": "cbf2cbe7dce1e2d20c99c04f1c05e15ac5829574ef847c5b7f1f348670446996",
-    "prompts/mcm-figure.md": "d99513c098ef208c53fe7bec948f49af4d9c4b5c660382d02d40e30ccd1684ad",
-    "prompts/mcm-typesetter.md": "41e1075fb63665610bfa2bc75017f05a94da1d5536e58c6553e97e3287d28e9b",
-    "prompts/mcm-reviewer.md": "b1b5239221cd168914b962543a6b6f81f7ddd3b3402c8af2445509cafd09e55b"
+    "prompts/mcm-figure.md": "27511ace269920b82263743f029c2d129ff7d83836944565a2aab7339921b6a8",
+    "prompts/mcm-typesetter.md": "8287c9a72c709a58f937f766d513e4f30878893f38215e47f8adb67f7f175c56",
+    "prompts/mcm-reviewer.md": "e0597ff3e1e7872036becbe537f0f7e363aa18c7223d329b8e0d69544fdebbc1"
   }
 }

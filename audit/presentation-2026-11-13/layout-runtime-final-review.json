@@ -1,0 +1,176 @@
+{
+  "format_version": 1,
+  "reviewed_at": "2026-11-13T15:11:17.421359+00:00",
+  "review_kind": "Independent actual visual and source-integrity review of the final four-page synthetic layout specimen",
+  "runtime_label": "layout-finish-07 / candidate-v002",
+  "status": "accepted_for_synthetic_layout_specimen_only",
+  "independent_visual_passed_for_stated_scope": true,
+  "mechanical_passed_as_recorded": true,
+  "pdf_pages": 4,
+  "pdf_sha256": "ab04ad7c2c2f9e2f2b6320f78211f9b5b8c1debbcc52de14bec1b5a078eb0dfb",
+  "matches_build_pdf_sha256": true,
+  "pages_actually_viewed": [
+    {
+      "pdf_page": 1,
+      "png_sha256": "a808d84629f2ef2f20b9a422186108e72885a8e89b4ebaafb611b4c0b297959c",
+      "matches_build_manifest": true,
+      "size_px": [
+        910,
+        1287
+      ],
+      "actual_visual_inspection": true,
+      "verdict": "accepted_for_synthetic_specimen",
+      "observation": "Synthetic Rehearsal Summary Sheet is explicit about its scope and synthetic origin. Dedicated summary-page whitespace is intentional, not an internal layout defect."
+    },
+    {
+      "pdf_page": 2,
+      "png_sha256": "e628ee227bb891ffd83e86f0177ec38371e1460b8a18a769c9aaa54d4b2a4306",
+      "matches_build_manifest": true,
+      "size_px": [
+        910,
+        1287
+      ],
+      "actual_visual_inspection": true,
+      "verdict": "accepted_for_synthetic_specimen",
+      "observation": "Compact specimen body explicitly says it is not a complete modeling paper. Figure 1 Input (1) and Response (1) labels are fully readable; caption states dimensionless units. Source label clipping is corrected. Explanatory sections, references and AI-use note are readable with no old large internal gap or obvious overlap."
+    },
+    {
+      "pdf_page": 3,
+      "png_sha256": "528655c1531754ad15d40e0cfe8936ad6288c71f9c75df89f0a7082927ac8afe",
+      "matches_build_manifest": true,
+      "size_px": [
+        910,
+        1287
+      ],
+      "actual_visual_inspection": true,
+      "verdict": "accepted_for_synthetic_specimen",
+      "observation": "The full-size response surface and same-grid contour companion remain readable: x/y meters, response/color kPa, sample points, Synthetic footer and caption are intact; no apparent clipping or overlap."
+    },
+    {
+      "pdf_page": 4,
+      "png_sha256": "1286ee5fb4edf72e18fdd62298675c6f0e509824f2a1181966db7e114e78e41f",
+      "matches_build_manifest": true,
+      "size_px": [
+        910,
+        1287
+      ],
+      "actual_visual_inspection": true,
+      "verdict": "accepted_for_synthetic_specimen",
+      "observation": "The full-size spatial trajectory retains meter axes, Time (s) colorbar, square/triangle endpoint legend, XY/XZ readouts, Synthetic footer and caption; no apparent clipping or overlap."
+    }
+  ],
+  "preserved_failed_review": {
+    "path": "audit/presentation-2026-11-13/layout-runtime-review.json",
+    "sha256": "323c2f73378e902b628405c71203f91cf69e110d0bc7c8d622398b128dede57a",
+    "unchanged": true,
+    "status_retained": "requires_visual_rework"
+  },
+  "input_integrity": {
+    "first_candidate_equals_new_run_baseline": true,
+    "original_current_baseline_files_unchanged": true,
+    "changed_baseline_paths": [
+      "paper/specimen-body.tex"
+    ],
+    "exact_single_width_replacement_only": true,
+    "diff": [
+      "--- candidate-v001/paper/specimen-body.tex",
+      "+++ candidate-v002/paper/specimen-body.tex",
+      "@@ -13,7 +13,7 @@",
+      " column to exercise a bounded repair. The plotted values must remain unchanged.",
+      " \\begin{figure}[htbp]",
+      " \\centering",
+      "-\\includegraphics[width=1.2\\linewidth]{width-demo.pdf}",
+      "+\\includegraphics[width=\\linewidth]{width-demo.pdf}",
+      " \\caption{Fixed synthetic curves. The axes use dimensionless units.}",
+      " \\label{fig:width}",
+      " \\end{figure}"
+    ],
+    "scientific_numbers_formulas_symbols_and_other_text_unchanged_during_repair": true
+  },
+  "figure_input_checks": [
+    {
+      "path": "figures/width-demo.pdf",
+      "baseline_sha256": "eb5f97632a91ff64ea20d3ca633bb4c22117872692ccb4a6847c5420141cdccb",
+      "first_candidate_sha256": "eb5f97632a91ff64ea20d3ca633bb4c22117872692ccb4a6847c5420141cdccb",
+      "final_candidate_sha256": "eb5f97632a91ff64ea20d3ca633bb4c22117872692ccb4a6847c5420141cdccb",
+      "unchanged_across_repair": true
+    },
+    {
+      "path": "figures/surface.pdf",
+      "baseline_sha256": "97b861eb3c176bb1b9d2d28d6746d741a7058d3a088efe9220555658843d6379",
+      "first_candidate_sha256": "97b861eb3c176bb1b9d2d28d6746d741a7058d3a088efe9220555658843d6379",
+      "final_candidate_sha256": "97b861eb3c176bb1b9d2d28d6746d741a7058d3a088efe9220555658843d6379",
+      "unchanged_across_repair": true
+    },
+    {
+      "path": "figures/trajectory.pdf",
+      "baseline_sha256": "c70a74b487340a994d5509f766feb60bd3e3cba0c8881dd7509e9d98ef0f5e5d",
+      "first_candidate_sha256": "c70a74b487340a994d5509f766feb60bd3e3cba0c8881dd7509e9d98ef0f5e5d",
+      "final_candidate_sha256": "c70a74b487340a994d5509f766feb60bd3e3cba0c8881dd7509e9d98ef0f5e5d",
+      "unchanged_across_repair": true
+    }
+  ],
+  "advanced_data_checks": [
+    {
+      "recipe": "surface",
+      "source_csv_sha256": "4ea15e7ea94638a39afe8e99f560864f45f604d19af6c93e492f5407121a7d98",
+      "source_matches_mapping": true,
+      "embedded_pdf_matches_original_recipe": true
+    },
+    {
+      "recipe": "trajectory",
+      "source_csv_sha256": "1f61ff4319d0ab8d518915dd04635fcac6baaa30957a82318e932310f95823c9",
+      "source_matches_mapping": true,
+      "embedded_pdf_matches_original_recipe": true
+    }
+  ],
+  "width_demo_data_preservation_across_label_fix": {
+    "old_failed_run": "layout-finish-05",
+    "new_final_run": "layout-finish-07",
+    "two_actual_curve_strokes_found": 2,
+    "vertices_in_each_curve": 41,
+    "numeric_vector_geometry_identical": true,
+    "curve_geometry_sha256": "1823c1be49f417907518c63d4a1468dfe6071da251f20ee7bc26813ed6333105",
+    "note": "The source PDF bytes changed when labels shortened, but both 41-vertex plotted curves have exactly identical numeric vector geometry; quantity remains dimensionless and is explained by caption."
+  },
+  "gate_and_registry_integrity": {
+    "files_checked": [
+      "config/gates.json",
+      "config/runtime.json",
+      ".mcm/artifacts.json",
+      ".mcm/decisions.json",
+      ".mcm/issues.json",
+      ".mcm/tasks.json"
+    ],
+    "all_unchanged_during_repair": true,
+    "runtime_flags_remain_pending": {
+      "release_ready": false,
+      "human_release_approved": false,
+      "visual_review_status": "pending",
+      "independent_review_status": "pending"
+    },
+    "no_runtime_gate_file_modified_by_reviewer": true
+  },
+  "previous_visual_findings": [
+    {
+      "id": "LAYOUT-RUNTIME-01",
+      "state": "resolved_in_new_specimen",
+      "evidence": "Final page 2 and independent high-scale source-PDF rendering show full Input (1) and Response (1) labels; dimensionless units retained and curve geometry unchanged."
+    },
+    {
+      "id": "LAYOUT-RUNTIME-02",
+      "state": "resolved_in_new_specimen",
+      "evidence": "The former sparse body pages are replaced by one compact specimen body on page 2; full-size 3D samples occupy pages 3 and 4. Dedicated Summary page remains intentional."
+    }
+  ],
+  "open_visual_defects_for_this_specimen": [],
+  "scope_limits": [
+    "This is a synthetic presentation/width-repair specimen, explicitly not a complete modeling or competition paper. Acceptance does not certify seven-part scientific completeness, model validity, predictions, uncertainty or an optimal decision.",
+    "Full-size 3D pages illustrate useful three-variable geometry with paired 2D reading aids; the underlying simulated data is not a real scientific result.",
+    "The formal competition template and human review/release gates are outside this specimen-only acceptance; original runtime pending flags are preserved."
+  ],
+  "reviewer_modified_production": false,
+  "scientific_model_accepted": false,
+  "human_release_approved": false,
+  "release_ready": false
+}

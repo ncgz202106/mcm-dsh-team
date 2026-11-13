@@ -44,5 +44,7 @@
 - `project-template/resources/mcm-skills/`：DSH 与 Codex 共用的写作和图表文字参考。公开图表索引位于 `adapters/codex/skill/references/chart-gallery.html`，原论文图像保存在本机。
 - `tools/codex-project.py`、`tools/install-codex-skill.py`：新项目、兼容预览、入口安装及回滚。测试在 `adapters/codex/tests/`。
 - `project-template/scripts/codex_control.py`：任务批次、收件、快照和恢复诊断。`section_visuals.py`核对逐小节图表覆盖。
+- `project-template/scripts/paper_finish.py`：终稿候选检查、编译渲染与受限尺寸修复，`paper.py finish`转发；`paper/styles/mcm-layout.tex`维护新项目版式。
+- `project-template/resources/mcm-skills/presentation-lessons.md`：优秀论文的实际读页与论证迁移；`skill-overlays/nature-figure/scripts/mcm-advanced.py`提供有二维配套的三维配方。
 
 图表教学库和图型建议服务具体主张，不机械增加图数或套用模板。正文、参考文献、AI披露及附录分别报告；官方页数预算按项目规则核对。更新源码与本地Skill不等于已在DSH新会话运行验收。

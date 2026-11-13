@@ -1,0 +1,356 @@
+{
+  "format_version": 1,
+  "reviewed_at": "2026-11-13T14:38:16.414692+00:00",
+  "review_kind": "Independent non-author source and fault review",
+  "reviewer_authored_production_code": false,
+  "status": "fault_checks_passed_visual_pending",
+  "production_changed_by_reviewer": false,
+  "execution": {
+    "python": "3.15.2",
+    "dependency_source": "workspace-private codex-adapter-test-deps through PYTHONPATH",
+    "compiler_and_renderer": "explicit synthetic fixtures; actual short-lived Python child processes additionally test timeout/pause cancellation. No real TeX or page visual approval."
+  },
+  "source_sha256_before": {
+    "project-template/scripts/paper_finish.py": "45d579769823a627e7eb2d14b9e1924f0b3e023d5f6ab2b7225481648df94f75",
+    "project-template/tests/test_paper_finish.py": "6bf813eeeb6df1af1f19c35c7df619d312ffa9d6fc617f2929efebc442023b61",
+    "project-template/tests/test_paper_finish_review.py": "12b21522f1501739efbae7499033797b530bdca58a472d5354bb502f803c21fc",
+    "project-template/scripts/paper.py": "7cd95a333e0fa213b2366f0a8e495926e3076a7cc738e1b99501e2dc1bcbb184",
+    "project-template/scripts/figure_check.py": "ab17338b461f68b20289e098bc130563f01ca27337c627543a3a1d4f15ad70e7"
+  },
+  "source_sha256_after": {
+    "project-template/scripts/paper_finish.py": "45d579769823a627e7eb2d14b9e1924f0b3e023d5f6ab2b7225481648df94f75",
+    "project-template/tests/test_paper_finish.py": "6bf813eeeb6df1af1f19c35c7df619d312ffa9d6fc617f2929efebc442023b61",
+    "project-template/tests/test_paper_finish_review.py": "12b21522f1501739efbae7499033797b530bdca58a472d5354bb502f803c21fc",
+    "project-template/scripts/paper.py": "7cd95a333e0fa213b2366f0a8e495926e3076a7cc738e1b99501e2dc1bcbb184",
+    "project-template/scripts/figure_check.py": "ab17338b461f68b20289e098bc130563f01ca27337c627543a3a1d4f15ad70e7"
+  },
+  "sources_unchanged_during_checks": true,
+  "runs": [
+    {
+      "pattern": "test_paper_finish.py",
+      "tests_run": 22,
+      "failures": [],
+      "errors": [],
+      "passed": true
+    },
+    {
+      "pattern": "test_paper_finish_review.py",
+      "tests_run": 12,
+      "failures": [],
+      "errors": [],
+      "passed": true
+    }
+  ],
+  "findings": [
+    {
+      "id": "FIN-REV-01",
+      "severity": "high",
+      "state": "resolved_for_tested_scope",
+      "location": "audit_sources / compile_candidate scratch instrumentation",
+      "trigger": "Literal includegraphics in verbatim or inline verb",
+      "actual": "Source code examples are detected as graphics. A verbatim example can be classified simple=True and repaired; inline verb can receive printable probe text.",
+      "required_outcome": "Do not instrument or repair literal examples; preserve source/example semantics.",
+      "resolution_evidence": "Latest stable exact-source test and unit-probe results; all historical failures are retained in prior_fault_runs."
+    },
+    {
+      "id": "FIN-REV-02",
+      "severity": "high",
+      "state": "resolved_for_tested_scope",
+      "location": "compile_candidate final PDF checks",
+      "trigger": "A successfully generated PDF with a known extractable 5pt figure-axis label and a normal-width insertion",
+      "actual": "mechanical_passed=True with no typography defect queue",
+      "required_outcome": "Known undersized final figure text remains an open defect; do not auto-scale equations or alter semantic content.",
+      "resolution_evidence": "Latest stable exact-source test and unit-probe results; all historical failures are retained in prior_fault_runs."
+    },
+    {
+      "id": "FIN-REV-03",
+      "severity": "medium",
+      "state": "resolved_for_tested_scope",
+      "location": "compile_candidate PNG validity check",
+      "trigger": "Renderer succeeds but writes PNG signature followed by garbage",
+      "actual": "Corrupt data can satisfy signature/length check and receive mechanical_passed=True",
+      "required_outcome": "Reject non-decodable or structurally invalid page renders before claiming complete rendering.",
+      "resolution_evidence": "Latest stable exact-source test and unit-probe results; all historical failures are retained in prior_fault_runs."
+    },
+    {
+      "id": "FIN-REV-04",
+      "severity": "high",
+      "state": "resolved_for_tested_scope",
+      "location": "strip_comments literal inline modes",
+      "trigger": "Common FancyVerb inline Verb or minted mintinline code example containing includegraphics",
+      "actual": "See additional_literal_mode_checks; a surviving match can receive a probe inside printable code.",
+      "required_outcome": "Mask these literal modes or conservatively queue their source before instrumentation; retain source bytes and offsets.",
+      "resolution_evidence": "Latest stable exact-source test and unit-probe results; all historical failures are retained in prior_fault_runs."
+    }
+  ],
+  "confirmed_controls": [
+    "Source/candidate scientific numbers, TeX math symbols and formulas preserved byte-for-byte except the exact permitted width option.",
+    "Original registry remains unchanged and no release or human visual approval is created.",
+    "Changed figure hash invalidates the proof before copying a repaired candidate.",
+    "An unresolved-reference queue prevents a pass even after the width is fixed.",
+    "A two-page PDF with only one page rendered cannot pass.",
+    "Existing author suite verifies output protection, pause/deadline stops, round bounds and failed recompile behavior.",
+    "Actual child-process execution is terminated promptly on a one-second time budget and a runtime pause, independently of compiler fixtures."
+  ],
+  "limitations": [
+    "TeX compiler/renderer fixtures certify control flow and fault rejection, not actual TeX or final page visual quality; real short-lived child processes exercise timeout/pause cancellation.",
+    "The lexical filter is deliberately conservative and is not a full interpreter for arbitrary TeX macro or catcode behavior.",
+    "Font inspection covers extractable text. Raster, outlined, ambiguous or complex-size figure labels remain explicit review items; mathematical scripts require context decisions.",
+    "No scientific validity, citation, anonymity, contest submission or human release gate was signed."
+  ],
+  "release_ready": false,
+  "human_release_approved": false,
+  "visual_review_status": "pending",
+  "prior_fault_runs": [
+    {
+      "tests": [
+        {
+          "pattern": "test_paper_finish.py",
+          "tests_run": 14,
+          "failures": [],
+          "errors": [],
+          "passed": true
+        },
+        {
+          "pattern": "test_paper_finish_review.py",
+          "tests_run": 8,
+          "failures": [
+            {
+              "test": "test_paper_finish_review.IndependentFinishReview.test_corrupt_png_with_valid_signature_is_not_a_complete_render",
+              "assertion": "AssertionError: True is not false : A signature alone must not certify a decodable rendered page"
+            },
+            {
+              "test": "test_paper_finish_review.IndependentFinishReview.test_final_pdf_tiny_text_cannot_receive_mechanical_pass",
+              "assertion": "AssertionError: True is not false : A known 5pt figure label in the final PDF must remain an open defect"
+            },
+            {
+              "test": "test_paper_finish_review.IndependentFinishReview.test_inline_verb_example_is_neither_repaired_nor_probed",
+              "assertion": "-   'unit': 'linewidth'}]"
+            },
+            {
+              "test": "test_paper_finish_review.IndependentFinishReview.test_verbatim_code_example_is_neither_repaired_nor_probed",
+              "assertion": "-   'unit': 'linewidth'}] : Verbatim code must not be treated as an executed insertion"
+            }
+          ],
+          "errors": [],
+          "passed": false
+        }
+      ],
+      "status": "requires_rework",
+      "reviewed_at": "2026-11-13T14:15:35.485350+00:00"
+    },
+    {
+      "tests": [
+        {
+          "pattern": "test_paper_finish.py",
+          "tests_run": 14,
+          "failures": [],
+          "errors": [],
+          "passed": true
+        },
+        {
+          "pattern": "test_paper_finish_review.py",
+          "tests_run": 10,
+          "failures": [
+            {
+              "test": "test_paper_finish_review.IndependentFinishReview.test_corrupt_png_with_valid_signature_is_not_a_complete_render",
+              "assertion": "AssertionError: True is not false : A signature alone must not certify a decodable rendered page"
+            },
+            {
+              "test": "test_paper_finish_review.IndependentFinishReview.test_final_pdf_tiny_text_cannot_receive_mechanical_pass",
+              "assertion": "AssertionError: True is not false : A known 5pt figure label in the final PDF must remain an open defect"
+            },
+            {
+              "test": "test_paper_finish_review.IndependentFinishReview.test_inline_verb_example_is_neither_repaired_nor_probed",
+              "assertion": "-   'unit': 'linewidth'}]"
+            },
+            {
+              "test": "test_paper_finish_review.IndependentFinishReview.test_verbatim_code_example_is_neither_repaired_nor_probed",
+              "assertion": "-   'unit': 'linewidth'}] : Verbatim code must not be treated as an executed insertion"
+            }
+          ],
+          "errors": [],
+          "passed": false
+        }
+      ],
+      "status": "requires_rework",
+      "reviewed_at": "2026-11-13T14:17:31.793040+00:00",
+      "source_sha256": {
+        "project-template/scripts/paper_finish.py": "790dcad82db7b5a5e5dff3494f3d6a0ce50fc53ff8415958f10db3756718367e",
+        "project-template/tests/test_paper_finish.py": "81895ccbf1bee42ffcd646408f376de5560107277268ec3d2c59f6186e887800",
+        "project-template/tests/test_paper_finish_review.py": "617dd8ec5738944f36b7552a63e9a60792243367656edd32538c94f198ceaaa8"
+      }
+    },
+    {
+      "tests": [
+        {
+          "pattern": "test_paper_finish.py",
+          "tests_run": 18,
+          "failures": [],
+          "errors": [],
+          "passed": true
+        },
+        {
+          "pattern": "test_paper_finish_review.py",
+          "tests_run": 10,
+          "failures": [],
+          "errors": [],
+          "passed": true
+        }
+      ],
+      "status": "requires_rework",
+      "reviewed_at": "2026-11-13T14:26:00.359840+00:00",
+      "source_sha256": {
+        "project-template/scripts/paper_finish.py": "54ef1250b20b82911b79145d6856e038617539372ef298d3c994295583209bf6",
+        "project-template/tests/test_paper_finish.py": "effb0d51dcfe5a1d6ab7890d9805f364ad475d7834c2e12439b510f036921d04",
+        "project-template/tests/test_paper_finish_review.py": "617dd8ec5738944f36b7552a63e9a60792243367656edd32538c94f198ceaaa8"
+      },
+      "additional_literal_mode_checks": [
+        {
+          "case": "FancyVerb-inline",
+          "source_example": "\\Verb|\\includegraphics[width=1.2\\linewidth]{chart.pdf}|",
+          "executed_as_graphic_after_lexical_mask": true
+        },
+        {
+          "case": "minted-inline",
+          "source_example": "\\mintinline{tex}{\\includegraphics[width=1.2\\linewidth]{chart.pdf}}",
+          "executed_as_graphic_after_lexical_mask": true
+        }
+      ]
+    },
+    {
+      "tests": [
+        {
+          "pattern": "test_paper_finish.py",
+          "tests_run": 21,
+          "failures": [],
+          "errors": [],
+          "passed": true
+        },
+        {
+          "pattern": "test_paper_finish_review.py",
+          "tests_run": 12,
+          "failures": [],
+          "errors": [],
+          "passed": true
+        }
+      ],
+      "status": "fault_checks_passed_visual_pending",
+      "reviewed_at": "2026-11-13T14:30:44.629052+00:00",
+      "source_sha256": {
+        "project-template/scripts/paper_finish.py": "2528b4dd2bb804bd08a54591d80f58c0ae5e5e648817053a4a4c8279e228eee4",
+        "project-template/tests/test_paper_finish.py": "96c33f13a8b4d601feb1a5fe7348e0287470b7527d8161ecb9a742bd63d3da2d",
+        "project-template/tests/test_paper_finish_review.py": "12b21522f1501739efbae7499033797b530bdca58a472d5354bb502f803c21fc",
+        "project-template/scripts/paper.py": "7cd95a333e0fa213b2366f0a8e495926e3076a7cc738e1b99501e2dc1bcbb184",
+        "project-template/scripts/figure_check.py": "ab17338b461f68b20289e098bc130563f01ca27337c627543a3a1d4f15ad70e7"
+      }
+    }
+  ],
+  "additional_literal_mode_checks": [
+    {
+      "case": "FancyVerb-inline",
+      "source_example": "\\Verb|\\includegraphics[width=1.2\\linewidth]{chart.pdf}|",
+      "executed_as_graphic_after_lexical_mask": false,
+      "byte_character_offsets_preserved": true,
+      "newlines_preserved": true
+    },
+    {
+      "case": "FancyVerb-options",
+      "source_example": "\\Verb[breaklines=true]!\\includegraphics[width=1.2\\linewidth]{chart.pdf}!",
+      "executed_as_graphic_after_lexical_mask": false,
+      "byte_character_offsets_preserved": true,
+      "newlines_preserved": true
+    },
+    {
+      "case": "minted-brace-body",
+      "source_example": "\\mintinline{tex}{\\includegraphics[width=1.2\\linewidth]{chart.pdf}}",
+      "executed_as_graphic_after_lexical_mask": false,
+      "byte_character_offsets_preserved": true,
+      "newlines_preserved": true
+    },
+    {
+      "case": "minted-delimiter-body",
+      "source_example": "\\mintinline[breaklines]{tex}|\\includegraphics[width=1.2\\linewidth]{chart.pdf}|",
+      "executed_as_graphic_after_lexical_mask": false,
+      "byte_character_offsets_preserved": true,
+      "newlines_preserved": true
+    },
+    {
+      "case": "minted-space-options",
+      "source_example": "\\mintinline [breaklines=true] {tex} {\\includegraphics[width=1.2\\linewidth]{chart.pdf}}",
+      "executed_as_graphic_after_lexical_mask": false,
+      "byte_character_offsets_preserved": true,
+      "newlines_preserved": true
+    },
+    {
+      "case": "FancyVerb-saved-inline",
+      "source_example": "\\SaveVerb[commandchars=\\\\\\{\\}]{saved}|\\includegraphics[width=1.2\\linewidth]{chart.pdf}|",
+      "executed_as_graphic_after_lexical_mask": false,
+      "byte_character_offsets_preserved": true,
+      "newlines_preserved": true
+    }
+  ],
+  "fix_difference_review": [
+    "Lexical masking retains original offsets and only governs audit/probe recognition; candidate replacements still use exact-byte and SHA preconditions.",
+    "Final PDF font checks add open defects and do not resize symbols, equations or data.",
+    "Normal-sized executed graphics now receive measured-size audits as well as oversized graphics.",
+    "PNG verification fully decodes images and checks expected full-page dimensions at 110dpi.",
+    "Width repair remains the sole permitted source replacement; original and registry protection and human release gates remain in place."
+  ],
+  "review_conclusion": "Current exact-source fault review passes 22 author and 12 independent tests, including real child-process pause/timeout control. Four independent PDF-font unit cases confirm TeX-pt/PDF-bp separation. Root still must conduct actual demo compile and assembled-page visual review.",
+  "mathematical_script_review": {
+    "classification": "Context review, not an automatic body-font violation finding",
+    "independent_test": "test_mathematical_scripts_only_request_context_review",
+    "confirmed": "A necessary 7pt mathematical script is queued as small_text_context_review with an explicit no-enlargement/no-semantic-change constraint; source formula, symbols and numbers remain byte-identical.",
+    "human_decision_still_needed": true
+  },
+  "custom_literal_closure_review": {
+    "independent_test": "test_custom_literal_declaration_in_child_disables_whole_closure",
+    "confirmed": "A declaration in an input child disables probes and automatic replacements across the full literal input closure and leaves an open unsupported_literal_syntax queue."
+  },
+  "expected_paper_finish_sha256": "45d579769823a627e7eb2d14b9e1924f0b3e023d5f6ab2b7225481648df94f75",
+  "expected_paper_finish_sha256_matched": true,
+  "font_unit_review": {
+    "conversion": "PDF bp = TeX pt * 72 / 72.27",
+    "nominal_12_TeX_pt_in_PDF_bp": 11.955168119551681,
+    "independently_executed_cases": [
+      {
+        "case": "nominal_12_TeX_pt",
+        "actual_PDF_bp": 11.955168119551681,
+        "whole_report_12_TeX_pt_audit_ok": true,
+        "source_figure_12_PDF_bp_audit_ok": false,
+        "reported_body_floor_PDF_bp": 11.955168119551681,
+        "reported_requirement_unit": "TeX pt (1/72.27 inch)",
+        "reported_measurement_unit": "PDF bp (1/72 inch)"
+      },
+      {
+        "case": "nominal_12_PDF_bp",
+        "actual_PDF_bp": 12,
+        "whole_report_12_TeX_pt_audit_ok": true,
+        "source_figure_12_PDF_bp_audit_ok": true,
+        "reported_body_floor_PDF_bp": 11.955168119551681,
+        "reported_requirement_unit": "TeX pt (1/72.27 inch)",
+        "reported_measurement_unit": "PDF bp (1/72 inch)"
+      },
+      {
+        "case": "below_body_floor",
+        "actual_PDF_bp": 11.85,
+        "whole_report_12_TeX_pt_audit_ok": false,
+        "source_figure_12_PDF_bp_audit_ok": false,
+        "reported_body_floor_PDF_bp": 11.955168119551681,
+        "reported_requirement_unit": "TeX pt (1/72.27 inch)",
+        "reported_measurement_unit": "PDF bp (1/72 inch)"
+      },
+      {
+        "case": "known_5_PDF_bp",
+        "actual_PDF_bp": 5,
+        "whole_report_12_TeX_pt_audit_ok": false,
+        "source_figure_12_PDF_bp_audit_ok": false,
+        "reported_body_floor_PDF_bp": 11.955168119551681,
+        "reported_requirement_unit": "TeX pt (1/72.27 inch)",
+        "reported_measurement_unit": "PDF bp (1/72 inch)"
+      }
+    ],
+    "conclusion": "The assembled report audits a 12 TeX-pt body threshold in PDF units; figure contracts keep their separate 12 PDF-bp threshold. This change corrects units and does not loosen the source-figure contract or accept a 5bp label."
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "format_version": 1,
+  "scope": "Synthetic layout and bounded correction only; not a complete modeling paper",
+  "compiler": "Bundled Tectonic 0.17; final runs used --only-cached --untrusted",
+  "dependency_preflight": "Existing WindowsApps virtual cache located; missing TeX assets were cached in a separate setup run. No automatic installer or network in paper_finish.",
+  "rounds": [
+    {
+      "round": 1,
+      "report": "round-001.json",
+      "report_sha256": "67da8a30911c975fec1aeecbb5ec36a3ea6906256c02de4d4dd81c8139eaaf52",
+      "candidate": "candidate-v001",
+      "applied_change_count": 0,
+      "open_issue_count": 1
+    },
+    {
+      "round": 2,
+      "report": "round-002.json",
+      "report_sha256": "ea8c37db913468b02504b0735dc88b8f7f33b9e668c1ac1d0165390dd5da932a",
+      "candidate": "candidate-v002",
+      "applied_change_count": 1,
+      "open_issue_count": 0
+    }
+  ],
+  "original_unchanged": true,
+  "single_edit": {
+    "source": "paper/specimen-body.tex",
+    "before": "\\includegraphics[width=1.2\\linewidth]{width-demo.pdf}",
+    "after": "\\includegraphics[width=\\linewidth]{width-demo.pdf}",
+    "status": "mechanically_rechecked",
+    "figure_sha256": "eb5f97632a91ff64ea20d3ca633bb4c22117872692ccb4a6847c5420141cdccb"
+  },
+  "compile_passed": true,
+  "mechanical_passed": true,
+  "pdf_pages": 4,
+  "pdf_sha256": "ab04ad7c2c2f9e2f2b6320f78211f9b5b8c1debbcc52de14bec1b5a078eb0dfb",
+  "independent_review_ref": "audit/presentation-2026-11-13/layout-runtime-final-review.json",
+  "human_release_approved": false,
+  "scientific_validation": false,
+  "files": {
+    "pages/page-1.png": "a808d84629f2ef2f20b9a422186108e72885a8e89b4ebaafb611b4c0b297959c",
+    "pages/page-2.png": "e628ee227bb891ffd83e86f0177ec38371e1460b8a18a769c9aaa54d4b2a4306",
+    "pages/page-3.png": "528655c1531754ad15d40e0cfe8936ad6288c71f9c75df89f0a7082927ac8afe",
+    "pages/page-4.png": "1286ee5fb4edf72e18fdd62298675c6f0e509824f2a1181966db7e114e78e41f",
+    "presentation.pdf": "ab04ad7c2c2f9e2f2b6320f78211f9b5b8c1debbcc52de14bec1b5a078eb0dfb",
+    "source/figures/surface.pdf": "97b861eb3c176bb1b9d2d28d6746d741a7058d3a088efe9220555658843d6379",
+    "source/figures/trajectory.pdf": "c70a74b487340a994d5509f766feb60bd3e3cba0c8881dd7509e9d98ef0f5e5d",
+    "source/figures/width-demo.pdf": "eb5f97632a91ff64ea20d3ca633bb4c22117872692ccb4a6847c5420141cdccb",
+    "source/paper/main.tex": "9c5976bf1a0f201f8522eebb70760255621430b5c2149f0ac182b682f80cd028",
+    "source/paper/sections/summary.tex": "a613ecca997ce4b748846755f6610224569a1aa76e60b82dd66d28958922de6c",
+    "source/paper/specimen-body.tex": "7f5f53daec9cf3a92b4e053c5c490f6ad7f601adb09d6c03dc5e2d5055325c8f",
+    "source/paper/styles/mcm-layout.tex": "de5959770bf17725b7edd30c646f45c39a9f759c0c34479b66e4373040f75e3d",
+    "source/paper/team.tex": "b2574779dbe758ec5577a37554762e313dc01e592a5f686c079ffb695147c64d"
+  }
+}

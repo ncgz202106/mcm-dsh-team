@@ -53,6 +53,10 @@ pwsh -File tools/new-project.ps1 -Destination 'D:/MCM/practice-01'
 - [34 条图表案例索引](adapters/codex/skill/references/chart-gallery.html)提供队号、页码、图号和迁移点评。下载 HTML 后可在本地筛选。
 - [图表选型速查](project-template/resources/mcm-skills/chart-reference.md)与[六种可运行配方](skill-overlays/nature-figure/references/mcm-visual-recipes.md)覆盖残差对照、敏感性、Pareto 权衡、配对分布、策略小图和空间小图。
 - [科研图表使用说明](docs/美赛图表Skill使用.md)说明如何从冻结数据导出 PDF、SVG 和 PNG，并检查最终字号、图例、区间与版面。
+- [优秀论文呈现经验](project-template/resources/mcm-skills/presentation-lessons.md)把实际读页转为机制、公式、验证与决策的写作方法。[三维图配方](docs/figure-recipes/advanced/README.md)提供响应曲面和空间轨迹，配等高线或二维投影读数。
+- [终稿自动检查与纠错](docs/论文呈现升级与自动纠错.md)从独立副本编译、逐页渲染，并安全修复简单超宽插图；复杂版式进入整改闭环，仍需非作者实际看图。
+
+[四页三维图入稿与纠错试样](docs/figure-recipes/advanced/specimen/presentation.pdf)已实际编译并逐页独立复验，包含同数据等高图和空间投影。它是合成布局测试，供检查实际字号、图注与页面效果。
 
 ## 看成品与验收
 

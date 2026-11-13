@@ -405,9 +405,14 @@ def main():
     sub=parser.add_subparsers(dest='action',required=True)
     b=sub.add_parser('build');b.add_argument('--demo',action='store_true');b.add_argument('--no-render',action='store_true')
     c=sub.add_parser('check');c.add_argument('pdf');c.add_argument('--release',action='store_true');c.add_argument('--visual-review',type=Path)
+    finish_spec=importlib.util.spec_from_file_location('mcm_paper_finish',Path(__file__).with_name('paper_finish.py'))
+    finish_module=importlib.util.module_from_spec(finish_spec);finish_spec.loader.exec_module(finish_module)
+    f=sub.add_parser('finish',help='Audit and safely correct draft layout in new versioned candidates')
+    finish_module.add_arguments(f)
     args=parser.parse_args()
     try:
-        result=build(args.root,args.demo,not args.no_render) if args.action=='build' else check(args.root,args.pdf,args.release,args.visual_review)
+        if args.action=='finish':result=finish_module.from_args(args)
+        else:result=build(args.root,args.demo,not args.no_render) if args.action=='build' else check(args.root,args.pdf,args.release,args.visual_review)
         print(json.dumps(result,ensure_ascii=False,indent=2))
         return 0 if (result.get('release_ready') if result.get('release_requested') else result['mechanical_passed']) else 1
     except (OSError,ValueError,subprocess.SubprocessError,ImportError) as exc:

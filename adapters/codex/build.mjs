@@ -148,13 +148,15 @@ export async function build({ root = ROOT, out = join(ROOT,'adapters/codex/gener
   add('project/config/codex-roles.json',{format_version:1,adapter_version:ADAPTER_VERSION,roles:sourceRoles});
   add('project/config/skill-routing.json',SKILL_ROUTING);
   add('project/protocols/08-codex-readiness.md',await load('adapters/codex/references/readiness.md'));
-  for (const name of ['mcm.py', 'codex_control.py', 'codex_hook.py', 'paper.py', 'section_visuals.py']) {
+  for (const name of ['mcm.py', 'codex_control.py', 'codex_hook.py', 'paper.py', 'paper_finish.py', 'section_visuals.py']) {
     await load(`project-template/scripts/${name}`);
   }
   await load('project-template/templates/section-visual-map.json');
   await load('project-template/protocols/07-argument-and-visual-design.md');
+  await load('project-template/paper/styles/mcm-layout.tex');
+  await load('project-template/paper/main.tex');
   for(const name of ['SKILL.md','references/start.md','agents/openai.yaml']) add(`skill/${name}`,await load(`adapters/codex/skill/${name}`));
-  for (const name of ['o-award-framework.md', 'chart-reference.md']) {
+  for (const name of ['o-award-framework.md', 'chart-reference.md', 'presentation-lessons.md']) {
     const reference = await load(`project-template/resources/mcm-skills/${name}`);
     add(`skill/references/${name}`, reference);
     add(`project/resources/mcm-skills/${name}`, reference);

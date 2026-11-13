@@ -1,0 +1,137 @@
+{
+  "panels": {
+    "a": {
+      "role": "Show joint response to two tested inputs",
+      "x": "x_m",
+      "y": "y_m",
+      "z": "response_kPa",
+      "color": "response_kPa",
+      "points": "All supplied grid samples"
+    },
+    "b": {
+      "role": "Read input combinations without 3D occlusion",
+      "x": "x_m",
+      "y": "y_m",
+      "color": "response_kPa",
+      "points": "All supplied grid samples"
+    }
+  },
+  "geometry": {
+    "box_aspect": [
+      1,
+      0.75,
+      0.65
+    ],
+    "metric_aspect": false,
+    "aspect_note": "Response and position have different units; height is not a spatial distance.",
+    "grid_shape": [
+      7,
+      9
+    ],
+    "contour_levels": [
+      20.00261597698523,
+      21.565782309414235,
+      23.12894864184324,
+      24.69211497427225,
+      26.255281306701256,
+      27.818447639130262,
+      29.38161397155927,
+      30.944780303988274,
+      32.50794663641728
+    ],
+    "interpolation": "Surface faces and contour boundaries join tested grid values; no new observations.",
+    "alignment_note": "3D projected area and metric plan view have intentionally different shapes."
+  },
+  "normalization": {
+    "variable": "response_kPa",
+    "vmin": 20.00261597698523,
+    "vmax": 32.50794663641728,
+    "cmap": "cividis",
+    "clip": false
+  },
+  "caption_english": "Synthetic demonstration. Response on a complete tested x-y grid, with response in kPa. Black dots identify all 63 supplied samples in both panels. Surface faces and contour boundaries interpolate between these grid values; intermediate colors are not additional measurements. Both panels share one unclipped color normalization. The height axis is response, not distance; the plan view preserves equal x-y distance. No extrapolation or uncertainty is inferred.",
+  "recipe": "surface",
+  "synthetic_demo": true,
+  "data_origin": "deterministic_synthetic_demo",
+  "schema": [
+    "x_m",
+    "y_m",
+    "response_kPa"
+  ],
+  "row_count": 63,
+  "excluded_rows": 0,
+  "source": {
+    "path": "source.csv",
+    "sha256": "4ea15e7ea94638a39afe8e99f560864f45f604d19af6c93e492f5407121a7d98"
+  },
+  "script_sha256": "1b078bbb9ed5d9a317d299ebfd75ec508e158e2d000fe760ae5ada2cbd18e358",
+  "style_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+  "size_mm": [
+    165.1,
+    228.6
+  ],
+  "minimum_final_glyph_pt": 12,
+  "dpi": 300,
+  "camera": {
+    "elevation_degrees": 28,
+    "azimuth_degrees": -128,
+    "projection": "orthographic"
+  },
+  "plot_rectangles_mm": {
+    "a": [
+      27.749499999999998,
+      118.872,
+      91.44,
+      91.44
+    ],
+    "b": [
+      27.051000000000002,
+      27.432,
+      94.488,
+      70.866
+    ]
+  },
+  "outputs": [
+    {
+      "path": "surface.pdf",
+      "sha256": "97b861eb3c176bb1b9d2d28d6746d741a7058d3a088efe9220555658843d6379"
+    },
+    {
+      "path": "surface.svg",
+      "sha256": "9d5f0eed51c180c7584e2ea202ffe75f2e345521f1a3cc487eccbae199f354b7"
+    },
+    {
+      "path": "surface.png",
+      "sha256": "886e4d5fcf381e9eb5d3dbf56a6049f3ecff133acf391eafe86cb346f477fcd3"
+    }
+  ],
+  "caption_sha256": "94473f19d79557534fad41f6135f74d6cdb39476eb1ef4da1fb6d0aeff981d6f",
+  "qa": {
+    "alignment": {
+      "verdict": "NOT AUDITABLE",
+      "scope": "No comparable panel group: projected 3D and metric plan view are intentionally unequal; no alignment pass claimed."
+    },
+    "audit_pdf_text.py": {
+      "exit_code": 0,
+      "minimum_found_pt": 12.0,
+      "below_minimum_count": 0
+    },
+    "audit_figure_collisions.py": {
+      "exit_code": 0,
+      "verdict": "REVIEW REQUIRED",
+      "summary": {
+        "fail": 0,
+        "warn": 2,
+        "contained_fill_overlays": 2,
+        "contained_image_overlays": 0
+      }
+    }
+  },
+  "visual_review": "author_actual_inspection_completed",
+  "independent_acceptance": "not_claimed",
+  "reuse": "Keep fixed CSV units or adapt the schema, labels, caption and domain checks together. Freeze the upstream source; validate provenance separately.",
+  "visual_review_record": {
+    "path": "../visual-review.md",
+    "sha256": "caf28820bd812bd5fc660978b75251cd6b67daf89bca39268cea85199656379b"
+  }
+}

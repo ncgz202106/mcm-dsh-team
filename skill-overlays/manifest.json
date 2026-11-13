@@ -8,6 +8,7 @@
     "nature-figure": [
       "references/mcm-visual-recipes.md",
       "scripts/mcm-gallery.py",
+      "scripts/mcm-advanced.py",
       "assets/mcm-figure-style.json"
     ]
   },

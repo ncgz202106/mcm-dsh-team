@@ -1,0 +1,31 @@
+% Adapted from COMAP's 2027 Summary Sheet source; original retained in provenance/.
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\input{styles/mcm-layout.tex}
+\usepackage{newtxtext}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{newtxmath}
+% Preserve original Chinese AI queries in the disclosure; the main paper stays English.
+\usepackage{xeCJK}
+\setCJKmainfont{FandolSong-Regular}
+\setCJKmonofont{FandolFang-Regular}
+% Automatic driver selection supports the agreed XeLaTeX build.
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\input{team.tex}
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Team \Team}
+\rhead{Page \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\newtheorem{theorem}{Theorem}
+\graphicspath{{../figures/}}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg}
+\newcommand{\DraftInstruction}[1]{\par\noindent\textbf{DRAFT INSTRUCTION:} #1\par}
+\begin{document}
+\input{specimen-body.tex}
+\end{document}

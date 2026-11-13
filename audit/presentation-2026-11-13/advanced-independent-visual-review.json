@@ -1,0 +1,153 @@
+{
+  "format_version": 1,
+  "reviewed_at": "2026-11-13T14:25:17.452347+00:00",
+  "review_kind": "Independent actual visual inspection of two final PNGs",
+  "reviewer_authored_advanced_recipe": false,
+  "production_files_modified": false,
+  "status": "accepted_for_synthetic_recipe_reference_only",
+  "figures": [
+    {
+      "recipe": "surface",
+      "png": "docs/figure-recipes/advanced/surface/surface.png",
+      "png_sha256": "886e4d5fcf381e9eb5d3dbf56a6049f3ecff133acf391eafe86cb346f477fcd3",
+      "actual_visual_inspection": true,
+      "inspection_method": "view_image of final full PNG; trajectory footer additionally inspected as an in-memory crop",
+      "synthetic_label_observed": true,
+      "three_dimensional_purpose": "Conditional 3D response surface for two quantitative independent inputs and one response; same-grid 2D contour panel provides readout.",
+      "observations": [
+        "Visible Synthetic demonstration footer; data is not presented as a real model result.",
+        "Panel a shows response on x/y inputs; response height and the cividis colorbar both carry kPa, rather than a fabricated spatial z coordinate.",
+        "Black sample nodes remain visible in the 3D panel and 2D plan view.",
+        "Panel b resolves input combinations without 3D occlusion and visually matches the shared low-to-high response colors.",
+        "Axes, units, panel letters and colorbar are readable; no apparent clipping or text overlap in the inspected final PNG."
+      ],
+      "metadata": {
+        "size_px": [
+          1950,
+          2700
+        ],
+        "dpi": [
+          299.9994,
+          299.9994
+        ],
+        "format": "PNG",
+        "pixel_decode": "complete"
+      },
+      "mapping_sha256": "5f75e92800986f03764b6b5ce60c78757710c72f0050b97089ef6ab1a79c0d50",
+      "export_hash_checks": [
+        {
+          "path": "docs/figure-recipes/advanced/surface/surface.pdf",
+          "sha256": "97b861eb3c176bb1b9d2d28d6746d741a7058d3a088efe9220555658843d6379",
+          "matches_mapping": true
+        },
+        {
+          "path": "docs/figure-recipes/advanced/surface/surface.svg",
+          "sha256": "9d5f0eed51c180c7584e2ea202ffe75f2e345521f1a3cc487eccbae199f354b7",
+          "matches_mapping": true
+        },
+        {
+          "path": "docs/figure-recipes/advanced/surface/surface.png",
+          "sha256": "886e4d5fcf381e9eb5d3dbf56a6049f3ecff133acf391eafe86cb346f477fcd3",
+          "matches_mapping": true
+        }
+      ],
+      "source_csv_sha256": "4ea15e7ea94638a39afe8e99f560864f45f604d19af6c93e492f5407121a7d98",
+      "source_hash_matches_mapping": true,
+      "data_consistency_checks": {
+        "row_count": 63,
+        "grid_shape_y_x": [
+          7,
+          9
+        ],
+        "complete_unique_grid": true,
+        "response_range_kPa": [
+          20.00261597698523,
+          32.50794663641728
+        ]
+      },
+      "independent_pdf_extractable_font_check": {
+        "ok": true,
+        "minimum_final_font_pt": 12.0,
+        "errors": [],
+        "scope": "Extractable PDF text at the documented 165.1 x 228.6 mm final size"
+      },
+      "verdict": "accepted_as_synthetic_recipe_reference",
+      "open_visual_defects": []
+    },
+    {
+      "recipe": "trajectory",
+      "png": "docs/figure-recipes/advanced/trajectory/trajectory.png",
+      "png_sha256": "86b16f97b221fd5efde96530c764ba768e09de88da4856346ec6e40bf06be86b",
+      "actual_visual_inspection": true,
+      "inspection_method": "view_image of final full PNG; trajectory footer additionally inspected as an in-memory crop",
+      "synthetic_label_observed": true,
+      "three_dimensional_purpose": "Conditional 3D nonplanar physical trajectory with matching XY and XZ projections; time is a separate color encoding.",
+      "observations": [
+        "Visible Synthetic demonstration footer, independently checked again in an in-memory bottom crop; footer is fully inside the exported image.",
+        "Three spatial axes use meters; the shared colorbar explicitly encodes Time (s), not height.",
+        "Square start and triangle end markers are visible with a readable footer legend.",
+        "XY projection reveals horizontal overlap; XZ projection separates heights, using the same time-color direction as the 3D path.",
+        "The 2D panels have matching square drawing areas and physical tick ranges; no coordinate jitter or false perspective depth is used in these readouts.",
+        "Axes, units, panel letters and shared colorbar are readable; no apparent clipping or text overlap in the inspected final PNG."
+      ],
+      "metadata": {
+        "size_px": [
+          1950,
+          2700
+        ],
+        "dpi": [
+          299.9994,
+          299.9994
+        ],
+        "format": "PNG",
+        "pixel_decode": "complete"
+      },
+      "mapping_sha256": "83eee41ec6c55f0f3c247c35a9fde2e1ab64df6bc343049cb545535b8355219f",
+      "export_hash_checks": [
+        {
+          "path": "docs/figure-recipes/advanced/trajectory/trajectory.pdf",
+          "sha256": "c70a74b487340a994d5509f766feb60bd3e3cba0c8881dd7509e9d98ef0f5e5d",
+          "matches_mapping": true
+        },
+        {
+          "path": "docs/figure-recipes/advanced/trajectory/trajectory.svg",
+          "sha256": "3e6fcfb2cf1e0e93c1baead49a387f7d4a620e8bd9e0a55e5d94247f692e4427",
+          "matches_mapping": true
+        },
+        {
+          "path": "docs/figure-recipes/advanced/trajectory/trajectory.png",
+          "sha256": "86b16f97b221fd5efde96530c764ba768e09de88da4856346ec6e40bf06be86b",
+          "matches_mapping": true
+        }
+      ],
+      "source_csv_sha256": "1f61ff4319d0ab8d518915dd04635fcac6baaa30957a82318e932310f95823c9",
+      "source_hash_matches_mapping": true,
+      "data_consistency_checks": {
+        "row_count": 61,
+        "strictly_increasing_time": true,
+        "time_range_s": [
+          0.0,
+          60.0
+        ],
+        "nonplanar_coordinate_evidence": true
+      },
+      "independent_pdf_extractable_font_check": {
+        "ok": true,
+        "minimum_final_font_pt": 12.0,
+        "errors": [],
+        "scope": "Extractable PDF text at the documented 165.1 x 228.6 mm final size"
+      },
+      "verdict": "accepted_as_synthetic_recipe_reference",
+      "open_visual_defects": []
+    }
+  ],
+  "conditions": [
+    "Insert at the documented 165.1 mm width; smaller insertion invalidates the 12pt font floor.",
+    "Retain synthetic/origin labels until separately verified real inputs and captions replace the demonstration together.",
+    "3D does not by itself establish intermediate measurements, physical safety, model validity, uncertainty or causal effects.",
+    "A real paper still requires final assembled-PDF page inspection, scientific validation, citations and authentic user release gates."
+  ],
+  "human_release_approved": false,
+  "scientific_model_accepted": false,
+  "actual_contest_results_claimed": false
+}

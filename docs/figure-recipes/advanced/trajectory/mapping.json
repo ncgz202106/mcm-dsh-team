@@ -1,0 +1,140 @@
+{
+  "panels": {
+    "a": {
+      "role": "Show genuine nonplanar spatial geometry",
+      "x": "x_m",
+      "y": "y_m",
+      "z": "z_m",
+      "color": "time_s",
+      "points": "All supplied positions"
+    },
+    "b": {
+      "role": "Resolve horizontal location without occlusion",
+      "x": "x_m",
+      "y": "y_m",
+      "color": "time_s",
+      "points": "All supplied positions"
+    },
+    "c": {
+      "role": "Resolve height at the same times",
+      "x": "x_m",
+      "y": "z_m",
+      "color": "time_s",
+      "points": "All supplied positions"
+    }
+  },
+  "geometry": {
+    "box_aspect": [
+      1,
+      1,
+      1
+    ],
+    "metric_aspect": true,
+    "common_spatial_limits_m": [
+      -16.8,
+      28.8
+    ],
+    "all_samples_retained": true,
+    "interpolation": "Straight segments connect consecutive input rows; no intermediate positions are measured.",
+    "alignment_note": "XY and XZ references have identical square plot areas and physical limits; 3D is a hero panel."
+  },
+  "normalization": {
+    "variable": "time_s",
+    "vmin": 0.0,
+    "vmax": 60.0,
+    "cmap": "cividis",
+    "clip": false
+  },
+  "caption_english": "Synthetic demonstration. Nonplanar spatial trajectory in meters; color encodes time in seconds, not height. All 61 supplied positions are marked, with straight segments connecting successive time-ordered rows. The square and triangle mark the first and last position. XY and XZ views retain every sample and share the same time normalization and spatial limits. Equal metric aspect is used in all spatial dimensions. Connecting segments do not establish measured intermediate positions, speed, or collision clearance; these require upstream analysis.",
+  "recipe": "trajectory",
+  "synthetic_demo": true,
+  "data_origin": "deterministic_synthetic_demo",
+  "schema": [
+    "time_s",
+    "x_m",
+    "y_m",
+    "z_m"
+  ],
+  "row_count": 61,
+  "excluded_rows": 0,
+  "source": {
+    "path": "source.csv",
+    "sha256": "1f61ff4319d0ab8d518915dd04635fcac6baaa30957a82318e932310f95823c9"
+  },
+  "script_sha256": "1b078bbb9ed5d9a317d299ebfd75ec508e158e2d000fe760ae5ada2cbd18e358",
+  "style_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+  "size_mm": [
+    165.1,
+    228.6
+  ],
+  "minimum_final_glyph_pt": 12,
+  "dpi": 300,
+  "camera": {
+    "elevation_degrees": 28,
+    "azimuth_degrees": -128,
+    "projection": "orthographic"
+  },
+  "plot_rectangles_mm": {
+    "a": [
+      27.749499999999998,
+      118.872,
+      91.44,
+      91.44
+    ],
+    "b": [
+      21.463,
+      37.274499999999996,
+      51.181,
+      51.181
+    ],
+    "c": [
+      100.711,
+      37.2745,
+      51.18099999999999,
+      51.18099999999999
+    ]
+  },
+  "outputs": [
+    {
+      "path": "trajectory.pdf",
+      "sha256": "c70a74b487340a994d5509f766feb60bd3e3cba0c8881dd7509e9d98ef0f5e5d"
+    },
+    {
+      "path": "trajectory.svg",
+      "sha256": "3e6fcfb2cf1e0e93c1baead49a387f7d4a620e8bd9e0a55e5d94247f692e4427"
+    },
+    {
+      "path": "trajectory.png",
+      "sha256": "86b16f97b221fd5efde96530c764ba768e09de88da4856346ec6e40bf06be86b"
+    }
+  ],
+  "caption_sha256": "87a817872de5ef79d76c5bcc6afc2c9a1fabc463a29d9e59510121b93832a724",
+  "qa": {
+    "alignment": {
+      "verdict": "PASS",
+      "scope": "2D comparable references only; 3D explicitly exempt"
+    },
+    "audit_pdf_text.py": {
+      "exit_code": 0,
+      "minimum_found_pt": 12.0,
+      "below_minimum_count": 0
+    },
+    "audit_figure_collisions.py": {
+      "exit_code": 0,
+      "verdict": "REVIEW REQUIRED",
+      "summary": {
+        "fail": 0,
+        "warn": 2,
+        "contained_fill_overlays": 2,
+        "contained_image_overlays": 0
+      }
+    }
+  },
+  "visual_review": "author_actual_inspection_completed",
+  "independent_acceptance": "not_claimed",
+  "reuse": "Keep fixed CSV units or adapt the schema, labels, caption and domain checks together. Freeze the upstream source; validate provenance separately.",
+  "visual_review_record": {
+    "path": "../visual-review.md",
+    "sha256": "caf28820bd812bd5fc660978b75251cd6b67daf89bca39268cea85199656379b"
+  }
+}

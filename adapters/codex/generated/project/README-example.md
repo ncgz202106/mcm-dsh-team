@@ -87,6 +87,12 @@ python scripts/mcm.py --root . close-issue ISSUE-001 --verifier reviewer-2 --evi
 
 问题先转为 `fixed_pending_review`，再由非受审成果作者的验证者关闭。验证文件须含匹配的 `issue_id`、`verifier_agent_id`、`status:passed`；工具保存并复核其摘要。blocker 不允许用 accepted_risk 关闭。
 
+## 论文呈现与终稿纠错
+
+从大纲阶段按需读取`resources/mcm-skills/presentation-lessons.md`，用任务—主张—证据链决定图表和页面。版式默认集中在`paper/styles/mcm-layout.tex`。第三维有实际信息时主动评估立体候选，并用等高线、切片或二维投影提供读数。
+
+整合后执行`python scripts/paper.py --root . finish --output '../finish-candidate-01'`（可用`--demo`检查演练稿）。它在新副本保存指纹、编译、逐页渲染，安全修复简单超宽插图；复杂布局和小字等进入责任角色修复队列。保留原稿，按队列整合后新建候选再验；非作者实际看图和每页PDF，不以编译或机械通过替代视觉、科学或人工批准。
+
 ## Codex 协作能力
 
 从项目根运行 `python scripts/mcm.py codex capabilities` 和 `python scripts/mcm.py codex preflight`。实际角色与工具拦截待验时，严格预检阻断正式派发。详见 [能力与验收范围](protocols/08-codex-readiness.md)。恢复前使用 `python scripts/mcm.py codex recover` 核查事务和写锁。

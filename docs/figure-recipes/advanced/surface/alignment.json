@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "applicable": true,
+  "auditable": false,
+  "verdict": "NOT AUDITABLE",
+  "backend": "python-matplotlib",
+  "summary": {
+    "fail": 0,
+    "warn": 0,
+    "comparisons": 0,
+    "exemptions": 1
+  },
+  "tolerances": {
+    "alignment_pt": 1.5,
+    "gutter_pt": 1.5
+  },
+  "layout": {
+    "schema_version": 1,
+    "backend": "python-matplotlib",
+    "figure": {
+      "width_pt": 468.0,
+      "height_pt": 648.0
+    },
+    "panels": [
+      {
+        "id": "a",
+        "bbox_pt": [
+          78.66,
+          336.96000000000004,
+          337.85999999999996,
+          596.1600000000001
+        ]
+      },
+      {
+        "id": "b",
+        "bbox_pt": [
+          76.68,
+          77.75999999999999,
+          344.52,
+          278.64
+        ]
+      }
+    ],
+    "row_groups": [],
+    "column_groups": [],
+    "boundary_groups": [],
+    "exemptions": [
+      {
+        "panels": [
+          "a"
+        ],
+        "checks": [
+          "all"
+        ],
+        "reason": "A projected 3D hero is not geometrically comparable to orthographic 2D references."
+      }
+    ]
+  },
+  "findings": [],
+  "errors": [
+    "No comparable row, column or shared-boundary groups were declared or inferred"
+  ]
+}

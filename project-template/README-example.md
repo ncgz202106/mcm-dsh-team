@@ -87,6 +87,12 @@ python scripts/mcm.py --root . close-issue ISSUE-001 --verifier reviewer-2 --evi
 
 问题先转为 `fixed_pending_review`，再由非受审成果作者的验证者关闭。验证文件须含匹配的 `issue_id`、`verifier_agent_id`、`status:passed`；工具保存并复核其摘要。blocker 不允许用 accepted_risk 关闭。
 
+## 论文呈现与终稿纠错
+
+从大纲阶段按需读取`resources/mcm-skills/presentation-lessons.md`，用任务—主张—证据链决定图表和页面。版式默认集中在`paper/styles/mcm-layout.tex`。第三维有实际信息时主动评估立体候选，并用等高线、切片或二维投影提供读数。
+
+整合后执行`python scripts/paper.py --root . finish --output '../finish-candidate-01'`（可用`--demo`检查演练稿）。它在新副本保存指纹、编译、逐页渲染，安全修复简单超宽插图；复杂布局和小字等进入责任角色修复队列。保留原稿，按队列整合后新建候选再验；非作者实际看图和每页PDF，不以编译或机械通过替代视觉、科学或人工批准。
+
 ## 容量与 DSH 运行时
 
 常规 7 个子 agent 槽位，加 1 个仅供复现、技术审计或紧急修复的预留槽位；队长根会话不算槽位，等待中的主管仍占槽位。角色是职责，不等于全部同时常驻；主管结束已完成工作、释放槽位后再开下阶段子 agent。

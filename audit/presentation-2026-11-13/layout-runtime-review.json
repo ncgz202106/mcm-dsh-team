@@ -1,0 +1,196 @@
+{
+  "format_version": 1,
+  "reviewed_at": "2026-11-13T15:05:42.932101+00:00",
+  "review_kind": "Independent actual review of seven fully rendered offline runtime pages",
+  "runtime_label": "layout-finish-05 / candidate-v002",
+  "status": "requires_visual_rework",
+  "mechanical_passed_as_recorded": true,
+  "independent_visual_passed": false,
+  "pdf_sha256": "84d0aeaf4f4b84e6b44e9046b2f2580ceb3b183edacfa6a60eae787ea89099bd",
+  "matches_build_pdf_sha256": true,
+  "rendered_pages_inspected": 7,
+  "pages": [
+    {
+      "pdf_page": 1,
+      "png_sha256": "7976984429108320effae425f4dfe758b9a60ec7c292da2f39f649e0a0969a9e",
+      "matches_build_manifest": true,
+      "size_px": [
+        910,
+        1287
+      ],
+      "actual_visual_inspection": true,
+      "verdict": "accepted_intentional_front_matter",
+      "observation": "Dedicated synthetic Summary Sheet is coherent and explicitly disclaims real competition results; its reserved whitespace is reasonable for this test."
+    },
+    {
+      "pdf_page": 2,
+      "png_sha256": "81424db8bc43090151a0d8bbfa5ef4d57d69a29f6db864766985719d6820aba1",
+      "matches_build_manifest": true,
+      "size_px": [
+        910,
+        1287
+      ],
+      "actual_visual_inspection": true,
+      "verdict": "accepted_front_matter_for_short_rehearsal",
+      "observation": "Readable sparse table of contents. Its shortness is a consequence of the small test; it is not the same issue as an avoidably empty body page."
+    },
+    {
+      "pdf_page": 3,
+      "png_sha256": "8198d64263af16d53e1cfbad7053b303e4296049e343551a242fad74e5ebc2d2",
+      "matches_build_manifest": true,
+      "size_px": [
+        910,
+        1287
+      ],
+      "actual_visual_inspection": true,
+      "verdict": "needs_rework",
+      "observation": "Figure 1 vertical Response (dimensionless) label is clipped by the source figure boundary. High-resolution independent source-PDF rendering confirms this predates the width repair. Other body text and caption are readable."
+    },
+    {
+      "pdf_page": 4,
+      "png_sha256": "e8bc799c76f0d028af2558ebe1b387286e5c51ab99ee7b866c002dc64cad4b21",
+      "matches_build_manifest": true,
+      "size_px": [
+        910,
+        1287
+      ],
+      "actual_visual_inspection": true,
+      "verdict": "accepted_3d_sample_page",
+      "observation": "Response surface axes/kPa colorbar and same-grid planar contour remain readable at insertion size; Synthetic footer and caption are intact; no apparent clipping or overlap."
+    },
+    {
+      "pdf_page": 5,
+      "png_sha256": "2f687c435cc418cca4e20abce351e4c9c747e704dd697a7a6532b64a27d0b3d0",
+      "matches_build_manifest": true,
+      "size_px": [
+        910,
+        1287
+      ],
+      "actual_visual_inspection": true,
+      "verdict": "needs_rework",
+      "observation": "Only two short sections occupy the top of the body page, followed by a large unused area before the full-page trajectory. This is avoidable internal whitespace; condense the demonstration body without shrinking the 3D figures or inventing scientific content."
+    },
+    {
+      "pdf_page": 6,
+      "png_sha256": "afcaa4258d4b7e14044ace54fb7671d130c0e2664414ee345a7eb8dfe7211f90",
+      "matches_build_manifest": true,
+      "size_px": [
+        910,
+        1287
+      ],
+      "actual_visual_inspection": true,
+      "verdict": "accepted_3d_sample_page",
+      "observation": "Physical x/y/z axes in meters, Time (s) colorbar, square/triangle endpoints, XY/XZ readouts, Synthetic footer and caption are readable and intact; no apparent overlap or clipping."
+    },
+    {
+      "pdf_page": 7,
+      "png_sha256": "0d4aef9e9221e6c804bfc6a6b5473acc8918b3a44b7fa85d4bdba5879174b02f",
+      "matches_build_manifest": true,
+      "size_px": [
+        910,
+        1287
+      ],
+      "actual_visual_inspection": true,
+      "verdict": "accepted_end_matter_for_short_rehearsal",
+      "observation": "Short references and AI-use explanation are readable; trailing end-matter whitespace is expected for this limited demonstration, not a full paper assessment."
+    }
+  ],
+  "input_integrity": {
+    "all_preserved_first_candidate_inputs_match_baseline": true,
+    "all_original_current_baseline_files_match": true,
+    "original_current_changes": [],
+    "final_candidate_changed_baseline_paths": [
+      "paper/sections/introduction.tex"
+    ],
+    "exact_single_width_replacement_only": true,
+    "diff": [
+      "--- baseline/paper/sections/introduction.tex",
+      "+++ candidate-v002/paper/sections/introduction.tex",
+      "@@ -4,7 +4,7 @@",
+      " The repair should reduce only its inclusion width and preserve all curve values.",
+      " \\begin{figure}[htbp]",
+      " \\centering",
+      "-\\includegraphics[width=1.2\\linewidth]{width-demo.pdf}",
+      "+\\includegraphics[width=\\linewidth]{width-demo.pdf}",
+      " \\caption{Synthetic reference and response; the plotted arrays are fixed.}",
+      " \\label{fig:width}",
+      " \\end{figure}"
+    ],
+    "scientific_numbers_formulas_symbols_and_other_text_preserved": true
+  },
+  "figure_preservation": [
+    {
+      "path": "figures/width-demo.pdf",
+      "baseline_sha256": "1f82ef4497d2491f38f13659a2f0816aa786d9322504994f39218979ec4f2bec",
+      "first_candidate_sha256": "1f82ef4497d2491f38f13659a2f0816aa786d9322504994f39218979ec4f2bec",
+      "final_candidate_sha256": "1f82ef4497d2491f38f13659a2f0816aa786d9322504994f39218979ec4f2bec",
+      "original_current_sha256": "1f82ef4497d2491f38f13659a2f0816aa786d9322504994f39218979ec4f2bec",
+      "unchanged_across_preserved_candidates": true
+    },
+    {
+      "path": "figures/surface.pdf",
+      "baseline_sha256": "97b861eb3c176bb1b9d2d28d6746d741a7058d3a088efe9220555658843d6379",
+      "first_candidate_sha256": "97b861eb3c176bb1b9d2d28d6746d741a7058d3a088efe9220555658843d6379",
+      "final_candidate_sha256": "97b861eb3c176bb1b9d2d28d6746d741a7058d3a088efe9220555658843d6379",
+      "original_current_sha256": "97b861eb3c176bb1b9d2d28d6746d741a7058d3a088efe9220555658843d6379",
+      "unchanged_across_preserved_candidates": true
+    },
+    {
+      "path": "figures/trajectory.pdf",
+      "baseline_sha256": "c70a74b487340a994d5509f766feb60bd3e3cba0c8881dd7509e9d98ef0f5e5d",
+      "first_candidate_sha256": "c70a74b487340a994d5509f766feb60bd3e3cba0c8881dd7509e9d98ef0f5e5d",
+      "final_candidate_sha256": "c70a74b487340a994d5509f766feb60bd3e3cba0c8881dd7509e9d98ef0f5e5d",
+      "original_current_sha256": "c70a74b487340a994d5509f766feb60bd3e3cba0c8881dd7509e9d98ef0f5e5d",
+      "unchanged_across_preserved_candidates": true
+    }
+  ],
+  "advanced_data_source_checks": [
+    {
+      "recipe": "surface",
+      "source_csv_sha256": "4ea15e7ea94638a39afe8e99f560864f45f604d19af6c93e492f5407121a7d98",
+      "matches_mapping_source": true,
+      "runtime_pdf_matches_published_recipe": true
+    },
+    {
+      "recipe": "trajectory",
+      "source_csv_sha256": "1f61ff4319d0ab8d518915dd04635fcac6baaa30957a82318e932310f95823c9",
+      "matches_mapping_source": true,
+      "runtime_pdf_matches_published_recipe": true
+    }
+  ],
+  "width_demo_numeric_source": {
+    "script_sha256_at_review": "ebb29c46920455d98f39552075767a61f6a00bb66c1dfb99de3483a13d6656bd",
+    "source_definition": "41 equally spaced x values in [0,1]; reference=x, synthetic response=x squared",
+    "evidence_scope": "Exact byte identity of all three embedded source PDFs proves no plotted geometry or source content changed during the width-only candidate repair. Advanced CSVs independently match their mapping hashes; width-demo arrays were not separately serialized by the runtime."
+  },
+  "findings": [
+    {
+      "id": "LAYOUT-RUNTIME-01",
+      "severity": "major",
+      "status": "open",
+      "page": 3,
+      "figure": 1,
+      "problem": "Source PDF clips the rotated Response (dimensionless) axis title at its top edge.",
+      "origin": "Present in unchanged source figure; not introduced by clamping insertion width.",
+      "evidence": "Full assembled page plus independent high-resolution render of the original source PDF, both actually inspected.",
+      "repair_direction": "Regenerate only the synthetic figure layout/shorten the axis label while preserving the dimensionless unit and all arrays; do not shrink typography or alter curve values."
+    },
+    {
+      "id": "LAYOUT-RUNTIME-02",
+      "severity": "major",
+      "status": "open",
+      "page": 5,
+      "problem": "Large avoidable blank body area between short explanatory paragraphs and the deferred trajectory page.",
+      "origin": "Full-page float and forced page clear in a very short demonstration.",
+      "repair_direction": "Clearly label the document as a compact presentation test, group its explanatory content, then retain full-size 3D sample pages. Preserve the official project template structure and scientific content."
+    }
+  ],
+  "limits": [
+    "This is a short synthetic layout rehearsal, not a complete scientific competition paper or model-validation result.",
+    "Full-size 3D sample pages pass this visual scope, but they do not make the whole seven-page document visually acceptable.",
+    "No human H2/H3 or production release gate is signed. Original runtime finish reports remain unchanged."
+  ],
+  "reviewer_modified_production": false,
+  "human_release_approved": false,
+  "release_ready": false
+}
