@@ -1,0 +1,269 @@
+{
+  "format_version": 1,
+  "reviewed_at": "2026-11-14T16:16:25.071495+00:00",
+  "review_kind": "Independent non-author MCM reference-transfer, role-guidance and current synthetic-schematic acceptance",
+  "reviewer_authored_guidance_or_recipe": false,
+  "production_modified_by_reviewer": false,
+  "status": "accepted_for_guidance_and_stated_synthetic_chart_scope",
+  "source_sha256": {
+    "skill-overlays/nature-figure/references/mcm-paper-profiles.md": "a03149a1593b689e8618f7b276fcfd18eb2561563d44c1f0ac9323673be0ef64",
+    "docs/科研图审美基线.md": "a7857777c7fe1a22bb30226ebec0de348b7b617b2fe34f25fc044ad174b8c7ff",
+    "docs/figure-recipes/mcm-paper/README.md": "087f5042ce0b844d943e5741e970c7cb91d35ee3a419b2ecb6bebbdbe3438cd1",
+    "bundle/prompts/mcm-figure.md": "b703d0e34a00d12935807d5087ab4ffdb0bf2f44fce4b88dd04306841b4ecbac",
+    "bundle/prompts/mcm-paper-lead.md": "3eed36b81fd7ad159480cf14886932b027a0f80d3e062def88f6b88f8f4a11b9",
+    "skill-overlays/nature-figure/references/mcm-scientific-grammar.md": "af20552a87ef0667e9b7da5c46d40d257171e5a190b84e4d55c7696720679c1b"
+  },
+  "guidance_checks": [
+    {
+      "id": "MCM-01",
+      "verdict": "pass",
+      "observation": "MCM paper pages are the main design references; the eleven general research images supply local topology/encoding rather than a new competition framework."
+    },
+    {
+      "id": "MCM-02",
+      "verdict": "pass",
+      "observation": "The profiles and current baseline explicitly allow useful containers, weak color grouping, domain glyphs, numerical scales, probability grids, full-page figures, multiple panels and conditional 3D. No two-color quota or universal no-box rule is introduced."
+    },
+    {
+      "id": "MCM-03",
+      "verdict": "pass",
+      "observation": "A/B/C briefs start from actual interfaces, fixed results and evidence roles; the generic shared-input ensemble is explicitly not the default whole-paper route."
+    },
+    {
+      "id": "MCM-04",
+      "verdict": "pass",
+      "observation": "Original scientific assertions, interval semantics and award names are not promoted to this task's verified facts. Current user structure, real scientific gates and result approval remain intact."
+    },
+    {
+      "id": "MCM-05",
+      "verdict": "pass_with_scope_limit",
+      "observation": "Four selected source pages were actually viewed by this reviewer, supporting the mapped claims below. The remaining five pages named by the author were not newly inspected by this reviewer."
+    },
+    {
+      "id": "MCM-06",
+      "verdict": "pass",
+      "observation": "Final role, baseline and scientific-grammar language limits exclusions to decorative or nonsemantic effects, explicitly preserving useful grouping and paper-derived domain structure. The minor wording recommendation is closed."
+    }
+  ],
+  "source_pages_actually_viewed": [
+    {
+      "paper": "2024 B",
+      "team": "2407038",
+      "physical_pdf_page": 4,
+      "private_render_basename": "2024_B_2407038_Outstanding_INFORMS-p4.png",
+      "render_sha256": "16d54a64fc327740fb652d27896ec7109ca1fc4d62f4cd3a781ad4c5f92124b9",
+      "actual_page_viewed_by_this_reviewer": true,
+      "observation": "Figure 1 contains task bands, intermediate environmental/trajectory/equipment/search views and chapter labels; preserving semantic grouping while enlarging small details is a faithful transfer."
+    },
+    {
+      "paper": "2024 C",
+      "team": "2401298",
+      "physical_pdf_page": 16,
+      "private_render_basename": "2024_C_2401298_Outstanding_AMS-p16.png",
+      "render_sha256": "0d64fd9ac6f0e6354cb9bf58cf4c5b39caef66ef341d2c42c91908411fdbdc18",
+      "actual_page_viewed_by_this_reviewer": true,
+      "observation": "Figures 9 and 10 first show one Bayesian-network block, then two temporal layers with distinct green cross-layer arrows. This supports component-before-composition and highlighting added links."
+    },
+    {
+      "paper": "2025 C",
+      "team": "2510006",
+      "physical_pdf_page": 14,
+      "private_render_basename": "2025_C_2510006_Outstanding-p14.png",
+      "render_sha256": "0d1b8542085ead81997b309808b095d87928a6b9d068d1469cb293708a0cde00",
+      "actual_page_viewed_by_this_reviewer": true,
+      "observation": "Figures 12 and 13 put a local actual/predicted comparison alongside the full training/test/forecast view. The original calls a band confidence interval and claims accuracy; neither statistical meaning nor accuracy has been independently accepted here."
+    },
+    {
+      "paper": "2025 C",
+      "team": "2510006",
+      "physical_pdf_page": 23,
+      "private_render_basename": "2025_C_2510006_Outstanding-p23.png",
+      "render_sha256": "f8f400290428bab3db85f298c94772429886d428dc735fe593f3853705ad712c",
+      "actual_page_viewed_by_this_reviewer": true,
+      "observation": "Tables 8 and 9 use the same 0.3-0.7 correlation-threshold columns for total and gold outputs, including constant and varying country rows. The nearby text separately varies nominal interval levels. The proposed distinction and warning against blanket robustness are supported."
+    }
+  ],
+  "source_pages_not_newly_viewed_by_this_reviewer": [
+    "2024 A 2405424 physical PDF p.13 and p.17",
+    "2024 B 2407038 physical PDF p.19",
+    "2025 C 2510006 physical PDF p.7 and p.16"
+  ],
+  "findings": [
+    {
+      "id": "MCM-MINOR-01",
+      "severity": "minor",
+      "blocking": false,
+      "status": "closed_by_narrowed_wording",
+      "location": "mcm-figure.md, existing compact-style default paragraph",
+      "recommendation": "Qualify the old every-box-color-fill exclusion as color fill without grouping/role meaning, so it cannot be read apart from the new permission for semantic light grouping. The new profile and explicit baseline caveat already prevent a global primitive ban."
+    }
+  ],
+  "synthetic_schematics": [
+    {
+      "recipe": "taxonomy",
+      "mapping_path": "docs/figure-recipes/schematics/examples/taxonomy/mapping.json",
+      "mapping_sha256": "4d56d61f40cb848e26cc992974bdaabacb5a86f7df63ce1fe825361e9bcdc30e",
+      "actual_full_png_viewed": true,
+      "files": {
+        "caption.md": {
+          "sha256": "c59f0658d8838996f2c5909d588dc422c6ce2e9b6a2810dcc707cd629ea98397",
+          "matches_mapping": true
+        },
+        "taxonomy.pdf": {
+          "sha256": "34272126b2f8f97912effd08643c9cc78f409c72abf1717f5b9f91700f64035d",
+          "matches_mapping": true
+        },
+        "taxonomy.png": {
+          "sha256": "1b5fd2d7069440ed6eee82953b83a894148afe7e38c2c555486a6e8d4214cddf",
+          "matches_mapping": true
+        },
+        "taxonomy.svg": {
+          "sha256": "970a61c3505a630a9b8182781fcb60a923f0ae1e48504a73f5d77779710de76e",
+          "matches_mapping": true
+        }
+      },
+      "script_matches_current": true,
+      "style_matches_current": true,
+      "png_size_px": [
+        1950,
+        870
+      ],
+      "png_dpi": [
+        299.9994,
+        299.9994
+      ],
+      "final_size_mm": [
+        165.1,
+        73.66
+      ],
+      "final_pdf_font_audit_passed": true,
+      "minimum_final_font_bp": 12.0,
+      "visual_verdict": "accepted_for_synthetic_local_schematic_only",
+      "synthetic_label_seen": true,
+      "semantic_checks": {
+        "all_links_declared_nondirected": true,
+        "all_links_classification": true
+      },
+      "visual_observations": [
+        "Unboxed text is aligned into three ranks; fine classification links have no arrowheads.",
+        "Model, Validation and Recommendation branch colors agree with their grouping links.",
+        "Labels remain complete and separated; Synthetic schematic is visible."
+      ]
+    },
+    {
+      "recipe": "ensemble",
+      "mapping_path": "docs/figure-recipes/schematics/examples/ensemble/mapping.json",
+      "mapping_sha256": "017c154fb23da9e9bb8aeae315cdfd0cb9ae8e904ba47f9641bf7f103edc6960",
+      "actual_full_png_viewed": true,
+      "files": {
+        "caption.md": {
+          "sha256": "4788200df5a1b38be55c625d8971ae4d3d145c04704b949ca1b56534a0c851a2",
+          "matches_mapping": true
+        },
+        "ensemble.pdf": {
+          "sha256": "0c93bc792227a7b6a4a531c479a8b9032ec10a687d7aea362cc90ee9ec15af48",
+          "matches_mapping": true
+        },
+        "ensemble.png": {
+          "sha256": "7e2ce480f3e25f5ff8d3d6b74dec062a92369422c0b36f99f907741bba675ab8",
+          "matches_mapping": true
+        },
+        "ensemble.svg": {
+          "sha256": "6b65bea6745176d091ac5a89f4577866ca19d06da2932308006808c30552b3c2",
+          "matches_mapping": true
+        }
+      },
+      "script_matches_current": true,
+      "style_matches_current": true,
+      "png_size_px": [
+        1950,
+        960
+      ],
+      "png_dpi": [
+        299.9994,
+        299.9994
+      ],
+      "final_size_mm": [
+        165.1,
+        81.28
+      ],
+      "final_pdf_font_audit_passed": true,
+      "minimum_final_font_bp": 12.0,
+      "visual_verdict": "accepted_for_synthetic_local_schematic_only",
+      "synthetic_label_seen": true,
+      "semantic_checks": {
+        "weights": [
+          0.5,
+          0.3,
+          0.2
+        ],
+        "sum_weights": 1.0,
+        "weights_sum_to_one": true,
+        "weighted_edges_enter_mix": true
+      },
+      "visual_observations": [
+        "Shared input visibly fans into all three candidates, with arrows ending at the candidates.",
+        "The 0.50, 0.30 and 0.20 labels sit next to distinct colored candidate-to-estimate routes; one output arrow leaves the weighted estimate.",
+        "No dense neuron mesh, clipped text or overlapping weight label is apparent at the inspected full render."
+      ]
+    },
+    {
+      "recipe": "feedback",
+      "mapping_path": "docs/figure-recipes/schematics/examples/feedback/mapping.json",
+      "mapping_sha256": "2e53b5411e9eb1256dd1168b424b4a66394df03416598569b91b5248513fa666",
+      "actual_full_png_viewed": true,
+      "files": {
+        "caption.md": {
+          "sha256": "f439d744a0c3864fffd2b4bc5a9ebbf81fbff4993df2cfc3a868eadaff7905ea",
+          "matches_mapping": true
+        },
+        "feedback.pdf": {
+          "sha256": "b8dc970cde6104cdfc2d67995342c4853fe769b837c8407392086ce2d4624577",
+          "matches_mapping": true
+        },
+        "feedback.png": {
+          "sha256": "052144d4eef668613f8439ba5fe61d07fe077d3fc880494c8429aca7c461270f",
+          "matches_mapping": true
+        },
+        "feedback.svg": {
+          "sha256": "21d0816f72e6fbbd49f708b051d71f966132d1309a5332f1f5e6caa4df8f3523",
+          "matches_mapping": true
+        }
+      },
+      "script_matches_current": true,
+      "style_matches_current": true,
+      "png_size_px": [
+        1950,
+        1140
+      ],
+      "png_dpi": [
+        299.9994,
+        299.9994
+      ],
+      "final_size_mm": [
+        165.1,
+        96.52
+      ],
+      "final_pdf_font_audit_passed": true,
+      "minimum_final_font_bp": 12.0,
+      "visual_verdict": "accepted_for_synthetic_local_schematic_only",
+      "synthetic_label_seen": true,
+      "semantic_checks": {
+        "action_gate_edges_present": true,
+        "only_action_enters_gate": true
+      },
+      "visual_observations": [
+        "Orange action moves through Action constraint into System; blue observed state and teal dashed measured feedback return separately to Decision rule.",
+        "Return paths attach to distinct ports and do not pass through label text or through the action constraint.",
+        "The lower feasible-action ellipse contains a directly labeled admissible boundary point, connected from a proposed point; its caption disclaims a general algorithm or safety proof."
+      ]
+    }
+  ],
+  "independent_acceptance_binding": "This new report accepts the exact current chart/export hashes for synthetic local schematic use. Old author/self-review histories and their pending markers are not rewritten.",
+  "not_accepted_by_this_report": [
+    "Formal MCM scientific results, source-paper computations, award certification, publication-policy compliance or current human H0/H1/H2/H3 approval.",
+    "Insertion into a real manuscript: the three complete charts were viewed, but no new manuscript PDF pages using them were inspected.",
+    "A new MCM full-paper result or all A/B/C end-to-end execution."
+  ],
+  "finalized_at": "2026-11-14T16:17:01.982483+00:00"
+}

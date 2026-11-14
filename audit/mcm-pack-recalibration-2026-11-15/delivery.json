@@ -1,0 +1,57 @@
+{
+  "format_version": 1,
+  "checked_at": "2026-11-14T16:19:35.490368+00:00",
+  "scope": "Maintenance of MCM source priorities, design briefs, prompts and local skills; no new scientific result or manuscript",
+  "primary_design_source": "User-provided MCM paper resource pack; general research figures supply local grammar",
+  "paper_views": [
+    {
+      "paper": "2024_A_2405424_Outstanding.pdf",
+      "sha256": "3976866832e31712b42c11a241c413db2f056e48c24a3768ff0c41c1460b44c6",
+      "physical_pdf_pages_actually_viewed_by_maintainer": [
+        13,
+        17
+      ]
+    },
+    {
+      "paper": "2024_B_2407038_Outstanding_INFORMS.pdf",
+      "sha256": "3532e6cb77e04f698b6b54ca76045961bfce18ff9dc4539e2a2af195c43eaa84",
+      "physical_pdf_pages_actually_viewed_by_maintainer": [
+        4,
+        19
+      ]
+    },
+    {
+      "paper": "2024_C_2401298_Outstanding_AMS.pdf",
+      "sha256": "1fecca82369d425dbf34e49e0e03ba8e15de5ebdfe04de146919ce71e908da2e",
+      "physical_pdf_pages_actually_viewed_by_maintainer": [
+        16
+      ]
+    },
+    {
+      "paper": "2025_C_2510006_Outstanding.pdf",
+      "sha256": "e3e400df06406ecf01345732bb21b562e82c07dc8c94846ff1d0c0bf7b7ecd10",
+      "physical_pdf_pages_actually_viewed_by_maintainer": [
+        7,
+        14,
+        16,
+        23
+      ]
+    }
+  ],
+  "paper_view_count": 9,
+  "revisited_pages_not_counted_as_new_independent_papers": true,
+  "old_2024_ABC_versions_hash_matched": true,
+  "earlier_pack_only_partially_relocated": true,
+  "award_status": "As supplied by resource pack; not freshly independently certified in this task",
+  "original_pdfs_or_crops_in_public_repo": false,
+  "installed_entry_matches_source": true,
+  "installed_entry_files": 22,
+  "specialist_overlay_remaining_changes": 0,
+  "rollback_backup_retained_privately": true,
+  "independent_review_ref": "review.json",
+  "reviewed_source_hashes_match_current_files": true,
+  "prior_three_schematic_visual_gap_closed_for_synthetic_reference_only": true,
+  "native_role_or_hook_runtime_verified": false,
+  "dsh_started": false,
+  "human_scientific_approval_generated": false
+}

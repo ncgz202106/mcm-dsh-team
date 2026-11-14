@@ -8,6 +8,7 @@
     "nature-figure": [
       "references/mcm-visual-recipes.md",
       "references/mcm-scientific-grammar.md",
+      "references/mcm-paper-profiles.md",
       "scripts/mcm-gallery.py",
       "scripts/mcm-advanced.py",
       "scripts/mcm-schematics.py",

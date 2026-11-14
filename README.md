@@ -57,6 +57,7 @@ pwsh -File tools/new-project.ps1 -Destination 'D:/MCM/practice-01'
 - [终稿自动检查与纠错](docs/论文呈现升级与自动纠错.md)从独立副本编译、逐页渲染，并安全修复简单超宽插图；复杂版式进入整改闭环，仍需非作者实际看图。
 - [科研图视觉语法](skill-overlays/nature-figure/references/mcm-scientific-grammar.md)学习情景、分类、集成和反馈的表达；配套[机制示意](docs/figure-recipes/schematics/README.md)与[计数/组成面板](docs/figure-recipes/evidence-panels/README.md)均为可运行的原创合成示例。
 - [活动审美基线](docs/科研图审美基线.md)明确剔除大卡片、重边框、装饰效果及虚增留白；历史证据保留版本含义，退回稿退出默认参考。
+- [美赛论文主设计](skill-overlays/nature-figure/references/mcm-paper-profiles.md)以资源包中的任务链、机制/方程、对照、区间和敏感性为主要依据，配[图文简报示例](docs/figure-recipes/mcm-paper/README.md)；有信息的分组、色区与复杂结构保留，避免统一套无框细线或通用集成图。
 
 [四页三维图入稿与纠错试样](docs/figure-recipes/advanced/specimen/presentation.pdf)已实际编译并逐页独立复验，包含同数据等高图和空间投影。它是合成布局测试，供检查实际字号、图注与页面效果。
 

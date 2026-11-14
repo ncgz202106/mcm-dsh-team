@@ -23,3 +23,5 @@ python skill-overlays/nature-figure/scripts/mcm-evidence-panels.py --recipe coun
 最终宽165.1mm，图内最小12pt；复杂标签需重排而非缩小。`scenarios`同坐标面板做实际对齐检查，`counts`两个不同职责坐标面板不冒称可比轴对齐通过。数值色阶仍用于数据编码，保持简洁标题、直接标签和共同分母，不使用装饰渐变、荧光色或立体饼图。
 
 实际看图不等于已审查真实论文；未来入稿还须检查最终缩放、图注、引用及整页效果。作者/维护者记录与非作者验收分开。
+
+当前两例的[非作者复核](../../../audit/scientific-grammar-2026-11-14/evidence-independent-review.json)已检查图像、目标拟合/评估ID隔离及组成的13/37、10/37、9/37、5/37；通过范围为合成配方参考用途。

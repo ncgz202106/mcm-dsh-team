@@ -1,0 +1,130 @@
+{
+  "format_version": 1,
+  "reviewed_at": "2026-11-14T16:04:35.331876+00:00",
+  "review_kind": "Independent non-author actual visual and numeric-contract inspection of two synthetic recipe candidates",
+  "reviewer_authored_recipe": false,
+  "production_modified_by_reviewer": false,
+  "status": "accepted_for_synthetic_recipe_reference_only",
+  "figures": [
+    {
+      "recipe": "scenarios",
+      "mapping_sha256": "11747fcc67eb5ec2515cbca221e23d52304b041eab494b4b1bd633a23684e08f",
+      "source_sha256": "d820e0118e403a48bcf6f6ab34e01f199aef27d372785a96503c2045f367503d",
+      "source_matches_mapping": true,
+      "outputs": {
+        "scenarios.pdf": {
+          "sha256": "7154620f9d12f07d6deaf5432e3fa6311fcf227e0a40022b34add9cbe850774b",
+          "matches_mapping": true
+        },
+        "scenarios.svg": {
+          "sha256": "881bbe58445474149ae8f80b89e50823e83446f5562576495910e77bbeed96b7",
+          "matches_mapping": true
+        },
+        "scenarios.png": {
+          "sha256": "7bcdaf28f834eaf3a3ccacb7c29fa39e0d8c03c681b25b3cc2d06f93543681f5",
+          "matches_mapping": true
+        }
+      },
+      "png_size_px": [
+        1950,
+        2460
+      ],
+      "png_dpi": [
+        299.9994,
+        299.9994
+      ],
+      "minimum_extractable_pdf_font_bp": 12.0,
+      "actual_full_png_inspection": true,
+      "visual_verdict": "accepted_for_synthetic_recipe_only",
+      "target_active_ids": {
+        "a": [],
+        "b": [
+          "T2-0",
+          "T2-1",
+          "T2-2",
+          "T2-3"
+        ],
+        "c": [
+          "T2-4",
+          "T2-5",
+          "T2-6",
+          "T2-7"
+        ]
+      },
+      "fit_evaluation_overlap": [],
+      "symbol_ids_and_positions_shared": true,
+      "visual_observations": [
+        "Color and directly named group envelopes consistently encode Source A, Source B and Target.",
+        "Circle and triangle encode categories; filled and outlined markers distinguish availability in the named step.",
+        "Panel b uses the target top-row fitting subset; c uses the disjoint bottom-row scoring subset. The caption states a and b are alternatives rather than a single learning trajectory.",
+        "All panels have aligned repeated groups, readable titles and labels; the shared legend is outside the plots.",
+        "Synthetic and symbolic-layout notices are visible. Enclosing ellipses are not presented as statistical regions."
+      ],
+      "nonblocking_recommendation": "For future variants, Not used this step may be clearer than Held out this step for previously fitted source points; the current caption and this-step qualifier prevent a global independence claim."
+    },
+    {
+      "recipe": "counts",
+      "mapping_sha256": "44d37e24253ae77826a00a8bb17ce6a66e32a9cbcda037068f019cf5154db155",
+      "source_sha256": "c10443e7d1f7aa3678df73354f726409b80cc31eb235e7fc6d70b84acb341ab2",
+      "source_matches_mapping": true,
+      "outputs": {
+        "counts.pdf": {
+          "sha256": "c5cb228b4908ae3751c22c7ed5870d435abedfc8d392fc7e88785ae713e8f599",
+          "matches_mapping": true
+        },
+        "counts.svg": {
+          "sha256": "d20c2f4e21803f242b7b8e63747f631a56f7d55d9ca2bc45bc60fc79b4e094e6",
+          "matches_mapping": true
+        },
+        "counts.png": {
+          "sha256": "8f603d7858837ef9fac1a3ee1f2834fe5e9725e4ebc2692dd98892ee2b3e8b7e",
+          "matches_mapping": true
+        }
+      },
+      "png_size_px": [
+        1950,
+        2130
+      ],
+      "png_dpi": [
+        299.9994,
+        299.9994
+      ],
+      "minimum_extractable_pdf_font_bp": 12.0,
+      "actual_full_png_inspection": true,
+      "visual_verdict": "accepted_for_synthetic_recipe_only",
+      "independent_composition_recompute": {
+        "included_years": [
+          2022,
+          2023,
+          2024
+        ],
+        "numerators": [
+          13,
+          10,
+          9,
+          5
+        ],
+        "denominator": 37,
+        "percentages": [
+          35.13513513513514,
+          27.027027027027028,
+          24.324324324324323,
+          13.513513513513514
+        ],
+        "matches_mapping": true
+      },
+      "visual_observations": [
+        "Exact counts are readable in same-size markers with a restrained sequential blue color scale.",
+        "2021 Balance is explicitly an open circle marked 0; Forecast is a distinct square marked NA.",
+        "Bars directly label 13/37, 10/37, 9/37 and 5/37 with matching rounded percentages.",
+        "The included years 2022-2024 and complete exclusion of 2021 are printed beside the composition panel and explained in the caption.",
+        "Synthetic notice, category labels and colorbar remain readable; no apparent cropping or overlap in the inspected full image."
+      ]
+    }
+  ],
+  "scope_limits": [
+    "Private candidate outputs were inspected; final public copies must be hash-checked after synchronization.",
+    "No real model, corpus, label availability, generalization performance, scientific guarantee or manuscript-page acceptance is asserted.",
+    "Final PDF placement and page-level readability require separate review."
+  ]
+}
