@@ -1,0 +1,98 @@
+{
+  "format_version": 1,
+  "reviewed_at": "2026-11-14T13:58:53.903969+00:00",
+  "review_kind": "Independent non-author transfer and instruction review against eleven user-provided scientific-figure references",
+  "production_modified_by_reviewer": false,
+  "reviewer_authored_guidance": false,
+  "status": "accepted_for_guidance",
+  "source_sha256": {
+    "skill-overlays/nature-figure/references/mcm-scientific-grammar.md": "de45e4698921db273d38089e624b9e8ab2ff1ab186e51f428f508653459bced4",
+    "bundle/prompts/mcm-figure.md": "5b3da934affa5f9aa1592e168d2bfca1bc9caed9a76d90b68c77e7d6ac304199",
+    "skill-overlays/nature-figure/references/mcm-adaptation.md": "8d7531c45a31d94ca34a282f2a57e049a64bc1272baecc58b953b9c13d8369bd",
+    "skill-overlays/manifest.json": "1e4d87906b84d3ef0d288fbcd2cfee737456658a8337ad73d62e741ab0656a55"
+  },
+  "checks": [
+    {
+      "id": "REF-01",
+      "verdict": "pass",
+      "observation": "Origins, research results and award identities remain unverified; static GIF frame count is stated correctly. Original images are not distributed."
+    },
+    {
+      "id": "REF-02",
+      "verdict": "pass",
+      "observation": "All eleven image roles are covered by ten purpose-based entries; images 10 and 11 share constrained/set geometry, while their exact algorithms are not inferred."
+    },
+    {
+      "id": "REF-03",
+      "verdict": "pass",
+      "observation": "Domain, class and seen/unseen state are assigned separable visual channels; schematic distances, areas and enclosures are not promoted to statistical meaning."
+    },
+    {
+      "id": "REF-04",
+      "verdict": "pass",
+      "observation": "Taxonomy is distinguished from causality and overlapping methods need not be forced into exclusive leaves. Ensemble aggregation is tied to the actual implemented rule."
+    },
+    {
+      "id": "REF-05",
+      "verdict": "pass",
+      "observation": "Counts use a suitable sequential palette; zero and missing are separated. Composition requires a known denominator and appropriate mutually exclusive, exhaustive categories; multi-label frequencies are not normalized to a misleading 100%."
+    },
+    {
+      "id": "REF-06",
+      "verdict": "pass",
+      "observation": "Feedback arrows carry objects and time indices. Action filtering does not automatically imply reward modification, and Safe-layer labels are not treated as safety proof."
+    },
+    {
+      "id": "REF-07",
+      "verdict": "pass",
+      "observation": "The unknown function/set definitions in image 11 remain explicitly unknown; no projection, reachability or safety algorithm is fabricated."
+    },
+    {
+      "id": "REF-08",
+      "verdict": "pass",
+      "observation": "The branch keeps current paper structure, model, backend, project style, parent-managed delegation and existing human gates. It adds no controller, role or compulsory chart count."
+    },
+    {
+      "id": "REF-09",
+      "verdict": "pass",
+      "observation": "Readers load only relevant 1-2 entries. Abstract mechanism diagrams remain readable in 2D without removing the prior conditional-3D preference for actual third variables."
+    },
+    {
+      "id": "REF-10",
+      "verdict": "pending_runtime",
+      "observation": "Script routes and manifest entries are being integrated; this review does not certify their execution, exports or final visual quality."
+    }
+  ],
+  "findings": [
+    {
+      "id": "REF-MINOR-01",
+      "severity": "minor",
+      "status": "closed_in_current_guidance",
+      "location": "mcm-scientific-grammar.md, image 3 training/testing row",
+      "observation": "In meta-learning a collection named meta-test/query can participate in the training update. The reference also shows final unseen-domain evaluation; these are different roles.",
+      "recommendation": "Explicitly say that meta-test/query naming alone is not independent-test evidence; distinguish update participation from outer held-out evaluation.",
+      "blocking": false
+    }
+  ],
+  "reference_images": {
+    "count": 11,
+    "gif_files": 7,
+    "gif_frames_each": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "original_images_published_by_reviewer": false,
+    "origin_and_award_identity_verified": false,
+    "private_identity_and_visual_notes": "Retained outside the public repository; no source-image paths or bytes in this report"
+  },
+  "scope_limits": [
+    "This is a static guidance review, not an algorithm, literature, scientific result or safety verification.",
+    "No generated chart or manuscript page has been visually accepted by this report.",
+    "New scripts and their execution remain pending separate actual test and visual evidence."
+  ]
+}

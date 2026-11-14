@@ -1,0 +1,305 @@
+{
+  "nodes": [
+    {
+      "id": "answer",
+      "label": "Answer evidence"
+    },
+    {
+      "id": "model",
+      "label": "Model"
+    },
+    {
+      "id": "validation",
+      "label": "Validation"
+    },
+    {
+      "id": "choice",
+      "label": "Recommendation"
+    },
+    {
+      "id": "states",
+      "label": "Defined states"
+    },
+    {
+      "id": "terms",
+      "label": "Mechanism terms"
+    },
+    {
+      "id": "baseline",
+      "label": "Baseline tests"
+    },
+    {
+      "id": "error",
+      "label": "Error bounds"
+    },
+    {
+      "id": "options",
+      "label": "Feasible choices"
+    },
+    {
+      "id": "limits",
+      "label": "Failure conditions"
+    }
+  ],
+  "edges": [
+    {
+      "source": "answer",
+      "target": "model",
+      "kind": "classification",
+      "directed": false
+    },
+    {
+      "source": "answer",
+      "target": "validation",
+      "kind": "classification",
+      "directed": false
+    },
+    {
+      "source": "answer",
+      "target": "choice",
+      "kind": "classification",
+      "directed": false
+    },
+    {
+      "source": "model",
+      "target": "states",
+      "kind": "classification",
+      "directed": false
+    },
+    {
+      "source": "model",
+      "target": "terms",
+      "kind": "classification",
+      "directed": false
+    },
+    {
+      "source": "validation",
+      "target": "baseline",
+      "kind": "classification",
+      "directed": false
+    },
+    {
+      "source": "validation",
+      "target": "error",
+      "kind": "classification",
+      "directed": false
+    },
+    {
+      "source": "choice",
+      "target": "options",
+      "kind": "classification",
+      "directed": false
+    },
+    {
+      "source": "choice",
+      "target": "limits",
+      "kind": "classification",
+      "directed": false
+    }
+  ],
+  "scope": "Organizational taxonomy only; links do not establish causation or exclusivity.",
+  "recipe": "taxonomy",
+  "synthetic": true,
+  "diagram_kind": "conceptual schematic",
+  "final_width_mm": 165.1,
+  "final_height_mm": 73.66,
+  "minimum_core_font_pt": 12,
+  "presentation_profile": "compact scientific schematic; thin square outlines or unboxed taxonomy, no in-figure headline",
+  "label_manifest": [
+    "Answer evidence",
+    "Model",
+    "Defined states",
+    "Mechanism terms",
+    "Validation",
+    "Baseline tests",
+    "Error bounds",
+    "Recommendation",
+    "Feasible choices",
+    "Failure conditions",
+    "Synthetic schematic"
+  ],
+  "boxes": {},
+  "routes": [
+    [
+      [
+        0.255,
+        0.52
+      ],
+      [
+        0.305,
+        0.52
+      ],
+      [
+        0.305,
+        0.78
+      ],
+      [
+        0.35,
+        0.78
+      ]
+    ],
+    [
+      [
+        0.625,
+        0.78
+      ],
+      [
+        0.675,
+        0.78
+      ],
+      [
+        0.675,
+        0.865
+      ],
+      [
+        0.72,
+        0.865
+      ]
+    ],
+    [
+      [
+        0.625,
+        0.78
+      ],
+      [
+        0.675,
+        0.78
+      ],
+      [
+        0.675,
+        0.6950000000000001
+      ],
+      [
+        0.72,
+        0.6950000000000001
+      ]
+    ],
+    [
+      [
+        0.255,
+        0.52
+      ],
+      [
+        0.305,
+        0.52
+      ],
+      [
+        0.305,
+        0.52
+      ],
+      [
+        0.35,
+        0.52
+      ]
+    ],
+    [
+      [
+        0.625,
+        0.52
+      ],
+      [
+        0.675,
+        0.52
+      ],
+      [
+        0.675,
+        0.605
+      ],
+      [
+        0.72,
+        0.605
+      ]
+    ],
+    [
+      [
+        0.625,
+        0.52
+      ],
+      [
+        0.675,
+        0.52
+      ],
+      [
+        0.675,
+        0.435
+      ],
+      [
+        0.72,
+        0.435
+      ]
+    ],
+    [
+      [
+        0.255,
+        0.52
+      ],
+      [
+        0.305,
+        0.52
+      ],
+      [
+        0.305,
+        0.26
+      ],
+      [
+        0.35,
+        0.26
+      ]
+    ],
+    [
+      [
+        0.625,
+        0.26
+      ],
+      [
+        0.675,
+        0.26
+      ],
+      [
+        0.675,
+        0.34500000000000003
+      ],
+      [
+        0.72,
+        0.34500000000000003
+      ]
+    ],
+    [
+      [
+        0.625,
+        0.26
+      ],
+      [
+        0.675,
+        0.26
+      ],
+      [
+        0.675,
+        0.175
+      ],
+      [
+        0.72,
+        0.175
+      ]
+    ]
+  ],
+  "geometry_check": {
+    "passed": true,
+    "errors": [],
+    "checked": "Actual Matplotlib rendered text bounds, pairwise text overlap, node internal clearance, connector-versus-text intersection and full canvas containment.",
+    "limits": "Semantic interpretation and final-page layout require actual visual inspection. Not the Fireworks semantic SVG validator."
+  },
+  "script_sha256": "69e32c8eb7ad594a65309e921572f3a6cc57d212e7a38796fe568551dd580625",
+  "style_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+  "vector_route": "Matplotlib PDF and editable-text SVG; Fireworks generator not invoked",
+  "visual_review": {
+    "status": "pending",
+    "author_self_check_not_independent": true
+  },
+  "files": {
+    "caption.md": "c59f0658d8838996f2c5909d588dc422c6ce2e9b6a2810dcc707cd629ea98397",
+    "taxonomy.pdf": "34272126b2f8f97912effd08643c9cc78f409c72abf1717f5b9f91700f64035d",
+    "taxonomy.png": "1b5fd2d7069440ed6eee82953b83a894148afe7e38c2c555486a6e8d4214cddf",
+    "taxonomy.svg": "970a61c3505a630a9b8182781fcb60a923f0ae1e48504a73f5d77779710de76e"
+  }
+}

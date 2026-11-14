@@ -1,0 +1,1 @@
+Synthetic schematic. Organizational taxonomy only; links do not establish causation or exclusivity. Core labels are designed for the stated full insertion width; do not shrink below the project font floor.

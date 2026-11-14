@@ -1,0 +1,774 @@
+{
+  "panels": {
+    "a": {
+      "protocol": "Source-only fitting",
+      "available_domains": [
+        "Source A",
+        "Source B"
+      ],
+      "symbols": [
+        {
+          "id": "S0-0",
+          "x": 1.4300000000000002,
+          "y": 1.7,
+          "category": "Category 1",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S0-1",
+          "x": 1.82,
+          "y": 1.7,
+          "category": "Category 2",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S0-2",
+          "x": 2.22,
+          "y": 1.7,
+          "category": "Category 1",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S0-3",
+          "x": 2.59,
+          "y": 1.7,
+          "category": "Category 2",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S0-4",
+          "x": 1.4300000000000002,
+          "y": 1.0999999999999999,
+          "category": "Category 1",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S0-5",
+          "x": 1.82,
+          "y": 1.0999999999999999,
+          "category": "Category 2",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S0-6",
+          "x": 2.22,
+          "y": 1.0999999999999999,
+          "category": "Category 1",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S0-7",
+          "x": 2.59,
+          "y": 1.0999999999999999,
+          "category": "Category 2",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S1-0",
+          "x": 4.43,
+          "y": 1.7,
+          "category": "Category 1",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S1-1",
+          "x": 4.82,
+          "y": 1.7,
+          "category": "Category 2",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S1-2",
+          "x": 5.22,
+          "y": 1.7,
+          "category": "Category 1",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S1-3",
+          "x": 5.59,
+          "y": 1.7,
+          "category": "Category 2",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S1-4",
+          "x": 4.43,
+          "y": 1.0999999999999999,
+          "category": "Category 1",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S1-5",
+          "x": 4.82,
+          "y": 1.0999999999999999,
+          "category": "Category 2",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S1-6",
+          "x": 5.22,
+          "y": 1.0999999999999999,
+          "category": "Category 1",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S1-7",
+          "x": 5.59,
+          "y": 1.0999999999999999,
+          "category": "Category 2",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "T2-0",
+          "x": 7.43,
+          "y": 1.7,
+          "category": "Category 1",
+          "domain": "Target",
+          "partition": "fit",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "T2-1",
+          "x": 7.82,
+          "y": 1.7,
+          "category": "Category 2",
+          "domain": "Target",
+          "partition": "fit",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "T2-2",
+          "x": 8.22,
+          "y": 1.7,
+          "category": "Category 1",
+          "domain": "Target",
+          "partition": "fit",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "T2-3",
+          "x": 8.59,
+          "y": 1.7,
+          "category": "Category 2",
+          "domain": "Target",
+          "partition": "fit",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "T2-4",
+          "x": 7.43,
+          "y": 1.0999999999999999,
+          "category": "Category 1",
+          "domain": "Target",
+          "partition": "evaluation",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "T2-5",
+          "x": 7.82,
+          "y": 1.0999999999999999,
+          "category": "Category 2",
+          "domain": "Target",
+          "partition": "evaluation",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "T2-6",
+          "x": 8.22,
+          "y": 1.0999999999999999,
+          "category": "Category 1",
+          "domain": "Target",
+          "partition": "evaluation",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "T2-7",
+          "x": 8.59,
+          "y": 1.0999999999999999,
+          "category": "Category 2",
+          "domain": "Target",
+          "partition": "evaluation",
+          "state": "held_out_this_step"
+        }
+      ]
+    },
+    "b": {
+      "protocol": "Target-assisted fitting",
+      "available_domains": [
+        "Source A",
+        "Source B",
+        "Target"
+      ],
+      "symbols": [
+        {
+          "id": "S0-0",
+          "x": 1.4300000000000002,
+          "y": 1.7,
+          "category": "Category 1",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S0-1",
+          "x": 1.82,
+          "y": 1.7,
+          "category": "Category 2",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S0-2",
+          "x": 2.22,
+          "y": 1.7,
+          "category": "Category 1",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S0-3",
+          "x": 2.59,
+          "y": 1.7,
+          "category": "Category 2",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S0-4",
+          "x": 1.4300000000000002,
+          "y": 1.0999999999999999,
+          "category": "Category 1",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S0-5",
+          "x": 1.82,
+          "y": 1.0999999999999999,
+          "category": "Category 2",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S0-6",
+          "x": 2.22,
+          "y": 1.0999999999999999,
+          "category": "Category 1",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S0-7",
+          "x": 2.59,
+          "y": 1.0999999999999999,
+          "category": "Category 2",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S1-0",
+          "x": 4.43,
+          "y": 1.7,
+          "category": "Category 1",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S1-1",
+          "x": 4.82,
+          "y": 1.7,
+          "category": "Category 2",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S1-2",
+          "x": 5.22,
+          "y": 1.7,
+          "category": "Category 1",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S1-3",
+          "x": 5.59,
+          "y": 1.7,
+          "category": "Category 2",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S1-4",
+          "x": 4.43,
+          "y": 1.0999999999999999,
+          "category": "Category 1",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S1-5",
+          "x": 4.82,
+          "y": 1.0999999999999999,
+          "category": "Category 2",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S1-6",
+          "x": 5.22,
+          "y": 1.0999999999999999,
+          "category": "Category 1",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "S1-7",
+          "x": 5.59,
+          "y": 1.0999999999999999,
+          "category": "Category 2",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "available_this_step"
+        },
+        {
+          "id": "T2-0",
+          "x": 7.43,
+          "y": 1.7,
+          "category": "Category 1",
+          "domain": "Target",
+          "partition": "fit",
+          "state": "available_this_step"
+        },
+        {
+          "id": "T2-1",
+          "x": 7.82,
+          "y": 1.7,
+          "category": "Category 2",
+          "domain": "Target",
+          "partition": "fit",
+          "state": "available_this_step"
+        },
+        {
+          "id": "T2-2",
+          "x": 8.22,
+          "y": 1.7,
+          "category": "Category 1",
+          "domain": "Target",
+          "partition": "fit",
+          "state": "available_this_step"
+        },
+        {
+          "id": "T2-3",
+          "x": 8.59,
+          "y": 1.7,
+          "category": "Category 2",
+          "domain": "Target",
+          "partition": "fit",
+          "state": "available_this_step"
+        },
+        {
+          "id": "T2-4",
+          "x": 7.43,
+          "y": 1.0999999999999999,
+          "category": "Category 1",
+          "domain": "Target",
+          "partition": "evaluation",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "T2-5",
+          "x": 7.82,
+          "y": 1.0999999999999999,
+          "category": "Category 2",
+          "domain": "Target",
+          "partition": "evaluation",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "T2-6",
+          "x": 8.22,
+          "y": 1.0999999999999999,
+          "category": "Category 1",
+          "domain": "Target",
+          "partition": "evaluation",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "T2-7",
+          "x": 8.59,
+          "y": 1.0999999999999999,
+          "category": "Category 2",
+          "domain": "Target",
+          "partition": "evaluation",
+          "state": "held_out_this_step"
+        }
+      ]
+    },
+    "c": {
+      "protocol": "Held-out evaluation",
+      "available_domains": [
+        "Target"
+      ],
+      "symbols": [
+        {
+          "id": "S0-0",
+          "x": 1.4300000000000002,
+          "y": 1.7,
+          "category": "Category 1",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "S0-1",
+          "x": 1.82,
+          "y": 1.7,
+          "category": "Category 2",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "S0-2",
+          "x": 2.22,
+          "y": 1.7,
+          "category": "Category 1",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "S0-3",
+          "x": 2.59,
+          "y": 1.7,
+          "category": "Category 2",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "S0-4",
+          "x": 1.4300000000000002,
+          "y": 1.0999999999999999,
+          "category": "Category 1",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "S0-5",
+          "x": 1.82,
+          "y": 1.0999999999999999,
+          "category": "Category 2",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "S0-6",
+          "x": 2.22,
+          "y": 1.0999999999999999,
+          "category": "Category 1",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "S0-7",
+          "x": 2.59,
+          "y": 1.0999999999999999,
+          "category": "Category 2",
+          "domain": "Source A",
+          "partition": "source",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "S1-0",
+          "x": 4.43,
+          "y": 1.7,
+          "category": "Category 1",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "S1-1",
+          "x": 4.82,
+          "y": 1.7,
+          "category": "Category 2",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "S1-2",
+          "x": 5.22,
+          "y": 1.7,
+          "category": "Category 1",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "S1-3",
+          "x": 5.59,
+          "y": 1.7,
+          "category": "Category 2",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "S1-4",
+          "x": 4.43,
+          "y": 1.0999999999999999,
+          "category": "Category 1",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "S1-5",
+          "x": 4.82,
+          "y": 1.0999999999999999,
+          "category": "Category 2",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "S1-6",
+          "x": 5.22,
+          "y": 1.0999999999999999,
+          "category": "Category 1",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "S1-7",
+          "x": 5.59,
+          "y": 1.0999999999999999,
+          "category": "Category 2",
+          "domain": "Source B",
+          "partition": "source",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "T2-0",
+          "x": 7.43,
+          "y": 1.7,
+          "category": "Category 1",
+          "domain": "Target",
+          "partition": "fit",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "T2-1",
+          "x": 7.82,
+          "y": 1.7,
+          "category": "Category 2",
+          "domain": "Target",
+          "partition": "fit",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "T2-2",
+          "x": 8.22,
+          "y": 1.7,
+          "category": "Category 1",
+          "domain": "Target",
+          "partition": "fit",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "T2-3",
+          "x": 8.59,
+          "y": 1.7,
+          "category": "Category 2",
+          "domain": "Target",
+          "partition": "fit",
+          "state": "held_out_this_step"
+        },
+        {
+          "id": "T2-4",
+          "x": 7.43,
+          "y": 1.0999999999999999,
+          "category": "Category 1",
+          "domain": "Target",
+          "partition": "evaluation",
+          "state": "available_this_step"
+        },
+        {
+          "id": "T2-5",
+          "x": 7.82,
+          "y": 1.0999999999999999,
+          "category": "Category 2",
+          "domain": "Target",
+          "partition": "evaluation",
+          "state": "available_this_step"
+        },
+        {
+          "id": "T2-6",
+          "x": 8.22,
+          "y": 1.0999999999999999,
+          "category": "Category 1",
+          "domain": "Target",
+          "partition": "evaluation",
+          "state": "available_this_step"
+        },
+        {
+          "id": "T2-7",
+          "x": 8.59,
+          "y": 1.0999999999999999,
+          "category": "Category 2",
+          "domain": "Target",
+          "partition": "evaluation",
+          "state": "available_this_step"
+        }
+      ]
+    }
+  },
+  "encoding": {
+    "shape": {
+      "Category 1": "o",
+      "Category 2": "^"
+    },
+    "color": {
+      "Source A": "#2463A6",
+      "Source B": "#1B9AAA",
+      "Target": "#E58B2B"
+    },
+    "fill": {
+      "filled": "available_this_step",
+      "outline": "held_out_this_step"
+    }
+  },
+  "geometry": {
+    "metric": false,
+    "fixed_coordinates_across_panels": true,
+    "envelopes": "Visual containers, not confidence sets or measured distributions"
+  },
+  "caption_english": "Synthetic demonstration. Symbolic source/target protocol comparison. Shape encodes category, color and group label encode source identity, and fill encodes availability in the named step. The same symbol IDs and drawing coordinates are preserved across panels. In the target group, top-row symbols form a declared fitting subset and bottom-row symbols a disjoint held-out evaluation subset; evaluation IDs never enter either fitting panel. Panel a is the source-only alternative to b, and c shows the held-out scoring step, not evidence of a learned boundary, distributional distance, accuracy improvement or data access permission. Group envelopes are visual containers with no statistical meaning.",
+  "recipe": "scenarios",
+  "synthetic_demo": true,
+  "source": {
+    "path": "source.json",
+    "sha256": "d820e0118e403a48bcf6f6ab34e01f199aef27d372785a96503c2045f367503d"
+  },
+  "data_origin": "self_authored_synthetic_example",
+  "source_data_unchanged": true,
+  "script_sha256": "419780aaae6f6637a87b02c6afc49263b798959b0b508ee55f35245b2f136757",
+  "style_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+  "size_mm": [
+    165.1,
+    208.27999999999997
+  ],
+  "plot_rectangles": {
+    "0": [
+      0.08,
+      0.72,
+      0.87,
+      0.18999999999999995
+    ],
+    "1": [
+      0.08,
+      0.47,
+      0.87,
+      0.18999999999999995
+    ],
+    "2": [
+      0.08,
+      0.22,
+      0.87,
+      0.19000000000000003
+    ]
+  },
+  "minimum_final_glyph_pt": 12,
+  "dpi": 300,
+  "outputs": [
+    {
+      "path": "scenarios.pdf",
+      "sha256": "93df151ae2e6de1bfa0b1936593dae697cd33548124d8ab05f13335e48692e12"
+    },
+    {
+      "path": "scenarios.svg",
+      "sha256": "9605e000b72efdbb822d751f4ae1393073decc2427200f6189f2ee70478b77e4"
+    },
+    {
+      "path": "scenarios.png",
+      "sha256": "7bcdaf28f834eaf3a3ccacb7c29fa39e0d8c03c681b25b3cc2d06f93543681f5"
+    }
+  ],
+  "caption_sha256": "a15927eb3cdcdb8d9097134f8c531dd44bec6b7f17dc75d916071c4ae7235783",
+  "qa": {
+    "alignment": {
+      "verdict": "PASS",
+      "scope": "Three same-domain symbolic plot rectangles"
+    },
+    "audit_pdf_text.py": {
+      "exit_code": 0,
+      "verdict": null,
+      "summary": null
+    },
+    "audit_figure_collisions.py": {
+      "exit_code": 0,
+      "verdict": "PASS",
+      "summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 0,
+        "contained_image_overlays": 0
+      }
+    }
+  },
+  "visual_review": "pending_actual_inspection",
+  "independent_acceptance": "not_claimed"
+}

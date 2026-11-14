@@ -7,8 +7,11 @@
   "resources": {
     "nature-figure": [
       "references/mcm-visual-recipes.md",
+      "references/mcm-scientific-grammar.md",
       "scripts/mcm-gallery.py",
       "scripts/mcm-advanced.py",
+      "scripts/mcm-schematics.py",
+      "scripts/mcm-evidence-panels.py",
       "assets/mcm-figure-style.json"
     ]
   },

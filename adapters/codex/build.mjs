@@ -148,7 +148,7 @@ export async function build({ root = ROOT, out = join(ROOT,'adapters/codex/gener
   add('project/config/codex-roles.json',{format_version:1,adapter_version:ADAPTER_VERSION,roles:sourceRoles});
   add('project/config/skill-routing.json',SKILL_ROUTING);
   add('project/protocols/08-codex-readiness.md',await load('adapters/codex/references/readiness.md'));
-  for (const name of ['mcm.py', 'codex_control.py', 'codex_hook.py', 'paper.py', 'paper_finish.py', 'section_visuals.py']) {
+  for (const name of ['mcm.py', 'codex_control.py', 'codex_hook.py', 'paper.py', 'paper_finish.py', 'figure_demo.py', 'section_visuals.py']) {
     await load(`project-template/scripts/${name}`);
   }
   await load('project-template/templates/section-visual-map.json');

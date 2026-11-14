@@ -1,0 +1,27 @@
+{
+  "format_version": 1,
+  "checked_at": "2026-11-14T16:00:14.549612+00:00",
+  "installed_entry_matches_generated": true,
+  "installed_entry_files": 21,
+  "specialist_overlay_remaining_changes": 0,
+  "backups_retained_outside_repository": true,
+  "role_count": 12,
+  "new_roles": 0,
+  "native_role_and_hook_runtime_verified": false,
+  "dsh_started": false,
+  "existing_science_and_manuscripts_changed": false,
+  "aesthetic_changes": [
+    "Unboxed taxonomy",
+    "Compact horizontal ensemble",
+    "Thin outlines and separate feedback routes",
+    "No default card skin, broad tinted boxes, decorative shadows, neon color or oversized headline",
+    "Numeric color gradients and meaningful scientific 3D remain available"
+  ],
+  "known_review_limit": "Revised schematic implementation is root coauthor work. Independent visual review remains pending after subagent usage-limit failures; self-check is not substituted.",
+  "historical_guidance_review": "reference-transfer-review.json binds the earlier stated source SHA only; later aesthetic refinements are maintenance self-checks",
+  "template_figure_demo": {
+    "mechanical_contracts_passed": 4,
+    "method_png_actually_viewed": true,
+    "scientific_demo_only": true
+  }
+}

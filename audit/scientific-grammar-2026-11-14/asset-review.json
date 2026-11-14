@@ -1,0 +1,94 @@
+{
+  "format_version": 1,
+  "checked_at": "2026-11-14T15:57:10.005749+00:00",
+  "references": "11 supplied static scientific-reference images; raw images remain private",
+  "actual_visual_observations": {
+    "taxonomy": "Unboxed aligned text and thin grouping links, no in-figure heading; no clipping or visible label overlap.",
+    "ensemble": "Compact left-to-right flow; weight labels clear of connectors; input and aggregation directions unchanged.",
+    "feedback": "Thin square nodes and independent return channels; illustrative feasible region does not claim a safety proof.",
+    "scenarios": "Shared layout, category shapes and current-step fill separate; target fit IDs and evaluation IDs disjoint.",
+    "counts": "Exact labels, sequential color scale, open zero versus NA; pooled shares use complete-year denominator37."
+  },
+  "figures": [
+    {
+      "recipe": "taxonomy",
+      "pdf_sha256": "34272126b2f8f97912effd08643c9cc78f409c72abf1717f5b9f91700f64035d",
+      "png_sha256": "1b5fd2d7069440ed6eee82953b83a894148afe7e38c2c555486a6e8d4214cddf",
+      "size_px": [
+        1950,
+        870
+      ],
+      "minimum_pdf_glyph_pt": 12.0,
+      "actual_image_viewed": true,
+      "reviewer_contributed_to_implementation": true,
+      "visual_review_kind": "author_self_check",
+      "scope": "Original illustrative recipe only; not a contest paper or scientific validation",
+      "independent_visual_acceptance": "pending"
+    },
+    {
+      "recipe": "ensemble",
+      "pdf_sha256": "0c93bc792227a7b6a4a531c479a8b9032ec10a687d7aea362cc90ee9ec15af48",
+      "png_sha256": "7e2ce480f3e25f5ff8d3d6b74dec062a92369422c0b36f99f907741bba675ab8",
+      "size_px": [
+        1950,
+        960
+      ],
+      "minimum_pdf_glyph_pt": 12.0,
+      "actual_image_viewed": true,
+      "reviewer_contributed_to_implementation": true,
+      "visual_review_kind": "author_self_check",
+      "scope": "Original illustrative recipe only; not a contest paper or scientific validation",
+      "independent_visual_acceptance": "pending"
+    },
+    {
+      "recipe": "feedback",
+      "pdf_sha256": "b8dc970cde6104cdfc2d67995342c4853fe769b837c8407392086ce2d4624577",
+      "png_sha256": "052144d4eef668613f8439ba5fe61d07fe077d3fc880494c8429aca7c461270f",
+      "size_px": [
+        1950,
+        1140
+      ],
+      "minimum_pdf_glyph_pt": 12.0,
+      "actual_image_viewed": true,
+      "reviewer_contributed_to_implementation": true,
+      "visual_review_kind": "author_self_check",
+      "scope": "Original illustrative recipe only; not a contest paper or scientific validation",
+      "independent_visual_acceptance": "pending"
+    },
+    {
+      "recipe": "scenarios",
+      "pdf_sha256": "93df151ae2e6de1bfa0b1936593dae697cd33548124d8ab05f13335e48692e12",
+      "png_sha256": "7bcdaf28f834eaf3a3ccacb7c29fa39e0d8c03c681b25b3cc2d06f93543681f5",
+      "size_px": [
+        1950,
+        2460
+      ],
+      "minimum_pdf_glyph_pt": 12.0,
+      "actual_image_viewed": true,
+      "reviewer_contributed_to_implementation": false,
+      "visual_review_kind": "non_author_maintenance_review",
+      "scope": "Original illustrative recipe only; not a contest paper or scientific validation",
+      "independent_visual_acceptance": "accepted_for_synthetic_reference_only"
+    },
+    {
+      "recipe": "counts",
+      "pdf_sha256": "35386b295cd15779acf6ebeff8fda354bcd4d0b5c729c98b2bf0963783fdaa59",
+      "png_sha256": "8f603d7858837ef9fac1a3ee1f2834fe5e9725e4ebc2692dd98892ee2b3e8b7e",
+      "size_px": [
+        1950,
+        2130
+      ],
+      "minimum_pdf_glyph_pt": 12.0,
+      "actual_image_viewed": true,
+      "reviewer_contributed_to_implementation": false,
+      "visual_review_kind": "non_author_maintenance_review",
+      "scope": "Original illustrative recipe only; not a contest paper or scientific validation",
+      "independent_visual_acceptance": "accepted_for_synthetic_reference_only"
+    }
+  ],
+  "author_checks_do_not_replace_independent_review": true,
+  "independent_review_gap": "New independent subagent review attempts stopped at account usage limit. Root completed maintenance checks; revised schematic coauthor work remains pending independent visual review.",
+  "rejected_style_archived_locally": true,
+  "old_draft_published": false,
+  "human_scientific_gates_approved": false
+}

@@ -52,7 +52,7 @@ def generate(root,output='figures/figure-demo',skill_root=None):
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
-    from matplotlib.patches import FancyBboxPatch
+    from matplotlib.patches import Rectangle
     from figure_check import audit_pdf,check_contract,inside
     root=Path(root).resolve();out=inside(root,output)
     if out.exists():raise ValueError('Use a new demo output directory; existing evidence is not overwritten')
@@ -103,10 +103,10 @@ def generate(root,output='figures/figure-demo',skill_root=None):
                 (.53,.57,'Numerical solvers\nEuler and RK4',palette['teal']),
                 (.02,.08,'Analytical reference\nExponential decay',palette['green']),
                 (.53,.08,'Compare and check\nErrors and sensitivity',palette['orange'])]:
-                ax.add_patch(FancyBboxPatch((x,y),.42,.26,boxstyle='round,pad=0.015',facecolor='white',edgecolor=color,linewidth=1.8))
+                ax.add_patch(Rectangle((x,y),.42,.26,facecolor='white',edgecolor=color,linewidth=.7))
                 ax.text(x+.21,y+.13,label,ha='center',va='center',fontsize=12)
             for a,b in [((.46,.70),(.51,.70)),((.23,.54),(.23,.38)),((.46,.21),(.51,.21)),((.74,.54),(.74,.38))]:
-                ax.annotate('',xy=b,xytext=a,arrowprops={'arrowstyle':'->','color':palette['neutral'],'lw':1.5})
+                ax.annotate('',xy=b,xytext=a,arrowprops={'arrowstyle':'->','color':palette['neutral'],'lw':.85})
         else:
             ax.set_xlabel('Time (dimensionless)');ax.set_ylabel('Remaining amount (fraction)')
             ax.set_xlim(0,4);ax.set_ylim(0,1.05);ax.set_xticks([0,1,2,3,4]);ax.set_yticks([0,.25,.5,.75,1])

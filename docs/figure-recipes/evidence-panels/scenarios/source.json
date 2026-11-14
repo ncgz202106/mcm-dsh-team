@@ -1,0 +1,198 @@
+{
+  "kind": "symbolic_schematic",
+  "points": [
+    {
+      "id": "S0-0",
+      "domain": "Source A",
+      "category": "Category 1",
+      "partition": "source",
+      "x": 1.4300000000000002,
+      "y": 1.7
+    },
+    {
+      "id": "S0-1",
+      "domain": "Source A",
+      "category": "Category 2",
+      "partition": "source",
+      "x": 1.82,
+      "y": 1.7
+    },
+    {
+      "id": "S0-2",
+      "domain": "Source A",
+      "category": "Category 1",
+      "partition": "source",
+      "x": 2.22,
+      "y": 1.7
+    },
+    {
+      "id": "S0-3",
+      "domain": "Source A",
+      "category": "Category 2",
+      "partition": "source",
+      "x": 2.59,
+      "y": 1.7
+    },
+    {
+      "id": "S0-4",
+      "domain": "Source A",
+      "category": "Category 1",
+      "partition": "source",
+      "x": 1.4300000000000002,
+      "y": 1.0999999999999999
+    },
+    {
+      "id": "S0-5",
+      "domain": "Source A",
+      "category": "Category 2",
+      "partition": "source",
+      "x": 1.82,
+      "y": 1.0999999999999999
+    },
+    {
+      "id": "S0-6",
+      "domain": "Source A",
+      "category": "Category 1",
+      "partition": "source",
+      "x": 2.22,
+      "y": 1.0999999999999999
+    },
+    {
+      "id": "S0-7",
+      "domain": "Source A",
+      "category": "Category 2",
+      "partition": "source",
+      "x": 2.59,
+      "y": 1.0999999999999999
+    },
+    {
+      "id": "S1-0",
+      "domain": "Source B",
+      "category": "Category 1",
+      "partition": "source",
+      "x": 4.43,
+      "y": 1.7
+    },
+    {
+      "id": "S1-1",
+      "domain": "Source B",
+      "category": "Category 2",
+      "partition": "source",
+      "x": 4.82,
+      "y": 1.7
+    },
+    {
+      "id": "S1-2",
+      "domain": "Source B",
+      "category": "Category 1",
+      "partition": "source",
+      "x": 5.22,
+      "y": 1.7
+    },
+    {
+      "id": "S1-3",
+      "domain": "Source B",
+      "category": "Category 2",
+      "partition": "source",
+      "x": 5.59,
+      "y": 1.7
+    },
+    {
+      "id": "S1-4",
+      "domain": "Source B",
+      "category": "Category 1",
+      "partition": "source",
+      "x": 4.43,
+      "y": 1.0999999999999999
+    },
+    {
+      "id": "S1-5",
+      "domain": "Source B",
+      "category": "Category 2",
+      "partition": "source",
+      "x": 4.82,
+      "y": 1.0999999999999999
+    },
+    {
+      "id": "S1-6",
+      "domain": "Source B",
+      "category": "Category 1",
+      "partition": "source",
+      "x": 5.22,
+      "y": 1.0999999999999999
+    },
+    {
+      "id": "S1-7",
+      "domain": "Source B",
+      "category": "Category 2",
+      "partition": "source",
+      "x": 5.59,
+      "y": 1.0999999999999999
+    },
+    {
+      "id": "T2-0",
+      "domain": "Target",
+      "category": "Category 1",
+      "partition": "fit",
+      "x": 7.43,
+      "y": 1.7
+    },
+    {
+      "id": "T2-1",
+      "domain": "Target",
+      "category": "Category 2",
+      "partition": "fit",
+      "x": 7.82,
+      "y": 1.7
+    },
+    {
+      "id": "T2-2",
+      "domain": "Target",
+      "category": "Category 1",
+      "partition": "fit",
+      "x": 8.22,
+      "y": 1.7
+    },
+    {
+      "id": "T2-3",
+      "domain": "Target",
+      "category": "Category 2",
+      "partition": "fit",
+      "x": 8.59,
+      "y": 1.7
+    },
+    {
+      "id": "T2-4",
+      "domain": "Target",
+      "category": "Category 1",
+      "partition": "evaluation",
+      "x": 7.43,
+      "y": 1.0999999999999999
+    },
+    {
+      "id": "T2-5",
+      "domain": "Target",
+      "category": "Category 2",
+      "partition": "evaluation",
+      "x": 7.82,
+      "y": 1.0999999999999999
+    },
+    {
+      "id": "T2-6",
+      "domain": "Target",
+      "category": "Category 1",
+      "partition": "evaluation",
+      "x": 8.22,
+      "y": 1.0999999999999999
+    },
+    {
+      "id": "T2-7",
+      "domain": "Target",
+      "category": "Category 2",
+      "partition": "evaluation",
+      "x": 8.59,
+      "y": 1.0999999999999999
+    }
+  ],
+  "position_semantics": "layout_only_not_metric"
+}

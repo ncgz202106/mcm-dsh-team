@@ -1,0 +1,248 @@
+{
+  "nodes": [
+    {
+      "id": "input",
+      "label": "Shared\ninput"
+    },
+    {
+      "id": "a",
+      "label": "Candidate A"
+    },
+    {
+      "id": "b",
+      "label": "Candidate B"
+    },
+    {
+      "id": "c",
+      "label": "Candidate C"
+    },
+    {
+      "id": "mix",
+      "label": "Weighted\nestimate"
+    },
+    {
+      "id": "output",
+      "label": "Output"
+    }
+  ],
+  "edges": [
+    {
+      "source": "input",
+      "target": "a",
+      "kind": "shared_input",
+      "directed": true
+    },
+    {
+      "source": "input",
+      "target": "b",
+      "kind": "shared_input",
+      "directed": true
+    },
+    {
+      "source": "input",
+      "target": "c",
+      "kind": "shared_input",
+      "directed": true
+    },
+    {
+      "source": "a",
+      "target": "mix",
+      "kind": "weighted_prediction",
+      "weight": 0.5,
+      "directed": true
+    },
+    {
+      "source": "b",
+      "target": "mix",
+      "kind": "weighted_prediction",
+      "weight": 0.3,
+      "directed": true
+    },
+    {
+      "source": "c",
+      "target": "mix",
+      "kind": "weighted_prediction",
+      "weight": 0.2,
+      "directed": true
+    },
+    {
+      "source": "mix",
+      "target": "output",
+      "kind": "estimate",
+      "directed": true
+    }
+  ],
+  "scope": "Scalar-output weighted aggregation with fixed illustrative weights; no training, accuracy or benefit is demonstrated.",
+  "recipe": "ensemble",
+  "synthetic": true,
+  "diagram_kind": "conceptual schematic",
+  "final_width_mm": 165.1,
+  "final_height_mm": 81.28,
+  "minimum_core_font_pt": 12,
+  "presentation_profile": "compact scientific schematic; thin square outlines or unboxed taxonomy, no in-figure headline",
+  "label_manifest": [
+    "Shared\ninput",
+    "Candidate A",
+    "Candidate B",
+    "Candidate C",
+    "Weighted\nestimate",
+    "0.50",
+    "0.30",
+    "0.20",
+    "Output",
+    "Synthetic schematic"
+  ],
+  "boxes": {
+    "input": [
+      0.02,
+      0.41,
+      0.15,
+      0.18
+    ],
+    "a": [
+      0.27,
+      0.735,
+      0.22,
+      0.11
+    ],
+    "b": [
+      0.27,
+      0.445,
+      0.22,
+      0.11
+    ],
+    "c": [
+      0.27,
+      0.155,
+      0.22,
+      0.11
+    ],
+    "mix": [
+      0.65,
+      0.41,
+      0.18,
+      0.18
+    ],
+    "output": [
+      0.87,
+      0.43,
+      0.11,
+      0.14
+    ]
+  },
+  "routes": [
+    [
+      [
+        0.17,
+        0.5
+      ],
+      [
+        0.215,
+        0.5
+      ],
+      [
+        0.215,
+        0.79
+      ],
+      [
+        0.27,
+        0.79
+      ]
+    ],
+    [
+      [
+        0.17,
+        0.5
+      ],
+      [
+        0.215,
+        0.5
+      ],
+      [
+        0.215,
+        0.5
+      ],
+      [
+        0.27,
+        0.5
+      ]
+    ],
+    [
+      [
+        0.17,
+        0.5
+      ],
+      [
+        0.215,
+        0.5
+      ],
+      [
+        0.215,
+        0.21
+      ],
+      [
+        0.27,
+        0.21
+      ]
+    ],
+    [
+      [
+        0.49,
+        0.79
+      ],
+      [
+        0.65,
+        0.53
+      ]
+    ],
+    [
+      [
+        0.49,
+        0.5
+      ],
+      [
+        0.65,
+        0.5
+      ]
+    ],
+    [
+      [
+        0.49,
+        0.21
+      ],
+      [
+        0.65,
+        0.47
+      ]
+    ],
+    [
+      [
+        0.83,
+        0.5
+      ],
+      [
+        0.87,
+        0.5
+      ]
+    ]
+  ],
+  "geometry_check": {
+    "passed": true,
+    "errors": [],
+    "checked": "Actual Matplotlib rendered text bounds, pairwise text overlap, node internal clearance, connector-versus-text intersection and full canvas containment.",
+    "limits": "Semantic interpretation and final-page layout require actual visual inspection. Not the Fireworks semantic SVG validator."
+  },
+  "script_sha256": "69e32c8eb7ad594a65309e921572f3a6cc57d212e7a38796fe568551dd580625",
+  "style_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+  "vector_route": "Matplotlib PDF and editable-text SVG; Fireworks generator not invoked",
+  "visual_review": {
+    "status": "pending",
+    "author_self_check_not_independent": true
+  },
+  "files": {
+    "caption.md": "4788200df5a1b38be55c625d8971ae4d3d145c04704b949ca1b56534a0c851a2",
+    "ensemble.pdf": "0c93bc792227a7b6a4a531c479a8b9032ec10a687d7aea362cc90ee9ec15af48",
+    "ensemble.png": "7e2ce480f3e25f5ff8d3d6b74dec062a92369422c0b36f99f907741bba675ab8",
+    "ensemble.svg": "6b65bea6745176d091ac5a89f4577866ca19d06da2932308006808c30552b3c2"
+  }
+}

@@ -46,5 +46,6 @@
 - `project-template/scripts/codex_control.py`：任务批次、收件、快照和恢复诊断。`section_visuals.py`核对逐小节图表覆盖。
 - `project-template/scripts/paper_finish.py`：终稿候选检查、编译渲染与受限尺寸修复，`paper.py finish`转发；`paper/styles/mcm-layout.tex`维护新项目版式。
 - `project-template/resources/mcm-skills/presentation-lessons.md`：优秀论文的实际读页与论证迁移；`skill-overlays/nature-figure/scripts/mcm-advanced.py`提供有二维配套的三维配方。
+- `skill-overlays/nature-figure/references/mcm-scientific-grammar.md`：机制/框架/反馈、符号情景、计数和组成的视觉语法；`mcm-schematics.py`和`mcm-evidence-panels.py`为原创合成起点，审阅记录在对应`docs/figure-recipes/`和日期audit。
 
 图表教学库和图型建议服务具体主张，不机械增加图数或套用模板。正文、参考文献、AI披露及附录分别报告；官方页数预算按项目规则核对。更新源码与本地Skill不等于已在DSH新会话运行验收。

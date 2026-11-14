@@ -1,0 +1,235 @@
+{
+  "panels": {
+    "a": {
+      "cells": [
+        {
+          "year": 2021,
+          "category": "Flow",
+          "count": 2,
+          "display": "2"
+        },
+        {
+          "year": 2021,
+          "category": "Balance",
+          "count": 0,
+          "display": "0"
+        },
+        {
+          "year": 2021,
+          "category": "Choice",
+          "count": 4,
+          "display": "4"
+        },
+        {
+          "year": 2021,
+          "category": "Forecast",
+          "count": null,
+          "display": "NA"
+        },
+        {
+          "year": 2022,
+          "category": "Flow",
+          "count": 3,
+          "display": "3"
+        },
+        {
+          "year": 2022,
+          "category": "Balance",
+          "count": 5,
+          "display": "5"
+        },
+        {
+          "year": 2022,
+          "category": "Choice",
+          "count": 1,
+          "display": "1"
+        },
+        {
+          "year": 2022,
+          "category": "Forecast",
+          "count": 2,
+          "display": "2"
+        },
+        {
+          "year": 2023,
+          "category": "Flow",
+          "count": 6,
+          "display": "6"
+        },
+        {
+          "year": 2023,
+          "category": "Balance",
+          "count": 2,
+          "display": "2"
+        },
+        {
+          "year": 2023,
+          "category": "Choice",
+          "count": 3,
+          "display": "3"
+        },
+        {
+          "year": 2023,
+          "category": "Forecast",
+          "count": 1,
+          "display": "1"
+        },
+        {
+          "year": 2024,
+          "category": "Flow",
+          "count": 4,
+          "display": "4"
+        },
+        {
+          "year": 2024,
+          "category": "Balance",
+          "count": 3,
+          "display": "3"
+        },
+        {
+          "year": 2024,
+          "category": "Choice",
+          "count": 5,
+          "display": "5"
+        },
+        {
+          "year": 2024,
+          "category": "Forecast",
+          "count": 2,
+          "display": "2"
+        }
+      ],
+      "area_encodes": "constant; count encoded by color and exact labels"
+    },
+    "b": {
+      "included_years": [
+        2022,
+        2023,
+        2024
+      ],
+      "excluded_incomplete_years": [
+        2021
+      ],
+      "numerators": [
+        13,
+        10,
+        9,
+        5
+      ],
+      "denominator": 37,
+      "percentages": [
+        35.13513513513514,
+        27.027027027027028,
+        24.324324324324323,
+        13.513513513513514
+      ],
+      "category_partition": "mutually_exclusive_and_exhaustive",
+      "weighting": "pooled item counts, not mean annual percentages"
+    }
+  },
+  "normalization": {
+    "variable": "nonnegative count",
+    "vmin": 0,
+    "vmax": 6,
+    "sequential": true,
+    "clip": false
+  },
+  "composition": {
+    "included_years": [
+      2022,
+      2023,
+      2024
+    ],
+    "excluded_incomplete_years": [
+      2021
+    ],
+    "numerators": [
+      13,
+      10,
+      9,
+      5
+    ],
+    "denominator": 37,
+    "percentages": [
+      35.13513513513514,
+      27.027027027027028,
+      24.324324324324323,
+      13.513513513513514
+    ],
+    "category_partition": "mutually_exclusive_and_exhaustive",
+    "weighting": "pooled item counts, not mean annual percentages"
+  },
+  "geometry": {
+    "comparable_panel_axes": false,
+    "reason": "Matrix cells and pooled bars have different axes and responsibilities"
+  },
+  "caption_english": "Synthetic demonstration. Exact item counts are shown with constant-size markers and a sequential color scale; numbers supply exact readout. Zero is an open circle labeled 0; missing cells are boxes labeled NA and are never imputed as zero. The composition pools only complete years (2022, 2023, 2024); incomplete years (2021) are excluded in full, including their observed cells. Categories are declared mutually exclusive and exhaustive within each included year. Every bar labels its numerator, the common denominator (37), and its percentage. Pooled shares are not the mean of annual percentages and are not a trend or causal effect.",
+  "recipe": "counts",
+  "synthetic_demo": true,
+  "source": {
+    "path": "source.json",
+    "sha256": "c10443e7d1f7aa3678df73354f726409b80cc31eb235e7fc6d70b84acb341ab2"
+  },
+  "data_origin": "self_authored_synthetic_example",
+  "source_data_unchanged": true,
+  "script_sha256": "419780aaae6f6637a87b02c6afc49263b798959b0b508ee55f35245b2f136757",
+  "style_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+  "size_mm": [
+    165.1,
+    180.33999999999997
+  ],
+  "plot_rectangles": {
+    "0": [
+      0.19,
+      0.57,
+      0.6600000000000001,
+      0.31999999999999995
+    ],
+    "1": [
+      0.2,
+      0.17,
+      0.5700000000000001,
+      0.26
+    ]
+  },
+  "minimum_final_glyph_pt": 12,
+  "dpi": 300,
+  "outputs": [
+    {
+      "path": "counts.pdf",
+      "sha256": "35386b295cd15779acf6ebeff8fda354bcd4d0b5c729c98b2bf0963783fdaa59"
+    },
+    {
+      "path": "counts.svg",
+      "sha256": "3d4e19d8d047d262bd5d7a6e6762e0057e33656aba8f66fdc538b4313310c994"
+    },
+    {
+      "path": "counts.png",
+      "sha256": "8f603d7858837ef9fac1a3ee1f2834fe5e9725e4ebc2692dd98892ee2b3e8b7e"
+    }
+  ],
+  "caption_sha256": "2612b391ea002c3609fa4332c2948c803e16186097bb6a2d13d44ea00582f946",
+  "qa": {
+    "alignment": {
+      "verdict": "NOT AUDITABLE",
+      "scope": "Count matrix and pooled composition are not comparable coordinate panels"
+    },
+    "audit_pdf_text.py": {
+      "exit_code": 0,
+      "verdict": null,
+      "summary": null
+    },
+    "audit_figure_collisions.py": {
+      "exit_code": 0,
+      "verdict": "PASS",
+      "summary": {
+        "fail": 0,
+        "warn": 0,
+        "contained_fill_overlays": 20,
+        "contained_image_overlays": 0
+      }
+    }
+  },
+  "visual_review": "pending_actual_inspection",
+  "independent_acceptance": "not_claimed"
+}

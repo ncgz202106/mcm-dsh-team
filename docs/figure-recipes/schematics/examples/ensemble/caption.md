@@ -1,0 +1,1 @@
+Synthetic schematic. Scalar-output weighted aggregation with fixed illustrative weights; no training, accuracy or benefit is demonstrated. Core labels are designed for the stated full insertion width; do not shrink below the project font floor.

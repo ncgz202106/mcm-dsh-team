@@ -1,0 +1,190 @@
+{
+  "nodes": [
+    {
+      "id": "agent",
+      "label": "Decision\nrule"
+    },
+    {
+      "id": "gate",
+      "label": "Action\nconstraint"
+    },
+    {
+      "id": "environment",
+      "label": "System"
+    }
+  ],
+  "edges": [
+    {
+      "source": "agent",
+      "target": "gate",
+      "kind": "proposed_action",
+      "directed": true
+    },
+    {
+      "source": "gate",
+      "target": "environment",
+      "kind": "admissible_action",
+      "directed": true
+    },
+    {
+      "source": "environment",
+      "target": "agent",
+      "kind": "observed_state",
+      "directed": true
+    },
+    {
+      "source": "environment",
+      "target": "agent",
+      "kind": "measured_feedback",
+      "directed": true
+    }
+  ],
+  "scope": "The constraint acts on actions only. Observation and feedback are distinct return channels. The feasible-set sketch is illustrative, not a safety guarantee.",
+  "feasible_set_example": {
+    "geometry": "ellipse, schematic coordinates only",
+    "center": [
+      0.26,
+      0.135
+    ],
+    "radii": [
+      0.12,
+      0.065
+    ],
+    "proposed": [
+      0.75,
+      0.135
+    ],
+    "mapped": [
+      0.38,
+      0.135
+    ],
+    "claim": "Example boundary mapping only; not a general control or safety proof."
+  },
+  "recipe": "feedback",
+  "synthetic": true,
+  "diagram_kind": "conceptual schematic",
+  "final_width_mm": 165.1,
+  "final_height_mm": 96.52,
+  "minimum_core_font_pt": 12,
+  "presentation_profile": "compact scientific schematic; thin square outlines or unboxed taxonomy, no in-figure headline",
+  "label_manifest": [
+    "Decision\nrule",
+    "Action\nconstraint",
+    "System",
+    "Action",
+    "Admissible",
+    "Observed state",
+    "Measured feedback",
+    "Feasible\nactions",
+    "Proposed",
+    "Admissible",
+    "Synthetic schematic"
+  ],
+  "boxes": {
+    "agent": [
+      0.035,
+      0.7,
+      0.22,
+      0.18
+    ],
+    "gate": [
+      0.39,
+      0.7,
+      0.2,
+      0.18
+    ],
+    "environment": [
+      0.77,
+      0.7,
+      0.2,
+      0.18
+    ]
+  },
+  "routes": [
+    [
+      [
+        0.255,
+        0.79
+      ],
+      [
+        0.39,
+        0.79
+      ]
+    ],
+    [
+      [
+        0.59,
+        0.79
+      ],
+      [
+        0.77,
+        0.79
+      ]
+    ],
+    [
+      [
+        0.82,
+        0.7
+      ],
+      [
+        0.82,
+        0.49
+      ],
+      [
+        0.16,
+        0.49
+      ],
+      [
+        0.16,
+        0.7
+      ]
+    ],
+    [
+      [
+        0.92,
+        0.7
+      ],
+      [
+        0.92,
+        0.31
+      ],
+      [
+        0.08,
+        0.31
+      ],
+      [
+        0.08,
+        0.7
+      ]
+    ],
+    [
+      [
+        0.733,
+        0.135
+      ],
+      [
+        0.397,
+        0.135
+      ]
+    ]
+  ],
+  "geometry_check": {
+    "passed": true,
+    "errors": [],
+    "checked": "Actual Matplotlib rendered text bounds, pairwise text overlap, node internal clearance, connector-versus-text intersection and full canvas containment.",
+    "limits": "Semantic interpretation and final-page layout require actual visual inspection. Not the Fireworks semantic SVG validator."
+  },
+  "script_sha256": "69e32c8eb7ad594a65309e921572f3a6cc57d212e7a38796fe568551dd580625",
+  "style_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
+  "vector_route": "Matplotlib PDF and editable-text SVG; Fireworks generator not invoked",
+  "visual_review": {
+    "status": "pending",
+    "author_self_check_not_independent": true
+  },
+  "files": {
+    "caption.md": "f439d744a0c3864fffd2b4bc5a9ebbf81fbff4993df2cfc3a868eadaff7905ea",
+    "feedback.pdf": "b8dc970cde6104cdfc2d67995342c4853fe769b837c8407392086ce2d4624577",
+    "feedback.png": "052144d4eef668613f8439ba5fe61d07fe077d3fc880494c8429aca7c461270f",
+    "feedback.svg": "21d0816f72e6fbbd49f708b051d71f966132d1309a5332f1f5e6caa4df8f3523"
+  }
+}

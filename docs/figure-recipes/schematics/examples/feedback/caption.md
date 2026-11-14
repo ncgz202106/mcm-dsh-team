@@ -1,0 +1,1 @@
+Synthetic schematic. The constraint acts on actions only. Observation and feedback are distinct return channels. The feasible-set sketch is illustrative, not a safety guarantee. Core labels are designed for the stated full insertion width; do not shrink below the project font floor.
