@@ -28,6 +28,8 @@ python skill-overlays/nature-figure/scripts/mcm-advanced.py --recipe surface --o
 
 ## 相机、颜色与几何
 
+这两套图为定量读数示例。可另用单色柔光展示曲面形态，或用局部强调突出关键区域，在二维等高图保留没有阴影混色的色标。跨情景的相机、轴、比例和色标保持可比。范文位置和其他选法见[三维图的科学审美](../../../skill-overlays/nature-figure/references/mcm-visual-recipes.md#三维图的科学审美)。
+
 使用正交投影，固定仰角 28°、方位角 −128°，避免把透视远近误当数值变化。相机位置影响遮挡，不能据一个视角判定路径不相交；轨迹配有 XY/XZ 参照。
 
 `surface` 颜色与高度均编码同一 kPa 响应，两个面板使用相同 cividis 范围，不裁剪；平面保持 x/y 等比例，立体高度不是空间长度。`trajectory` 颜色只编码秒数，所有面板共用时间范围，三个空间维度等比例且采用同一米制轴域。XY 投影出现重合点时，XZ 与共同时间编码用于区分高度，不抖动真实坐标。
