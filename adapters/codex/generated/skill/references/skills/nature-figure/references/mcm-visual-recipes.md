@@ -75,7 +75,7 @@ python scripts/mcm-advanced.py --recipe trajectory --output NEW_TRAJECTORY --sty
 
 缺少项目配置时使用`assets/mcm-figure-style.json`，其源是预设的`bundle/src/figure-style.json`，构建器同步，不能另维护一份近似色。用`--qa-scripts PATH_TO_NATURE_FIGURE/scripts`可运行现有对齐和碰撞检查；已安装Skill时会自动发现相邻脚本。检测缺席明确记为未执行。
 
-用户偏好立体表达时，真实空间轨迹、两独立参数的响应面、三个有意义变量的结构散点主动提出3D候选；能否看清主结论决定取舍。`mcm-advanced.py`另支持`--data FROZEN.csv`：曲面列为`x_m,y_m,response_kPa`，轨迹列为`time_s,x_m,y_m,z_m`，真实任务应按实际变量改写命名与图注。没有第三变量的分类柱不加装饰厚度。二维投影、遮挡检查和轴域检查不因使用3D省略。
+用户偏好立体表达时，真实空间轨迹、两独立参数的响应面、三个有意义变量的结构散点主动提出3D候选；能否看清主结论决定取舍。`mcm-advanced.py`另支持`--data FROZEN.csv`：曲面列为`x_m,y_m,response_kPa`，轨迹列为`time_s,x_m,y_m,z_m`，真实任务应按实际变量改写命名与图注。分类柱仍应按同一尺度准确比较长度。任何装饰厚度都需检查其是否影响读数。二维投影、遮挡检查和轴域检查不因使用3D省略。
 
 输出PDF、SVG、300dpiPNG、合成数组JSON、英文图注、面板映射、导出尺寸与检查记录。脚本拒绝覆盖已有目录。复用时只选一个配方，把绘图函数复制到任务独占目录，**从冻结结果加载真实数据并改写数据契约和图注**；不能仅去掉Synthetic字样就把示例当结果。若真实数据尚未具备所需区间/指标，先交建模、编程和验证角色，不让绘图角色补算结论。
 

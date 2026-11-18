@@ -42,7 +42,7 @@
   },
   "figure_style_source_sha256": "eeeae506c0b72991380bc174f44e461fb43f28a9e1aac38834c888cd36f8baff",
   "prompt_sha256": {
-    "prompts/shared.md": "62a04dd78324dd61a66cd784114399adbf9d390d31d99602697170db592e81c2",
+    "prompts/shared.md": "5961be12618594349cd79214e8de76ce82328f67735dae8689397b81a71a29a3",
     "prompts/mcm-captain.md": "0d92623f90fdc19577d6f8b4f94511ca1a8f37f9ebf90295c14e73c8af8a0b66",
     "prompts/mcm-model-lead.md": "a1cd4c6f6aeb43971e42c10e9ddc0d6c7fdaf9aa070e182c0cd5236ed676c64d",
     "prompts/mcm-modeler.md": "b415575b8ca7aac9e9ce8078b010605439679f4299091dd1815d073ad1d49ad3",
@@ -50,10 +50,10 @@
     "prompts/mcm-programmer.md": "3cedc36029994ee546c29da2e37c89d6c4914098c1fa056de55f0e8ae6a51933",
     "prompts/mcm-code-lead.md": "f6be118dde9cfb264dc3700313c9017bff3684a796c95c800ed2a02b84dcebb1",
     "prompts/mcm-verifier.md": "1d7d5d1489c490fae2c2f1093fadfa520f29d914cb984fbd4357067be42a10f8",
-    "prompts/mcm-paper-lead.md": "0ecdce3a8d2046d64071d8111ffd1790d026985a893c1e27db509dc5b75324a6",
+    "prompts/mcm-paper-lead.md": "1773a8ca10ee5040c5e88560db8a2f1f869985f73d5c2d41ba7a77270394ff0e",
     "prompts/mcm-writer.md": "cbf2cbe7dce1e2d20c99c04f1c05e15ac5829574ef847c5b7f1f348670446996",
-    "prompts/mcm-figure.md": "f12046a3a0dacf9cfbd3bbac66d77c03b13c4dda5a29ac43888009b421fed899",
-    "prompts/mcm-typesetter.md": "8287c9a72c709a58f937f766d513e4f30878893f38215e47f8adb67f7f175c56",
-    "prompts/mcm-reviewer.md": "e0597ff3e1e7872036becbe537f0f7e363aa18c7223d329b8e0d69544fdebbc1"
+    "prompts/mcm-figure.md": "2a254e6f6b06479ad8aa4d6a66199918b3808fc21509428b5c3d44c73125b420",
+    "prompts/mcm-typesetter.md": "0ee7960aa0dacd99f60ccd088ab0988ceabef90538cde90240a767379671a01a",
+    "prompts/mcm-reviewer.md": "aef40063cf8e7b84097f7631e6341c612c6f75c0fa41e5b02277e5adfdb9fc4a"
   }
 }
