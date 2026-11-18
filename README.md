@@ -54,6 +54,7 @@ pwsh -File tools/new-project.ps1 -Destination 'D:/MCM/practice-01'
 - [图表选型速查](project-template/resources/mcm-skills/chart-reference.md)与[六种可运行配方](skill-overlays/nature-figure/references/mcm-visual-recipes.md)覆盖残差对照、敏感性、Pareto 权衡、配对分布、策略小图和空间小图。
 - [科研图表使用说明](docs/美赛图表Skill使用.md)说明如何从冻结数据导出 PDF、SVG 和 PNG，并检查最终字号、图例、区间与版面。
 - [优秀论文呈现经验](project-template/resources/mcm-skills/presentation-lessons.md)把实际读页转为机制、公式、验证与决策的写作方法。[三维图配方](docs/figure-recipes/advanced/README.md)提供响应曲面和空间轨迹，配等高线或二维投影读数。
+- [O 奖页面布局](project-template/resources/mcm-skills/presentation-lessons.md#7-按页面职责借鉴-o-奖布局)按摘要、总览、模型、验证与建议给出范文位置和改绘做法。[进阶诊断与决策图](skill-overlays/nature-figure/references/mcm-visual-recipes.md#进阶诊断与决策图)覆盖双因素切换、滚动误差、空间留出、分位点阵、ALE 和配对一致性。
 - [终稿自动检查与纠错](docs/论文呈现升级与自动纠错.md)从独立副本编译、逐页渲染，并安全修复简单超宽插图；复杂版式进入整改闭环，仍需非作者实际看图。
 - [科研图视觉语法](skill-overlays/nature-figure/references/mcm-scientific-grammar.md)学习情景、分类、集成和反馈的表达；配套[机制示意](docs/figure-recipes/schematics/README.md)与[计数/组成面板](docs/figure-recipes/evidence-panels/README.md)均为可运行的原创合成示例。
 - [活动审美基线](docs/科研图审美基线.md)将圆角卡片、边框、彩底、阴影/发光、渐变和鲜明配色保留为可选设计；按美赛参考、整体协调与实际读数评审，不一刀切。

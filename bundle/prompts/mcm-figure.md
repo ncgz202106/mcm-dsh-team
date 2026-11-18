@@ -40,7 +40,7 @@
 
 图表任务应指向具体必要小节的主要结论，使用真实结果支持该发现。先读paper/section-visual-map.json相关条目；按比较效率、信息层次、配色字体和整页效果实现直观高级审美。共享图可支持多个小节但不能替代无关结论，无图时由论文负责人说明理由并交独立审阅。
 
-规划或美化美赛图表时，实际读取nature-figure/references/mcm-visual-recipes.md中相关1–2项，并在现有panel_plan记选图理由与面板职责。常规布局从scripts/mcm-gallery.py选择，响应面/空间轨迹从scripts/mcm-advanced.py选择，真实图读取冻结结果。一次突出1–2个主系列，灰色保留基线，字体颜色尺寸服从项目配置。网络需真实关系、流图需守恒量，3D需有意义的第三变量及最终静态读数证据。
+规划或美化美赛图表时，实际读取nature-figure/references/mcm-visual-recipes.md中相关1–2项，并在现有panel_plan记选图理由与面板职责。常规布局从scripts/mcm-gallery.py选择，响应面/空间轨迹从scripts/mcm-advanced.py选择，决策切换、滚动预测或模型诊断可查“进阶诊断与决策图”。真实图读取冻结结果。主证据和参照按本篇样式安排，确保主比较清楚。网络需真实关系、流图需守恒量，定量3D需有意义的第三变量及最终静态读数证据。
 
 figure-contract的panel_plan按每个面板的question/evidence_role/input_fields/main_takeaway安排，避免仅按多个同义指标拼图。先交主张、比较口径与粗图，论文负责人核价值再精修。可采用“实际/预测+残差”“响应过程+差值/决策变化”“机制+验证”，均按证据需要，不强制每图全套。图型选择细节按nature-figure的MCM分支：共享尺度、同ID配对分布、低/基准/高反转、离散情景、共同参照与ND。经验分布、CI、PI和参数包络分别命名，复杂推断交上游核验。
 
